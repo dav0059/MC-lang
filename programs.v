@@ -1,4 +1,4 @@
-Require Import result_type ids primitives env values surface_syntax kernel_syntax desugarer elaboration evaluation. 
+Require Import result_type ids primitives env values pretty_printer surface_syntax kernel_syntax desugarer elaboration evaluation. 
 Require Import Lists.List Strings.String.
 Import ListNotations.
 Open Scope string_scope. 
@@ -157,7 +157,7 @@ Section MC_lang.
     Local Notation " 'Match' e 'With' l " := (@Match I e l) (at level 90). 
     
    
-    Definition my_length_lis : Expr I :=  
+    Definition my_lis : Expr I :=  
       DefType [("LIST_NAT", TVariant([
         ("Nil", []); 
         ("Cons", [TNat; TRef "LIST_NAT"])
@@ -166,9 +166,21 @@ Section MC_lang.
                               (pC("Nil", []), C("Nil", [])); 
                               (pC("Cons", [$p"n"; $p"t"]), 
                                 C("Cons", [App ($"f") [$"n"]; App ($"map") [$"f"; $"t"]]))
-                              ] 
-       In App ($"map") [λ[$p"x"]. $"x"; 
-                        C("Cons", [(@Nat I 0); C("Cons", [(@Nat I 1) ; C("Nil", [])])])] .  
+                              ]
+       In 
+       LetRec "reduce" ::= λ[$p"f"; $p"l"; $p"acc"]. Match $"l" With [
+                                (pC("Nil", []), $"acc"); 
+                                (pC("Cons", [$p"n"; $p"t"]), 
+                                  App ($"reduce") [$"f"; $"t"; App ($"f") [$"acc"; $"n"]])
+                               ]
+            
+       In App ($"reduce") [λ[$p"x"; $p"y"]. Sum ($"x") ($"y"); 
+                        C("Cons", [(@Nat I 3); C("Cons", [(@Nat I 5) ; 
+                          C("Cons", [(@Nat I 4); C("Cons", [(@Nat I 6); 
+                            C("Cons", [@Nat I 9; C("Nil", [])])])])])]); 
+                        @Nat I 0] . 
+                         
+     
 
     Definition my_nat := DefType [("NAT", TVariant([
         ("Z", []); 
@@ -181,7 +193,7 @@ Section MC_lang.
        In App ($"sum") [C("S", [C("S", [C("S", [C("Z", [])])])]); 
                         C("Z", [])] .
                     
-    Definition my_prog_des := @desugar_Expr I my_length_lis.
+    Definition my_prog_des := @desugar_Expr I my_lis.
     Definition register_empty := @empty_env (Ide I) (unit). 
     Definition c_env_empty := @empty_env (Constr I) ((Ide I) * (KTp I P)).
     Definition my_prog_elab := elab my_prog_des [] register_empty c_env_empty.
@@ -195,7 +207,11 @@ Section MC_lang.
 
     Eval vm_compute in my_prog_des.
     Eval vm_compute in my_prog_elab.
-    Eval vm_compute in my_prog_eval.
+    Eval vm_compute in 
+      match my_prog_eval with 
+      |Ok v  => (@val_to_string I P v)
+      |Error m => m 
+      end.
   
 
     

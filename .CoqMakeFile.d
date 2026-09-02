@@ -22,12 +22,15 @@ surface_syntax.vos surface_syntax.vok surface_syntax.required_vos: surface_synta
 values.vo values.glob values.v.beautified values.required_vo: values.v ids.vo primitives.vo kernel_syntax.vo env.vo type_theory.vo pattern_theory.vo elaboration.vo
 values.vio: values.v ids.vio primitives.vio kernel_syntax.vio env.vio type_theory.vio pattern_theory.vio elaboration.vio
 values.vos values.vok values.required_vos: values.v ids.vos primitives.vos kernel_syntax.vos env.vos type_theory.vos pattern_theory.vos elaboration.vos
+pretty_printer.vo pretty_printer.glob pretty_printer.v.beautified pretty_printer.required_vo: pretty_printer.v ids.vo primitives.vo env.vo values.vo
+pretty_printer.vio: pretty_printer.v ids.vio primitives.vio env.vio values.vio
+pretty_printer.vos pretty_printer.vok pretty_printer.required_vos: pretty_printer.v ids.vos primitives.vos env.vos values.vos
 desugarer.vo desugarer.glob desugarer.v.beautified desugarer.required_vo: desugarer.v primitives.vo ids.vo kernel_syntax.vo surface_syntax.vo
 desugarer.vio: desugarer.v primitives.vio ids.vio kernel_syntax.vio surface_syntax.vio
 desugarer.vos desugarer.vok desugarer.required_vos: desugarer.v primitives.vos ids.vos kernel_syntax.vos surface_syntax.vos
-programs.vo programs.glob programs.v.beautified programs.required_vo: programs.v result_type.vo ids.vo primitives.vo env.vo values.vo surface_syntax.vo kernel_syntax.vo desugarer.vo elaboration.vo evaluation.vo
-programs.vio: programs.v result_type.vio ids.vio primitives.vio env.vio values.vio surface_syntax.vio kernel_syntax.vio desugarer.vio elaboration.vio evaluation.vio
-programs.vos programs.vok programs.required_vos: programs.v result_type.vos ids.vos primitives.vos env.vos values.vos surface_syntax.vos kernel_syntax.vos desugarer.vos elaboration.vos evaluation.vos
+programs.vo programs.glob programs.v.beautified programs.required_vo: programs.v result_type.vo ids.vo primitives.vo env.vo values.vo pretty_printer.vo surface_syntax.vo kernel_syntax.vo desugarer.vo elaboration.vo evaluation.vo
+programs.vio: programs.v result_type.vio ids.vio primitives.vio env.vio values.vio pretty_printer.vio surface_syntax.vio kernel_syntax.vio desugarer.vio elaboration.vio evaluation.vio
+programs.vos programs.vok programs.required_vos: programs.v result_type.vos ids.vos primitives.vos env.vos values.vos pretty_printer.vos surface_syntax.vos kernel_syntax.vos desugarer.vos elaboration.vos evaluation.vos
 type_theory.vo type_theory.glob type_theory.v.beautified type_theory.required_vo: type_theory.v ids.vo primitives.vo kernel_syntax.vo type_env.vo env.vo
 type_theory.vio: type_theory.v ids.vio primitives.vio kernel_syntax.vio type_env.vio env.vio
 type_theory.vos type_theory.vok type_theory.required_vos: type_theory.v ids.vos primitives.vos kernel_syntax.vos type_env.vos env.vos

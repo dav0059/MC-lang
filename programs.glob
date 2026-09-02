@@ -1,648 +1,657 @@
-DIGEST 9114327a4fceb037d386e5a48b690dae
+DIGEST 9e116ac5b649a671042f9d57166a3119
 Fimpl2_MC.programs
 R15:25 impl2_MC.result_type <> <> lib
 R27:29 impl2_MC.ids <> <> lib
 R31:40 impl2_MC.primitives <> <> lib
 R42:44 impl2_MC.env <> <> lib
 R46:51 impl2_MC.values <> <> lib
-R53:66 impl2_MC.surface_syntax <> <> lib
-R68:80 impl2_MC.kernel_syntax <> <> lib
-R82:90 impl2_MC.desugarer <> <> lib
-R92:102 impl2_MC.elaboration <> <> lib
-R104:113 impl2_MC.evaluation <> <> lib
-R132:141 Coq.Lists.List <> <> lib
-R143:156 Coq.Strings.String <> <> lib
-R166:178 Coq.Lists.List ListNotations <> mod
-def 270:272 <> ide
-R277:282 Coq.Strings.String <> string ind
-def 297:303 <> cnstrct
-R308:313 Coq.Strings.String <> string ind
-def 328:331 <> mssg
-R336:341 Coq.Strings.String <> string ind
-def 358:364 <> ide_eqb
-R369:378 Coq.Strings.String <> eqb def
-def 393:403 <> cnstrct_eqb
-R408:417 Coq.Strings.String <> eqb def
-def 431:438 <> mssg_eqb
-R443:452 Coq.Strings.String <> eqb def
-prf 462:471 <> ide_eqb_eq
-binder 481:481 <> x:1
-binder 483:483 <> y:2
-R494:498 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R490:492 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R489:489 impl2_MC.programs <> x:1 var
-R493:493 impl2_MC.programs <> y:2 var
-R510:512 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R499:505 impl2_MC.programs <> ide_eqb def
-R509:509 impl2_MC.programs <> y:2 var
-R507:507 impl2_MC.programs <> x:1 var
-R513:516 Coq.Init.Datatypes <> true constr
-R546:551 Coq.Strings.String <> eqb_eq thm
-R546:551 Coq.Strings.String <> eqb_eq thm
-prf 566:576 <> ide_eqb_neq
-binder 586:586 <> x:3
-binder 588:588 <> y:4
-R600:604 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R595:598 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
-R594:594 impl2_MC.programs <> x:3 var
-R599:599 impl2_MC.programs <> y:4 var
-R616:618 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R605:611 impl2_MC.programs <> ide_eqb def
-R615:615 impl2_MC.programs <> y:4 var
-R613:613 impl2_MC.programs <> x:3 var
-R619:623 Coq.Init.Datatypes <> false constr
-R652:658 Coq.Strings.String <> eqb_neq thm
-R652:658 Coq.Strings.String <> eqb_neq thm
-prf 674:687 <> cnstrct_eqb_eq
-binder 697:697 <> x:5
-binder 699:699 <> y:6
-R710:714 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R706:708 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R705:705 impl2_MC.programs <> x:5 var
-R709:709 impl2_MC.programs <> y:6 var
-R730:732 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R715:725 impl2_MC.programs <> cnstrct_eqb def
-R729:729 impl2_MC.programs <> y:6 var
-R727:727 impl2_MC.programs <> x:5 var
-R733:736 Coq.Init.Datatypes <> true constr
-R764:773 impl2_MC.programs <> ide_eqb_eq thm
-R764:773 impl2_MC.programs <> ide_eqb_eq thm
-prf 789:803 <> cnstrct_eqb_neq
-binder 813:813 <> x:7
-binder 815:815 <> y:8
-R827:831 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R822:825 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
-R821:821 impl2_MC.programs <> x:7 var
-R826:826 impl2_MC.programs <> y:8 var
-R847:849 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R832:842 impl2_MC.programs <> cnstrct_eqb def
-R846:846 impl2_MC.programs <> y:8 var
-R844:844 impl2_MC.programs <> x:7 var
-R850:854 Coq.Init.Datatypes <> false constr
-R883:893 impl2_MC.programs <> ide_eqb_neq thm
-R883:893 impl2_MC.programs <> ide_eqb_neq thm
-prf 911:921 <> mssg_eqb_eq
-binder 931:931 <> x:9
-binder 933:933 <> y:10
-R944:948 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R940:942 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R939:939 impl2_MC.programs <> x:9 var
-R943:943 impl2_MC.programs <> y:10 var
-R961:963 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R949:956 impl2_MC.programs <> mssg_eqb def
-R960:960 impl2_MC.programs <> y:10 var
-R958:958 impl2_MC.programs <> x:9 var
-R964:967 Coq.Init.Datatypes <> true constr
-R995:1004 impl2_MC.programs <> ide_eqb_eq thm
-R995:1004 impl2_MC.programs <> ide_eqb_eq thm
-prf 1021:1032 <> mssg_eqb_neq
-binder 1042:1042 <> x:11
-binder 1044:1044 <> y:12
-R1056:1060 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R1051:1054 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
-R1050:1050 impl2_MC.programs <> x:11 var
-R1055:1055 impl2_MC.programs <> y:12 var
-R1073:1075 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R1061:1068 impl2_MC.programs <> mssg_eqb def
-R1072:1072 impl2_MC.programs <> y:12 var
-R1070:1070 impl2_MC.programs <> x:11 var
-R1076:1080 Coq.Init.Datatypes <> false constr
-R1107:1117 impl2_MC.programs <> ide_eqb_neq thm
-R1107:1117 impl2_MC.programs <> ide_eqb_neq thm
-prf 1140:1149 <> ide_eq_dec
-R1165:1167 impl2_MC.programs <> ide def
-binder 1160:1160 <> x:13
-binder 1162:1162 <> y:14
-R1171:1171 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
-R1177:1181 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
-R1188:1188 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
-R1173:1175 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R1172:1172 impl2_MC.programs <> x:13 var
-R1176:1176 impl2_MC.programs <> y:14 var
-R1183:1186 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
-R1182:1182 impl2_MC.programs <> x:13 var
-R1187:1187 impl2_MC.programs <> y:14 var
-R1241:1247 impl2_MC.programs <> ide_eqb def
-R1218:1233 Coq.Bool.Bool <> reflect_dec thm
-R1241:1247 impl2_MC.programs <> ide_eqb def
-R1218:1233 Coq.Bool.Bool <> reflect_dec thm
-R1264:1279 Coq.Bool.Bool <> iff_reflect thm
-R1264:1279 Coq.Bool.Bool <> iff_reflect thm
-R1291:1300 impl2_MC.programs <> ide_eqb_eq thm
-R1291:1300 impl2_MC.programs <> ide_eqb_eq thm
-prf 1322:1335 <> cnstrct_eq_dec
-R1352:1358 impl2_MC.programs <> cnstrct def
-binder 1347:1347 <> x:15
-binder 1349:1349 <> y:16
-R1362:1362 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
-R1368:1372 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
-R1379:1379 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
-R1364:1366 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R1363:1363 impl2_MC.programs <> x:15 var
-R1367:1367 impl2_MC.programs <> y:16 var
-R1374:1377 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
-R1373:1373 impl2_MC.programs <> x:15 var
-R1378:1378 impl2_MC.programs <> y:16 var
-R1407:1416 impl2_MC.programs <> ide_eq_dec thm
-R1407:1416 impl2_MC.programs <> ide_eq_dec thm
-prf 1437:1447 <> mssg_eq_dec
-R1463:1466 impl2_MC.programs <> mssg def
-binder 1458:1458 <> x:17
-binder 1460:1460 <> y:18
-R1470:1470 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
-R1476:1480 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
-R1487:1487 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
-R1472:1474 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R1471:1471 impl2_MC.programs <> x:17 var
-R1475:1475 impl2_MC.programs <> y:18 var
-R1482:1485 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
-R1481:1481 impl2_MC.programs <> x:17 var
-R1486:1486 impl2_MC.programs <> y:18 var
-R1515:1524 impl2_MC.programs <> ide_eq_dec thm
-R1515:1524 impl2_MC.programs <> ide_eq_dec thm
-prf 1545:1552 <> ide_refl
-R1569:1571 impl2_MC.programs <> ide def
-binder 1564:1564 <> x:19
-binder 1566:1566 <> y:20
-R1575:1586 Coq.Bool.Bool <> reflect ind
-R1590:1592 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R1589:1589 impl2_MC.programs <> x:19 var
-R1593:1593 impl2_MC.programs <> y:20 var
-R1597:1603 impl2_MC.programs <> ide_eqb def
-R1607:1607 impl2_MC.programs <> y:20 var
-R1605:1605 impl2_MC.programs <> x:19 var
-R1635:1650 Coq.Bool.Bool <> iff_reflect thm
-R1635:1650 Coq.Bool.Bool <> iff_reflect thm
-R1659:1668 impl2_MC.programs <> ide_eqb_eq thm
-R1659:1668 impl2_MC.programs <> ide_eqb_eq thm
-prf 1687:1696 <> cnstr_refl
-R1713:1719 impl2_MC.programs <> cnstrct def
-binder 1708:1708 <> x:21
-binder 1710:1710 <> y:22
-R1723:1734 Coq.Bool.Bool <> reflect ind
-R1738:1740 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R1737:1737 impl2_MC.programs <> x:21 var
-R1741:1741 impl2_MC.programs <> y:22 var
-R1745:1755 impl2_MC.programs <> cnstrct_eqb def
-R1759:1759 impl2_MC.programs <> y:22 var
-R1757:1757 impl2_MC.programs <> x:21 var
-R1788:1795 impl2_MC.programs <> ide_refl thm
-R1788:1795 impl2_MC.programs <> ide_refl thm
-def 1818:1827 <> ids_string
-R1831:1833 impl2_MC.ids <> IDS rec
-R1845:1847 impl2_MC.ids <> Ide proj
-R1845:1847 impl2_MC.ids <> Ide proj
-R1845:1847 impl2_MC.ids <> Ide proj
-R1862:1867 impl2_MC.ids <> Constr proj
-R1862:1867 impl2_MC.ids <> Constr proj
-R1886:1892 impl2_MC.ids <> Message proj
-R1886:1892 impl2_MC.ids <> Message proj
-R1908:1913 impl2_MC.ids <> id_eqb proj
-R1908:1913 impl2_MC.ids <> id_eqb proj
-R1932:1941 impl2_MC.ids <> constr_eqb proj
-R1932:1941 impl2_MC.ids <> constr_eqb proj
-R1963:1973 impl2_MC.ids <> message_eqb proj
-R1963:1973 impl2_MC.ids <> message_eqb proj
-R1993:2001 impl2_MC.ids <> id_eqb_eq proj
-R1993:2001 impl2_MC.ids <> id_eqb_eq proj
-R2024:2036 impl2_MC.ids <> constr_eqb_eq proj
-R2024:2036 impl2_MC.ids <> constr_eqb_eq proj
-R2063:2076 impl2_MC.ids <> message_eqb_eq proj
-R2063:2076 impl2_MC.ids <> message_eqb_eq proj
-R2100:2109 impl2_MC.ids <> id_eqb_neq proj
-R2100:2109 impl2_MC.ids <> id_eqb_neq proj
-R2133:2146 impl2_MC.ids <> constr_eqb_neq proj
-R2133:2146 impl2_MC.ids <> constr_eqb_neq proj
-R2174:2188 impl2_MC.ids <> message_eqb_neq proj
-R2174:2188 impl2_MC.ids <> message_eqb_neq proj
-R2213:2221 impl2_MC.ids <> id_eq_dec proj
-R2213:2221 impl2_MC.ids <> id_eq_dec proj
-R2244:2256 impl2_MC.ids <> constr_eq_dec proj
-R2244:2256 impl2_MC.ids <> constr_eq_dec proj
-R2283:2296 impl2_MC.ids <> message_eq_dec proj
-R2283:2296 impl2_MC.ids <> message_eq_dec proj
-R2320:2327 impl2_MC.ids <> ids_refl proj
-R2320:2327 impl2_MC.ids <> ids_refl proj
-R2348:2358 impl2_MC.ids <> constr_refl proj
-R2348:2358 impl2_MC.ids <> constr_refl proj
-R2380:2391 impl2_MC.ids <> id_to_string proj
-R2380:2391 impl2_MC.ids <> id_to_string proj
-R2410:2425 impl2_MC.ids <> constr_to_string proj
-R2410:2425 impl2_MC.ids <> constr_to_string proj
-R2447:2463 impl2_MC.ids <> message_to_string proj
-R2447:2463 impl2_MC.ids <> message_to_string proj
-R1852:1854 impl2_MC.programs <> ide def
-R1872:1878 impl2_MC.programs <> cnstrct def
-R1897:1900 impl2_MC.programs <> mssg def
-R1918:1924 impl2_MC.programs <> ide_eqb def
-R1946:1956 impl2_MC.programs <> cnstrct_eqb def
-R1978:1985 impl2_MC.programs <> mssg_eqb def
-R2007:2016 impl2_MC.programs <> ide_eqb_eq thm
-R2115:2125 impl2_MC.programs <> ide_eqb_neq thm
-R2042:2055 impl2_MC.programs <> cnstrct_eqb_eq thm
-R2152:2166 impl2_MC.programs <> cnstrct_eqb_neq thm
-R2082:2092 impl2_MC.programs <> mssg_eqb_eq thm
-R2194:2205 impl2_MC.programs <> mssg_eqb_neq thm
-R2227:2236 impl2_MC.programs <> ide_eq_dec thm
-R2262:2275 impl2_MC.programs <> cnstrct_eq_dec thm
-R2302:2312 impl2_MC.programs <> mssg_eq_dec thm
-R2333:2340 impl2_MC.programs <> ide_refl thm
-R2364:2373 impl2_MC.programs <> cnstr_refl thm
-R2397:2398 Coq.Init.Datatypes <> id def
-R2400:2402 impl2_MC.programs <> ide def
-R2431:2432 Coq.Init.Datatypes <> id def
-R2434:2440 impl2_MC.programs <> cnstrct def
-R2469:2470 Coq.Init.Datatypes <> id def
-R2472:2475 impl2_MC.programs <> mssg def
-sec 2505:2511 <> MC_lang
-var 2528:2528 MC_lang I
-R2533:2542 impl2_MC.programs <> ids_string def
-var 2554:2554 MC_lang P
-R2559:2566 impl2_MC.desugarer <> bns_data def
-R2608:2611 impl2_MC.surface_syntax <> PVar constr
-R2613:2613 impl2_MC.programs <> MC_lang.I var
-not 2593:2593 MC_lang :::'$p'_x
-R2666:2669 impl2_MC.surface_syntax <> PNat constr
-R2671:2671 impl2_MC.programs <> MC_lang.I var
-not 2652:2652 MC_lang :::'0p'
-R2728:2731 impl2_MC.surface_syntax <> PNat constr
-R2733:2733 impl2_MC.programs <> MC_lang.I var
-R2737:2739 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
-not 2711:2711 MC_lang :::x_'p+.1'
-R2812:2816 impl2_MC.surface_syntax <> PBool constr
-R2818:2818 impl2_MC.programs <> MC_lang.I var
-R2820:2823 Coq.Init.Datatypes <> true constr
-not 2799:2799 MC_lang :::'pT'
-R2894:2898 impl2_MC.surface_syntax <> PBool constr
-R2900:2900 impl2_MC.programs <> MC_lang.I var
-R2902:2906 Coq.Init.Datatypes <> false constr
-not 2881:2881 MC_lang :::'pF'
-R2978:2984 impl2_MC.surface_syntax <> PString constr
-R2986:2986 impl2_MC.programs <> MC_lang.I var
-not 2964:2964 MC_lang :::'#p'_x
-R3062:3064 impl2_MC.surface_syntax <> PAs constr
-R3066:3066 impl2_MC.programs <> MC_lang.I var
-not 3046:3046 MC_lang :::x_'As'_x
-R3140:3143 impl2_MC.surface_syntax <> PAny constr
-R3145:3145 impl2_MC.programs <> MC_lang.I var
-not 3128:3128 MC_lang :::'''_'
-R3226:3229 impl2_MC.surface_syntax <> PTup constr
-R3231:3231 impl2_MC.programs <> MC_lang.I var
-not 3203:3203 MC_lang :::'pTup('_x_')'
-R3315:3319 impl2_MC.surface_syntax <> PCons constr
-R3321:3321 impl2_MC.programs <> MC_lang.I var
-not 3291:3291 MC_lang :::'pCons('_x_')'
-R3408:3415 impl2_MC.surface_syntax <> PVariant constr
-R3417:3417 impl2_MC.programs <> MC_lang.I var
-not 3381:3381 MC_lang :::'pC('_x_','_x_')'
-R3502:3510 impl2_MC.surface_syntax <> TFunction constr
-R3512:3512 impl2_MC.programs <> MC_lang.I var
-not 3481:3481 MC_lang :::'TFunction'
-R3552:3555 impl2_MC.surface_syntax <> TNat constr
-R3557:3557 impl2_MC.programs <> MC_lang.I var
-not 3536:3536 MC_lang :::'TNat'
-R3598:3602 impl2_MC.surface_syntax <> TBool constr
-R3604:3604 impl2_MC.programs <> MC_lang.I var
-not 3581:3581 MC_lang :::'TBool'
-R3647:3653 impl2_MC.surface_syntax <> TString constr
-R3655:3655 impl2_MC.programs <> MC_lang.I var
-not 3628:3628 MC_lang :::'TString'
-R3697:3702 impl2_MC.surface_syntax <> TEmpty constr
-R3704:3704 impl2_MC.programs <> MC_lang.I var
-not 3679:3679 MC_lang :::'''TEmpty'_''''
-R3746:3749 impl2_MC.surface_syntax <> TTup constr
-R3751:3751 impl2_MC.programs <> MC_lang.I var
-not 3728:3728 MC_lang :::'TTup'_x
-R3810:3814 impl2_MC.surface_syntax <> TList constr
-R3816:3816 impl2_MC.programs <> MC_lang.I var
-not 3791:3791 MC_lang :::'TList'_x
-R3877:3884 impl2_MC.surface_syntax <> TVariant constr
-R3886:3886 impl2_MC.programs <> MC_lang.I var
-not 3856:3856 MC_lang :::'TVariant'_x
-R3943:3946 impl2_MC.surface_syntax <> TRef constr
-R3948:3948 impl2_MC.programs <> MC_lang.I var
-not 3926:3926 MC_lang :::'TRef'_x
-R4005:4010 impl2_MC.surface_syntax <> TError constr
-R4012:4012 impl2_MC.programs <> MC_lang.I var
-not 3987:3987 MC_lang :::'TError'
-R4051:4053 impl2_MC.surface_syntax <> Var constr
-R4055:4055 impl2_MC.programs <> MC_lang.I var
-not 4036:4036 MC_lang :::'$'_x
-R4107:4110 impl2_MC.surface_syntax <> Bool constr
-R4112:4112 impl2_MC.programs <> MC_lang.I var
-R4114:4117 Coq.Init.Datatypes <> true constr
-not 4094:4094 MC_lang :::'T'
-R4168:4171 impl2_MC.surface_syntax <> Bool constr
-R4173:4173 impl2_MC.programs <> MC_lang.I var
-R4175:4179 Coq.Init.Datatypes <> false constr
-not 4155:4155 MC_lang :::'F'
-R4231:4236 Coq.Strings.String <> String constr
-R4238:4238 impl2_MC.programs <> MC_lang.I var
-not 4217:4217 MC_lang :::'#'_x
-R4292:4294 impl2_MC.surface_syntax <> Not constr
-R4296:4296 impl2_MC.programs <> MC_lang.I var
-not 4277:4277 MC_lang :::'!'_x
-R4352:4354 impl2_MC.surface_syntax <> And constr
-R4356:4356 impl2_MC.programs <> MC_lang.I var
-not 4335:4335 MC_lang :::x_'&'_x
-R4438:4439 impl2_MC.surface_syntax <> Or constr
-R4441:4441 impl2_MC.programs <> MC_lang.I var
-not 4420:4420 MC_lang :::x_'||'_x
-R4524:4526 impl2_MC.surface_syntax <> Sum constr
-R4528:4528 impl2_MC.programs <> MC_lang.I var
-not 4504:4504 MC_lang :::x_'+.'_x
-R4611:4613 impl2_MC.surface_syntax <> Sub constr
-R4615:4615 impl2_MC.programs <> MC_lang.I var
-not 4591:4591 MC_lang :::x_'-.'_x
-R4698:4700 impl2_MC.surface_syntax <> Mul constr
-R4702:4702 impl2_MC.programs <> MC_lang.I var
-not 4678:4678 MC_lang :::x_'*.'_x
-R4786:4791 impl2_MC.surface_syntax <> Concat constr
-R4793:4793 impl2_MC.programs <> MC_lang.I var
-not 4766:4766 MC_lang :::x_'@.'_x
-R4876:4880 impl2_MC.surface_syntax <> Equal constr
-R4882:4882 impl2_MC.programs <> MC_lang.I var
-not 4856:4856 MC_lang :::x_'=='_x
-R4969:4971 impl2_MC.surface_syntax <> Lam constr
-R4973:4973 impl2_MC.programs <> MC_lang.I var
-not 4946:4946 MC_lang :::'λ'_x_'.'_x
-R5033:5035 impl2_MC.surface_syntax <> Tup constr
-R5037:5037 impl2_MC.programs <> MC_lang.I var
-not 5016:5016 MC_lang :::'Tup'_x
-R5096:5099 impl2_MC.surface_syntax <> Cons constr
-R5101:5101 impl2_MC.programs <> MC_lang.I var
-not 5078:5078 MC_lang :::'Cons'_x
-R5166:5173 impl2_MC.surface_syntax <> EVariant constr
-R5175:5175 impl2_MC.programs <> MC_lang.I var
-not 5140:5140 MC_lang :::'C('_x_','_x_')'
-R5249:5252 impl2_MC.surface_syntax <> ELet constr
-R5254:5254 impl2_MC.programs <> MC_lang.I var
-not 5216:5216 MC_lang :::'Let'_x_'::='_x_'In'_x
-R5336:5337 impl2_MC.surface_syntax <> If constr
-R5339:5339 impl2_MC.programs <> MC_lang.I var
-not 5299:5299 MC_lang :::'If'_x_'Then'_x_'Else'_x
-R5423:5428 impl2_MC.surface_syntax <> LetRec constr
-R5430:5430 impl2_MC.programs <> MC_lang.I var
-not 5386:5386 MC_lang :::'LetRec'_x_'::='_x_'In'_x
-R5503:5509 impl2_MC.surface_syntax <> DefType constr
-R5511:5511 impl2_MC.programs <> MC_lang.I var
-not 5475:5475 MC_lang :::'DefType'_x_'In'_x
-R5581:5585 impl2_MC.surface_syntax <> Match constr
-R5587:5587 impl2_MC.programs <> MC_lang.I var
-not 5553:5553 MC_lang :::'Match'_x_'With'_x
-def 5634:5646 <> my_length_lis
-R5650:5653 impl2_MC.surface_syntax <> Expr ind
-R5655:5655 impl2_MC.programs <> MC_lang.I var
-R5668:5675 impl2_MC.programs MC_lang :::'DefType'_x_'In'_x not
-R5776:5787 impl2_MC.programs MC_lang :::'DefType'_x_'In'_x not
-R5676:5676 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R5775:5775 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R5677:5677 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5688:5689 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5774:5774 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5690:5698 impl2_MC.programs MC_lang :::'TVariant'_x not
-R5773:5773 impl2_MC.programs MC_lang :::'TVariant'_x not
-R5699:5708 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5720:5730 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5764:5772 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5709:5709 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5715:5716 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5719:5719 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5717:5718 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R5731:5731 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5738:5739 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5763:5763 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5740:5740 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5745:5746 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5762:5762 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5741:5744 impl2_MC.programs MC_lang :::'TNat' not
-R5747:5751 impl2_MC.programs MC_lang :::'TRef'_x not
-R5788:5794 impl2_MC.programs MC_lang :::'LetRec'_x_'::='_x_'In'_x not
-R5800:5804 impl2_MC.programs MC_lang :::'LetRec'_x_'::='_x_'In'_x not
-R6085:6096 impl2_MC.programs MC_lang :::'LetRec'_x_'::='_x_'In'_x not
-R5805:5806 impl2_MC.programs MC_lang :::'λ'_x_'.'_x not
-R5821:5822 impl2_MC.programs MC_lang :::'λ'_x_'.'_x not
-R5807:5807 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5813:5814 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5820:5820 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5808:5809 impl2_MC.programs MC_lang :::'$p'_x not
-R5815:5816 impl2_MC.programs MC_lang :::'$p'_x not
-R5823:5828 impl2_MC.programs MC_lang :::'Match'_x_'With'_x not
-R5833:5838 impl2_MC.programs MC_lang :::'Match'_x_'With'_x not
-R5829:5829 impl2_MC.programs MC_lang :::'$'_x not
-R5839:5870 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5900:5932 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6053:6084 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5871:5871 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5885:5886 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5899:5899 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5872:5874 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
-R5880:5881 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
-R5884:5884 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
-R5882:5883 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R5887:5888 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R5894:5895 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R5898:5898 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R5896:5897 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R5933:5933 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5960:5994 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6052:6052 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R5934:5936 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
-R5943:5944 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
-R5959:5959 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
-R5945:5945 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5951:5952 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5958:5958 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R5946:5947 impl2_MC.programs MC_lang :::'$p'_x not
-R5953:5954 impl2_MC.programs MC_lang :::'$p'_x not
-R5995:5996 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6003:6004 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6051:6051 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6005:6005 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6023:6024 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6050:6050 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6006:6008 impl2_MC.surface_syntax <> App constr
-R6017:6017 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6022:6022 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6018:6018 impl2_MC.programs MC_lang :::'$'_x not
-R6011:6011 impl2_MC.programs MC_lang :::'$'_x not
-R6025:6027 impl2_MC.surface_syntax <> App constr
-R6038:6038 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6043:6044 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6049:6049 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6039:6039 impl2_MC.programs MC_lang :::'$'_x not
+R53:66 impl2_MC.pretty_printer <> <> lib
+R68:81 impl2_MC.surface_syntax <> <> lib
+R83:95 impl2_MC.kernel_syntax <> <> lib
+R97:105 impl2_MC.desugarer <> <> lib
+R107:117 impl2_MC.elaboration <> <> lib
+R119:128 impl2_MC.evaluation <> <> lib
+R147:156 Coq.Lists.List <> <> lib
+R158:171 Coq.Strings.String <> <> lib
+R181:193 Coq.Lists.List ListNotations <> mod
+def 285:287 <> ide
+R292:297 Coq.Strings.String <> string ind
+def 312:318 <> cnstrct
+R323:328 Coq.Strings.String <> string ind
+def 343:346 <> mssg
+R351:356 Coq.Strings.String <> string ind
+def 373:379 <> ide_eqb
+R384:393 Coq.Strings.String <> eqb def
+def 408:418 <> cnstrct_eqb
+R423:432 Coq.Strings.String <> eqb def
+def 446:453 <> mssg_eqb
+R458:467 Coq.Strings.String <> eqb def
+prf 477:486 <> ide_eqb_eq
+binder 496:496 <> x:1
+binder 498:498 <> y:2
+R509:513 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R505:507 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R504:504 impl2_MC.programs <> x:1 var
+R508:508 impl2_MC.programs <> y:2 var
+R525:527 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R514:520 impl2_MC.programs <> ide_eqb def
+R524:524 impl2_MC.programs <> y:2 var
+R522:522 impl2_MC.programs <> x:1 var
+R528:531 Coq.Init.Datatypes <> true constr
+R561:566 Coq.Strings.String <> eqb_eq thm
+R561:566 Coq.Strings.String <> eqb_eq thm
+prf 581:591 <> ide_eqb_neq
+binder 601:601 <> x:3
+binder 603:603 <> y:4
+R615:619 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R610:613 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R609:609 impl2_MC.programs <> x:3 var
+R614:614 impl2_MC.programs <> y:4 var
+R631:633 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R620:626 impl2_MC.programs <> ide_eqb def
+R630:630 impl2_MC.programs <> y:4 var
+R628:628 impl2_MC.programs <> x:3 var
+R634:638 Coq.Init.Datatypes <> false constr
+R667:673 Coq.Strings.String <> eqb_neq thm
+R667:673 Coq.Strings.String <> eqb_neq thm
+prf 689:702 <> cnstrct_eqb_eq
+binder 712:712 <> x:5
+binder 714:714 <> y:6
+R725:729 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R721:723 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R720:720 impl2_MC.programs <> x:5 var
+R724:724 impl2_MC.programs <> y:6 var
+R745:747 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R730:740 impl2_MC.programs <> cnstrct_eqb def
+R744:744 impl2_MC.programs <> y:6 var
+R742:742 impl2_MC.programs <> x:5 var
+R748:751 Coq.Init.Datatypes <> true constr
+R779:788 impl2_MC.programs <> ide_eqb_eq thm
+R779:788 impl2_MC.programs <> ide_eqb_eq thm
+prf 804:818 <> cnstrct_eqb_neq
+binder 828:828 <> x:7
+binder 830:830 <> y:8
+R842:846 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R837:840 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R836:836 impl2_MC.programs <> x:7 var
+R841:841 impl2_MC.programs <> y:8 var
+R862:864 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R847:857 impl2_MC.programs <> cnstrct_eqb def
+R861:861 impl2_MC.programs <> y:8 var
+R859:859 impl2_MC.programs <> x:7 var
+R865:869 Coq.Init.Datatypes <> false constr
+R898:908 impl2_MC.programs <> ide_eqb_neq thm
+R898:908 impl2_MC.programs <> ide_eqb_neq thm
+prf 926:936 <> mssg_eqb_eq
+binder 946:946 <> x:9
+binder 948:948 <> y:10
+R959:963 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R955:957 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R954:954 impl2_MC.programs <> x:9 var
+R958:958 impl2_MC.programs <> y:10 var
+R976:978 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R964:971 impl2_MC.programs <> mssg_eqb def
+R975:975 impl2_MC.programs <> y:10 var
+R973:973 impl2_MC.programs <> x:9 var
+R979:982 Coq.Init.Datatypes <> true constr
+R1010:1019 impl2_MC.programs <> ide_eqb_eq thm
+R1010:1019 impl2_MC.programs <> ide_eqb_eq thm
+prf 1036:1047 <> mssg_eqb_neq
+binder 1057:1057 <> x:11
+binder 1059:1059 <> y:12
+R1071:1075 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R1066:1069 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R1065:1065 impl2_MC.programs <> x:11 var
+R1070:1070 impl2_MC.programs <> y:12 var
+R1088:1090 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1076:1083 impl2_MC.programs <> mssg_eqb def
+R1087:1087 impl2_MC.programs <> y:12 var
+R1085:1085 impl2_MC.programs <> x:11 var
+R1091:1095 Coq.Init.Datatypes <> false constr
+R1122:1132 impl2_MC.programs <> ide_eqb_neq thm
+R1122:1132 impl2_MC.programs <> ide_eqb_neq thm
+prf 1155:1164 <> ide_eq_dec
+R1180:1182 impl2_MC.programs <> ide def
+binder 1175:1175 <> x:13
+binder 1177:1177 <> y:14
+R1186:1186 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R1192:1196 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R1203:1203 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R1188:1190 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1187:1187 impl2_MC.programs <> x:13 var
+R1191:1191 impl2_MC.programs <> y:14 var
+R1198:1201 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R1197:1197 impl2_MC.programs <> x:13 var
+R1202:1202 impl2_MC.programs <> y:14 var
+R1256:1262 impl2_MC.programs <> ide_eqb def
+R1233:1248 Coq.Bool.Bool <> reflect_dec thm
+R1256:1262 impl2_MC.programs <> ide_eqb def
+R1233:1248 Coq.Bool.Bool <> reflect_dec thm
+R1279:1294 Coq.Bool.Bool <> iff_reflect thm
+R1279:1294 Coq.Bool.Bool <> iff_reflect thm
+R1306:1315 impl2_MC.programs <> ide_eqb_eq thm
+R1306:1315 impl2_MC.programs <> ide_eqb_eq thm
+prf 1337:1350 <> cnstrct_eq_dec
+R1367:1373 impl2_MC.programs <> cnstrct def
+binder 1362:1362 <> x:15
+binder 1364:1364 <> y:16
+R1377:1377 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R1383:1387 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R1394:1394 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R1379:1381 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1378:1378 impl2_MC.programs <> x:15 var
+R1382:1382 impl2_MC.programs <> y:16 var
+R1389:1392 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R1388:1388 impl2_MC.programs <> x:15 var
+R1393:1393 impl2_MC.programs <> y:16 var
+R1422:1431 impl2_MC.programs <> ide_eq_dec thm
+R1422:1431 impl2_MC.programs <> ide_eq_dec thm
+prf 1452:1462 <> mssg_eq_dec
+R1478:1481 impl2_MC.programs <> mssg def
+binder 1473:1473 <> x:17
+binder 1475:1475 <> y:18
+R1485:1485 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R1491:1495 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R1502:1502 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R1487:1489 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1486:1486 impl2_MC.programs <> x:17 var
+R1490:1490 impl2_MC.programs <> y:18 var
+R1497:1500 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R1496:1496 impl2_MC.programs <> x:17 var
+R1501:1501 impl2_MC.programs <> y:18 var
+R1530:1539 impl2_MC.programs <> ide_eq_dec thm
+R1530:1539 impl2_MC.programs <> ide_eq_dec thm
+prf 1560:1567 <> ide_refl
+R1584:1586 impl2_MC.programs <> ide def
+binder 1579:1579 <> x:19
+binder 1581:1581 <> y:20
+R1590:1601 Coq.Bool.Bool <> reflect ind
+R1605:1607 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1604:1604 impl2_MC.programs <> x:19 var
+R1608:1608 impl2_MC.programs <> y:20 var
+R1612:1618 impl2_MC.programs <> ide_eqb def
+R1622:1622 impl2_MC.programs <> y:20 var
+R1620:1620 impl2_MC.programs <> x:19 var
+R1650:1665 Coq.Bool.Bool <> iff_reflect thm
+R1650:1665 Coq.Bool.Bool <> iff_reflect thm
+R1674:1683 impl2_MC.programs <> ide_eqb_eq thm
+R1674:1683 impl2_MC.programs <> ide_eqb_eq thm
+prf 1702:1711 <> cnstr_refl
+R1728:1734 impl2_MC.programs <> cnstrct def
+binder 1723:1723 <> x:21
+binder 1725:1725 <> y:22
+R1738:1749 Coq.Bool.Bool <> reflect ind
+R1753:1755 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1752:1752 impl2_MC.programs <> x:21 var
+R1756:1756 impl2_MC.programs <> y:22 var
+R1760:1770 impl2_MC.programs <> cnstrct_eqb def
+R1774:1774 impl2_MC.programs <> y:22 var
+R1772:1772 impl2_MC.programs <> x:21 var
+R1803:1810 impl2_MC.programs <> ide_refl thm
+R1803:1810 impl2_MC.programs <> ide_refl thm
+def 1833:1842 <> ids_string
+R1846:1848 impl2_MC.ids <> IDS rec
+R1860:1862 impl2_MC.ids <> Ide proj
+R1860:1862 impl2_MC.ids <> Ide proj
+R1860:1862 impl2_MC.ids <> Ide proj
+R1877:1882 impl2_MC.ids <> Constr proj
+R1877:1882 impl2_MC.ids <> Constr proj
+R1901:1907 impl2_MC.ids <> Message proj
+R1901:1907 impl2_MC.ids <> Message proj
+R1923:1928 impl2_MC.ids <> id_eqb proj
+R1923:1928 impl2_MC.ids <> id_eqb proj
+R1947:1956 impl2_MC.ids <> constr_eqb proj
+R1947:1956 impl2_MC.ids <> constr_eqb proj
+R1978:1988 impl2_MC.ids <> message_eqb proj
+R1978:1988 impl2_MC.ids <> message_eqb proj
+R2008:2016 impl2_MC.ids <> id_eqb_eq proj
+R2008:2016 impl2_MC.ids <> id_eqb_eq proj
+R2039:2051 impl2_MC.ids <> constr_eqb_eq proj
+R2039:2051 impl2_MC.ids <> constr_eqb_eq proj
+R2078:2091 impl2_MC.ids <> message_eqb_eq proj
+R2078:2091 impl2_MC.ids <> message_eqb_eq proj
+R2115:2124 impl2_MC.ids <> id_eqb_neq proj
+R2115:2124 impl2_MC.ids <> id_eqb_neq proj
+R2148:2161 impl2_MC.ids <> constr_eqb_neq proj
+R2148:2161 impl2_MC.ids <> constr_eqb_neq proj
+R2189:2203 impl2_MC.ids <> message_eqb_neq proj
+R2189:2203 impl2_MC.ids <> message_eqb_neq proj
+R2228:2236 impl2_MC.ids <> id_eq_dec proj
+R2228:2236 impl2_MC.ids <> id_eq_dec proj
+R2259:2271 impl2_MC.ids <> constr_eq_dec proj
+R2259:2271 impl2_MC.ids <> constr_eq_dec proj
+R2298:2311 impl2_MC.ids <> message_eq_dec proj
+R2298:2311 impl2_MC.ids <> message_eq_dec proj
+R2335:2342 impl2_MC.ids <> ids_refl proj
+R2335:2342 impl2_MC.ids <> ids_refl proj
+R2363:2373 impl2_MC.ids <> constr_refl proj
+R2363:2373 impl2_MC.ids <> constr_refl proj
+R2395:2406 impl2_MC.ids <> id_to_string proj
+R2395:2406 impl2_MC.ids <> id_to_string proj
+R2425:2440 impl2_MC.ids <> constr_to_string proj
+R2425:2440 impl2_MC.ids <> constr_to_string proj
+R2462:2478 impl2_MC.ids <> message_to_string proj
+R2462:2478 impl2_MC.ids <> message_to_string proj
+R1867:1869 impl2_MC.programs <> ide def
+R1887:1893 impl2_MC.programs <> cnstrct def
+R1912:1915 impl2_MC.programs <> mssg def
+R1933:1939 impl2_MC.programs <> ide_eqb def
+R1961:1971 impl2_MC.programs <> cnstrct_eqb def
+R1993:2000 impl2_MC.programs <> mssg_eqb def
+R2022:2031 impl2_MC.programs <> ide_eqb_eq thm
+R2130:2140 impl2_MC.programs <> ide_eqb_neq thm
+R2057:2070 impl2_MC.programs <> cnstrct_eqb_eq thm
+R2167:2181 impl2_MC.programs <> cnstrct_eqb_neq thm
+R2097:2107 impl2_MC.programs <> mssg_eqb_eq thm
+R2209:2220 impl2_MC.programs <> mssg_eqb_neq thm
+R2242:2251 impl2_MC.programs <> ide_eq_dec thm
+R2277:2290 impl2_MC.programs <> cnstrct_eq_dec thm
+R2317:2327 impl2_MC.programs <> mssg_eq_dec thm
+R2348:2355 impl2_MC.programs <> ide_refl thm
+R2379:2388 impl2_MC.programs <> cnstr_refl thm
+R2412:2413 Coq.Init.Datatypes <> id def
+R2415:2417 impl2_MC.programs <> ide def
+R2446:2447 Coq.Init.Datatypes <> id def
+R2449:2455 impl2_MC.programs <> cnstrct def
+R2484:2485 Coq.Init.Datatypes <> id def
+R2487:2490 impl2_MC.programs <> mssg def
+sec 2520:2526 <> MC_lang
+var 2543:2543 MC_lang I
+R2548:2557 impl2_MC.programs <> ids_string def
+var 2569:2569 MC_lang P
+R2574:2581 impl2_MC.desugarer <> bns_data def
+R2623:2626 impl2_MC.surface_syntax <> PVar constr
+R2628:2628 impl2_MC.programs <> MC_lang.I var
+not 2608:2608 MC_lang :::'$p'_x
+R2681:2684 impl2_MC.surface_syntax <> PNat constr
+R2686:2686 impl2_MC.programs <> MC_lang.I var
+not 2667:2667 MC_lang :::'0p'
+R2743:2746 impl2_MC.surface_syntax <> PNat constr
+R2748:2748 impl2_MC.programs <> MC_lang.I var
+R2752:2754 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+not 2726:2726 MC_lang :::x_'p+.1'
+R2827:2831 impl2_MC.surface_syntax <> PBool constr
+R2833:2833 impl2_MC.programs <> MC_lang.I var
+R2835:2838 Coq.Init.Datatypes <> true constr
+not 2814:2814 MC_lang :::'pT'
+R2909:2913 impl2_MC.surface_syntax <> PBool constr
+R2915:2915 impl2_MC.programs <> MC_lang.I var
+R2917:2921 Coq.Init.Datatypes <> false constr
+not 2896:2896 MC_lang :::'pF'
+R2993:2999 impl2_MC.surface_syntax <> PString constr
+R3001:3001 impl2_MC.programs <> MC_lang.I var
+not 2979:2979 MC_lang :::'#p'_x
+R3077:3079 impl2_MC.surface_syntax <> PAs constr
+R3081:3081 impl2_MC.programs <> MC_lang.I var
+not 3061:3061 MC_lang :::x_'As'_x
+R3155:3158 impl2_MC.surface_syntax <> PAny constr
+R3160:3160 impl2_MC.programs <> MC_lang.I var
+not 3143:3143 MC_lang :::'''_'
+R3241:3244 impl2_MC.surface_syntax <> PTup constr
+R3246:3246 impl2_MC.programs <> MC_lang.I var
+not 3218:3218 MC_lang :::'pTup('_x_')'
+R3330:3334 impl2_MC.surface_syntax <> PCons constr
+R3336:3336 impl2_MC.programs <> MC_lang.I var
+not 3306:3306 MC_lang :::'pCons('_x_')'
+R3423:3430 impl2_MC.surface_syntax <> PVariant constr
+R3432:3432 impl2_MC.programs <> MC_lang.I var
+not 3396:3396 MC_lang :::'pC('_x_','_x_')'
+R3517:3525 impl2_MC.surface_syntax <> TFunction constr
+R3527:3527 impl2_MC.programs <> MC_lang.I var
+not 3496:3496 MC_lang :::'TFunction'
+R3567:3570 impl2_MC.surface_syntax <> TNat constr
+R3572:3572 impl2_MC.programs <> MC_lang.I var
+not 3551:3551 MC_lang :::'TNat'
+R3613:3617 impl2_MC.surface_syntax <> TBool constr
+R3619:3619 impl2_MC.programs <> MC_lang.I var
+not 3596:3596 MC_lang :::'TBool'
+R3662:3668 impl2_MC.surface_syntax <> TString constr
+R3670:3670 impl2_MC.programs <> MC_lang.I var
+not 3643:3643 MC_lang :::'TString'
+R3712:3717 impl2_MC.surface_syntax <> TEmpty constr
+R3719:3719 impl2_MC.programs <> MC_lang.I var
+not 3694:3694 MC_lang :::'''TEmpty'_''''
+R3761:3764 impl2_MC.surface_syntax <> TTup constr
+R3766:3766 impl2_MC.programs <> MC_lang.I var
+not 3743:3743 MC_lang :::'TTup'_x
+R3825:3829 impl2_MC.surface_syntax <> TList constr
+R3831:3831 impl2_MC.programs <> MC_lang.I var
+not 3806:3806 MC_lang :::'TList'_x
+R3892:3899 impl2_MC.surface_syntax <> TVariant constr
+R3901:3901 impl2_MC.programs <> MC_lang.I var
+not 3871:3871 MC_lang :::'TVariant'_x
+R3958:3961 impl2_MC.surface_syntax <> TRef constr
+R3963:3963 impl2_MC.programs <> MC_lang.I var
+not 3941:3941 MC_lang :::'TRef'_x
+R4020:4025 impl2_MC.surface_syntax <> TError constr
+R4027:4027 impl2_MC.programs <> MC_lang.I var
+not 4002:4002 MC_lang :::'TError'
+R4066:4068 impl2_MC.surface_syntax <> Var constr
+R4070:4070 impl2_MC.programs <> MC_lang.I var
+not 4051:4051 MC_lang :::'$'_x
+R4122:4125 impl2_MC.surface_syntax <> Bool constr
+R4127:4127 impl2_MC.programs <> MC_lang.I var
+R4129:4132 Coq.Init.Datatypes <> true constr
+not 4109:4109 MC_lang :::'T'
+R4183:4186 impl2_MC.surface_syntax <> Bool constr
+R4188:4188 impl2_MC.programs <> MC_lang.I var
+R4190:4194 Coq.Init.Datatypes <> false constr
+not 4170:4170 MC_lang :::'F'
+R4246:4251 Coq.Strings.String <> String constr
+R4253:4253 impl2_MC.programs <> MC_lang.I var
+not 4232:4232 MC_lang :::'#'_x
+R4307:4309 impl2_MC.surface_syntax <> Not constr
+R4311:4311 impl2_MC.programs <> MC_lang.I var
+not 4292:4292 MC_lang :::'!'_x
+R4367:4369 impl2_MC.surface_syntax <> And constr
+R4371:4371 impl2_MC.programs <> MC_lang.I var
+not 4350:4350 MC_lang :::x_'&'_x
+R4453:4454 impl2_MC.surface_syntax <> Or constr
+R4456:4456 impl2_MC.programs <> MC_lang.I var
+not 4435:4435 MC_lang :::x_'||'_x
+R4539:4541 impl2_MC.surface_syntax <> Sum constr
+R4543:4543 impl2_MC.programs <> MC_lang.I var
+not 4519:4519 MC_lang :::x_'+.'_x
+R4626:4628 impl2_MC.surface_syntax <> Sub constr
+R4630:4630 impl2_MC.programs <> MC_lang.I var
+not 4606:4606 MC_lang :::x_'-.'_x
+R4713:4715 impl2_MC.surface_syntax <> Mul constr
+R4717:4717 impl2_MC.programs <> MC_lang.I var
+not 4693:4693 MC_lang :::x_'*.'_x
+R4801:4806 impl2_MC.surface_syntax <> Concat constr
+R4808:4808 impl2_MC.programs <> MC_lang.I var
+not 4781:4781 MC_lang :::x_'@.'_x
+R4891:4895 impl2_MC.surface_syntax <> Equal constr
+R4897:4897 impl2_MC.programs <> MC_lang.I var
+not 4871:4871 MC_lang :::x_'=='_x
+R4984:4986 impl2_MC.surface_syntax <> Lam constr
+R4988:4988 impl2_MC.programs <> MC_lang.I var
+not 4961:4961 MC_lang :::'λ'_x_'.'_x
+R5048:5050 impl2_MC.surface_syntax <> Tup constr
+R5052:5052 impl2_MC.programs <> MC_lang.I var
+not 5031:5031 MC_lang :::'Tup'_x
+R5111:5114 impl2_MC.surface_syntax <> Cons constr
+R5116:5116 impl2_MC.programs <> MC_lang.I var
+not 5093:5093 MC_lang :::'Cons'_x
+R5181:5188 impl2_MC.surface_syntax <> EVariant constr
+R5190:5190 impl2_MC.programs <> MC_lang.I var
+not 5155:5155 MC_lang :::'C('_x_','_x_')'
+R5264:5267 impl2_MC.surface_syntax <> ELet constr
+R5269:5269 impl2_MC.programs <> MC_lang.I var
+not 5231:5231 MC_lang :::'Let'_x_'::='_x_'In'_x
+R5351:5352 impl2_MC.surface_syntax <> If constr
+R5354:5354 impl2_MC.programs <> MC_lang.I var
+not 5314:5314 MC_lang :::'If'_x_'Then'_x_'Else'_x
+R5438:5443 impl2_MC.surface_syntax <> LetRec constr
+R5445:5445 impl2_MC.programs <> MC_lang.I var
+not 5401:5401 MC_lang :::'LetRec'_x_'::='_x_'In'_x
+R5518:5524 impl2_MC.surface_syntax <> DefType constr
+R5526:5526 impl2_MC.programs <> MC_lang.I var
+not 5490:5490 MC_lang :::'DefType'_x_'In'_x
+R5596:5600 impl2_MC.surface_syntax <> Match constr
+R5602:5602 impl2_MC.programs <> MC_lang.I var
+not 5568:5568 MC_lang :::'Match'_x_'With'_x
+def 5649:5661 <> my_length_lis
+R5665:5668 impl2_MC.surface_syntax <> Expr ind
+R5670:5670 impl2_MC.programs <> MC_lang.I var
+R5683:5690 impl2_MC.programs MC_lang :::'DefType'_x_'In'_x not
+R5791:5802 impl2_MC.programs MC_lang :::'DefType'_x_'In'_x not
+R5691:5691 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R5790:5790 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R5692:5692 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5703:5704 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5789:5789 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5705:5713 impl2_MC.programs MC_lang :::'TVariant'_x not
+R5788:5788 impl2_MC.programs MC_lang :::'TVariant'_x not
+R5714:5723 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5735:5745 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5779:5787 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5724:5724 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5730:5731 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5734:5734 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5732:5733 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R5746:5746 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5753:5754 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5778:5778 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5755:5755 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5760:5761 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5777:5777 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5756:5759 impl2_MC.programs MC_lang :::'TNat' not
+R5762:5766 impl2_MC.programs MC_lang :::'TRef'_x not
+R5803:5809 impl2_MC.programs MC_lang :::'LetRec'_x_'::='_x_'In'_x not
+R5815:5819 impl2_MC.programs MC_lang :::'LetRec'_x_'::='_x_'In'_x not
+R6100:6111 impl2_MC.programs MC_lang :::'LetRec'_x_'::='_x_'In'_x not
+R5820:5821 impl2_MC.programs MC_lang :::'λ'_x_'.'_x not
+R5836:5837 impl2_MC.programs MC_lang :::'λ'_x_'.'_x not
+R5822:5822 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5828:5829 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5835:5835 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5823:5824 impl2_MC.programs MC_lang :::'$p'_x not
+R5830:5831 impl2_MC.programs MC_lang :::'$p'_x not
+R5838:5843 impl2_MC.programs MC_lang :::'Match'_x_'With'_x not
+R5848:5853 impl2_MC.programs MC_lang :::'Match'_x_'With'_x not
+R5844:5844 impl2_MC.programs MC_lang :::'$'_x not
+R5854:5885 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5915:5947 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6068:6099 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5886:5886 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5900:5901 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5914:5914 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5887:5889 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
+R5895:5896 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
+R5899:5899 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
+R5897:5898 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R5902:5903 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R5909:5910 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R5913:5913 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R5911:5912 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R5948:5948 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5975:6009 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6067:6067 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5949:5951 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
+R5958:5959 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
+R5974:5974 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
+R5960:5960 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5966:5967 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5973:5973 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R5961:5962 impl2_MC.programs MC_lang :::'$p'_x not
+R5968:5969 impl2_MC.programs MC_lang :::'$p'_x not
+R6010:6011 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6018:6019 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6066:6066 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6020:6020 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6038:6039 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6065:6065 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6021:6023 impl2_MC.surface_syntax <> App constr
+R6032:6032 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6037:6037 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6033:6033 impl2_MC.programs MC_lang :::'$'_x not
+R6026:6026 impl2_MC.programs MC_lang :::'$'_x not
+R6040:6042 impl2_MC.surface_syntax <> App constr
+R6053:6053 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6058:6059 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6064:6064 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6054:6054 impl2_MC.programs MC_lang :::'$'_x not
+R6060:6060 impl2_MC.programs MC_lang :::'$'_x not
 R6045:6045 impl2_MC.programs MC_lang :::'$'_x not
-R6030:6030 impl2_MC.programs MC_lang :::'$'_x not
-R6097:6099 impl2_MC.surface_syntax <> App constr
-R6110:6110 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6126:6152 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6216:6216 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6111:6112 impl2_MC.programs MC_lang :::'λ'_x_'.'_x not
-R6120:6121 impl2_MC.programs MC_lang :::'λ'_x_'.'_x not
-R6113:6113 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6119:6119 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6114:6115 impl2_MC.programs MC_lang :::'$p'_x not
-R6122:6122 impl2_MC.programs MC_lang :::'$'_x not
-R6153:6154 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6161:6162 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6215:6215 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6163:6164 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6173:6175 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6214:6214 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6166:6168 impl2_MC.surface_syntax <> Nat constr
-R6170:6170 impl2_MC.programs <> MC_lang.I var
-R6176:6177 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6184:6185 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6213:6213 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6186:6187 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6196:6199 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6212:6212 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6189:6191 impl2_MC.surface_syntax <> Nat constr
-R6193:6193 impl2_MC.programs <> MC_lang.I var
-R6200:6201 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6207:6208 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6211:6211 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6209:6210 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R6102:6102 impl2_MC.programs MC_lang :::'$'_x not
-def 6238:6243 <> my_nat
-R6248:6255 impl2_MC.programs MC_lang :::'DefType'_x_'In'_x not
-R6334:6345 impl2_MC.programs MC_lang :::'DefType'_x_'In'_x not
-R6256:6256 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6333:6333 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6257:6257 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6263:6264 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6332:6332 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6265:6273 impl2_MC.programs MC_lang :::'TVariant'_x not
-R6331:6331 impl2_MC.programs MC_lang :::'TVariant'_x not
-R6274:6283 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6293:6303 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6323:6330 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6284:6284 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6288:6289 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6292:6292 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6290:6291 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R6304:6304 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6308:6309 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6322:6322 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6310:6310 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6321:6321 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6311:6315 impl2_MC.programs MC_lang :::'TRef'_x not
-R6346:6352 impl2_MC.programs MC_lang :::'LetRec'_x_'::='_x_'In'_x not
-R6358:6362 impl2_MC.programs MC_lang :::'LetRec'_x_'::='_x_'In'_x not
-R6564:6575 impl2_MC.programs MC_lang :::'LetRec'_x_'::='_x_'In'_x not
-R6363:6364 impl2_MC.programs MC_lang :::'λ'_x_'.'_x not
-R6379:6380 impl2_MC.programs MC_lang :::'λ'_x_'.'_x not
-R6365:6365 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6371:6372 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6378:6378 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6366:6367 impl2_MC.programs MC_lang :::'$p'_x not
-R6373:6374 impl2_MC.programs MC_lang :::'$p'_x not
-R6381:6386 impl2_MC.programs MC_lang :::'Match'_x_'With'_x not
-R6391:6396 impl2_MC.programs MC_lang :::'Match'_x_'With'_x not
-R6387:6387 impl2_MC.programs MC_lang :::'$'_x not
-R6397:6428 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6448:6480 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6536:6563 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6429:6429 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6441:6442 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6447:6447 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6430:6432 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
-R6436:6437 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
-R6440:6440 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
-R6438:6439 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R6443:6443 impl2_MC.programs MC_lang :::'$'_x not
-R6481:6481 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6498:6499 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6535:6535 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6482:6484 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
-R6488:6489 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
-R6497:6497 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
-R6490:6490 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6496:6496 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6491:6492 impl2_MC.programs MC_lang :::'$p'_x not
-R6500:6501 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6505:6506 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6534:6534 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6507:6507 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6533:6533 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6508:6510 impl2_MC.surface_syntax <> App constr
-R6521:6521 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6526:6527 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6532:6532 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6522:6522 impl2_MC.programs MC_lang :::'$'_x not
-R6528:6528 impl2_MC.programs MC_lang :::'$'_x not
-R6513:6513 impl2_MC.programs MC_lang :::'$'_x not
-R6576:6578 impl2_MC.surface_syntax <> App constr
-R6589:6589 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6630:6656 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6667:6667 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
-R6590:6591 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6595:6596 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6629:6629 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6597:6597 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6628:6628 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6598:6599 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6603:6604 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6627:6627 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6605:6605 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6626:6626 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6606:6607 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6611:6612 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6625:6625 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6613:6613 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6624:6624 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R6614:6615 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6619:6620 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6623:6623 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6621:6622 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R6657:6658 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6662:6663 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6666:6666 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
-R6664:6665 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R6581:6581 impl2_MC.programs MC_lang :::'$'_x not
-def 6707:6717 <> my_prog_des
-R6723:6734 impl2_MC.desugarer <> desugar_Expr def
-R6736:6736 impl2_MC.programs <> MC_lang.I var
-R6738:6750 impl2_MC.programs <> my_length_lis def
-def 6768:6781 <> register_empty
-R6787:6795 impl2_MC.env <> empty_env def
-R6798:6800 impl2_MC.ids <> Ide proj
-R6802:6802 impl2_MC.programs <> MC_lang.I var
-R6806:6809 Coq.Init.Datatypes <> unit ind
-def 6829:6839 <> c_env_empty
-R6845:6853 impl2_MC.env <> empty_env def
-R6856:6861 impl2_MC.ids <> Constr proj
-R6863:6863 impl2_MC.programs <> MC_lang.I var
-R6867:6867 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R6873:6877 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R6885:6885 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R6868:6870 impl2_MC.ids <> Ide proj
-R6872:6872 impl2_MC.programs <> MC_lang.I var
-R6878:6880 impl2_MC.kernel_syntax <> KTp ind
-R6884:6884 impl2_MC.programs <> MC_lang.P var
-R6882:6882 impl2_MC.programs <> MC_lang.I var
-def 6904:6915 <> my_prog_elab
-R6920:6923 impl2_MC.elaboration <> elab def
-R6955:6965 impl2_MC.programs <> c_env_empty def
-R6940:6953 impl2_MC.programs <> register_empty def
-R6937:6938 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R6925:6935 impl2_MC.programs <> my_prog_des def
-def 6983:6993 <> v_env_empty
-R6999:7007 impl2_MC.env <> empty_env def
-R7010:7012 impl2_MC.ids <> Ide proj
-R7014:7014 impl2_MC.programs <> MC_lang.I var
-R7018:7020 impl2_MC.values <> Val ind
-R7024:7024 impl2_MC.programs <> MC_lang.P var
-R7022:7022 impl2_MC.programs <> MC_lang.I var
-def 7044:7055 <> my_prog_eval
-R7073:7084 impl2_MC.programs <> my_prog_elab def
-R7099:7100 impl2_MC.result_type <> Ok constr
-R7110:7113 impl2_MC.evaluation <> eval def
-R7125:7135 impl2_MC.programs <> v_env_empty def
-R7145:7149 impl2_MC.result_type <> Error constr
-R7156:7160 impl2_MC.result_type <> Error constr
-R7218:7221 Coq.Strings.String <> ::string_scope:x_'++'_x not
-R7263:7273 impl2_MC.programs <> my_prog_des def
-R7299:7310 impl2_MC.programs <> my_prog_elab def
-R7336:7347 impl2_MC.programs <> my_prog_eval def
-R7385:7391 impl2_MC.programs MC_lang <> sec
+R6112:6114 impl2_MC.surface_syntax <> App constr
+R6125:6125 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6158:6184 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6248:6248 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6126:6127 impl2_MC.programs MC_lang :::'λ'_x_'.'_x not
+R6135:6136 impl2_MC.programs MC_lang :::'λ'_x_'.'_x not
+R6128:6128 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6134:6134 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6129:6130 impl2_MC.programs MC_lang :::'$p'_x not
+R6137:6139 impl2_MC.surface_syntax <> Sum constr
+R6150:6152 impl2_MC.surface_syntax <> Nat constr
+R6154:6154 impl2_MC.programs <> MC_lang.I var
+R6142:6142 impl2_MC.programs MC_lang :::'$'_x not
+R6185:6186 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6193:6194 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6247:6247 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6195:6196 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6205:6207 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6246:6246 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6198:6200 impl2_MC.surface_syntax <> Nat constr
+R6202:6202 impl2_MC.programs <> MC_lang.I var
+R6208:6209 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6216:6217 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6245:6245 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6218:6219 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6228:6231 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6244:6244 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6221:6223 impl2_MC.surface_syntax <> Nat constr
+R6225:6225 impl2_MC.programs <> MC_lang.I var
+R6232:6233 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6239:6240 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6243:6243 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6241:6242 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R6117:6117 impl2_MC.programs MC_lang :::'$'_x not
+def 6270:6275 <> my_nat
+R6280:6287 impl2_MC.programs MC_lang :::'DefType'_x_'In'_x not
+R6366:6377 impl2_MC.programs MC_lang :::'DefType'_x_'In'_x not
+R6288:6288 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6365:6365 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6289:6289 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6295:6296 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6364:6364 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6297:6305 impl2_MC.programs MC_lang :::'TVariant'_x not
+R6363:6363 impl2_MC.programs MC_lang :::'TVariant'_x not
+R6306:6315 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6325:6335 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6355:6362 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6316:6316 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6320:6321 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6324:6324 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6322:6323 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R6336:6336 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6340:6341 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6354:6354 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6342:6342 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6353:6353 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6343:6347 impl2_MC.programs MC_lang :::'TRef'_x not
+R6378:6384 impl2_MC.programs MC_lang :::'LetRec'_x_'::='_x_'In'_x not
+R6390:6394 impl2_MC.programs MC_lang :::'LetRec'_x_'::='_x_'In'_x not
+R6596:6607 impl2_MC.programs MC_lang :::'LetRec'_x_'::='_x_'In'_x not
+R6395:6396 impl2_MC.programs MC_lang :::'λ'_x_'.'_x not
+R6411:6412 impl2_MC.programs MC_lang :::'λ'_x_'.'_x not
+R6397:6397 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6403:6404 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6410:6410 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6398:6399 impl2_MC.programs MC_lang :::'$p'_x not
+R6405:6406 impl2_MC.programs MC_lang :::'$p'_x not
+R6413:6418 impl2_MC.programs MC_lang :::'Match'_x_'With'_x not
+R6423:6428 impl2_MC.programs MC_lang :::'Match'_x_'With'_x not
+R6419:6419 impl2_MC.programs MC_lang :::'$'_x not
+R6429:6460 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6480:6512 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6568:6595 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6461:6461 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6473:6474 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6479:6479 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6462:6464 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
+R6468:6469 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
+R6472:6472 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
+R6470:6471 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R6475:6475 impl2_MC.programs MC_lang :::'$'_x not
+R6513:6513 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6530:6531 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6567:6567 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R6514:6516 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
+R6520:6521 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
+R6529:6529 impl2_MC.programs MC_lang :::'pC('_x_','_x_')' not
+R6522:6522 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6528:6528 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6523:6524 impl2_MC.programs MC_lang :::'$p'_x not
+R6532:6533 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6537:6538 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6566:6566 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6539:6539 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6565:6565 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6540:6542 impl2_MC.surface_syntax <> App constr
+R6553:6553 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6558:6559 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6564:6564 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6554:6554 impl2_MC.programs MC_lang :::'$'_x not
+R6560:6560 impl2_MC.programs MC_lang :::'$'_x not
+R6545:6545 impl2_MC.programs MC_lang :::'$'_x not
+R6608:6610 impl2_MC.surface_syntax <> App constr
+R6621:6621 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6662:6688 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6699:6699 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6622:6623 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6627:6628 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6661:6661 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6629:6629 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6660:6660 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6630:6631 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6635:6636 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6659:6659 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6637:6637 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6658:6658 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6638:6639 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6643:6644 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6657:6657 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6645:6645 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6656:6656 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6646:6647 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6651:6652 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6655:6655 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6653:6654 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R6689:6690 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6694:6695 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6698:6698 impl2_MC.programs MC_lang :::'C('_x_','_x_')' not
+R6696:6697 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R6613:6613 impl2_MC.programs MC_lang :::'$'_x not
+def 6739:6749 <> my_prog_des
+R6755:6766 impl2_MC.desugarer <> desugar_Expr def
+R6768:6768 impl2_MC.programs <> MC_lang.I var
+R6770:6782 impl2_MC.programs <> my_length_lis def
+def 6800:6813 <> register_empty
+R6819:6827 impl2_MC.env <> empty_env def
+R6830:6832 impl2_MC.ids <> Ide proj
+R6834:6834 impl2_MC.programs <> MC_lang.I var
+R6838:6841 Coq.Init.Datatypes <> unit ind
+def 6861:6871 <> c_env_empty
+R6877:6885 impl2_MC.env <> empty_env def
+R6888:6893 impl2_MC.ids <> Constr proj
+R6895:6895 impl2_MC.programs <> MC_lang.I var
+R6899:6899 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R6905:6909 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R6917:6917 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R6900:6902 impl2_MC.ids <> Ide proj
+R6904:6904 impl2_MC.programs <> MC_lang.I var
+R6910:6912 impl2_MC.kernel_syntax <> KTp ind
+R6916:6916 impl2_MC.programs <> MC_lang.P var
+R6914:6914 impl2_MC.programs <> MC_lang.I var
+def 6936:6947 <> my_prog_elab
+R6952:6955 impl2_MC.elaboration <> elab def
+R6987:6997 impl2_MC.programs <> c_env_empty def
+R6972:6985 impl2_MC.programs <> register_empty def
+R6969:6970 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R6957:6967 impl2_MC.programs <> my_prog_des def
+def 7015:7025 <> v_env_empty
+R7031:7039 impl2_MC.env <> empty_env def
+R7042:7044 impl2_MC.ids <> Ide proj
+R7046:7046 impl2_MC.programs <> MC_lang.I var
+R7050:7052 impl2_MC.values <> Val ind
+R7056:7056 impl2_MC.programs <> MC_lang.P var
+R7054:7054 impl2_MC.programs <> MC_lang.I var
+def 7076:7087 <> my_prog_eval
+R7105:7116 impl2_MC.programs <> my_prog_elab def
+R7131:7132 impl2_MC.result_type <> Ok constr
+R7142:7145 impl2_MC.evaluation <> eval def
+R7157:7167 impl2_MC.programs <> v_env_empty def
+R7177:7181 impl2_MC.result_type <> Error constr
+R7188:7192 impl2_MC.result_type <> Error constr
+R7250:7253 Coq.Strings.String <> ::string_scope:x_'++'_x not
+R7295:7305 impl2_MC.programs <> my_prog_des def
+R7331:7342 impl2_MC.programs <> my_prog_elab def
+R7381:7392 impl2_MC.programs <> my_prog_eval def
+R7407:7408 impl2_MC.result_type <> Ok constr
+R7418:7430 impl2_MC.pretty_printer <> val_to_string def
+R7432:7432 impl2_MC.programs <> MC_lang.I var
+R7434:7434 impl2_MC.programs <> MC_lang.P var
+R7446:7450 impl2_MC.result_type <> Error constr
+R7506:7512 impl2_MC.programs MC_lang <> sec

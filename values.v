@@ -420,11 +420,9 @@ Section Values.
     Qed. 
 
     
-    
-    
-
 
 End Values. 
+
 
 
     

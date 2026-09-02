@@ -1,6 +1,7 @@
-Require Import Lists.List Strings.String PeanoNat. 
+Require Import Lists.List Strings.String PeanoNat ZArith. 
 Import ListNotations.
 Require Import primitives ids kernel_syntax surface_syntax.  
+Open Scope string_scope.
 
 Set Implicit Arguments. 
 Set Contextual Implicit. 
@@ -71,6 +72,41 @@ Inductive BaseTyp : Type :=
       |_, _ => false 
       end.  
 
+    Definition digit_to_string (n: nat) : string := 
+      match n with 
+      |0   => "0"
+      |1   => "1"
+      |2   => "2"
+      |3   => "3"
+      |4   => "4"
+      |5   => "5"
+      |6   => "6" 
+      |7   => "7"
+      |8   => "8"
+      |9   => "9"
+      |_   => "" 
+      end. 
+      
+  
+    Fixpoint fuel_nat_to_string (fuel: nat) (n: nat) : string := 
+      match fuel with 
+      |O    => ""
+      |S n' => if Nat.leb n 10 then digit_to_string n 
+               else fuel_nat_to_string n' (Nat.div n 10) ++ 
+                 digit_to_string (Nat.modulo n 10)
+      end.
+      
+    Definition nat_to_string n := fuel_nat_to_string n n.
+
+    Definition BaseVal_to_string (v: BaseVal) : string := 
+      match v with 
+      |VlNat n      => nat_to_string n 
+      |VlBool true  => "true"
+      |VlBool false => "false" 
+      |VlString s   => "\" ++ s ++ "\" 
+      end.
+
+      
     Lemma eq_baseTp_dec : forall (x y: BaseTyp), {x = y} + {x <> y} . 
     Proof. intros. destruct x, y; try eauto; right; discriminate. Qed.
        
@@ -141,6 +177,7 @@ Inductive BaseTyp : Type :=
        interp_op := interp_prim_op;
        eqb_BaseTp := eqb_BaseTyp; 
        eqb_BaseVl := eqb_BaseVal; 
+       BaseVl_to_string := BaseVal_to_string; 
        eq_BaseTp_dec := @eq_baseTp_dec; 
        eq_BaseVl_dec := @eq_baseVl_dec; 
        eqb_eq_BaseTp := @eqb_eq_BaseTyp ;

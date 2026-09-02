@@ -7,9 +7,11 @@ type_env.v
 env.v
 surface_syntax.v
 values.v
+pretty_printer.v
 desugarer.v
 programs.v
 type_theory.v 
 pattern_theory.v 
 elaboration.v
 evaluation.v
+
