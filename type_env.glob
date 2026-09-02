@@ -1,0 +1,272 @@
+DIGEST 42d42555bff2c66fd97c6f56476d4ed8
+Fimpl2_MC.type_env
+R15:24 Coq.Lists.List <> <> lib
+R26:28 impl2_MC.ids <> <> lib
+R30:39 impl2_MC.primitives <> <> lib
+R41:53 impl2_MC.kernel_syntax <> <> lib
+R63:75 Coq.Lists.List ListNotations <> mod
+sec 112:115 <> TEnv
+R136:138 impl2_MC.ids <> IDS rec
+binder 133:133 <> I:1
+R159:167 impl2_MC.primitives <> PRIM_DATA rec
+binder 156:156 <> P:2
+def 187:195 <> assoc_opt
+binder 198:198 <> X:3
+binder 200:200 <> Y:4
+R213:216 Coq.Init.Datatypes <> list ind
+R220:222 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R219:219 impl2_MC.type_env <> X:3 var
+R223:223 impl2_MC.type_env <> Y:4 var
+binder 210:210 <> e:5
+R231:231 impl2_MC.type_env <> X:3 var
+binder 228:228 <> i:6
+R240:243 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R239:239 impl2_MC.type_env <> X:3 var
+R245:248 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R244:244 impl2_MC.type_env <> X:3 var
+R249:252 Coq.Init.Datatypes <> bool ind
+binder 235:236 <> eq:7
+R257:262 Coq.Init.Datatypes <> option ind
+R264:264 impl2_MC.type_env <> Y:4 var
+R282:282 impl2_MC.type_env <> e:5 var
+R304:305 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R297:297 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R300:301 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R303:303 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R314:315 impl2_MC.type_env <> eq:7 var
+R317:317 impl2_MC.type_env <> i:6 var
+R339:347 impl2_MC.type_env <> assoc_opt:8 def
+R353:354 impl2_MC.type_env <> eq:7 var
+R351:351 impl2_MC.type_env <> i:6 var
+R327:330 Coq.Init.Datatypes <> Some constr
+R378:381 Coq.Init.Datatypes <> None constr
+R431:433 impl2_MC.ids <> Ide proj
+R435:435 impl2_MC.type_env <> TEnv.I var
+not 416:416 TEnv :::'Ide'
+R476:481 impl2_MC.ids <> Constr proj
+R483:483 impl2_MC.type_env <> TEnv.I var
+not 458:458 TEnv :::'Constr'
+R521:523 impl2_MC.kernel_syntax <> KTp ind
+R525:525 impl2_MC.type_env <> TEnv.I var
+R527:527 impl2_MC.type_env <> TEnv.P var
+not 506:506 TEnv :::'KTp'
+R568:573 impl2_MC.ids <> id_eqb proj
+R575:575 impl2_MC.type_env <> TEnv.I var
+not 550:550 TEnv :::'id_eqb'
+R621:630 impl2_MC.ids <> constr_eqb proj
+R632:632 impl2_MC.type_env <> TEnv.I var
+not 599:599 TEnv :::'constr_eqb'
+def 652:655 <> tenv
+R660:663 Coq.Init.Datatypes <> list ind
+R669:671 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R666:668 impl2_MC.type_env TEnv :::'Ide' not
+R672:674 impl2_MC.type_env TEnv :::'KTp' not
+def 694:703 <> empty_tenv
+R707:710 impl2_MC.type_env <> tenv def
+R715:716 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+def 734:740 <> tlookup
+R746:749 impl2_MC.type_env <> tenv def
+binder 743:743 <> e:10
+R756:758 impl2_MC.type_env TEnv :::'Ide' not
+binder 753:753 <> i:11
+R763:768 Coq.Init.Datatypes <> option ind
+R770:772 impl2_MC.type_env TEnv :::'KTp' not
+R777:785 impl2_MC.type_env <> assoc_opt def
+R791:796 impl2_MC.type_env TEnv :::'id_eqb' not
+R789:789 impl2_MC.type_env <> i:11 var
+R787:787 impl2_MC.type_env <> e:10 var
+def 817:820 <> tdom
+R826:829 impl2_MC.type_env <> tenv def
+binder 823:823 <> e:12
+R836:838 impl2_MC.type_env TEnv :::'Ide' not
+binder 833:833 <> i:13
+R851:857 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R859:860 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 858:858 <> y:14
+R872:874 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R861:867 impl2_MC.type_env <> tlookup def
+R871:871 impl2_MC.type_env <> i:13 var
+R869:869 impl2_MC.type_env <> e:12 var
+R875:878 Coq.Init.Datatypes <> Some constr
+R880:880 impl2_MC.type_env <> y:14 var
+def 899:902 <> timm
+R908:911 impl2_MC.type_env <> tenv def
+binder 905:905 <> e:15
+R918:920 impl2_MC.type_env TEnv :::'KTp' not
+binder 915:915 <> y:16
+R933:939 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R941:942 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 940:940 <> i:17
+R954:956 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R943:949 impl2_MC.type_env <> tlookup def
+R953:953 impl2_MC.type_env <> i:17 var
+R951:951 impl2_MC.type_env <> e:15 var
+R957:960 Coq.Init.Datatypes <> Some constr
+R962:962 impl2_MC.type_env <> y:16 var
+def 983:991 <> tincludes
+R997:1000 impl2_MC.type_env <> tenv def
+binder 994:994 <> e:18
+R1006:1008 impl2_MC.type_env TEnv :::'Ide' not
+binder 1004:1004 <> i:19
+R1013:1016 Coq.Init.Datatypes <> bool ind
+R1036:1042 impl2_MC.type_env <> tlookup def
+R1046:1046 impl2_MC.type_env <> i:19 var
+R1044:1044 impl2_MC.type_env <> e:18 var
+R1053:1056 Coq.Init.Datatypes <> None constr
+R1061:1065 Coq.Init.Datatypes <> false constr
+R1074:1077 Coq.Init.Datatypes <> true constr
+def 1100:1104 <> tbind
+R1110:1113 impl2_MC.type_env <> tenv def
+binder 1107:1107 <> e:20
+R1120:1122 impl2_MC.type_env TEnv :::'Ide' not
+binder 1117:1117 <> i:21
+R1129:1131 impl2_MC.type_env TEnv :::'KTp' not
+binder 1126:1126 <> t:22
+R1136:1139 impl2_MC.type_env <> tenv def
+R1150:1151 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1144:1144 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1146:1147 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1149:1149 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1145:1145 impl2_MC.type_env <> i:21 var
+R1148:1148 impl2_MC.type_env <> t:22 var
+R1152:1152 impl2_MC.type_env <> e:20 var
+def 1554:1568 <> last_constr_def
+R1574:1577 impl2_MC.type_env <> tenv def
+binder 1571:1571 <> e:23
+R1584:1589 impl2_MC.type_env TEnv :::'Constr' not
+binder 1581:1581 <> c:24
+R1609:1609 impl2_MC.type_env <> e:23 var
+R1641:1642 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1625:1625 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1627:1628 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1640:1640 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1629:1637 impl2_MC.kernel_syntax <> KTVariant constr
+R1656:1664 impl2_MC.type_env <> assoc_opt def
+R1670:1679 impl2_MC.type_env TEnv :::'constr_eqb' not
+R1668:1668 impl2_MC.type_env <> c:24 var
+R1720:1723 Coq.Init.Datatypes <> Some constr
+R1730:1733 Coq.Init.Datatypes <> Some constr
+R1735:1735 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1737:1738 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1740:1740 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1775:1778 Coq.Init.Datatypes <> None constr
+R1785:1799 impl2_MC.type_env <> last_constr_def:25 def
+R1804:1804 impl2_MC.type_env <> c:24 var
+R1904:1907 Coq.Init.Datatypes <> None constr
+def 2331:2343 <> last_type_def
+R2349:2352 impl2_MC.type_env <> tenv def
+binder 2346:2346 <> e:27
+R2359:2364 impl2_MC.type_env TEnv :::'Constr' not
+binder 2356:2356 <> c:28
+R2383:2383 impl2_MC.type_env <> e:27 var
+R2414:2415 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R2398:2398 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2400:2401 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2413:2413 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2402:2410 impl2_MC.kernel_syntax <> KTVariant constr
+R2425:2431 Coq.Lists.List <> existsb def
+binder 2438:2438 <> p:31
+R2443:2462 impl2_MC.type_env TEnv :::'constr_eqb' not
+R2455:2457 Coq.Init.Datatypes <> fst def
+R2459:2459 impl2_MC.type_env <> p:31 var
+R2462:2462 impl2_MC.type_env <> c:28 var
+R2563:2575 impl2_MC.type_env <> last_type_def:29 def
+R2580:2580 impl2_MC.type_env <> c:28 var
+R2505:2508 Coq.Init.Datatypes <> Some constr
+R2510:2510 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2512:2513 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2525:2525 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2514:2522 impl2_MC.kernel_syntax <> KTVariant constr
+R2614:2617 Coq.Init.Datatypes <> None constr
+prf 2658:2670 <> tlookup_empty
+binder 2680:2680 <> i:32
+R2712:2714 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2690:2696 impl2_MC.type_env <> tlookup def
+R2711:2711 impl2_MC.type_env <> i:32 var
+R2699:2708 impl2_MC.type_env <> empty_tenv def
+R2715:2718 Coq.Init.Datatypes <> None constr
+R2760:2766 impl2_MC.type_env <> tlookup def
+R2783:2792 impl2_MC.type_env <> empty_tenv def
+prf 2841:2853 <> tbind_extends
+binder 2863:2863 <> e:33
+binder 2865:2865 <> i:34
+binder 2867:2867 <> x:35
+R2901:2903 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2878:2884 impl2_MC.type_env <> tlookup def
+R2900:2900 impl2_MC.type_env <> i:34 var
+R2887:2891 impl2_MC.type_env <> tbind def
+R2897:2897 impl2_MC.type_env <> x:35 var
+R2895:2895 impl2_MC.type_env <> i:34 var
+R2893:2893 impl2_MC.type_env <> e:33 var
+R2904:2907 Coq.Init.Datatypes <> Some constr
+R2909:2909 impl2_MC.type_env <> x:35 var
+R2952:2958 impl2_MC.type_env <> tlookup def
+R2974:2978 impl2_MC.type_env <> tbind def
+R3011:3020 impl2_MC.type_env TEnv :::'id_eqb' not
+R3011:3020 impl2_MC.type_env TEnv :::'id_eqb' not
+R3069:3078 impl2_MC.ids <> id_eqb_neq proj
+R3069:3078 impl2_MC.ids <> id_eqb_neq proj
+R3069:3078 impl2_MC.ids <> id_eqb_neq proj
+prf 3137:3159 <> tbind_preserves_old_env
+binder 3169:3169 <> e:36
+binder 3171:3171 <> i:37
+binder 3173:3173 <> x:38
+R3203:3215 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3194:3196 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3183:3189 impl2_MC.type_env <> tlookup def
+R3193:3193 impl2_MC.type_env <> i:37 var
+R3191:3191 impl2_MC.type_env <> e:36 var
+R3197:3200 Coq.Init.Datatypes <> Some constr
+R3202:3202 impl2_MC.type_env <> x:38 var
+binder 3223:3224 <> i':39
+binder 3226:3227 <> x':40
+R3249:3265 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3243:3246 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R3242:3242 impl2_MC.type_env <> i:37 var
+R3247:3248 impl2_MC.type_env <> i':39 var
+R3291:3293 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3266:3272 impl2_MC.type_env <> tlookup def
+R3290:3290 impl2_MC.type_env <> i:37 var
+R3275:3279 impl2_MC.type_env <> tbind def
+R3286:3287 impl2_MC.type_env <> x':40 var
+R3283:3284 impl2_MC.type_env <> i':39 var
+R3281:3281 impl2_MC.type_env <> e:36 var
+R3294:3297 Coq.Init.Datatypes <> Some constr
+R3299:3299 impl2_MC.type_env <> x:38 var
+R3357:3363 impl2_MC.type_env <> tlookup def
+R3366:3370 impl2_MC.type_env <> tbind def
+R3400:3409 impl2_MC.ids <> id_eqb_neq proj
+R3400:3409 impl2_MC.ids <> id_eqb_neq proj
+R3400:3409 impl2_MC.ids <> id_eqb_neq proj
+R3453:3459 impl2_MC.type_env <> tlookup def
+prf 3632:3657 <> tbind_preserves_bound_id's
+binder 3667:3667 <> e:41
+binder 3669:3669 <> i:42
+binder 3671:3671 <> x:43
+R3701:3712 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3692:3694 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3681:3687 impl2_MC.type_env <> tlookup def
+R3691:3691 impl2_MC.type_env <> i:42 var
+R3689:3689 impl2_MC.type_env <> e:41 var
+R3695:3698 Coq.Init.Datatypes <> Some constr
+R3700:3700 impl2_MC.type_env <> x:43 var
+binder 3720:3721 <> i':44
+binder 3723:3724 <> x':45
+R3738:3744 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R3748:3749 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 3745:3747 <> x'':46
+R3775:3777 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3750:3756 impl2_MC.type_env <> tlookup def
+R3774:3774 impl2_MC.type_env <> i:42 var
+R3759:3763 impl2_MC.type_env <> tbind def
+R3770:3771 impl2_MC.type_env <> x':45 var
+R3767:3768 impl2_MC.type_env <> i':44 var
+R3765:3765 impl2_MC.type_env <> e:41 var
+R3778:3781 Coq.Init.Datatypes <> Some constr
+R3783:3785 impl2_MC.type_env <> x'':46 var
+R3838:3844 impl2_MC.type_env <> tlookup def
+R3847:3851 impl2_MC.type_env <> tbind def
+R3884:3894 impl2_MC.type_env TEnv :::'id_eqb' not
+R3884:3894 impl2_MC.type_env TEnv :::'id_eqb' not
+R3960:3966 impl2_MC.type_env <> tlookup def
+R4001:4004 impl2_MC.type_env TEnv <> sec

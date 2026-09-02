@@ -1,0 +1,232 @@
+DIGEST 08354ef0597c59655da558e619a399fa
+Fimpl2_MC.result_type
+R15:24 Coq.Lists.List <> <> lib
+R35:47 Coq.Lists.List ListNotations <> mod
+sec 114:119 <> RESULT
+var 136:136 RESULT A
+var 138:138 RESULT E
+var 140:140 RESULT B
+ind 165:170 <> result
+constr 192:193 <> Ok
+constr 208:212 <> Error
+binder 172:172 <> A:4
+binder 174:174 <> E:5
+R200:200 impl2_MC.result_type <> A:4 var
+R219:219 impl2_MC.result_type <> E:5 var
+scheme 165:170 <> result_rect
+scheme 165:170 <> result_ind
+scheme 165:170 <> result_rec
+scheme 165:170 <> result_sind
+def 240:241 <> ok
+R247:247 impl2_MC.result_type <> RESULT.A var
+binder 244:244 <> a:8
+R252:257 impl2_MC.result_type <> result ind
+R261:261 impl2_MC.result_type <> RESULT.E var
+R259:259 impl2_MC.result_type <> RESULT.A var
+R266:267 impl2_MC.result_type <> Ok constr
+R269:269 impl2_MC.result_type <> a:8 var
+def 289:293 <> error
+R299:299 impl2_MC.result_type <> RESULT.E var
+binder 296:296 <> e:9
+R304:309 impl2_MC.result_type <> result ind
+R313:313 impl2_MC.result_type <> RESULT.E var
+R311:311 impl2_MC.result_type <> RESULT.A var
+R318:322 impl2_MC.result_type <> Error constr
+R324:324 impl2_MC.result_type <> e:9 var
+def 350:353 <> bind
+R359:364 impl2_MC.result_type <> result ind
+R368:368 impl2_MC.result_type <> RESULT.E var
+R366:366 impl2_MC.result_type <> RESULT.A var
+binder 356:356 <> a:10
+R376:379 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R375:375 impl2_MC.result_type <> RESULT.A var
+R380:385 impl2_MC.result_type <> result ind
+R389:389 impl2_MC.result_type <> RESULT.E var
+R387:387 impl2_MC.result_type <> RESULT.B var
+binder 372:372 <> f:11
+R408:408 impl2_MC.result_type <> a:10 var
+R423:424 impl2_MC.result_type <> Ok constr
+R434:434 impl2_MC.result_type <> f:11 var
+R436:436 impl2_MC.result_type <> a:10 var
+R446:450 impl2_MC.result_type <> Error constr
+R457:461 impl2_MC.result_type <> Error constr
+def 506:509 <> join
+R515:520 impl2_MC.result_type <> result ind
+R535:535 impl2_MC.result_type <> RESULT.E var
+R523:528 impl2_MC.result_type <> result ind
+R532:532 impl2_MC.result_type <> RESULT.E var
+R530:530 impl2_MC.result_type <> RESULT.A var
+binder 512:512 <> a:13
+R554:554 impl2_MC.result_type <> a:13 var
+R569:570 impl2_MC.result_type <> Ok constr
+R580:580 impl2_MC.result_type <> a:13 var
+R590:594 impl2_MC.result_type <> Error constr
+R601:605 impl2_MC.result_type <> Error constr
+def 639:645 <> product
+R651:656 impl2_MC.result_type <> result ind
+R660:660 impl2_MC.result_type <> RESULT.E var
+R658:658 impl2_MC.result_type <> RESULT.A var
+binder 648:648 <> a:15
+R667:672 impl2_MC.result_type <> result ind
+R676:676 impl2_MC.result_type <> RESULT.E var
+R674:674 impl2_MC.result_type <> RESULT.B var
+binder 664:664 <> b:16
+R694:694 impl2_MC.result_type <> a:15 var
+R709:713 impl2_MC.result_type <> Error constr
+R721:725 impl2_MC.result_type <> Error constr
+R737:738 impl2_MC.result_type <> Ok constr
+R755:755 impl2_MC.result_type <> b:16 var
+R783:787 impl2_MC.result_type <> Error constr
+R795:799 impl2_MC.result_type <> Error constr
+R824:825 impl2_MC.result_type <> Ok constr
+R836:837 impl2_MC.result_type <> Ok constr
+R838:838 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R840:841 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R843:843 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R839:839 impl2_MC.result_type <> a:15 var
+R842:842 impl2_MC.result_type <> b:16 var
+def 897:901 <> is_ok
+R907:912 impl2_MC.result_type <> result ind
+R916:916 impl2_MC.result_type <> RESULT.E var
+R914:914 impl2_MC.result_type <> RESULT.A var
+binder 904:904 <> a:19
+R935:935 impl2_MC.result_type <> a:19 var
+R950:951 impl2_MC.result_type <> Ok constr
+R959:962 Coq.Init.Datatypes <> true constr
+R981:985 Coq.Init.Datatypes <> false constr
+def 1023:1030 <> is_error
+R1036:1041 impl2_MC.result_type <> result ind
+R1045:1045 impl2_MC.result_type <> RESULT.E var
+R1043:1043 impl2_MC.result_type <> RESULT.A var
+binder 1033:1033 <> a:21
+R1064:1064 impl2_MC.result_type <> a:21 var
+R1079:1083 impl2_MC.result_type <> Error constr
+R1091:1094 Coq.Init.Datatypes <> true constr
+R1116:1120 Coq.Init.Datatypes <> false constr
+prf 1147:1162 <> is_error_correct
+binder 1173:1173 <> x:23
+R1201:1205 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1227:1227 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1194:1196 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1184:1191 impl2_MC.result_type <> is_error def
+R1193:1193 impl2_MC.result_type <> x:23 var
+R1197:1200 Coq.Init.Datatypes <> true constr
+R1206:1212 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R1214:1215 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 1213:1213 <> a:24
+R1217:1219 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1216:1216 impl2_MC.result_type <> x:23 var
+R1220:1224 impl2_MC.result_type <> Error constr
+R1226:1226 impl2_MC.result_type <> a:24 var
+def 1379:1384 <> get_ok
+R1390:1395 impl2_MC.result_type <> result ind
+R1399:1399 impl2_MC.result_type <> RESULT.E var
+R1397:1397 impl2_MC.result_type <> RESULT.A var
+binder 1387:1387 <> a:25
+R1408:1408 impl2_MC.result_type <> RESULT.A var
+binder 1403:1405 <> def:26
+R1427:1427 impl2_MC.result_type <> a:25 var
+R1442:1443 impl2_MC.result_type <> Ok constr
+R1451:1451 impl2_MC.result_type <> a:25 var
+R1470:1472 impl2_MC.result_type <> def:26 var
+prf 1507:1520 <> get_ok_correct
+binder 1531:1531 <> x:28
+binder 1533:1535 <> def:29
+R1556:1559 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1548:1550 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1538:1545 impl2_MC.result_type <> is_error def
+R1547:1547 impl2_MC.result_type <> x:28 var
+R1551:1555 Coq.Init.Datatypes <> false constr
+R1561:1563 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1560:1560 impl2_MC.result_type <> x:28 var
+R1564:1565 impl2_MC.result_type <> Ok constr
+R1568:1573 impl2_MC.result_type <> get_ok def
+R1577:1579 impl2_MC.result_type <> def:29 var
+R1575:1575 impl2_MC.result_type <> x:28 var
+def 1717:1726 <> map_result
+R1732:1735 Coq.Init.Datatypes <> list ind
+R1738:1743 impl2_MC.result_type <> result ind
+R1747:1747 impl2_MC.result_type <> RESULT.E var
+R1745:1745 impl2_MC.result_type <> RESULT.A var
+binder 1729:1729 <> l:30
+R1757:1757 impl2_MC.result_type <> RESULT.A var
+binder 1752:1754 <> def:31
+R1771:1773 Coq.Lists.List <> map def
+R1799:1799 impl2_MC.result_type <> l:30 var
+binder 1780:1780 <> x:32
+R1785:1790 impl2_MC.result_type <> get_ok def
+R1794:1796 impl2_MC.result_type <> def:31 var
+R1792:1792 impl2_MC.result_type <> x:32 var
+def 1819:1832 <> map_snd_result
+R1838:1841 Coq.Init.Datatypes <> list ind
+R1845:1847 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1844:1844 impl2_MC.result_type <> RESULT.B var
+R1848:1853 impl2_MC.result_type <> result ind
+R1857:1857 impl2_MC.result_type <> RESULT.E var
+R1855:1855 impl2_MC.result_type <> RESULT.A var
+binder 1835:1835 <> l:33
+R1867:1867 impl2_MC.result_type <> RESULT.A var
+binder 1862:1864 <> def:34
+R1881:1883 Coq.Lists.List <> map def
+R1920:1920 impl2_MC.result_type <> l:33 var
+R1891:1891 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1893:1894 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1896:1896 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 1895:1895 <> s:35
+binder 1892:1892 <> f:36
+binder 1891:1896 <> pat:37
+R1901:1901 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1903:1904 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1917:1917 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1902:1902 impl2_MC.result_type <> f:36 var
+R1905:1910 impl2_MC.result_type <> get_ok def
+R1914:1916 impl2_MC.result_type <> def:34 var
+R1912:1912 impl2_MC.result_type <> s:35 var
+def 1941:1950 <> find_error
+R1956:1959 Coq.Init.Datatypes <> list ind
+R1962:1967 impl2_MC.result_type <> result ind
+R1971:1971 impl2_MC.result_type <> RESULT.E var
+R1969:1969 impl2_MC.result_type <> RESULT.A var
+binder 1953:1953 <> l:38
+R1987:1990 Coq.Lists.List <> find def
+R2014:2014 impl2_MC.result_type <> l:38 var
+binder 1997:1997 <> x:39
+R2002:2009 impl2_MC.result_type <> is_error def
+R2011:2011 impl2_MC.result_type <> x:39 var
+prf 2032:2049 <> find_error_correct
+binder 2060:2060 <> l:40
+R2090:2093 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2083:2085 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2071:2080 impl2_MC.result_type <> find_error def
+R2082:2082 impl2_MC.result_type <> l:40 var
+R2086:2089 Coq.Init.Datatypes <> None constr
+binder 2101:2101 <> x:41
+R2110:2113 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2104:2105 Coq.Lists.List <> In def
+R2109:2109 impl2_MC.result_type <> l:40 var
+R2107:2107 impl2_MC.result_type <> x:41 var
+R2124:2126 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2114:2121 impl2_MC.result_type <> is_error def
+R2123:2123 impl2_MC.result_type <> x:41 var
+R2127:2131 Coq.Init.Datatypes <> false constr
+R2190:2199 impl2_MC.result_type <> find_error def
+R2225:2233 Coq.Lists.List <> find_none thm
+R2225:2233 Coq.Lists.List <> find_none thm
+prf 2296:2314 <> find_error_is_error
+binder 2325:2325 <> l:42
+binder 2327:2329 <> err:43
+R2363:2366 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2352:2354 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2340:2349 impl2_MC.result_type <> find_error def
+R2351:2351 impl2_MC.result_type <> l:42 var
+R2355:2358 Coq.Init.Datatypes <> Some constr
+R2360:2362 impl2_MC.result_type <> err:43 var
+R2379:2381 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2367:2374 impl2_MC.result_type <> is_error def
+R2376:2378 impl2_MC.result_type <> err:43 var
+R2382:2385 Coq.Init.Datatypes <> true constr
+R2437:2445 Coq.Lists.List <> find_some thm
+R2437:2445 Coq.Lists.List <> find_some thm
+R2519:2524 impl2_MC.result_type RESULT <> sec
+R2554:2557 impl2_MC.result_type <> bind def
+not 2537:2537 <> :::x_'>>='_x

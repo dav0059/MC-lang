@@ -1,0 +1,3566 @@
+DIGEST 249de4d202ccb7f4c95455043d372e2f
+Fimpl2_MC.elaboration
+R15:25 impl2_MC.result_type <> <> lib
+R27:29 impl2_MC.ids <> <> lib
+R31:40 impl2_MC.primitives <> <> lib
+R42:54 impl2_MC.kernel_syntax <> <> lib
+R56:63 impl2_MC.type_env <> <> lib
+R65:67 impl2_MC.env <> <> lib
+R69:79 impl2_MC.type_theory <> <> lib
+R81:94 impl2_MC.pattern_theory <> <> lib
+R113:126 Coq.Strings.String <> <> lib
+R145:154 Coq.Lists.List <> <> lib
+R165:177 Coq.Lists.List ListNotations <> mod
+sec 242:252 <> ELABORATION
+R272:274 impl2_MC.ids <> IDS rec
+binder 269:269 <> I:1
+R294:302 impl2_MC.primitives <> PRIM_DATA rec
+binder 291:291 <> P:2
+R342:344 impl2_MC.ids <> Ide proj
+R346:346 impl2_MC.elaboration <> ELABORATION.I var
+not 327:327 ELABORATION :::'Ide'
+R387:392 impl2_MC.ids <> Constr proj
+R394:394 impl2_MC.elaboration <> ELABORATION.I var
+not 369:369 ELABORATION :::'Constr'
+R436:442 impl2_MC.ids <> Message proj
+R444:444 impl2_MC.elaboration <> ELABORATION.I var
+not 417:417 ELABORATION :::'Message'
+R482:484 impl2_MC.kernel_syntax <> KTp ind
+R486:486 impl2_MC.elaboration <> ELABORATION.I var
+R488:488 impl2_MC.elaboration <> ELABORATION.P var
+not 467:467 ELABORATION :::'KTp'
+R527:530 impl2_MC.kernel_syntax <> KPat ind
+R532:532 impl2_MC.elaboration <> ELABORATION.I var
+R534:534 impl2_MC.elaboration <> ELABORATION.P var
+not 511:511 ELABORATION :::'KPat'
+R578:582 impl2_MC.kernel_syntax <> KExpr ind
+R584:584 impl2_MC.elaboration <> ELABORATION.I var
+R586:586 impl2_MC.elaboration <> ELABORATION.P var
+not 561:561 ELABORATION :::'KExpr'
+R628:633 impl2_MC.primitives <> BaseVl proj
+R635:635 impl2_MC.elaboration <> ELABORATION.P var
+not 610:610 ELABORATION :::'BaseVl'
+R672:673 impl2_MC.primitives <> OP proj
+R675:675 impl2_MC.elaboration <> ELABORATION.P var
+not 658:658 ELABORATION :::'OP'
+R714:717 impl2_MC.type_env <> tenv def
+R719:719 impl2_MC.elaboration <> ELABORATION.I var
+R721:721 impl2_MC.elaboration <> ELABORATION.P var
+not 698:698 ELABORATION :::'tenv'
+R765:772 impl2_MC.type_theory <> register def
+R774:774 impl2_MC.elaboration <> ELABORATION.I var
+not 745:745 ELABORATION :::'register'
+R820:829 impl2_MC.pattern_theory <> constr_env def
+R831:831 impl2_MC.elaboration <> ELABORATION.I var
+R833:833 impl2_MC.elaboration <> ELABORATION.P var
+not 798:798 ELABORATION :::'constr_env'
+ind 1312:1316 <> LExpr
+constr 1333:1336 <> LVar
+constr 1353:1356 <> LLit
+constr 1376:1378 <> LOp
+constr 1416:1419 <> LLam
+constr 1448:1451 <> LApp
+constr 1482:1486 <> LUnit
+constr 1494:1497 <> LNil
+constr 1506:1510 <> LPair
+constr 1543:1547 <> LCons
+constr 1579:1586 <> LVariant
+constr 1636:1639 <> LFix
+constr 1673:1678 <> LMatch
+constr 1725:1730 <> LError
+R1342:1344 impl2_MC.elaboration ELABORATION :::'Ide' not
+binder 1339:1339 <> i:5
+R1362:1367 impl2_MC.elaboration ELABORATION :::'BaseVl' not
+binder 1359:1359 <> x:6
+R1385:1386 impl2_MC.elaboration ELABORATION :::'OP' not
+binder 1381:1382 <> op:7
+R1396:1399 Coq.Init.Datatypes <> list ind
+R1401:1405 impl2_MC.elaboration <> LExpr:3 ind
+binder 1390:1393 <> args:8
+R1425:1428 impl2_MC.elaboration ELABORATION :::'KPat' not
+binder 1422:1422 <> p:9
+R1435:1439 impl2_MC.elaboration <> LExpr:3 ind
+binder 1432:1432 <> e:10
+R1458:1462 impl2_MC.elaboration <> LExpr:3 ind
+binder 1454:1455 <> e1:11
+R1470:1474 impl2_MC.elaboration <> LExpr:3 ind
+binder 1466:1467 <> e2:12
+R1518:1522 impl2_MC.elaboration <> LExpr:3 ind
+binder 1513:1514 <> e1:13
+R1530:1534 impl2_MC.elaboration <> LExpr:3 ind
+binder 1526:1527 <> e2:14
+R1554:1558 impl2_MC.elaboration <> LExpr:3 ind
+binder 1550:1551 <> e1:15
+R1566:1570 impl2_MC.elaboration <> LExpr:3 ind
+binder 1562:1563 <> e2:16
+R1592:1597 impl2_MC.elaboration ELABORATION :::'Constr' not
+binder 1589:1589 <> c:17
+R1611:1613 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1608:1610 impl2_MC.elaboration ELABORATION :::'Ide' not
+R1614:1616 impl2_MC.elaboration ELABORATION :::'KTp' not
+binder 1601:1605 <> c_inf:18
+R1623:1627 impl2_MC.elaboration <> LExpr:3 ind
+binder 1620:1620 <> e:19
+R1648:1650 impl2_MC.elaboration ELABORATION :::'Ide' not
+binder 1642:1645 <> name:20
+R1659:1663 impl2_MC.elaboration <> LExpr:3 ind
+binder 1654:1656 <> cls:21
+R1684:1688 impl2_MC.elaboration <> LExpr:3 ind
+binder 1681:1681 <> e:22
+R1699:1702 Coq.Init.Datatypes <> list ind
+R1709:1710 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1705:1708 impl2_MC.elaboration ELABORATION :::'KPat' not
+R1711:1715 impl2_MC.elaboration <> LExpr:3 ind
+binder 1692:1696 <> cases:23
+R1736:1742 impl2_MC.elaboration ELABORATION :::'Message' not
+binder 1733:1733 <> m:24
+scheme 1312:1316 <> LExpr_rect
+scheme 1312:1316 <> LExpr_ind
+scheme 1312:1316 <> LExpr_rec
+scheme 1312:1316 <> LExpr_sind
+def 1770:1776 <> tdblock
+R1782:1785 Coq.Init.Datatypes <> list ind
+R1791:1793 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1788:1790 impl2_MC.elaboration ELABORATION :::'Ide' not
+R1794:1796 impl2_MC.elaboration ELABORATION :::'KTp' not
+def 1816:1824 <> tbe_state
+R1851:1853 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1840:1842 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1836:1839 impl2_MC.elaboration ELABORATION :::'tenv' not
+R1843:1850 impl2_MC.elaboration ELABORATION :::'register' not
+R1854:1860 impl2_MC.elaboration <> tdblock def
+def 1879:1896 <> tdblock_ext_result
+R1901:1906 impl2_MC.result_type <> result ind
+R1926:1931 Coq.Strings.String <> string ind
+R1913:1915 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1909:1912 impl2_MC.elaboration ELABORATION :::'tenv' not
+R1916:1923 impl2_MC.elaboration ELABORATION :::'register' not
+def 2052:2064 <> early_binding
+R2070:2077 impl2_MC.elaboration ELABORATION :::'register' not
+binder 2067:2067 <> R:25
+R2084:2090 impl2_MC.elaboration <> tdblock def
+binder 2081:2081 <> B:26
+R2103:2112 Coq.Lists.List <> fold_right def
+R2158:2158 impl2_MC.elaboration <> B:26 var
+R2156:2156 impl2_MC.elaboration <> R:25 var
+R2120:2120 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2122:2123 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2125:2125 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 2121:2121 <> i:27
+binder 2120:2125 <> pat:28
+binder 2127:2127 <> e:29
+R2132:2135 impl2_MC.env <> bind def
+R2145:2150 impl2_MC.ids <> id_eqb proj
+R2152:2152 impl2_MC.elaboration <> ELABORATION.I var
+R2141:2142 Coq.Init.Datatypes <> tt constr
+R2139:2139 impl2_MC.elaboration <> i:27 var
+R2137:2137 impl2_MC.elaboration <> e:29 var
+def 2285:2296 <> type_env_ext
+R2302:2305 impl2_MC.elaboration ELABORATION :::'tenv' not
+binder 2299:2299 <> r:30
+R2312:2318 impl2_MC.elaboration <> tdblock def
+binder 2309:2309 <> B:31
+R2332:2341 Coq.Lists.List <> fold_right def
+R2376:2376 impl2_MC.elaboration <> B:31 var
+R2374:2374 impl2_MC.elaboration <> r:30 var
+R2349:2349 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2351:2352 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2354:2354 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 2353:2353 <> t:32
+binder 2350:2350 <> i:33
+binder 2349:2354 <> pat:34
+binder 2356:2356 <> e:35
+R2361:2365 impl2_MC.type_env <> tbind def
+R2371:2371 impl2_MC.elaboration <> t:32 var
+R2369:2369 impl2_MC.elaboration <> i:33 var
+R2367:2367 impl2_MC.elaboration <> e:35 var
+def 2510:2522 <> dblock_constr
+R2528:2534 impl2_MC.elaboration <> tdblock def
+binder 2525:2525 <> B:36
+R2539:2544 Coq.Init.Datatypes <> option ind
+R2547:2550 Coq.Init.Datatypes <> list ind
+R2552:2557 impl2_MC.elaboration ELABORATION :::'Constr' not
+R2570:2579 Coq.Lists.List <> fold_right def
+R2776:2776 impl2_MC.elaboration <> B:36 var
+R2767:2770 Coq.Init.Datatypes <> Some constr
+R2772:2773 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R2587:2587 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2589:2590 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2592:2592 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 2591:2591 <> t:37
+binder 2587:2592 <> pat:38
+binder 2594:2596 <> acc:39
+R2630:2632 impl2_MC.elaboration <> acc:39 var
+R2627:2627 impl2_MC.elaboration <> t:37 var
+R2660:2668 impl2_MC.kernel_syntax <> KTVariant constr
+R2674:2677 Coq.Init.Datatypes <> Some constr
+R2684:2687 Coq.Init.Datatypes <> Some constr
+R2704:2707 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R2690:2692 Coq.Init.Datatypes <> fst def
+R2695:2699 Coq.Lists.List <> split def
+R2756:2759 Coq.Init.Datatypes <> None constr
+prf 2797:2817 <> dblock_constr_correct
+binder 2828:2828 <> i:42
+binder 2830:2830 <> l:43
+binder 2832:2832 <> B:44
+binder 2834:2834 <> c:45
+binder 2836:2837 <> l':46
+R2868:2878 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2847:2848 Coq.Lists.List <> In def
+R2867:2867 impl2_MC.elaboration <> B:44 var
+R2850:2850 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2852:2853 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2865:2865 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2851:2851 impl2_MC.elaboration <> i:42 var
+R2854:2862 impl2_MC.kernel_syntax <> KTVariant constr
+R2864:2864 impl2_MC.elaboration <> l:43 var
+R2899:2909 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2879:2880 Coq.Lists.List <> In def
+R2885:2887 Coq.Init.Datatypes <> fst def
+R2890:2894 Coq.Lists.List <> split def
+R2896:2896 impl2_MC.elaboration <> l:43 var
+R2882:2882 impl2_MC.elaboration <> c:45 var
+R2937:2947 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2917:2920 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2936:2936 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2910:2913 Coq.Init.Datatypes <> Some constr
+R2915:2916 impl2_MC.elaboration <> l':46 var
+R2921:2933 impl2_MC.elaboration <> dblock_constr def
+R2935:2935 impl2_MC.elaboration <> B:44 var
+R2948:2949 Coq.Lists.List <> In def
+R2953:2954 impl2_MC.elaboration <> l':46 var
+R2951:2951 impl2_MC.elaboration <> c:45 var
+R3147:3159 impl2_MC.elaboration <> dblock_constr def
+R3147:3159 impl2_MC.elaboration <> dblock_constr def
+R3287:3296 Coq.Lists.List <> in_app_iff thm
+R3287:3296 Coq.Lists.List <> in_app_iff thm
+R3287:3296 Coq.Lists.List <> in_app_iff thm
+R3434:3443 Coq.Lists.List <> in_app_iff thm
+R3434:3443 Coq.Lists.List <> in_app_iff thm
+R3434:3443 Coq.Lists.List <> in_app_iff thm
+ind 3620:3632 <> TBlockExtends
+constr 3675:3679 <> TBext
+R3644:3647 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3635:3643 impl2_MC.elaboration <> tbe_state def
+R3657:3660 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3648:3656 impl2_MC.elaboration <> tbe_state def
+binder 3690:3690 <> r:49
+binder 3692:3692 <> R:50
+binder 3694:3694 <> B:51
+binder 3696:3696 <> l:52
+R3720:3736 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3712:3715 impl2_MC.type_theory <> WFET def
+R3719:3719 impl2_MC.elaboration <> R:50 var
+R3717:3717 impl2_MC.elaboration <> r:49 var
+R3777:3793 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3770:3772 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3737:3742 impl2_MC.type_theory <> nodupb def
+R3756:3758 Coq.Init.Datatypes <> fst def
+R3761:3765 Coq.Lists.List <> split def
+R3767:3767 impl2_MC.elaboration <> B:51 var
+R3745:3750 impl2_MC.ids <> id_eqb proj
+R3752:3752 impl2_MC.elaboration <> ELABORATION.I var
+R3773:3776 Coq.Init.Datatypes <> true constr
+R3841:3858 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3794:3799 Coq.Lists.List <> Forall ind
+R3827:3829 Coq.Init.Datatypes <> snd def
+R3832:3836 Coq.Lists.List <> split def
+R3838:3838 impl2_MC.elaboration <> B:51 var
+R3802:3803 impl2_MC.type_theory <> DT ind
+R3806:3818 impl2_MC.elaboration <> early_binding def
+R3822:3822 impl2_MC.elaboration <> B:51 var
+R3820:3820 impl2_MC.elaboration <> R:50 var
+R3883:3899 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3865:3867 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3859:3862 Coq.Init.Datatypes <> Some constr
+R3864:3864 impl2_MC.elaboration <> l:52 var
+R3868:3880 impl2_MC.elaboration <> dblock_constr def
+R3882:3882 impl2_MC.elaboration <> B:51 var
+R3930:3947 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3923:3925 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3900:3905 impl2_MC.type_theory <> nodupb def
+R3922:3922 impl2_MC.elaboration <> l:52 var
+R3908:3917 impl2_MC.ids <> constr_eqb proj
+R3919:3919 impl2_MC.elaboration <> ELABORATION.I var
+R3926:3929 Coq.Init.Datatypes <> true constr
+R3948:3960 impl2_MC.elaboration <> TBlockExtends:47 ind
+R3972:3972 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3989:3990 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4008:4009 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4011:4011 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3973:3984 impl2_MC.elaboration <> type_env_ext def
+R3988:3988 impl2_MC.elaboration <> B:51 var
+R3986:3986 impl2_MC.elaboration <> r:49 var
+R3991:4003 impl2_MC.elaboration <> early_binding def
+R4007:4007 impl2_MC.elaboration <> B:51 var
+R4005:4005 impl2_MC.elaboration <> R:50 var
+R4010:4010 impl2_MC.elaboration <> B:51 var
+R3962:3962 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3964:3965 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3967:3968 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3970:3970 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3963:3963 impl2_MC.elaboration <> r:49 var
+R3966:3966 impl2_MC.elaboration <> R:50 var
+R3969:3969 impl2_MC.elaboration <> B:51 var
+scheme 3620:3632 <> TBlockExtends_ind
+scheme 3620:3632 <> TBlockExtends_sind
+prf 4029:4054 <> extension_preserves_eq_dom
+binder 4065:4065 <> r:53
+binder 4067:4067 <> R:54
+binder 4069:4069 <> B:55
+R4078:4078 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4110:4121 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4187:4187 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 4086:4086 <> i:56
+R4098:4102 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R4090:4093 impl2_MC.type_env <> tdom def
+R4097:4097 impl2_MC.elaboration <> i:56 var
+R4095:4095 impl2_MC.elaboration <> r:53 var
+R4103:4105 impl2_MC.env <> dom def
+R4109:4109 impl2_MC.elaboration <> i:56 var
+R4107:4107 impl2_MC.elaboration <> R:54 var
+binder 4129:4129 <> i:57
+R4157:4161 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R4132:4135 impl2_MC.type_env <> tdom def
+R4156:4156 impl2_MC.elaboration <> i:57 var
+R4138:4149 impl2_MC.elaboration <> type_env_ext def
+R4153:4153 impl2_MC.elaboration <> B:55 var
+R4151:4151 impl2_MC.elaboration <> r:53 var
+R4162:4164 impl2_MC.env <> dom def
+R4186:4186 impl2_MC.elaboration <> i:57 var
+R4167:4179 impl2_MC.elaboration <> early_binding def
+R4183:4183 impl2_MC.elaboration <> B:55 var
+R4181:4181 impl2_MC.elaboration <> R:54 var
+R4386:4389 impl2_MC.type_env <> tdom def
+R4392:4398 impl2_MC.type_env <> tlookup def
+R4401:4405 impl2_MC.type_env <> tbind def
+R4504:4509 impl2_MC.ids <> id_eqb proj
+R4511:4511 impl2_MC.elaboration <> ELABORATION.I var
+R4504:4509 impl2_MC.ids <> id_eqb proj
+R4511:4511 impl2_MC.elaboration <> ELABORATION.I var
+R4550:4552 impl2_MC.env <> dom def
+R4555:4560 impl2_MC.env <> lookup def
+R4570:4571 Coq.Init.Datatypes <> tt constr
+R4570:4571 Coq.Init.Datatypes <> tt constr
+R4600:4603 impl2_MC.env <> bind def
+R4646:4649 impl2_MC.type_env <> tdom def
+R4652:4658 impl2_MC.type_env <> tlookup def
+R4661:4665 impl2_MC.type_env <> tbind def
+R4700:4706 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R4708:4723 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 4707:4707 <> y:58
+R4765:4767 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4724:4732 impl2_MC.type_env <> assoc_opt def
+R4756:4761 impl2_MC.ids <> id_eqb proj
+R4763:4763 impl2_MC.elaboration <> ELABORATION.I var
+R4735:4746 impl2_MC.elaboration <> type_env_ext def
+R4768:4771 Coq.Init.Datatypes <> Some constr
+R4773:4773 impl2_MC.elaboration <> y:58 var
+R4700:4706 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R4708:4723 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 4707:4707 <> y:59
+R4765:4767 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4724:4732 impl2_MC.type_env <> assoc_opt def
+R4756:4761 impl2_MC.ids <> id_eqb proj
+R4763:4763 impl2_MC.elaboration <> ELABORATION.I var
+R4735:4746 impl2_MC.elaboration <> type_env_ext def
+R4768:4771 Coq.Init.Datatypes <> Some constr
+R4773:4773 impl2_MC.elaboration <> y:59 var
+R4869:4871 impl2_MC.env <> dom def
+R4874:4879 impl2_MC.env <> lookup def
+R4882:4885 impl2_MC.env <> bind def
+R5109:5111 impl2_MC.env <> dom def
+R5114:5119 impl2_MC.env <> lookup def
+R5122:5125 impl2_MC.env <> bind def
+R5195:5200 impl2_MC.ids <> id_eqb proj
+R5202:5202 impl2_MC.elaboration <> ELABORATION.I var
+R5195:5200 impl2_MC.ids <> id_eqb proj
+R5202:5202 impl2_MC.elaboration <> ELABORATION.I var
+R5241:5244 impl2_MC.type_env <> tdom def
+R5247:5253 impl2_MC.type_env <> tlookup def
+R5325:5330 impl2_MC.env <> lookup def
+R5361:5363 impl2_MC.env <> dom def
+R5366:5371 impl2_MC.env <> lookup def
+R5374:5377 impl2_MC.env <> bind def
+R5412:5418 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R5420:5435 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 5419:5419 <> y:60
+R5455:5457 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5436:5448 impl2_MC.elaboration <> early_binding def
+R5458:5461 Coq.Init.Datatypes <> Some constr
+R5463:5463 impl2_MC.elaboration <> y:60 var
+R5412:5418 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R5420:5435 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 5419:5419 <> y:61
+R5455:5457 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5436:5448 impl2_MC.elaboration <> early_binding def
+R5458:5461 Coq.Init.Datatypes <> Some constr
+R5463:5463 impl2_MC.elaboration <> y:61 var
+R5559:5562 impl2_MC.type_env <> tdom def
+R5565:5571 impl2_MC.type_env <> tlookup def
+R5574:5578 impl2_MC.type_env <> tbind def
+prf 5701:5723 <> early_bind_preserves_AF
+R5738:5745 impl2_MC.elaboration ELABORATION :::'register' not
+binder 5735:5735 <> R:62
+R5752:5758 impl2_MC.elaboration <> tdblock def
+binder 5749:5749 <> B:63
+R5765:5767 impl2_MC.elaboration ELABORATION :::'KTp' not
+binder 5762:5762 <> t:64
+R5784:5787 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5778:5779 impl2_MC.type_theory <> AF ind
+R5783:5783 impl2_MC.elaboration <> t:64 var
+R5781:5781 impl2_MC.elaboration <> R:62 var
+R5788:5789 impl2_MC.type_theory <> AF ind
+R5811:5811 impl2_MC.elaboration <> t:64 var
+R5792:5804 impl2_MC.elaboration <> early_binding def
+R5808:5808 impl2_MC.elaboration <> B:63 var
+R5806:5806 impl2_MC.elaboration <> R:62 var
+R5872:5878 impl2_MC.type_theory <> AF_ind' def
+R5872:5878 impl2_MC.type_theory <> AF_ind' def
+R5895:5902 impl2_MC.type_theory <> AF_TBase constr
+R5895:5902 impl2_MC.type_theory <> AF_TBase constr
+R5919:5926 impl2_MC.type_theory <> AF_TUnit constr
+R5919:5926 impl2_MC.type_theory <> AF_TUnit constr
+R5944:5951 impl2_MC.type_theory <> AF_TProd constr
+R5944:5951 impl2_MC.type_theory <> AF_TProd constr
+R5975:5982 impl2_MC.type_theory <> AF_TList constr
+R5975:5982 impl2_MC.type_theory <> AF_TList constr
+R6006:6016 impl2_MC.type_theory <> AF_TVariant constr
+R6006:6016 impl2_MC.type_theory <> AF_TVariant constr
+R6040:6046 impl2_MC.type_theory <> AF_TRef constr
+R6040:6046 impl2_MC.type_theory <> AF_TRef constr
+R6169:6176 impl2_MC.env <> includes def
+R6179:6184 impl2_MC.env <> lookup def
+R6187:6190 impl2_MC.env <> bind def
+R6213:6218 impl2_MC.ids <> id_eqb proj
+R6220:6220 impl2_MC.elaboration <> ELABORATION.I var
+R6213:6218 impl2_MC.ids <> id_eqb proj
+R6220:6220 impl2_MC.elaboration <> ELABORATION.I var
+prf 6276:6298 <> early_bind_preserves_DT
+R6313:6320 impl2_MC.elaboration ELABORATION :::'register' not
+binder 6310:6310 <> R:65
+R6327:6333 impl2_MC.elaboration <> tdblock def
+binder 6324:6324 <> B:66
+R6340:6342 impl2_MC.elaboration ELABORATION :::'KTp' not
+binder 6337:6337 <> t:67
+R6360:6363 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6354:6355 impl2_MC.type_theory <> DT ind
+R6359:6359 impl2_MC.elaboration <> t:67 var
+R6357:6357 impl2_MC.elaboration <> R:65 var
+R6364:6365 impl2_MC.type_theory <> DT ind
+R6387:6387 impl2_MC.elaboration <> t:67 var
+R6368:6380 impl2_MC.elaboration <> early_binding def
+R6384:6384 impl2_MC.elaboration <> B:66 var
+R6382:6382 impl2_MC.elaboration <> R:65 var
+R6464:6474 impl2_MC.type_theory <> DT_TVariant constr
+R6464:6474 impl2_MC.type_theory <> DT_TVariant constr
+R6489:6511 impl2_MC.elaboration <> early_bind_preserves_AF thm
+R6489:6511 impl2_MC.elaboration <> early_bind_preserves_AF thm
+prf 6557:6568 <> imm_backward
+R6583:6586 impl2_MC.elaboration ELABORATION :::'tenv' not
+binder 6580:6580 <> r:68
+R6593:6599 impl2_MC.elaboration <> tdblock def
+binder 6590:6590 <> B:69
+binder 6602:6602 <> t:70
+R6637:6647 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6612:6615 impl2_MC.type_env <> timm def
+R6636:6636 impl2_MC.elaboration <> t:70 var
+R6618:6629 impl2_MC.elaboration <> type_env_ext def
+R6633:6633 impl2_MC.elaboration <> B:69 var
+R6631:6631 impl2_MC.elaboration <> r:68 var
+R6656:6659 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R6648:6651 impl2_MC.type_env <> timm def
+R6655:6655 impl2_MC.elaboration <> t:70 var
+R6653:6653 impl2_MC.elaboration <> r:68 var
+R6660:6661 Coq.Lists.List <> In def
+R6666:6668 Coq.Init.Datatypes <> snd def
+R6671:6675 Coq.Lists.List <> split def
+R6677:6677 impl2_MC.elaboration <> B:69 var
+R6663:6663 impl2_MC.elaboration <> t:70 var
+R6824:6828 Coq.Lists.List <> split def
+R6824:6828 Coq.Lists.List <> split def
+R6849:6852 impl2_MC.type_env <> timm def
+R6855:6861 impl2_MC.type_env <> tlookup def
+R6864:6868 impl2_MC.type_env <> tbind def
+R6936:6941 impl2_MC.ids <> id_eqb proj
+R6943:6943 impl2_MC.elaboration <> ELABORATION.I var
+R6936:6941 impl2_MC.ids <> id_eqb proj
+R6943:6943 impl2_MC.elaboration <> ELABORATION.I var
+R7046:7052 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R7054:7068 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 7053:7053 <> i:71
+R7110:7112 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7069:7077 impl2_MC.type_env <> assoc_opt def
+R7101:7106 impl2_MC.ids <> id_eqb proj
+R7108:7108 impl2_MC.elaboration <> ELABORATION.I var
+R7098:7098 impl2_MC.elaboration <> i:71 var
+R7080:7091 impl2_MC.elaboration <> type_env_ext def
+R7113:7116 Coq.Init.Datatypes <> Some constr
+R7046:7052 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R7054:7068 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 7053:7053 <> i:72
+R7110:7112 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7069:7077 impl2_MC.type_env <> assoc_opt def
+R7101:7106 impl2_MC.ids <> id_eqb proj
+R7108:7108 impl2_MC.elaboration <> ELABORATION.I var
+R7098:7098 impl2_MC.elaboration <> i:72 var
+R7080:7091 impl2_MC.elaboration <> type_env_ext def
+R7113:7116 Coq.Init.Datatypes <> Some constr
+prf 7356:7376 <> TBlockExtends_correct
+binder 7387:7387 <> r:73
+binder 7389:7389 <> R:74
+binder 7391:7392 <> r':75
+binder 7394:7395 <> R':76
+binder 7397:7397 <> B:77
+R7441:7444 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7406:7418 impl2_MC.elaboration <> TBlockExtends ind
+R7430:7430 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R7433:7434 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R7437:7438 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R7440:7440 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R7431:7432 impl2_MC.elaboration <> r':75 var
+R7435:7436 impl2_MC.elaboration <> R':76 var
+R7439:7439 impl2_MC.elaboration <> B:77 var
+R7420:7420 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R7422:7423 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R7425:7426 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R7428:7428 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R7421:7421 impl2_MC.elaboration <> r:73 var
+R7424:7424 impl2_MC.elaboration <> R:74 var
+R7427:7427 impl2_MC.elaboration <> B:77 var
+R7445:7448 impl2_MC.type_theory <> WFET def
+R7453:7454 impl2_MC.elaboration <> R':76 var
+R7450:7451 impl2_MC.elaboration <> r':75 var
+R7665:7668 impl2_MC.type_theory <> WFET def
+R7700:7725 impl2_MC.elaboration <> extension_preserves_eq_dom thm
+R7700:7725 impl2_MC.elaboration <> extension_preserves_eq_dom thm
+R7766:7777 impl2_MC.elaboration <> imm_backward thm
+R7766:7777 impl2_MC.elaboration <> imm_backward thm
+R7864:7886 impl2_MC.elaboration <> early_bind_preserves_DT thm
+R7864:7886 impl2_MC.elaboration <> early_bind_preserves_DT thm
+R7914:7926 Coq.Lists.List <> Forall_forall thm
+R7914:7926 Coq.Lists.List <> Forall_forall thm
+R7914:7926 Coq.Lists.List <> Forall_forall thm
+def 8073:8086 <> tblock_extends
+binder 8088:8088 <> r:78
+binder 8090:8090 <> R:79
+binder 8092:8092 <> B:80
+R8096:8113 impl2_MC.elaboration <> tdblock_ext_result def
+R8128:8133 impl2_MC.type_theory <> nodupb def
+R8147:8149 Coq.Init.Datatypes <> fst def
+R8152:8156 Coq.Lists.List <> split def
+R8158:8158 impl2_MC.elaboration <> B:80 var
+R8136:8141 impl2_MC.ids <> id_eqb proj
+R8143:8143 impl2_MC.elaboration <> ELABORATION.I var
+R8682:8686 impl2_MC.result_type <> Error constr
+R8186:8198 impl2_MC.elaboration <> early_binding def
+R8202:8202 impl2_MC.elaboration <> B:80 var
+R8200:8200 impl2_MC.elaboration <> R:79 var
+binder 8180:8181 <> R':81
+R8219:8225 Coq.Lists.List <> forallb def
+R8255:8255 impl2_MC.elaboration <> B:80 var
+binder 8232:8232 <> p:82
+R8237:8241 impl2_MC.type_theory <> is_DT def
+R8247:8249 Coq.Init.Datatypes <> snd def
+R8251:8251 impl2_MC.elaboration <> p:82 var
+R8243:8244 impl2_MC.elaboration <> R':81 var
+R8626:8630 impl2_MC.result_type <> Error constr
+R8283:8294 impl2_MC.elaboration <> type_env_ext def
+R8298:8298 impl2_MC.elaboration <> B:80 var
+R8296:8296 impl2_MC.elaboration <> r:78 var
+binder 8277:8278 <> r':83
+R8320:8332 impl2_MC.elaboration <> dblock_constr def
+R8334:8334 impl2_MC.elaboration <> B:80 var
+R8353:8356 Coq.Init.Datatypes <> Some constr
+R8367:8372 impl2_MC.type_theory <> nodupb def
+R8375:8384 impl2_MC.ids <> constr_eqb proj
+R8386:8386 impl2_MC.elaboration <> ELABORATION.I var
+R8436:8440 impl2_MC.result_type <> Error constr
+R8396:8397 impl2_MC.result_type <> Ok constr
+R8399:8399 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8402:8403 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8406:8406 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R8400:8401 impl2_MC.elaboration <> r':83 var
+R8404:8405 impl2_MC.elaboration <> R':81 var
+R8517:8520 Coq.Init.Datatypes <> None constr
+R8528:8532 impl2_MC.result_type <> Error constr
+prf 8771:8787 <> Forall_split_conv
+binder 8799:8799 <> X:84
+binder 8801:8801 <> Y:85
+binder 8804:8804 <> P:86
+R8810:8813 Coq.Init.Datatypes <> list ind
+R8817:8819 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R8816:8816 impl2_MC.elaboration <> X:84 var
+R8820:8820 impl2_MC.elaboration <> Y:85 var
+binder 8807:8807 <> l:87
+R8855:8859 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R8831:8836 Coq.Lists.List <> Forall ind
+R8841:8843 Coq.Init.Datatypes <> snd def
+R8846:8850 Coq.Lists.List <> split def
+R8852:8852 impl2_MC.elaboration <> l:87 var
+R8838:8838 impl2_MC.elaboration <> P:86 var
+R8860:8865 Coq.Lists.List <> Forall ind
+R8888:8888 impl2_MC.elaboration <> l:87 var
+binder 8872:8872 <> p:88
+R8877:8877 impl2_MC.elaboration <> P:86 var
+R8880:8882 Coq.Init.Datatypes <> snd def
+R8884:8884 impl2_MC.elaboration <> p:88 var
+R8954:8963 Coq.Lists.List <> Forall_nil constr
+R9006:9010 Coq.Lists.List <> split def
+R9037:9047 Coq.Lists.List <> Forall_cons constr
+R8954:8963 Coq.Lists.List <> Forall_nil constr
+R8954:8963 Coq.Lists.List <> Forall_nil constr
+R8954:8963 Coq.Lists.List <> Forall_nil constr
+R8954:8963 Coq.Lists.List <> Forall_nil constr
+R9006:9010 Coq.Lists.List <> split def
+R9006:9010 Coq.Lists.List <> split def
+R9037:9047 Coq.Lists.List <> Forall_cons constr
+R9037:9047 Coq.Lists.List <> Forall_cons constr
+prf 9138:9152 <> tbl_ext_correct
+binder 9162:9162 <> r:89
+binder 9164:9165 <> r':90
+binder 9167:9167 <> R:91
+binder 9169:9170 <> R':92
+binder 9172:9172 <> B:93
+R9189:9200 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9181:9184 impl2_MC.type_theory <> WFET def
+R9188:9188 impl2_MC.elaboration <> R:91 var
+R9186:9186 impl2_MC.elaboration <> r:89 var
+R9235:9245 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9221:9223 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9201:9214 impl2_MC.elaboration <> tblock_extends def
+R9220:9220 impl2_MC.elaboration <> B:93 var
+R9218:9218 impl2_MC.elaboration <> R:91 var
+R9216:9216 impl2_MC.elaboration <> r:89 var
+R9224:9225 impl2_MC.result_type <> Ok constr
+R9227:9227 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9230:9231 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9234:9234 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9228:9229 impl2_MC.elaboration <> r':90 var
+R9232:9233 impl2_MC.elaboration <> R':92 var
+R9246:9258 impl2_MC.elaboration <> TBlockExtends ind
+R9270:9270 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9273:9274 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9277:9278 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9280:9280 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9271:9272 impl2_MC.elaboration <> r':90 var
+R9275:9276 impl2_MC.elaboration <> R':92 var
+R9279:9279 impl2_MC.elaboration <> B:93 var
+R9260:9260 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9262:9263 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9265:9266 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9268:9268 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9261:9261 impl2_MC.elaboration <> r:89 var
+R9264:9264 impl2_MC.elaboration <> R:91 var
+R9267:9267 impl2_MC.elaboration <> B:93 var
+R9338:9351 impl2_MC.elaboration <> tblock_extends def
+R9381:9386 impl2_MC.type_theory <> nodupb def
+R9381:9386 impl2_MC.type_theory <> nodupb def
+R9424:9430 Coq.Lists.List <> forallb def
+R9424:9430 Coq.Lists.List <> forallb def
+R9471:9483 impl2_MC.elaboration <> dblock_constr def
+R9471:9483 impl2_MC.elaboration <> dblock_constr def
+R9526:9531 impl2_MC.type_theory <> nodupb def
+R9534:9543 impl2_MC.ids <> constr_eqb proj
+R9545:9545 impl2_MC.elaboration <> ELABORATION.I var
+R9526:9531 impl2_MC.type_theory <> nodupb def
+R9534:9543 impl2_MC.ids <> constr_eqb proj
+R9545:9545 impl2_MC.elaboration <> ELABORATION.I var
+R9623:9627 impl2_MC.elaboration <> TBext constr
+R9623:9627 impl2_MC.elaboration <> TBext constr
+R9662:9678 impl2_MC.elaboration <> Forall_split_conv thm
+R9662:9678 impl2_MC.elaboration <> Forall_split_conv thm
+R9699:9720 impl2_MC.type_theory <> Forall_impl_forallb_DT thm
+R9699:9720 impl2_MC.type_theory <> Forall_impl_forallb_DT thm
+R9766:9776 impl2_MC.type_theory <> is_DT_eq_DT thm
+R9766:9776 impl2_MC.type_theory <> is_DT_eq_DT thm
+prf 9888:9903 <> tbl_ext_complete
+binder 9913:9913 <> r:94
+binder 9915:9916 <> r':95
+binder 9918:9918 <> R:96
+binder 9920:9921 <> R':97
+binder 9923:9923 <> B:98
+R9970:9980 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9935:9947 impl2_MC.elaboration <> TBlockExtends ind
+R9959:9959 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9962:9963 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9966:9967 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9969:9969 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9960:9961 impl2_MC.elaboration <> r':95 var
+R9964:9965 impl2_MC.elaboration <> R':97 var
+R9968:9968 impl2_MC.elaboration <> B:98 var
+R9949:9949 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9951:9952 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9954:9955 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9957:9957 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R9950:9950 impl2_MC.elaboration <> r:94 var
+R9953:9953 impl2_MC.elaboration <> R:96 var
+R9956:9956 impl2_MC.elaboration <> B:98 var
+R10001:10003 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9981:9994 impl2_MC.elaboration <> tblock_extends def
+R10000:10000 impl2_MC.elaboration <> B:98 var
+R9998:9998 impl2_MC.elaboration <> R:96 var
+R9996:9996 impl2_MC.elaboration <> r:94 var
+R10004:10005 impl2_MC.result_type <> Ok constr
+R10007:10007 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10010:10011 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10014:10014 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10008:10009 impl2_MC.elaboration <> r':95 var
+R10012:10013 impl2_MC.elaboration <> R':97 var
+R10177:10190 impl2_MC.elaboration <> tblock_extends def
+R10229:10245 impl2_MC.elaboration <> Forall_split_conv thm
+R10229:10245 impl2_MC.elaboration <> Forall_split_conv thm
+R10273:10294 impl2_MC.type_theory <> Forall_impl_forallb_DT thm
+R10273:10294 impl2_MC.type_theory <> Forall_impl_forallb_DT thm
+R10273:10294 impl2_MC.type_theory <> Forall_impl_forallb_DT thm
+R10273:10294 impl2_MC.type_theory <> Forall_impl_forallb_DT thm
+R10421:10431 impl2_MC.type_theory <> is_DT_eq_DT thm
+R10421:10431 impl2_MC.type_theory <> is_DT_eq_DT thm
+prf 10462:10480 <> tbl_ext_correct_Err
+binder 10490:10490 <> r:99
+binder 10492:10492 <> R:100
+binder 10494:10494 <> B:101
+binder 10496:10499 <> mssg:102
+R10542:10552 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R10603:10603 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R10529:10531 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10509:10522 impl2_MC.elaboration <> tblock_extends def
+R10528:10528 impl2_MC.elaboration <> B:101 var
+R10526:10526 impl2_MC.elaboration <> R:100 var
+R10524:10524 impl2_MC.elaboration <> r:99 var
+R10532:10536 impl2_MC.result_type <> Error constr
+R10538:10541 impl2_MC.elaboration <> mssg:102 var
+binder 10560:10561 <> r':103
+binder 10563:10564 <> R':104
+R10567:10567 Coq.Init.Logic <> ::type_scope:'~'_x not
+R10568:10580 impl2_MC.elaboration <> TBlockExtends ind
+R10592:10592 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10595:10596 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10599:10600 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10602:10602 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10593:10594 impl2_MC.elaboration <> r':103 var
+R10597:10598 impl2_MC.elaboration <> R':104 var
+R10601:10601 impl2_MC.elaboration <> B:101 var
+R10582:10582 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10584:10585 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10587:10588 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10590:10590 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R10583:10583 impl2_MC.elaboration <> r:99 var
+R10586:10586 impl2_MC.elaboration <> R:100 var
+R10589:10589 impl2_MC.elaboration <> B:101 var
+R10645:10647 Coq.Init.Logic <> not def
+R10798:10811 impl2_MC.elaboration <> tblock_extends def
+R10864:10880 impl2_MC.elaboration <> Forall_split_conv thm
+R10864:10880 impl2_MC.elaboration <> Forall_split_conv thm
+R10908:10929 impl2_MC.type_theory <> Forall_impl_forallb_DT thm
+R10908:10929 impl2_MC.type_theory <> Forall_impl_forallb_DT thm
+R10908:10929 impl2_MC.type_theory <> Forall_impl_forallb_DT thm
+R10908:10929 impl2_MC.type_theory <> Forall_impl_forallb_DT thm
+R11079:11089 impl2_MC.type_theory <> is_DT_eq_DT thm
+R11079:11089 impl2_MC.type_theory <> is_DT_eq_DT thm
+prf 11118:11137 <> tbl_ext_complete_Err
+binder 11147:11147 <> r:105
+binder 11149:11149 <> R:106
+binder 11151:11151 <> B:107
+R11170:11180 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11162:11165 impl2_MC.type_theory <> WFET def
+R11169:11169 impl2_MC.elaboration <> R:106 var
+R11167:11167 impl2_MC.elaboration <> r:105 var
+R11181:11181 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11232:11245 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11292:11292 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 11189:11190 <> r':108
+binder 11192:11193 <> R':109
+R11196:11196 Coq.Init.Logic <> ::type_scope:'~'_x not
+R11197:11209 impl2_MC.elaboration <> TBlockExtends ind
+R11221:11221 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11224:11225 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11228:11229 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11231:11231 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11222:11223 impl2_MC.elaboration <> r':108 var
+R11226:11227 impl2_MC.elaboration <> R':109 var
+R11230:11230 impl2_MC.elaboration <> B:107 var
+R11211:11211 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11213:11214 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11216:11217 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11219:11219 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11212:11212 impl2_MC.elaboration <> r:105 var
+R11215:11215 impl2_MC.elaboration <> R:106 var
+R11218:11218 impl2_MC.elaboration <> B:107 var
+R11246:11252 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R11257:11258 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 11253:11256 <> mssg:110
+R11279:11281 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11259:11272 impl2_MC.elaboration <> tblock_extends def
+R11278:11278 impl2_MC.elaboration <> B:107 var
+R11276:11276 impl2_MC.elaboration <> R:106 var
+R11274:11274 impl2_MC.elaboration <> r:105 var
+R11282:11286 impl2_MC.result_type <> Error constr
+R11288:11291 impl2_MC.elaboration <> mssg:110 var
+R11349:11362 impl2_MC.elaboration <> tblock_extends def
+R11384:11389 impl2_MC.type_theory <> nodupb def
+R11384:11389 impl2_MC.type_theory <> nodupb def
+R11427:11433 Coq.Lists.List <> forallb def
+R11427:11433 Coq.Lists.List <> forallb def
+R11474:11486 impl2_MC.elaboration <> dblock_constr def
+R11474:11486 impl2_MC.elaboration <> dblock_constr def
+R11529:11534 impl2_MC.type_theory <> nodupb def
+R11537:11546 impl2_MC.ids <> constr_eqb proj
+R11548:11548 impl2_MC.elaboration <> ELABORATION.I var
+R11529:11534 impl2_MC.type_theory <> nodupb def
+R11537:11546 impl2_MC.ids <> constr_eqb proj
+R11548:11548 impl2_MC.elaboration <> ELABORATION.I var
+R11652:11664 impl2_MC.elaboration <> TBlockExtends ind
+R11676:11676 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11693:11694 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11712:11713 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11715:11715 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11677:11688 impl2_MC.elaboration <> type_env_ext def
+R11695:11707 impl2_MC.elaboration <> early_binding def
+R11666:11666 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11668:11669 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11671:11672 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11674:11674 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11652:11664 impl2_MC.elaboration <> TBlockExtends ind
+R11676:11676 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11693:11694 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11712:11713 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11715:11715 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11677:11688 impl2_MC.elaboration <> type_env_ext def
+R11695:11707 impl2_MC.elaboration <> early_binding def
+R11666:11666 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11668:11669 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11671:11672 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11674:11674 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R11742:11746 impl2_MC.elaboration <> TBext constr
+R11742:11746 impl2_MC.elaboration <> TBext constr
+R11786:11802 impl2_MC.elaboration <> Forall_split_conv thm
+R11828:11849 impl2_MC.type_theory <> Forall_impl_forallb_DT thm
+R11786:11802 impl2_MC.elaboration <> Forall_split_conv thm
+R11828:11849 impl2_MC.type_theory <> Forall_impl_forallb_DT thm
+R11891:11901 impl2_MC.type_theory <> is_DT_eq_DT thm
+R11891:11901 impl2_MC.type_theory <> is_DT_eq_DT thm
+R11928:11930 Coq.Init.Logic <> not def
+def 12454:12460 <> cdblock
+R12465:12468 Coq.Init.Datatypes <> list ind
+R12477:12479 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R12471:12476 impl2_MC.elaboration ELABORATION :::'Constr' not
+R12480:12482 impl2_MC.elaboration ELABORATION :::'KTp' not
+def 12732:12745 <> cblock_extends
+R12751:12760 impl2_MC.elaboration ELABORATION :::'constr_env' not
+binder 12748:12748 <> d:111
+R12767:12769 impl2_MC.elaboration ELABORATION :::'Ide' not
+binder 12764:12764 <> i:112
+R12776:12782 impl2_MC.elaboration <> cdblock def
+binder 12773:12773 <> l:113
+R12787:12796 impl2_MC.elaboration ELABORATION :::'constr_env' not
+R12813:12813 impl2_MC.elaboration <> l:113 var
+R12828:12829 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R12841:12841 impl2_MC.elaboration <> d:111 var
+R12857:12858 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R12851:12851 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12853:12854 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12856:12856 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12864:12867 impl2_MC.env <> bind def
+R12902:12911 impl2_MC.ids <> constr_eqb proj
+R12913:12913 impl2_MC.elaboration <> ELABORATION.I var
+R12894:12894 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12896:12897 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12899:12899 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12895:12895 impl2_MC.elaboration <> i:112 var
+R12870:12883 impl2_MC.elaboration <> cblock_extends:114 def
+R12889:12889 impl2_MC.elaboration <> l:113 var
+R12887:12887 impl2_MC.elaboration <> i:112 var
+R12885:12885 impl2_MC.elaboration <> d:111 var
+prf 12967:12981 <> bind_old_or_new
+binder 12992:12992 <> d:116
+binder 12994:12994 <> c:117
+binder 12996:12996 <> i:118
+binder 12998:12998 <> j:119
+binder 13000:13000 <> l:120
+binder 13002:13002 <> t:121
+R13056:13066 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R13042:13044 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13011:13016 impl2_MC.env <> lookup def
+R13041:13041 impl2_MC.elaboration <> c:117 var
+R13019:13032 impl2_MC.elaboration <> cblock_extends def
+R13038:13038 impl2_MC.elaboration <> l:120 var
+R13036:13036 impl2_MC.elaboration <> i:118 var
+R13034:13034 impl2_MC.elaboration <> d:116 var
+R13045:13048 Coq.Init.Datatypes <> Some constr
+R13050:13050 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13052:13053 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13055:13055 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13051:13051 impl2_MC.elaboration <> j:119 var
+R13054:13054 impl2_MC.elaboration <> t:121 var
+R13091:13095 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R13116:13116 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R13077:13079 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13067:13072 impl2_MC.env <> lookup def
+R13076:13076 impl2_MC.elaboration <> c:117 var
+R13074:13074 impl2_MC.elaboration <> d:116 var
+R13080:13083 Coq.Init.Datatypes <> Some constr
+R13085:13085 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13087:13088 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13090:13090 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13086:13086 impl2_MC.elaboration <> j:119 var
+R13089:13089 impl2_MC.elaboration <> t:121 var
+R13101:13104 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R13097:13099 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13096:13096 impl2_MC.elaboration <> j:119 var
+R13100:13100 impl2_MC.elaboration <> i:118 var
+R13105:13106 Coq.Lists.List <> In def
+R13115:13115 impl2_MC.elaboration <> l:120 var
+R13108:13108 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13110:13111 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13113:13113 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13109:13109 impl2_MC.elaboration <> c:117 var
+R13112:13112 impl2_MC.elaboration <> t:121 var
+R13330:13335 impl2_MC.env <> lookup def
+R13338:13341 impl2_MC.env <> bind def
+R13370:13379 impl2_MC.ids <> constr_eqb proj
+R13381:13381 impl2_MC.elaboration <> ELABORATION.I var
+R13370:13379 impl2_MC.ids <> constr_eqb proj
+R13381:13381 impl2_MC.elaboration <> ELABORATION.I var
+R13421:13433 impl2_MC.ids <> constr_eqb_eq proj
+R13421:13433 impl2_MC.ids <> constr_eqb_eq proj
+R13421:13433 impl2_MC.ids <> constr_eqb_eq proj
+prf 13730:13744 <> cbl_ext_correct
+binder 13755:13755 <> d:122
+binder 13757:13757 <> r:123
+binder 13759:13759 <> R:124
+binder 13761:13761 <> i:125
+binder 13763:13763 <> l:126
+R13783:13792 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R13773:13776 impl2_MC.pattern_theory <> WFEC def
+R13782:13782 impl2_MC.elaboration <> R:124 var
+R13780:13780 impl2_MC.elaboration <> r:123 var
+R13778:13778 impl2_MC.elaboration <> d:122 var
+R13814:13824 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R13793:13794 Coq.Lists.List <> In def
+R13813:13813 impl2_MC.elaboration <> r:123 var
+R13796:13796 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13798:13799 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13811:13811 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13797:13797 impl2_MC.elaboration <> i:125 var
+R13800:13808 impl2_MC.kernel_syntax <> KTVariant constr
+R13810:13810 impl2_MC.elaboration <> l:126 var
+R13825:13825 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R13894:13904 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 13833:13833 <> c:127
+binder 13835:13835 <> t:128
+R13849:13852 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R13838:13839 Coq.Lists.List <> In def
+R13848:13848 impl2_MC.elaboration <> l:126 var
+R13841:13841 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13843:13844 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13846:13846 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13842:13842 impl2_MC.elaboration <> c:127 var
+R13845:13845 impl2_MC.elaboration <> t:128 var
+R13870:13872 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13853:13865 impl2_MC.type_env <> last_type_def def
+R13869:13869 impl2_MC.elaboration <> c:127 var
+R13867:13867 impl2_MC.elaboration <> r:123 var
+R13873:13876 Coq.Init.Datatypes <> Some constr
+R13878:13878 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13880:13881 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13893:13893 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13879:13879 impl2_MC.elaboration <> i:125 var
+R13882:13890 impl2_MC.kernel_syntax <> KTVariant constr
+R13892:13892 impl2_MC.elaboration <> l:126 var
+R13905:13908 impl2_MC.pattern_theory <> WFEC def
+R13935:13935 impl2_MC.elaboration <> R:124 var
+R13933:13933 impl2_MC.elaboration <> r:123 var
+R13911:13924 impl2_MC.elaboration <> cblock_extends def
+R13930:13930 impl2_MC.elaboration <> l:126 var
+R13928:13928 impl2_MC.elaboration <> i:125 var
+R13926:13926 impl2_MC.elaboration <> d:122 var
+R13987:13990 impl2_MC.pattern_theory <> WFEC def
+R14076:14090 impl2_MC.elaboration <> bind_old_or_new thm
+R14076:14090 impl2_MC.elaboration <> bind_old_or_new thm
+def 14652:14669 <> bind_constr_tblock
+R14675:14684 impl2_MC.elaboration ELABORATION :::'constr_env' not
+binder 14672:14672 <> d:129
+R14691:14697 impl2_MC.elaboration <> tdblock def
+binder 14688:14688 <> B:130
+R14716:14716 impl2_MC.elaboration <> B:130 var
+R14731:14732 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R14756:14759 Coq.Init.Datatypes <> Some constr
+R14761:14761 impl2_MC.elaboration <> d:129 var
+R14787:14788 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R14771:14771 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R14773:14774 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R14786:14786 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R14775:14783 impl2_MC.kernel_syntax <> KTVariant constr
+R14796:14813 impl2_MC.elaboration <> bind_constr_tblock:131 def
+R14816:14829 impl2_MC.elaboration <> cblock_extends def
+R14831:14831 impl2_MC.elaboration <> d:129 var
+R14874:14877 Coq.Init.Datatypes <> None constr
+prf 14915:14932 <> bind_old_or_new_ex
+binder 14943:14943 <> d:133
+binder 14945:14946 <> d':134
+binder 14948:14948 <> B:135
+binder 14950:14950 <> c:136
+binder 14952:14952 <> j:137
+binder 14954:14954 <> t:138
+R14995:15005 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R14970:14972 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R14963:14966 Coq.Init.Datatypes <> Some constr
+R14968:14969 impl2_MC.elaboration <> d':134 var
+R14973:14990 impl2_MC.elaboration <> bind_constr_tblock def
+R14994:14994 impl2_MC.elaboration <> B:135 var
+R14992:14992 impl2_MC.elaboration <> d:133 var
+R15031:15041 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R15017:15019 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15006:15011 impl2_MC.env <> lookup def
+R15016:15016 impl2_MC.elaboration <> c:136 var
+R15013:15014 impl2_MC.elaboration <> d':134 var
+R15020:15023 Coq.Init.Datatypes <> Some constr
+R15025:15025 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15027:15028 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15030:15030 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15026:15026 impl2_MC.elaboration <> j:137 var
+R15029:15029 impl2_MC.elaboration <> t:138 var
+R15066:15077 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R15135:15135 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R15052:15054 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15042:15047 impl2_MC.env <> lookup def
+R15051:15051 impl2_MC.elaboration <> c:136 var
+R15049:15049 impl2_MC.elaboration <> d:133 var
+R15055:15058 Coq.Init.Datatypes <> Some constr
+R15060:15060 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15062:15063 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15065:15065 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15061:15061 impl2_MC.elaboration <> j:137 var
+R15064:15064 impl2_MC.elaboration <> t:138 var
+R15078:15084 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R15088:15089 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 15085:15085 <> i:139
+binder 15087:15087 <> l:140
+R15095:15098 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R15091:15093 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15090:15090 impl2_MC.elaboration <> j:137 var
+R15094:15094 impl2_MC.elaboration <> i:139 var
+R15120:15123 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R15099:15100 Coq.Lists.List <> In def
+R15119:15119 impl2_MC.elaboration <> B:135 var
+R15102:15102 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15104:15105 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15117:15117 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15103:15103 impl2_MC.elaboration <> i:139 var
+R15106:15114 impl2_MC.kernel_syntax <> KTVariant constr
+R15116:15116 impl2_MC.elaboration <> l:140 var
+R15124:15125 Coq.Lists.List <> In def
+R15134:15134 impl2_MC.elaboration <> l:140 var
+R15127:15127 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15129:15130 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15132:15132 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15128:15128 impl2_MC.elaboration <> c:136 var
+R15131:15131 impl2_MC.elaboration <> t:138 var
+R15420:15434 impl2_MC.elaboration <> bind_old_or_new thm
+R15420:15434 impl2_MC.elaboration <> bind_old_or_new thm
+prf 15771:15780 <> exb_cblock
+R15797:15800 Coq.Init.Datatypes <> list ind
+R15809:15811 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R15803:15808 impl2_MC.elaboration ELABORATION :::'Constr' not
+R15812:15814 impl2_MC.elaboration ELABORATION :::'KTp' not
+binder 15792:15793 <> cb:141
+binder 15818:15818 <> c:142
+R15879:15889 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R15872:15874 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15828:15834 Coq.Lists.List <> existsb def
+R15870:15871 impl2_MC.elaboration <> cb:141 var
+binder 15841:15841 <> p:143
+R15846:15855 impl2_MC.ids <> constr_eqb proj
+R15857:15857 impl2_MC.elaboration <> ELABORATION.I var
+R15860:15862 Coq.Init.Datatypes <> fst def
+R15864:15864 impl2_MC.elaboration <> p:143 var
+R15867:15867 impl2_MC.elaboration <> c:142 var
+R15875:15878 Coq.Init.Datatypes <> true constr
+R15890:15896 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R15898:15899 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 15897:15897 <> t:144
+R15900:15901 Coq.Lists.List <> In def
+R15910:15911 impl2_MC.elaboration <> cb:141 var
+R15903:15903 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15905:15906 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15908:15908 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R15904:15904 impl2_MC.elaboration <> c:142 var
+R15907:15907 impl2_MC.elaboration <> t:144 var
+R16036:16045 impl2_MC.ids <> constr_eqb proj
+R16047:16047 impl2_MC.elaboration <> ELABORATION.I var
+R16050:16052 Coq.Init.Datatypes <> fst def
+R16036:16045 impl2_MC.ids <> constr_eqb proj
+R16047:16047 impl2_MC.elaboration <> ELABORATION.I var
+R16050:16052 Coq.Init.Datatypes <> fst def
+R16139:16151 impl2_MC.ids <> constr_eqb_eq proj
+R16139:16151 impl2_MC.ids <> constr_eqb_eq proj
+R16139:16151 impl2_MC.ids <> constr_eqb_eq proj
+R16218:16233 Coq.Bool.Bool <> orb_false_l thm
+R16218:16233 Coq.Bool.Bool <> orb_false_l thm
+R16218:16233 Coq.Bool.Bool <> orb_false_l thm
+prf 16377:16387 <> nexb_cblock
+R16403:16406 Coq.Init.Datatypes <> list ind
+R16415:16417 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R16409:16414 impl2_MC.elaboration ELABORATION :::'Constr' not
+R16418:16420 impl2_MC.elaboration ELABORATION :::'KTp' not
+binder 16399:16400 <> cb:145
+binder 16424:16424 <> c:146
+R16487:16497 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16479:16481 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16435:16441 Coq.Lists.List <> existsb def
+R16477:16478 impl2_MC.elaboration <> cb:145 var
+binder 16448:16448 <> p:147
+R16453:16462 impl2_MC.ids <> constr_eqb proj
+R16464:16464 impl2_MC.elaboration <> ELABORATION.I var
+R16467:16469 Coq.Init.Datatypes <> fst def
+R16471:16471 impl2_MC.elaboration <> p:147 var
+R16474:16474 impl2_MC.elaboration <> c:146 var
+R16482:16486 Coq.Init.Datatypes <> false constr
+binder 16505:16505 <> t:148
+R16508:16508 Coq.Init.Logic <> ::type_scope:'~'_x not
+R16509:16510 Coq.Lists.List <> In def
+R16519:16520 impl2_MC.elaboration <> cb:145 var
+R16512:16512 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R16514:16515 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R16517:16517 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R16513:16513 impl2_MC.elaboration <> c:146 var
+R16516:16516 impl2_MC.elaboration <> t:148 var
+R16586:16588 Coq.Init.Logic <> not def
+R16644:16653 impl2_MC.ids <> constr_eqb proj
+R16655:16655 impl2_MC.elaboration <> ELABORATION.I var
+R16658:16660 Coq.Init.Datatypes <> fst def
+R16644:16653 impl2_MC.ids <> constr_eqb proj
+R16655:16655 impl2_MC.elaboration <> ELABORATION.I var
+R16658:16660 Coq.Init.Datatypes <> fst def
+R16700:16712 impl2_MC.ids <> constr_eqb_eq proj
+R16700:16712 impl2_MC.ids <> constr_eqb_eq proj
+R16700:16712 impl2_MC.ids <> constr_eqb_eq proj
+R16796:16811 Coq.Bool.Bool <> orb_false_l thm
+R16796:16811 Coq.Bool.Bool <> orb_false_l thm
+R16796:16811 Coq.Bool.Bool <> orb_false_l thm
+R16854:16856 Coq.Init.Logic <> not def
+R16970:16983 impl2_MC.ids <> constr_eqb_neq proj
+R16970:16983 impl2_MC.ids <> constr_eqb_neq proj
+R16970:16983 impl2_MC.ids <> constr_eqb_neq proj
+R16970:16983 impl2_MC.ids <> constr_eqb_neq proj
+R16970:16983 impl2_MC.ids <> constr_eqb_neq proj
+prf 17060:17074 <> In_split_cblock
+binder 17085:17085 <> c:149
+binder 17087:17087 <> t:150
+R17094:17097 Coq.Init.Datatypes <> list ind
+R17106:17108 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R17100:17105 impl2_MC.elaboration ELABORATION :::'Constr' not
+R17109:17111 impl2_MC.elaboration ELABORATION :::'KTp' not
+binder 17090:17091 <> cb:151
+R17135:17138 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17123:17124 Coq.Lists.List <> In def
+R17133:17134 impl2_MC.elaboration <> cb:151 var
+R17126:17126 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17128:17129 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17131:17131 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17127:17127 impl2_MC.elaboration <> c:149 var
+R17130:17130 impl2_MC.elaboration <> t:150 var
+R17139:17140 Coq.Lists.List <> In def
+R17145:17147 Coq.Init.Datatypes <> fst def
+R17150:17154 Coq.Lists.List <> split def
+R17156:17157 impl2_MC.elaboration <> cb:151 var
+R17142:17142 impl2_MC.elaboration <> c:149 var
+R17269:17273 Coq.Lists.List <> split def
+R17269:17273 Coq.Lists.List <> split def
+prf 17396:17410 <> split_In_cblock
+binder 17421:17421 <> c:152
+R17429:17432 Coq.Init.Datatypes <> list ind
+R17441:17443 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R17435:17440 impl2_MC.elaboration ELABORATION :::'Constr' not
+R17444:17446 impl2_MC.elaboration ELABORATION :::'KTp' not
+binder 17424:17425 <> cb:153
+R17479:17482 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17458:17459 Coq.Lists.List <> In def
+R17464:17466 Coq.Init.Datatypes <> fst def
+R17469:17473 Coq.Lists.List <> split def
+R17475:17476 impl2_MC.elaboration <> cb:153 var
+R17461:17461 impl2_MC.elaboration <> c:152 var
+R17483:17489 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R17491:17492 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 17490:17490 <> t:154
+R17493:17494 Coq.Lists.List <> In def
+R17503:17504 impl2_MC.elaboration <> cb:153 var
+R17496:17496 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17498:17499 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17501:17501 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17497:17497 impl2_MC.elaboration <> c:152 var
+R17500:17500 impl2_MC.elaboration <> t:154 var
+R17607:17611 Coq.Lists.List <> split def
+R17607:17611 Coq.Lists.List <> split def
+prf 17778:17788 <> ltd_correct
+binder 17798:17798 <> i:155
+binder 17800:17801 <> cb:156
+binder 17803:17803 <> B:157
+binder 17805:17805 <> c:158
+binder 17807:17807 <> t:159
+binder 17809:17809 <> l:160
+binder 17811:17811 <> r:161
+R17844:17854 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17822:17823 Coq.Lists.List <> In def
+R17843:17843 impl2_MC.elaboration <> B:157 var
+R17825:17825 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17827:17828 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17841:17841 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17826:17826 impl2_MC.elaboration <> i:155 var
+R17829:17837 impl2_MC.kernel_syntax <> KTVariant constr
+R17839:17840 impl2_MC.elaboration <> cb:156 var
+R17867:17877 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17855:17856 Coq.Lists.List <> In def
+R17865:17866 impl2_MC.elaboration <> cb:156 var
+R17858:17858 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17860:17861 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17863:17863 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17859:17859 impl2_MC.elaboration <> c:158 var
+R17862:17862 impl2_MC.elaboration <> t:159 var
+R17918:17928 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17911:17913 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17878:17883 impl2_MC.type_theory <> nodupb def
+R17897:17899 Coq.Init.Datatypes <> fst def
+R17902:17906 Coq.Lists.List <> split def
+R17908:17908 impl2_MC.elaboration <> B:157 var
+R17886:17891 impl2_MC.ids <> id_eqb proj
+R17893:17893 impl2_MC.elaboration <> ELABORATION.I var
+R17914:17917 Coq.Init.Datatypes <> true constr
+R17953:17963 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17935:17937 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17929:17932 Coq.Init.Datatypes <> Some constr
+R17934:17934 impl2_MC.elaboration <> l:160 var
+R17938:17950 impl2_MC.elaboration <> dblock_constr def
+R17952:17952 impl2_MC.elaboration <> B:157 var
+R17994:18003 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17987:17989 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17964:17969 impl2_MC.type_theory <> nodupb def
+R17986:17986 impl2_MC.elaboration <> l:160 var
+R17972:17981 impl2_MC.ids <> constr_eqb proj
+R17983:17983 impl2_MC.elaboration <> ELABORATION.I var
+R17990:17993 Coq.Init.Datatypes <> true constr
+R18038:18040 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18004:18016 impl2_MC.type_env <> last_type_def def
+R18037:18037 impl2_MC.elaboration <> c:158 var
+R18019:18030 impl2_MC.elaboration <> type_env_ext def
+R18034:18034 impl2_MC.elaboration <> B:157 var
+R18032:18032 impl2_MC.elaboration <> r:161 var
+R18041:18044 Coq.Init.Datatypes <> Some constr
+R18046:18046 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R18048:18049 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R18062:18062 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R18047:18047 impl2_MC.elaboration <> i:155 var
+R18050:18058 impl2_MC.kernel_syntax <> KTVariant constr
+R18060:18061 impl2_MC.elaboration <> cb:156 var
+R18295:18299 Coq.Lists.List <> split def
+R18295:18299 Coq.Lists.List <> split def
+R18341:18344 Coq.Lists.List <> find def
+R18341:18344 Coq.Lists.List <> find def
+R18393:18397 impl2_MC.type_env <> tbind def
+R18481:18487 Coq.Lists.List <> existsb def
+R18481:18487 Coq.Lists.List <> existsb def
+R18533:18543 impl2_MC.elaboration <> nexb_cblock thm
+R18533:18543 impl2_MC.elaboration <> nexb_cblock thm
+R18656:18662 Coq.Lists.List <> existsb def
+R18656:18662 Coq.Lists.List <> existsb def
+R18696:18709 Coq.Lists.List <> existsb_exists thm
+R18696:18709 Coq.Lists.List <> existsb_exists thm
+R18696:18709 Coq.Lists.List <> existsb_exists thm
+R18741:18753 impl2_MC.elaboration <> dblock_constr def
+R18741:18753 impl2_MC.elaboration <> dblock_constr def
+R18894:18906 impl2_MC.ids <> constr_eqb_eq proj
+R18894:18906 impl2_MC.ids <> constr_eqb_eq proj
+R18894:18906 impl2_MC.ids <> constr_eqb_eq proj
+R19158:19159 Coq.Lists.List <> In def
+R19158:19159 Coq.Lists.List <> In def
+R19191:19211 impl2_MC.elaboration <> dblock_constr_correct thm
+R19191:19211 impl2_MC.elaboration <> dblock_constr_correct thm
+R19252:19266 impl2_MC.elaboration <> In_split_cblock thm
+R19252:19266 impl2_MC.elaboration <> In_split_cblock thm
+R19333:19334 Coq.Lists.List <> In def
+R19339:19341 Coq.Init.Datatypes <> fst def
+R19344:19348 Coq.Lists.List <> split def
+R19383:19397 impl2_MC.elaboration <> In_split_cblock thm
+R19333:19334 Coq.Lists.List <> In def
+R19339:19341 Coq.Init.Datatypes <> fst def
+R19344:19348 Coq.Lists.List <> split def
+R19383:19397 impl2_MC.elaboration <> In_split_cblock thm
+R19498:19500 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19452:19457 impl2_MC.type_theory <> nodupb def
+R19491:19494 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R19475:19477 Coq.Init.Datatypes <> fst def
+R19480:19484 Coq.Lists.List <> split def
+R19460:19469 impl2_MC.ids <> constr_eqb proj
+R19471:19471 impl2_MC.elaboration <> ELABORATION.I var
+R19501:19505 Coq.Init.Datatypes <> false constr
+R19498:19500 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19452:19457 impl2_MC.type_theory <> nodupb def
+R19491:19494 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R19475:19477 Coq.Init.Datatypes <> fst def
+R19480:19484 Coq.Lists.List <> split def
+R19460:19469 impl2_MC.ids <> constr_eqb proj
+R19471:19471 impl2_MC.elaboration <> ELABORATION.I var
+R19501:19505 Coq.Init.Datatypes <> false constr
+R19529:19543 impl2_MC.type_theory <> In_false_nodupb thm
+R19529:19543 impl2_MC.type_theory <> In_false_nodupb thm
+R19595:19610 Coq.Bool.Bool <> iff_reflect thm
+R19595:19610 Coq.Bool.Bool <> iff_reflect thm
+R19619:19631 impl2_MC.ids <> constr_eqb_eq proj
+R19619:19631 impl2_MC.ids <> constr_eqb_eq proj
+R19712:19724 impl2_MC.elaboration <> dblock_constr def
+R19712:19724 impl2_MC.elaboration <> dblock_constr def
+R19858:19872 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R19921:19936 Coq.Bool.Bool <> iff_reflect thm
+R19945:19957 impl2_MC.ids <> constr_eqb_eq proj
+R19858:19872 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R19858:19872 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R19858:19872 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R19858:19872 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R19921:19936 Coq.Bool.Bool <> iff_reflect thm
+R19921:19936 Coq.Bool.Bool <> iff_reflect thm
+R19945:19957 impl2_MC.ids <> constr_eqb_eq proj
+R19921:19936 Coq.Bool.Bool <> iff_reflect thm
+R19945:19957 impl2_MC.ids <> constr_eqb_eq proj
+R20008:20010 Coq.Init.Datatypes <> fst def
+R20013:20017 Coq.Lists.List <> split def
+R19978:19995 Coq.Lists.List <> NoDup_app_remove_l thm
+R20008:20010 Coq.Init.Datatypes <> fst def
+R20013:20017 Coq.Lists.List <> split def
+R19978:19995 Coq.Lists.List <> NoDup_app_remove_l thm
+prf 20094:20120 <> tbl_ext_with_constr_correct
+binder 20130:20130 <> r:162
+binder 20132:20133 <> r':163
+binder 20135:20135 <> R:164
+binder 20137:20138 <> R':165
+binder 20140:20140 <> B:166
+binder 20142:20142 <> d:167
+binder 20144:20145 <> d':168
+R20190:20200 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20155:20167 impl2_MC.elaboration <> TBlockExtends ind
+R20179:20179 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20182:20183 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20186:20187 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20189:20189 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20180:20181 impl2_MC.elaboration <> r':163 var
+R20184:20185 impl2_MC.elaboration <> R':165 var
+R20188:20188 impl2_MC.elaboration <> B:166 var
+R20169:20169 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20171:20172 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20174:20175 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20177:20177 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20170:20170 impl2_MC.elaboration <> r:162 var
+R20173:20173 impl2_MC.elaboration <> R:164 var
+R20176:20176 impl2_MC.elaboration <> B:166 var
+R20213:20222 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20201:20204 impl2_MC.pattern_theory <> WFEC def
+R20211:20212 impl2_MC.elaboration <> R':165 var
+R20208:20209 impl2_MC.elaboration <> r':163 var
+R20206:20206 impl2_MC.elaboration <> d:167 var
+R20255:20265 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20230:20232 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R20223:20226 Coq.Init.Datatypes <> Some constr
+R20228:20229 impl2_MC.elaboration <> d':168 var
+R20233:20250 impl2_MC.elaboration <> bind_constr_tblock def
+R20254:20254 impl2_MC.elaboration <> B:166 var
+R20252:20252 impl2_MC.elaboration <> d:167 var
+R20266:20269 impl2_MC.pattern_theory <> WFEC def
+R20277:20278 impl2_MC.elaboration <> R':165 var
+R20274:20275 impl2_MC.elaboration <> r':163 var
+R20271:20272 impl2_MC.elaboration <> d':168 var
+R20342:20345 impl2_MC.pattern_theory <> WFEC def
+R20555:20572 impl2_MC.elaboration <> bind_old_or_new_ex thm
+R20555:20572 impl2_MC.elaboration <> bind_old_or_new_ex thm
+R20765:20775 impl2_MC.elaboration <> ltd_correct thm
+R20765:20775 impl2_MC.elaboration <> ltd_correct thm
+prf 20842:20845 <> aux1
+binder 20855:20855 <> c:169
+binder 20857:20857 <> t:170
+binder 20859:20859 <> l:171
+binder 20861:20861 <> d:172
+binder 20863:20863 <> i:173
+R20884:20894 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20873:20874 Coq.Lists.List <> In def
+R20883:20883 impl2_MC.elaboration <> l:171 var
+R20876:20876 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20878:20879 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20881:20881 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20877:20877 impl2_MC.elaboration <> c:169 var
+R20880:20880 impl2_MC.elaboration <> t:170 var
+R20939:20949 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20932:20934 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R20895:20900 impl2_MC.type_theory <> nodupb def
+R20918:20920 Coq.Init.Datatypes <> fst def
+R20923:20927 Coq.Lists.List <> split def
+R20929:20929 impl2_MC.elaboration <> l:171 var
+R20903:20912 impl2_MC.ids <> constr_eqb proj
+R20914:20914 impl2_MC.elaboration <> ELABORATION.I var
+R20935:20938 Coq.Init.Datatypes <> true constr
+R20981:20983 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R20950:20955 impl2_MC.env <> lookup def
+R20980:20980 impl2_MC.elaboration <> c:169 var
+R20958:20971 impl2_MC.elaboration <> cblock_extends def
+R20977:20977 impl2_MC.elaboration <> l:171 var
+R20975:20975 impl2_MC.elaboration <> i:173 var
+R20973:20973 impl2_MC.elaboration <> d:172 var
+R20984:20987 Coq.Init.Datatypes <> Some constr
+R20989:20989 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20991:20992 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20994:20994 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20990:20990 impl2_MC.elaboration <> i:173 var
+R20993:20993 impl2_MC.elaboration <> t:170 var
+R21109:21114 impl2_MC.env <> lookup def
+R21117:21120 impl2_MC.env <> bind def
+R21140:21149 impl2_MC.ids <> constr_eqb proj
+R21151:21151 impl2_MC.elaboration <> ELABORATION.I var
+R21140:21149 impl2_MC.ids <> constr_eqb proj
+R21151:21151 impl2_MC.elaboration <> ELABORATION.I var
+R21289:21293 Coq.Lists.List <> split def
+R21289:21293 Coq.Lists.List <> split def
+R21350:21353 Coq.Lists.List <> find def
+R21350:21353 Coq.Lists.List <> find def
+R21400:21408 Coq.Lists.List <> find_none thm
+R21400:21408 Coq.Lists.List <> find_none thm
+R21496:21510 impl2_MC.elaboration <> In_split_cblock thm
+R21496:21510 impl2_MC.elaboration <> In_split_cblock thm
+R21666:21679 impl2_MC.ids <> constr_eqb_neq proj
+R21666:21679 impl2_MC.ids <> constr_eqb_neq proj
+R21666:21679 impl2_MC.ids <> constr_eqb_neq proj
+R21749:21753 Coq.Lists.List <> split def
+R21749:21753 Coq.Lists.List <> split def
+R21810:21813 Coq.Lists.List <> find def
+R21810:21813 Coq.Lists.List <> find def
+prf 21891:21900 <> not_In_app
+binder 21912:21912 <> X:174
+R21925:21925 impl2_MC.elaboration <> X:174 var
+binder 21922:21922 <> x:175
+binder 21928:21928 <> l:176
+binder 21930:21931 <> l':177
+R21956:21966 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R21941:21941 Coq.Init.Logic <> ::type_scope:'~'_x not
+R21942:21943 Coq.Lists.List <> In def
+R21949:21952 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R21948:21948 impl2_MC.elaboration <> l:176 var
+R21953:21954 impl2_MC.elaboration <> l':177 var
+R21945:21945 impl2_MC.elaboration <> x:175 var
+R21974:21977 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R21967:21967 Coq.Init.Logic <> ::type_scope:'~'_x not
+R21968:21969 Coq.Lists.List <> In def
+R21973:21973 impl2_MC.elaboration <> l:176 var
+R21971:21971 impl2_MC.elaboration <> x:175 var
+R21978:21978 Coq.Init.Logic <> ::type_scope:'~'_x not
+R21979:21980 Coq.Lists.List <> In def
+R21984:21985 impl2_MC.elaboration <> l':177 var
+R21982:21982 impl2_MC.elaboration <> x:175 var
+R22111:22113 Coq.Init.Logic <> not def
+R22175:22190 Coq.Logic.Decidable <> not_or thm
+R22219:22221 Coq.Init.Logic <> not def
+R22175:22190 Coq.Logic.Decidable <> not_or thm
+prf 22464:22467 <> aux3
+binder 22477:22477 <> d:178
+binder 22479:22479 <> c:179
+binder 22481:22481 <> i:180
+binder 22483:22483 <> t:181
+binder 22485:22485 <> l:182
+binder 22487:22488 <> i':183
+R22524:22534 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22509:22512 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22499:22504 impl2_MC.env <> lookup def
+R22508:22508 impl2_MC.elaboration <> c:179 var
+R22506:22506 impl2_MC.elaboration <> d:178 var
+R22513:22516 Coq.Init.Datatypes <> Some constr
+R22518:22518 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22520:22521 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22523:22523 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22519:22519 impl2_MC.elaboration <> i:180 var
+R22522:22522 impl2_MC.elaboration <> t:181 var
+R22556:22566 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22535:22535 Coq.Init.Logic <> ::type_scope:'~'_x not
+R22536:22537 Coq.Lists.List <> In def
+R22542:22544 Coq.Init.Datatypes <> fst def
+R22547:22551 Coq.Lists.List <> split def
+R22553:22553 impl2_MC.elaboration <> l:182 var
+R22539:22539 impl2_MC.elaboration <> c:179 var
+R22599:22601 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22567:22572 impl2_MC.env <> lookup def
+R22598:22598 impl2_MC.elaboration <> c:179 var
+R22575:22588 impl2_MC.elaboration <> cblock_extends def
+R22595:22595 impl2_MC.elaboration <> l:182 var
+R22592:22593 impl2_MC.elaboration <> i':183 var
+R22590:22590 impl2_MC.elaboration <> d:178 var
+R22602:22605 Coq.Init.Datatypes <> Some constr
+R22607:22607 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22609:22610 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22612:22612 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22608:22608 impl2_MC.elaboration <> i:180 var
+R22611:22611 impl2_MC.elaboration <> t:181 var
+R22723:22728 impl2_MC.env <> lookup def
+R22731:22734 impl2_MC.env <> bind def
+R22770:22774 Coq.Lists.List <> split def
+R22770:22774 Coq.Lists.List <> split def
+R22822:22837 Coq.Logic.Decidable <> not_or thm
+R22822:22837 Coq.Logic.Decidable <> not_or thm
+R22889:22898 impl2_MC.ids <> constr_eqb proj
+R22900:22900 impl2_MC.elaboration <> ELABORATION.I var
+R22889:22898 impl2_MC.ids <> constr_eqb proj
+R22900:22900 impl2_MC.elaboration <> ELABORATION.I var
+R22939:22951 impl2_MC.ids <> constr_eqb_eq proj
+R22939:22951 impl2_MC.ids <> constr_eqb_eq proj
+R22939:22951 impl2_MC.ids <> constr_eqb_eq proj
+prf 23045:23048 <> aux2
+binder 23058:23058 <> d:184
+binder 23060:23061 <> d':185
+binder 23063:23063 <> i:186
+binder 23065:23065 <> l:187
+binder 23067:23067 <> c:188
+binder 23069:23069 <> t:189
+binder 23071:23071 <> B:190
+R23105:23114 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23091:23093 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23081:23086 impl2_MC.env <> lookup def
+R23090:23090 impl2_MC.elaboration <> c:188 var
+R23088:23088 impl2_MC.elaboration <> d:184 var
+R23094:23097 Coq.Init.Datatypes <> Some constr
+R23099:23099 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R23101:23102 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R23104:23104 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R23100:23100 impl2_MC.elaboration <> i:186 var
+R23103:23103 impl2_MC.elaboration <> t:189 var
+R23139:23148 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23130:23132 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23115:23127 impl2_MC.elaboration <> dblock_constr def
+R23129:23129 impl2_MC.elaboration <> B:190 var
+R23133:23136 Coq.Init.Datatypes <> Some constr
+R23138:23138 impl2_MC.elaboration <> l:187 var
+R23156:23166 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23149:23149 Coq.Init.Logic <> ::type_scope:'~'_x not
+R23150:23151 Coq.Lists.List <> In def
+R23155:23155 impl2_MC.elaboration <> l:187 var
+R23153:23153 impl2_MC.elaboration <> c:188 var
+R23199:23208 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23189:23191 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23167:23184 impl2_MC.elaboration <> bind_constr_tblock def
+R23188:23188 impl2_MC.elaboration <> B:190 var
+R23186:23186 impl2_MC.elaboration <> d:184 var
+R23192:23195 Coq.Init.Datatypes <> Some constr
+R23197:23198 impl2_MC.elaboration <> d':185 var
+R23220:23222 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23209:23214 impl2_MC.env <> lookup def
+R23219:23219 impl2_MC.elaboration <> c:188 var
+R23216:23217 impl2_MC.elaboration <> d':185 var
+R23223:23226 Coq.Init.Datatypes <> Some constr
+R23228:23228 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R23230:23231 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R23233:23233 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R23229:23229 impl2_MC.elaboration <> i:186 var
+R23232:23232 impl2_MC.elaboration <> t:189 var
+R23536:23548 impl2_MC.elaboration <> dblock_constr def
+R23536:23548 impl2_MC.elaboration <> dblock_constr def
+R23602:23611 impl2_MC.elaboration <> not_In_app thm
+R23602:23611 impl2_MC.elaboration <> not_In_app thm
+R23668:23681 impl2_MC.elaboration <> cblock_extends def
+R23668:23681 impl2_MC.elaboration <> cblock_extends def
+R23765:23768 impl2_MC.elaboration <> aux3 thm
+R23765:23768 impl2_MC.elaboration <> aux3 thm
+prf 23833:23836 <> aux4
+binder 23847:23847 <> B:191
+binder 23849:23849 <> l:192
+binder 23851:23851 <> c:193
+R23885:23895 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23876:23878 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23861:23873 impl2_MC.elaboration <> dblock_constr def
+R23875:23875 impl2_MC.elaboration <> B:191 var
+R23879:23882 Coq.Init.Datatypes <> Some constr
+R23884:23884 impl2_MC.elaboration <> l:192 var
+R23902:23912 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23896:23897 Coq.Lists.List <> In def
+R23901:23901 impl2_MC.elaboration <> l:192 var
+R23899:23899 impl2_MC.elaboration <> c:193 var
+R23913:23919 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R23926:23927 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 23920:23920 <> i:194
+binder 23922:23923 <> cb:195
+binder 23925:23925 <> t:196
+R23950:23953 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R23928:23929 Coq.Lists.List <> In def
+R23949:23949 impl2_MC.elaboration <> B:191 var
+R23931:23931 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R23933:23934 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R23947:23947 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R23932:23932 impl2_MC.elaboration <> i:194 var
+R23935:23943 impl2_MC.kernel_syntax <> KTVariant constr
+R23945:23946 impl2_MC.elaboration <> cb:195 var
+R23954:23955 Coq.Lists.List <> In def
+R23964:23965 impl2_MC.elaboration <> cb:195 var
+R23957:23957 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R23959:23960 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R23962:23962 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R23958:23958 impl2_MC.elaboration <> c:193 var
+R23961:23961 impl2_MC.elaboration <> t:196 var
+R24201:24213 impl2_MC.elaboration <> dblock_constr def
+R24201:24213 impl2_MC.elaboration <> dblock_constr def
+R24291:24299 Coq.Lists.List <> in_app_or thm
+R24291:24299 Coq.Lists.List <> in_app_or thm
+R24365:24379 impl2_MC.elaboration <> split_In_cblock thm
+R24365:24379 impl2_MC.elaboration <> split_In_cblock thm
+R24493:24499 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R24506:24507 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 24500:24500 <> i:197
+binder 24502:24503 <> cb:198
+binder 24505:24505 <> t:199
+R24530:24533 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R24508:24509 Coq.Lists.List <> In def
+R24511:24511 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24513:24514 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24527:24527 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24512:24512 impl2_MC.elaboration <> i:197 var
+R24515:24523 impl2_MC.kernel_syntax <> KTVariant constr
+R24525:24526 impl2_MC.elaboration <> cb:198 var
+R24534:24535 Coq.Lists.List <> In def
+R24544:24545 impl2_MC.elaboration <> cb:198 var
+R24537:24537 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24539:24540 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24542:24542 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24541:24541 impl2_MC.elaboration <> t:199 var
+R24493:24499 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R24506:24507 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 24500:24500 <> i:200
+binder 24502:24503 <> cb:201
+binder 24505:24505 <> t:202
+R24530:24533 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R24508:24509 Coq.Lists.List <> In def
+R24511:24511 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24513:24514 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24527:24527 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24512:24512 impl2_MC.elaboration <> i:200 var
+R24515:24523 impl2_MC.kernel_syntax <> KTVariant constr
+R24525:24526 impl2_MC.elaboration <> cb:201 var
+R24534:24535 Coq.Lists.List <> In def
+R24544:24545 impl2_MC.elaboration <> cb:201 var
+R24537:24537 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24539:24540 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24542:24542 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24541:24541 impl2_MC.elaboration <> t:202 var
+prf 24724:24727 <> aux5
+binder 24738:24739 <> d':203
+binder 24741:24741 <> d:204
+binder 24743:24743 <> B:205
+binder 24745:24745 <> l:206
+binder 24747:24747 <> c:207
+binder 24749:24749 <> i:208
+binder 24751:24751 <> t:209
+R24793:24802 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24783:24785 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24761:24778 impl2_MC.elaboration <> bind_constr_tblock def
+R24782:24782 impl2_MC.elaboration <> B:205 var
+R24780:24780 impl2_MC.elaboration <> d:204 var
+R24786:24789 Coq.Init.Datatypes <> Some constr
+R24791:24792 impl2_MC.elaboration <> d':203 var
+R24827:24837 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24818:24820 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24803:24815 impl2_MC.elaboration <> dblock_constr def
+R24817:24817 impl2_MC.elaboration <> B:205 var
+R24821:24824 Coq.Init.Datatypes <> Some constr
+R24826:24826 impl2_MC.elaboration <> l:206 var
+R24868:24878 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24861:24863 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24838:24843 impl2_MC.type_theory <> nodupb def
+R24860:24860 impl2_MC.elaboration <> l:206 var
+R24846:24855 impl2_MC.ids <> constr_eqb proj
+R24857:24857 impl2_MC.elaboration <> ELABORATION.I var
+R24864:24867 Coq.Init.Datatypes <> true constr
+R24885:24895 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24879:24880 Coq.Lists.List <> In def
+R24884:24884 impl2_MC.elaboration <> l:206 var
+R24882:24882 impl2_MC.elaboration <> c:207 var
+R24921:24931 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24907:24909 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24896:24901 impl2_MC.env <> lookup def
+R24906:24906 impl2_MC.elaboration <> c:207 var
+R24903:24904 impl2_MC.elaboration <> d':203 var
+R24910:24913 Coq.Init.Datatypes <> Some constr
+R24915:24915 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24917:24918 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24920:24920 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24916:24916 impl2_MC.elaboration <> i:208 var
+R24919:24919 impl2_MC.elaboration <> t:209 var
+R24932:24938 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R24941:24942 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 24939:24940 <> l':210
+R24965:24968 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R24943:24944 Coq.Lists.List <> In def
+R24964:24964 impl2_MC.elaboration <> B:205 var
+R24946:24946 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24948:24949 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24962:24962 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24947:24947 impl2_MC.elaboration <> i:208 var
+R24950:24958 impl2_MC.kernel_syntax <> KTVariant constr
+R24960:24961 impl2_MC.elaboration <> l':210 var
+R24969:24970 Coq.Lists.List <> In def
+R24979:24980 impl2_MC.elaboration <> l':210 var
+R24972:24972 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24974:24975 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24977:24977 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24973:24973 impl2_MC.elaboration <> c:207 var
+R24976:24976 impl2_MC.elaboration <> t:209 var
+R25263:25275 impl2_MC.elaboration <> dblock_constr def
+R25263:25275 impl2_MC.elaboration <> dblock_constr def
+R25353:25361 Coq.Lists.List <> in_app_or thm
+R25353:25361 Coq.Lists.List <> in_app_or thm
+R25427:25441 impl2_MC.elaboration <> split_In_cblock thm
+R25427:25441 impl2_MC.elaboration <> split_In_cblock thm
+R25534:25548 impl2_MC.elaboration <> In_split_cblock thm
+R25619:25621 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25584:25589 impl2_MC.env <> lookup def
+R25592:25605 impl2_MC.elaboration <> cblock_extends def
+R25622:25625 Coq.Init.Datatypes <> Some constr
+R25627:25627 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R25630:25631 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R25634:25634 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R25534:25548 impl2_MC.elaboration <> In_split_cblock thm
+R25619:25621 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25584:25589 impl2_MC.env <> lookup def
+R25592:25605 impl2_MC.elaboration <> cblock_extends def
+R25622:25625 Coq.Init.Datatypes <> Some constr
+R25627:25627 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R25630:25631 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R25634:25634 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R25679:25693 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R25679:25693 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R25679:25693 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R25679:25693 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R25725:25742 Coq.Lists.List <> NoDup_app_remove_r thm
+R25725:25742 Coq.Lists.List <> NoDup_app_remove_r thm
+R25804:25813 impl2_MC.ids <> constr_eqb proj
+R25815:25815 impl2_MC.elaboration <> ELABORATION.I var
+R25775:25789 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R25804:25813 impl2_MC.ids <> constr_eqb proj
+R25815:25815 impl2_MC.elaboration <> ELABORATION.I var
+R25775:25789 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R25848:25851 impl2_MC.elaboration <> aux1 thm
+R25848:25851 impl2_MC.elaboration <> aux1 thm
+R25867:25877 impl2_MC.ids <> constr_refl proj
+R25867:25877 impl2_MC.ids <> constr_refl proj
+R25886:25896 impl2_MC.ids <> constr_refl proj
+R25886:25896 impl2_MC.ids <> constr_refl proj
+R25937:25937 Coq.Init.Logic <> ::type_scope:'~'_x not
+R25938:25939 Coq.Lists.List <> In def
+R26012:26021 impl2_MC.ids <> constr_eqb proj
+R26023:26023 impl2_MC.elaboration <> ELABORATION.I var
+R26033:26035 Coq.Init.Datatypes <> fst def
+R26038:26042 Coq.Lists.List <> split def
+R25970:25984 impl2_MC.type_theory <> nodupb_In_false thm
+R26079:26089 impl2_MC.ids <> constr_refl proj
+R25937:25937 Coq.Init.Logic <> ::type_scope:'~'_x not
+R25938:25939 Coq.Lists.List <> In def
+R26012:26021 impl2_MC.ids <> constr_eqb proj
+R26023:26023 impl2_MC.elaboration <> ELABORATION.I var
+R26033:26035 Coq.Init.Datatypes <> fst def
+R26038:26042 Coq.Lists.List <> split def
+R25970:25984 impl2_MC.type_theory <> nodupb_In_false thm
+R26079:26089 impl2_MC.ids <> constr_refl proj
+R26140:26142 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R26129:26134 impl2_MC.env <> lookup def
+R26143:26146 Coq.Init.Datatypes <> Some constr
+R26148:26148 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26151:26152 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26155:26155 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26199:26212 impl2_MC.elaboration <> cblock_extends def
+R26183:26186 impl2_MC.elaboration <> aux2 thm
+R26140:26142 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R26129:26134 impl2_MC.env <> lookup def
+R26143:26146 Coq.Init.Datatypes <> Some constr
+R26148:26148 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26151:26152 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26155:26155 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26199:26212 impl2_MC.elaboration <> cblock_extends def
+R26183:26186 impl2_MC.elaboration <> aux2 thm
+R26393:26399 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R26402:26403 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 26400:26401 <> l':211
+R26426:26429 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R26404:26405 Coq.Lists.List <> In def
+R26407:26407 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26409:26410 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26423:26423 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26411:26419 impl2_MC.kernel_syntax <> KTVariant constr
+R26421:26422 impl2_MC.elaboration <> l':211 var
+R26430:26431 Coq.Lists.List <> In def
+R26440:26441 impl2_MC.elaboration <> l':211 var
+R26433:26433 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26435:26436 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26438:26438 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26393:26399 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R26402:26403 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 26400:26401 <> l':212
+R26426:26429 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R26404:26405 Coq.Lists.List <> In def
+R26407:26407 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26409:26410 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26423:26423 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26411:26419 impl2_MC.kernel_syntax <> KTVariant constr
+R26421:26422 impl2_MC.elaboration <> l':212 var
+R26430:26431 Coq.Lists.List <> In def
+R26440:26441 impl2_MC.elaboration <> l':212 var
+R26433:26433 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26435:26436 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26438:26438 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26478:26491 impl2_MC.elaboration <> cblock_extends def
+R26478:26491 impl2_MC.elaboration <> cblock_extends def
+R26545:26559 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R26545:26559 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R26545:26559 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R26545:26559 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R26589:26606 Coq.Lists.List <> NoDup_app_remove_l thm
+R26589:26606 Coq.Lists.List <> NoDup_app_remove_l thm
+R26640:26654 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R26670:26680 impl2_MC.ids <> constr_refl proj
+R26640:26654 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R26640:26654 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R26640:26654 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R26670:26680 impl2_MC.ids <> constr_refl proj
+R26700:26710 impl2_MC.ids <> constr_refl proj
+R26700:26710 impl2_MC.ids <> constr_refl proj
+prf 26802:26805 <> aux6
+binder 26816:26816 <> d:213
+binder 26818:26819 <> i':214
+binder 26821:26821 <> l:215
+binder 26823:26823 <> c:216
+binder 26825:26825 <> i:217
+binder 26827:26827 <> t:218
+R26883:26893 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R26869:26871 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R26837:26842 impl2_MC.env <> lookup def
+R26868:26868 impl2_MC.elaboration <> c:216 var
+R26845:26858 impl2_MC.elaboration <> cblock_extends def
+R26865:26865 impl2_MC.elaboration <> l:215 var
+R26862:26863 impl2_MC.elaboration <> i':214 var
+R26860:26860 impl2_MC.elaboration <> d:213 var
+R26872:26875 Coq.Init.Datatypes <> Some constr
+R26877:26877 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26879:26880 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26882:26882 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26878:26878 impl2_MC.elaboration <> i:217 var
+R26881:26881 impl2_MC.elaboration <> t:218 var
+R26915:26925 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R26894:26894 Coq.Init.Logic <> ::type_scope:'~'_x not
+R26895:26896 Coq.Lists.List <> In def
+R26901:26903 Coq.Init.Datatypes <> fst def
+R26906:26910 Coq.Lists.List <> split def
+R26912:26912 impl2_MC.elaboration <> l:215 var
+R26898:26898 impl2_MC.elaboration <> c:216 var
+R26936:26938 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R26926:26931 impl2_MC.env <> lookup def
+R26935:26935 impl2_MC.elaboration <> c:216 var
+R26933:26933 impl2_MC.elaboration <> d:213 var
+R26939:26942 Coq.Init.Datatypes <> Some constr
+R26944:26944 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26946:26947 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26949:26949 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R26945:26945 impl2_MC.elaboration <> i:217 var
+R26948:26948 impl2_MC.elaboration <> t:218 var
+R27119:27123 Coq.Lists.List <> split def
+R27119:27123 Coq.Lists.List <> split def
+R27145:27150 impl2_MC.env <> lookup def
+R27153:27156 impl2_MC.env <> bind def
+R27196:27211 Coq.Logic.Decidable <> not_or thm
+R27196:27211 Coq.Logic.Decidable <> not_or thm
+R27280:27289 impl2_MC.ids <> constr_eqb proj
+R27291:27291 impl2_MC.elaboration <> ELABORATION.I var
+R27280:27289 impl2_MC.ids <> constr_eqb proj
+R27291:27291 impl2_MC.elaboration <> ELABORATION.I var
+R27331:27343 impl2_MC.ids <> constr_eqb_eq proj
+R27331:27343 impl2_MC.ids <> constr_eqb_eq proj
+R27331:27343 impl2_MC.ids <> constr_eqb_eq proj
+prf 27444:27447 <> aux7
+binder 27458:27459 <> d':219
+binder 27461:27461 <> d:220
+binder 27463:27463 <> c:221
+binder 27465:27465 <> i:222
+binder 27467:27467 <> t:223
+binder 27469:27469 <> B:224
+binder 27471:27471 <> l:225
+R27506:27516 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R27492:27494 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R27481:27486 impl2_MC.env <> lookup def
+R27491:27491 impl2_MC.elaboration <> c:221 var
+R27488:27489 impl2_MC.elaboration <> d':219 var
+R27495:27498 Coq.Init.Datatypes <> Some constr
+R27500:27500 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R27502:27503 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R27505:27505 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R27501:27501 impl2_MC.elaboration <> i:222 var
+R27504:27504 impl2_MC.elaboration <> t:223 var
+R27549:27559 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R27539:27541 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R27517:27534 impl2_MC.elaboration <> bind_constr_tblock def
+R27538:27538 impl2_MC.elaboration <> B:224 var
+R27536:27536 impl2_MC.elaboration <> d:220 var
+R27542:27545 Coq.Init.Datatypes <> Some constr
+R27547:27548 impl2_MC.elaboration <> d':219 var
+R27584:27594 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R27575:27577 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R27560:27572 impl2_MC.elaboration <> dblock_constr def
+R27574:27574 impl2_MC.elaboration <> B:224 var
+R27578:27581 Coq.Init.Datatypes <> Some constr
+R27583:27583 impl2_MC.elaboration <> l:225 var
+R27602:27612 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R27595:27595 Coq.Init.Logic <> ::type_scope:'~'_x not
+R27596:27597 Coq.Lists.List <> In def
+R27601:27601 impl2_MC.elaboration <> l:225 var
+R27599:27599 impl2_MC.elaboration <> c:221 var
+R27623:27625 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R27613:27618 impl2_MC.env <> lookup def
+R27622:27622 impl2_MC.elaboration <> c:221 var
+R27620:27620 impl2_MC.elaboration <> d:220 var
+R27626:27629 Coq.Init.Datatypes <> Some constr
+R27631:27631 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R27633:27634 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R27636:27636 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R27632:27632 impl2_MC.elaboration <> i:222 var
+R27635:27635 impl2_MC.elaboration <> t:223 var
+R27906:27918 impl2_MC.elaboration <> dblock_constr def
+R27906:27918 impl2_MC.elaboration <> dblock_constr def
+R27997:28006 impl2_MC.elaboration <> not_In_app thm
+R27997:28006 impl2_MC.elaboration <> not_In_app thm
+R28104:28106 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28069:28074 impl2_MC.env <> lookup def
+R28077:28090 impl2_MC.elaboration <> cblock_extends def
+R28107:28110 Coq.Init.Datatypes <> Some constr
+R28112:28112 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R28114:28115 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R28117:28117 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R28104:28106 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28069:28074 impl2_MC.env <> lookup def
+R28077:28090 impl2_MC.elaboration <> cblock_extends def
+R28107:28110 Coq.Init.Datatypes <> Some constr
+R28112:28112 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R28114:28115 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R28117:28117 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R28151:28164 impl2_MC.elaboration <> cblock_extends def
+R28151:28164 impl2_MC.elaboration <> cblock_extends def
+R28211:28214 impl2_MC.elaboration <> aux6 thm
+R28211:28214 impl2_MC.elaboration <> aux6 thm
+prf 28259:28262 <> aux8
+binder 28273:28273 <> r:226
+binder 28275:28275 <> c:227
+binder 28277:28277 <> i:228
+binder 28279:28279 <> l:229
+binder 28281:28281 <> B:230
+binder 28283:28284 <> l':231
+R28318:28328 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28309:28311 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28294:28306 impl2_MC.elaboration <> dblock_constr def
+R28308:28308 impl2_MC.elaboration <> B:230 var
+R28312:28315 Coq.Init.Datatypes <> Some constr
+R28317:28317 impl2_MC.elaboration <> l:229 var
+R28336:28346 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28329:28329 Coq.Init.Logic <> ::type_scope:'~'_x not
+R28330:28331 Coq.Lists.List <> In def
+R28335:28335 impl2_MC.elaboration <> l:229 var
+R28333:28333 impl2_MC.elaboration <> c:227 var
+R28389:28398 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28364:28366 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28347:28359 impl2_MC.type_env <> last_type_def def
+R28363:28363 impl2_MC.elaboration <> c:227 var
+R28361:28361 impl2_MC.elaboration <> r:226 var
+R28367:28370 Coq.Init.Datatypes <> Some constr
+R28372:28372 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R28374:28375 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R28388:28388 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R28373:28373 impl2_MC.elaboration <> i:228 var
+R28376:28384 impl2_MC.kernel_syntax <> KTVariant constr
+R28386:28387 impl2_MC.elaboration <> l':231 var
+R28433:28435 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28399:28411 impl2_MC.type_env <> last_type_def def
+R28432:28432 impl2_MC.elaboration <> c:227 var
+R28414:28425 impl2_MC.elaboration <> type_env_ext def
+R28429:28429 impl2_MC.elaboration <> B:230 var
+R28427:28427 impl2_MC.elaboration <> r:226 var
+R28436:28439 Coq.Init.Datatypes <> Some constr
+R28441:28441 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R28443:28444 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R28457:28457 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R28442:28442 impl2_MC.elaboration <> i:228 var
+R28445:28453 impl2_MC.kernel_syntax <> KTVariant constr
+R28455:28456 impl2_MC.elaboration <> l':231 var
+R28687:28699 impl2_MC.elaboration <> dblock_constr def
+R28687:28699 impl2_MC.elaboration <> dblock_constr def
+R28778:28787 impl2_MC.elaboration <> not_In_app thm
+R28778:28787 impl2_MC.elaboration <> not_In_app thm
+R28846:28850 impl2_MC.type_env <> tbind def
+R28870:28876 Coq.Lists.List <> existsb def
+R28870:28876 Coq.Lists.List <> existsb def
+R28907:28920 Coq.Lists.List <> existsb_exists thm
+R28907:28920 Coq.Lists.List <> existsb_exists thm
+R29000:29012 impl2_MC.ids <> constr_eqb_eq proj
+R29000:29012 impl2_MC.ids <> constr_eqb_eq proj
+R29000:29012 impl2_MC.ids <> constr_eqb_eq proj
+R29058:29072 impl2_MC.elaboration <> In_split_cblock thm
+R29058:29072 impl2_MC.elaboration <> In_split_cblock thm
+prf 29184:29211 <> tbl_ext_with_constr_correct2
+binder 29221:29221 <> r:232
+binder 29223:29224 <> r':233
+binder 29226:29226 <> R:234
+binder 29228:29229 <> R':235
+binder 29231:29231 <> B:236
+binder 29233:29233 <> d:237
+binder 29235:29236 <> d':238
+R29281:29291 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29246:29258 impl2_MC.elaboration <> TBlockExtends ind
+R29270:29270 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R29273:29274 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R29277:29278 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R29280:29280 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R29271:29272 impl2_MC.elaboration <> r':233 var
+R29275:29276 impl2_MC.elaboration <> R':235 var
+R29279:29279 impl2_MC.elaboration <> B:236 var
+R29260:29260 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R29262:29263 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R29265:29266 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R29268:29268 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R29261:29261 impl2_MC.elaboration <> r:232 var
+R29264:29264 impl2_MC.elaboration <> R:234 var
+R29267:29267 impl2_MC.elaboration <> B:236 var
+R29302:29311 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29292:29295 impl2_MC.pattern_theory <> WFEC def
+R29301:29301 impl2_MC.elaboration <> R:234 var
+R29299:29299 impl2_MC.elaboration <> r:232 var
+R29297:29297 impl2_MC.elaboration <> d:237 var
+R29344:29354 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29319:29321 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R29312:29315 Coq.Init.Datatypes <> Some constr
+R29317:29318 impl2_MC.elaboration <> d':238 var
+R29322:29339 impl2_MC.elaboration <> bind_constr_tblock def
+R29343:29343 impl2_MC.elaboration <> B:236 var
+R29341:29341 impl2_MC.elaboration <> d:237 var
+R29355:29358 impl2_MC.pattern_theory <> WFEC def
+R29366:29367 impl2_MC.elaboration <> R':235 var
+R29363:29364 impl2_MC.elaboration <> r':233 var
+R29360:29361 impl2_MC.elaboration <> d':238 var
+R29431:29434 impl2_MC.pattern_theory <> WFEC def
+R29616:29636 impl2_MC.elaboration <> TBlockExtends_correct thm
+R29616:29636 impl2_MC.elaboration <> TBlockExtends_correct thm
+R29838:29842 impl2_MC.type_env <> tbind def
+R29931:29943 impl2_MC.elaboration <> dblock_constr def
+R29931:29943 impl2_MC.elaboration <> dblock_constr def
+R30007:30013 Coq.Lists.List <> existsb def
+R30007:30013 Coq.Lists.List <> existsb def
+R30049:30058 impl2_MC.elaboration <> exb_cblock thm
+R30049:30058 impl2_MC.elaboration <> exb_cblock thm
+R30198:30212 impl2_MC.elaboration <> In_split_cblock thm
+R30284:30286 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R30249:30254 impl2_MC.env <> lookup def
+R30257:30270 impl2_MC.elaboration <> cblock_extends def
+R30287:30290 Coq.Init.Datatypes <> Some constr
+R30292:30292 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R30295:30296 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R30299:30299 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R30198:30212 impl2_MC.elaboration <> In_split_cblock thm
+R30284:30286 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R30249:30254 impl2_MC.env <> lookup def
+R30257:30270 impl2_MC.elaboration <> cblock_extends def
+R30287:30290 Coq.Init.Datatypes <> Some constr
+R30292:30292 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R30295:30296 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R30299:30299 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R30344:30358 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R30344:30358 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R30344:30358 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R30344:30358 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R30390:30407 Coq.Lists.List <> NoDup_app_remove_r thm
+R30390:30407 Coq.Lists.List <> NoDup_app_remove_r thm
+R30469:30478 impl2_MC.ids <> constr_eqb proj
+R30480:30480 impl2_MC.elaboration <> ELABORATION.I var
+R30440:30454 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R30469:30478 impl2_MC.ids <> constr_eqb proj
+R30480:30480 impl2_MC.elaboration <> ELABORATION.I var
+R30440:30454 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R30513:30516 impl2_MC.elaboration <> aux1 thm
+R30513:30516 impl2_MC.elaboration <> aux1 thm
+R30532:30542 impl2_MC.ids <> constr_refl proj
+R30532:30542 impl2_MC.ids <> constr_refl proj
+R30551:30561 impl2_MC.ids <> constr_refl proj
+R30551:30561 impl2_MC.ids <> constr_refl proj
+R30606:30606 Coq.Init.Logic <> ::type_scope:'~'_x not
+R30607:30608 Coq.Lists.List <> In def
+R30670:30679 impl2_MC.ids <> constr_eqb proj
+R30681:30681 impl2_MC.elaboration <> ELABORATION.I var
+R30691:30693 Coq.Init.Datatypes <> fst def
+R30696:30700 Coq.Lists.List <> split def
+R30626:30640 impl2_MC.type_theory <> nodupb_In_false thm
+R30739:30749 impl2_MC.ids <> constr_refl proj
+R30606:30606 Coq.Init.Logic <> ::type_scope:'~'_x not
+R30607:30608 Coq.Lists.List <> In def
+R30670:30679 impl2_MC.ids <> constr_eqb proj
+R30681:30681 impl2_MC.elaboration <> ELABORATION.I var
+R30691:30693 Coq.Init.Datatypes <> fst def
+R30696:30700 Coq.Lists.List <> split def
+R30626:30640 impl2_MC.type_theory <> nodupb_In_false thm
+R30739:30749 impl2_MC.ids <> constr_refl proj
+R30791:30793 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R30780:30785 impl2_MC.env <> lookup def
+R30794:30797 Coq.Init.Datatypes <> Some constr
+R30799:30799 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R30802:30803 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R30806:30806 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R30791:30793 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R30780:30785 impl2_MC.env <> lookup def
+R30794:30797 Coq.Init.Datatypes <> Some constr
+R30799:30799 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R30802:30803 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R30806:30806 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R30846:30859 impl2_MC.elaboration <> cblock_extends def
+R30830:30833 impl2_MC.elaboration <> aux2 thm
+R30846:30859 impl2_MC.elaboration <> cblock_extends def
+R30830:30833 impl2_MC.elaboration <> aux2 thm
+R31065:31069 Coq.Lists.List <> split def
+R31065:31069 Coq.Lists.List <> split def
+R31129:31132 Coq.Lists.List <> find def
+R31129:31132 Coq.Lists.List <> find def
+R31225:31239 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R31318:31335 Coq.Lists.List <> NoDup_app_remove_l thm
+R31403:31412 impl2_MC.ids <> constr_eqb proj
+R31414:31414 impl2_MC.elaboration <> ELABORATION.I var
+R31374:31388 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R31453:31456 Coq.Lists.List <> find def
+binder 31463:31463 <> x:239
+R31468:31477 impl2_MC.ids <> constr_eqb proj
+R31479:31479 impl2_MC.elaboration <> ELABORATION.I var
+R31481:31481 impl2_MC.elaboration <> x:239 var
+R31527:31537 impl2_MC.ids <> constr_refl proj
+R31225:31239 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R31225:31239 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R31225:31239 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R31318:31335 Coq.Lists.List <> NoDup_app_remove_l thm
+R31318:31335 Coq.Lists.List <> NoDup_app_remove_l thm
+R31403:31412 impl2_MC.ids <> constr_eqb proj
+R31414:31414 impl2_MC.elaboration <> ELABORATION.I var
+R31374:31388 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R31403:31412 impl2_MC.ids <> constr_eqb proj
+R31414:31414 impl2_MC.elaboration <> ELABORATION.I var
+R31374:31388 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R31403:31412 impl2_MC.ids <> constr_eqb proj
+R31414:31414 impl2_MC.elaboration <> ELABORATION.I var
+R31374:31388 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R31403:31412 impl2_MC.ids <> constr_eqb proj
+R31414:31414 impl2_MC.elaboration <> ELABORATION.I var
+R31374:31388 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R31453:31456 Coq.Lists.List <> find def
+binder 31463:31463 <> x:240
+R31468:31477 impl2_MC.ids <> constr_eqb proj
+R31479:31479 impl2_MC.elaboration <> ELABORATION.I var
+R31481:31481 impl2_MC.elaboration <> x:240 var
+R31453:31456 Coq.Lists.List <> find def
+binder 31463:31463 <> x:241
+R31468:31477 impl2_MC.ids <> constr_eqb proj
+R31479:31479 impl2_MC.elaboration <> ELABORATION.I var
+R31481:31481 impl2_MC.elaboration <> x:241 var
+R31453:31456 Coq.Lists.List <> find def
+binder 31463:31463 <> x:242
+R31468:31477 impl2_MC.ids <> constr_eqb proj
+R31479:31479 impl2_MC.elaboration <> ELABORATION.I var
+R31481:31481 impl2_MC.elaboration <> x:242 var
+R31527:31537 impl2_MC.ids <> constr_refl proj
+R31527:31537 impl2_MC.ids <> constr_refl proj
+R31527:31537 impl2_MC.ids <> constr_refl proj
+R31527:31537 impl2_MC.ids <> constr_refl proj
+R31527:31537 impl2_MC.ids <> constr_refl proj
+R31527:31537 impl2_MC.ids <> constr_refl proj
+R31561:31569 Coq.Lists.List <> find_some thm
+R31561:31569 Coq.Lists.List <> find_some thm
+R31643:31655 impl2_MC.ids <> constr_eqb_eq proj
+R31643:31655 impl2_MC.ids <> constr_eqb_eq proj
+R31643:31655 impl2_MC.ids <> constr_eqb_eq proj
+R31698:31704 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R31707:31708 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 31705:31706 <> l':243
+R31731:31734 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R31709:31710 Coq.Lists.List <> In def
+R31712:31712 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31714:31715 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31728:31728 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31716:31724 impl2_MC.kernel_syntax <> KTVariant constr
+R31726:31727 impl2_MC.elaboration <> l':243 var
+R31735:31736 Coq.Lists.List <> In def
+R31745:31746 impl2_MC.elaboration <> l':243 var
+R31738:31738 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31740:31741 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31743:31743 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31698:31704 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R31707:31708 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 31705:31706 <> l':244
+R31731:31734 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R31709:31710 Coq.Lists.List <> In def
+R31712:31712 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31714:31715 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31728:31728 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31716:31724 impl2_MC.kernel_syntax <> KTVariant constr
+R31726:31727 impl2_MC.elaboration <> l':244 var
+R31735:31736 Coq.Lists.List <> In def
+R31745:31746 impl2_MC.elaboration <> l':244 var
+R31738:31738 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31740:31741 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31743:31743 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31799:31812 impl2_MC.elaboration <> cblock_extends def
+R31772:31775 impl2_MC.elaboration <> aux5 thm
+R31799:31812 impl2_MC.elaboration <> cblock_extends def
+R31772:31775 impl2_MC.elaboration <> aux5 thm
+R31957:31967 impl2_MC.elaboration <> ltd_correct thm
+R31957:31967 impl2_MC.elaboration <> ltd_correct thm
+R32059:32074 impl2_MC.pattern_theory <> find_none_not_In thm
+R32059:32074 impl2_MC.pattern_theory <> find_none_not_In thm
+R32153:32155 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R32118:32123 impl2_MC.env <> lookup def
+R32126:32139 impl2_MC.elaboration <> cblock_extends def
+R32156:32159 Coq.Init.Datatypes <> Some constr
+R32161:32161 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32163:32164 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32166:32166 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32153:32155 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R32118:32123 impl2_MC.env <> lookup def
+R32126:32139 impl2_MC.elaboration <> cblock_extends def
+R32156:32159 Coq.Init.Datatypes <> Some constr
+R32161:32161 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32163:32164 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32166:32166 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32193:32196 impl2_MC.elaboration <> aux7 thm
+R32193:32196 impl2_MC.elaboration <> aux7 thm
+R32298:32300 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R32288:32293 impl2_MC.env <> lookup def
+R32301:32304 Coq.Init.Datatypes <> Some constr
+R32306:32306 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32308:32309 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32311:32311 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32298:32300 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R32288:32293 impl2_MC.env <> lookup def
+R32301:32304 Coq.Init.Datatypes <> Some constr
+R32306:32306 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32308:32309 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32311:32311 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32338:32341 impl2_MC.elaboration <> aux6 thm
+R32338:32341 impl2_MC.elaboration <> aux6 thm
+R32402:32404 Coq.Init.Logic <> not def
+R32445:32459 impl2_MC.elaboration <> split_In_cblock thm
+R32445:32459 impl2_MC.elaboration <> split_In_cblock thm
+R32537:32547 impl2_MC.elaboration <> nexb_cblock thm
+R32537:32547 impl2_MC.elaboration <> nexb_cblock thm
+R32718:32721 impl2_MC.elaboration <> aux8 thm
+R32718:32721 impl2_MC.elaboration <> aux8 thm
+R32718:32721 impl2_MC.elaboration <> aux8 thm
+R32767:32777 impl2_MC.ids <> constr_refl proj
+R32767:32777 impl2_MC.ids <> constr_refl proj
+prf 33667:33670 <> fooo
+binder 33680:33680 <> c:245
+binder 33682:33682 <> t:246
+binder 33684:33685 <> t':247
+R33691:33694 Coq.Init.Datatypes <> list ind
+R33703:33705 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R33697:33702 impl2_MC.elaboration ELABORATION :::'Constr' not
+R33706:33708 impl2_MC.elaboration ELABORATION :::'KTp' not
+binder 33688:33688 <> l:248
+R33742:33751 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33721:33725 Coq.Lists.List <> NoDup ind
+R33728:33730 Coq.Init.Datatypes <> fst def
+R33733:33737 Coq.Lists.List <> split def
+R33739:33739 impl2_MC.elaboration <> l:248 var
+R33763:33773 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33752:33753 Coq.Lists.List <> In def
+R33762:33762 impl2_MC.elaboration <> l:248 var
+R33755:33755 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R33757:33758 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R33760:33760 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R33756:33756 impl2_MC.elaboration <> c:245 var
+R33759:33759 impl2_MC.elaboration <> t:246 var
+R33786:33796 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33774:33775 Coq.Lists.List <> In def
+R33785:33785 impl2_MC.elaboration <> l:248 var
+R33777:33777 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R33779:33780 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R33783:33783 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R33778:33778 impl2_MC.elaboration <> c:245 var
+R33781:33782 impl2_MC.elaboration <> t':247 var
+R33798:33800 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R33797:33797 impl2_MC.elaboration <> t:246 var
+R33801:33802 impl2_MC.elaboration <> t':247 var
+R33949:33953 Coq.Lists.List <> split def
+R33949:33953 Coq.Lists.List <> split def
+R34200:34214 impl2_MC.elaboration <> In_split_cblock thm
+R34200:34214 impl2_MC.elaboration <> In_split_cblock thm
+R34348:34362 impl2_MC.elaboration <> In_split_cblock thm
+R34348:34362 impl2_MC.elaboration <> In_split_cblock thm
+ind 34588:34591 <> Elab
+constr 34664:34671 <> Elab_Var
+constr 34830:34837 <> Elab_Lit
+constr 34995:35001 <> Elab_Op
+constr 35242:35249 <> Elab_Lam
+constr 35507:35514 <> Elab_App
+constr 35784:35792 <> Elab_Unit
+constr 35942:35949 <> Elab_Nil
+constr 36097:36105 <> Elab_Pair
+constr 36377:36385 <> Elab_Cons
+constr 36656:36667 <> Elab_Variant
+constr 36951:36958 <> Elab_Fix
+constr 37193:37204 <> Elab_DefType
+constr 37543:37552 <> Elab_Match
+constr 37983:37992 <> Elab_Error
+R34600:34603 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34595:34599 impl2_MC.elaboration ELABORATION :::'KExpr' not
+R34608:34611 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34604:34607 impl2_MC.elaboration ELABORATION :::'tenv' not
+R34620:34623 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34612:34619 impl2_MC.elaboration ELABORATION :::'register' not
+R34634:34637 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34624:34633 impl2_MC.elaboration ELABORATION :::'constr_env' not
+R34643:34646 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34638:34642 impl2_MC.elaboration <> LExpr ind
+binder 34687:34687 <> i:251
+binder 34689:34689 <> r:252
+binder 34691:34691 <> R:253
+binder 34693:34693 <> d:254
+R34728:34755 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34720:34723 impl2_MC.type_theory <> WFET def
+R34727:34727 impl2_MC.elaboration <> R:253 var
+R34725:34725 impl2_MC.elaboration <> r:252 var
+R34766:34793 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34756:34759 impl2_MC.pattern_theory <> WFEC def
+R34765:34765 impl2_MC.elaboration <> R:253 var
+R34763:34763 impl2_MC.elaboration <> r:252 var
+R34761:34761 impl2_MC.elaboration <> d:254 var
+R34794:34797 impl2_MC.elaboration <> Elab:249 ind
+R34815:34818 impl2_MC.elaboration <> LVar constr
+R34820:34820 impl2_MC.elaboration <> i:251 var
+R34812:34812 impl2_MC.elaboration <> d:254 var
+R34810:34810 impl2_MC.elaboration <> R:253 var
+R34808:34808 impl2_MC.elaboration <> r:252 var
+R34800:34803 impl2_MC.kernel_syntax <> KVar constr
+R34805:34805 impl2_MC.elaboration <> i:251 var
+binder 34853:34853 <> x:255
+binder 34855:34855 <> r:256
+binder 34857:34857 <> R:257
+binder 34859:34859 <> d:258
+R34894:34921 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34886:34889 impl2_MC.type_theory <> WFET def
+R34893:34893 impl2_MC.elaboration <> R:257 var
+R34891:34891 impl2_MC.elaboration <> r:256 var
+R34932:34959 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34922:34925 impl2_MC.pattern_theory <> WFEC def
+R34931:34931 impl2_MC.elaboration <> R:257 var
+R34929:34929 impl2_MC.elaboration <> r:256 var
+R34927:34927 impl2_MC.elaboration <> d:258 var
+R34960:34963 impl2_MC.elaboration <> Elab:249 ind
+R34981:34984 impl2_MC.elaboration <> LLit constr
+R34986:34986 impl2_MC.elaboration <> x:255 var
+R34978:34978 impl2_MC.elaboration <> d:258 var
+R34976:34976 impl2_MC.elaboration <> R:257 var
+R34974:34974 impl2_MC.elaboration <> r:256 var
+R34966:34969 impl2_MC.kernel_syntax <> KLit constr
+R34971:34971 impl2_MC.elaboration <> x:255 var
+binder 35018:35019 <> op:259
+binder 35021:35021 <> l:260
+binder 35023:35024 <> l':261
+binder 35026:35026 <> r:262
+binder 35028:35028 <> R:263
+binder 35030:35030 <> d:264
+R35066:35093 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35058:35061 impl2_MC.type_theory <> WFET def
+R35065:35065 impl2_MC.elaboration <> R:263 var
+R35063:35063 impl2_MC.elaboration <> r:262 var
+R35104:35131 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35094:35097 impl2_MC.pattern_theory <> WFEC def
+R35103:35103 impl2_MC.elaboration <> R:263 var
+R35101:35101 impl2_MC.elaboration <> r:262 var
+R35099:35099 impl2_MC.elaboration <> d:264 var
+R35174:35201 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35132:35138 Coq.Lists.List <> Forall2 ind
+R35172:35173 impl2_MC.elaboration <> l':261 var
+R35170:35170 impl2_MC.elaboration <> l:260 var
+binder 35145:35145 <> e:265
+binder 35147:35148 <> le:266
+R35153:35156 impl2_MC.elaboration <> Elab:249 ind
+R35166:35167 impl2_MC.elaboration <> le:266 var
+R35164:35164 impl2_MC.elaboration <> d:264 var
+R35162:35162 impl2_MC.elaboration <> R:263 var
+R35160:35160 impl2_MC.elaboration <> r:262 var
+R35158:35158 impl2_MC.elaboration <> e:265 var
+R35202:35205 impl2_MC.elaboration <> Elab:249 ind
+R35225:35227 impl2_MC.elaboration <> LOp constr
+R35232:35233 impl2_MC.elaboration <> l':261 var
+R35229:35230 impl2_MC.elaboration <> op:259 var
+R35222:35222 impl2_MC.elaboration <> d:264 var
+R35220:35220 impl2_MC.elaboration <> R:263 var
+R35218:35218 impl2_MC.elaboration <> r:262 var
+R35208:35210 impl2_MC.kernel_syntax <> KOp constr
+R35215:35215 impl2_MC.elaboration <> l:260 var
+R35212:35213 impl2_MC.elaboration <> op:259 var
+binder 35265:35265 <> p:267
+binder 35267:35267 <> e:268
+binder 35269:35270 <> e':269
+binder 35272:35272 <> r:270
+binder 35274:35274 <> R:271
+binder 35276:35276 <> d:272
+R35311:35338 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35303:35306 impl2_MC.type_theory <> WFET def
+R35310:35310 impl2_MC.elaboration <> R:271 var
+R35308:35308 impl2_MC.elaboration <> r:270 var
+R35349:35376 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35339:35342 impl2_MC.pattern_theory <> WFEC def
+R35348:35348 impl2_MC.elaboration <> R:271 var
+R35346:35346 impl2_MC.elaboration <> r:270 var
+R35344:35344 impl2_MC.elaboration <> d:272 var
+R35394:35421 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35387:35389 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R35377:35382 impl2_MC.pattern_theory <> is_WFP def
+R35386:35386 impl2_MC.elaboration <> p:267 var
+R35384:35384 impl2_MC.elaboration <> d:272 var
+R35390:35393 Coq.Init.Datatypes <> true constr
+R35437:35464 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35422:35425 impl2_MC.elaboration <> Elab:249 ind
+R35435:35436 impl2_MC.elaboration <> e':269 var
+R35433:35433 impl2_MC.elaboration <> d:272 var
+R35431:35431 impl2_MC.elaboration <> R:271 var
+R35429:35429 impl2_MC.elaboration <> r:270 var
+R35427:35427 impl2_MC.elaboration <> e:268 var
+R35465:35468 impl2_MC.elaboration <> Elab:249 ind
+R35488:35491 impl2_MC.elaboration <> LLam constr
+R35495:35496 impl2_MC.elaboration <> e':269 var
+R35493:35493 impl2_MC.elaboration <> p:267 var
+R35485:35485 impl2_MC.elaboration <> d:272 var
+R35483:35483 impl2_MC.elaboration <> R:271 var
+R35481:35481 impl2_MC.elaboration <> r:270 var
+R35471:35474 impl2_MC.kernel_syntax <> KLam constr
+R35478:35478 impl2_MC.elaboration <> e:268 var
+R35476:35476 impl2_MC.elaboration <> p:267 var
+binder 35530:35531 <> e1:273
+binder 35533:35535 <> e1':274
+binder 35537:35538 <> e2:275
+binder 35540:35542 <> e2':276
+binder 35544:35544 <> r:277
+binder 35546:35546 <> R:278
+binder 35548:35548 <> d:279
+R35583:35610 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35575:35578 impl2_MC.type_theory <> WFET def
+R35582:35582 impl2_MC.elaboration <> R:278 var
+R35580:35580 impl2_MC.elaboration <> r:277 var
+R35621:35648 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35611:35614 impl2_MC.pattern_theory <> WFEC def
+R35620:35620 impl2_MC.elaboration <> R:278 var
+R35618:35618 impl2_MC.elaboration <> r:277 var
+R35616:35616 impl2_MC.elaboration <> d:279 var
+R35666:35692 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35649:35652 impl2_MC.elaboration <> Elab:249 ind
+R35663:35665 impl2_MC.elaboration <> e1':274 var
+R35661:35661 impl2_MC.elaboration <> d:279 var
+R35659:35659 impl2_MC.elaboration <> R:278 var
+R35657:35657 impl2_MC.elaboration <> r:277 var
+R35654:35655 impl2_MC.elaboration <> e1:273 var
+R35710:35737 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35693:35696 impl2_MC.elaboration <> Elab:249 ind
+R35707:35709 impl2_MC.elaboration <> e2':276 var
+R35705:35705 impl2_MC.elaboration <> d:279 var
+R35703:35703 impl2_MC.elaboration <> R:278 var
+R35701:35701 impl2_MC.elaboration <> r:277 var
+R35698:35699 impl2_MC.elaboration <> e2:275 var
+R35738:35741 impl2_MC.elaboration <> Elab:249 ind
+R35763:35766 impl2_MC.elaboration <> LApp constr
+R35772:35774 impl2_MC.elaboration <> e2':276 var
+R35768:35770 impl2_MC.elaboration <> e1':274 var
+R35760:35760 impl2_MC.elaboration <> d:279 var
+R35758:35758 impl2_MC.elaboration <> R:278 var
+R35756:35756 impl2_MC.elaboration <> r:277 var
+R35744:35747 impl2_MC.kernel_syntax <> KApp constr
+R35752:35753 impl2_MC.elaboration <> e2:275 var
+R35749:35750 impl2_MC.elaboration <> e1:273 var
+binder 35807:35807 <> r:280
+binder 35809:35809 <> R:281
+binder 35811:35811 <> d:282
+R35846:35873 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35838:35841 impl2_MC.type_theory <> WFET def
+R35845:35845 impl2_MC.elaboration <> R:281 var
+R35843:35843 impl2_MC.elaboration <> r:280 var
+R35884:35911 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35874:35877 impl2_MC.pattern_theory <> WFEC def
+R35883:35883 impl2_MC.elaboration <> R:281 var
+R35881:35881 impl2_MC.elaboration <> r:280 var
+R35879:35879 impl2_MC.elaboration <> d:282 var
+R35912:35915 impl2_MC.elaboration <> Elab:249 ind
+R35929:35933 impl2_MC.elaboration <> LUnit constr
+R35927:35927 impl2_MC.elaboration <> d:282 var
+R35925:35925 impl2_MC.elaboration <> R:281 var
+R35923:35923 impl2_MC.elaboration <> r:280 var
+R35917:35921 impl2_MC.kernel_syntax <> KUnit constr
+binder 35965:35965 <> r:283
+binder 35967:35967 <> R:284
+binder 35969:35969 <> d:285
+R36004:36031 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35996:35999 impl2_MC.type_theory <> WFET def
+R36003:36003 impl2_MC.elaboration <> R:284 var
+R36001:36001 impl2_MC.elaboration <> r:283 var
+R36042:36068 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36032:36035 impl2_MC.pattern_theory <> WFEC def
+R36041:36041 impl2_MC.elaboration <> R:284 var
+R36039:36039 impl2_MC.elaboration <> r:283 var
+R36037:36037 impl2_MC.elaboration <> d:285 var
+R36069:36072 impl2_MC.elaboration <> Elab:249 ind
+R36085:36088 impl2_MC.elaboration <> LNil constr
+R36083:36083 impl2_MC.elaboration <> d:285 var
+R36081:36081 impl2_MC.elaboration <> R:284 var
+R36079:36079 impl2_MC.elaboration <> r:283 var
+R36074:36077 impl2_MC.kernel_syntax <> KNil constr
+binder 36120:36121 <> e1:286
+binder 36123:36125 <> e1':287
+binder 36127:36128 <> e2:288
+binder 36130:36132 <> e2':289
+binder 36134:36134 <> r:290
+binder 36136:36136 <> R:291
+binder 36138:36138 <> d:292
+R36173:36200 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36165:36168 impl2_MC.type_theory <> WFET def
+R36172:36172 impl2_MC.elaboration <> R:291 var
+R36170:36170 impl2_MC.elaboration <> r:290 var
+R36211:36238 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36201:36204 impl2_MC.pattern_theory <> WFEC def
+R36210:36210 impl2_MC.elaboration <> R:291 var
+R36208:36208 impl2_MC.elaboration <> r:290 var
+R36206:36206 impl2_MC.elaboration <> d:292 var
+R36256:36283 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36239:36242 impl2_MC.elaboration <> Elab:249 ind
+R36253:36255 impl2_MC.elaboration <> e1':287 var
+R36251:36251 impl2_MC.elaboration <> d:292 var
+R36249:36249 impl2_MC.elaboration <> R:291 var
+R36247:36247 impl2_MC.elaboration <> r:290 var
+R36244:36245 impl2_MC.elaboration <> e1:286 var
+R36301:36328 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36284:36287 impl2_MC.elaboration <> Elab:249 ind
+R36298:36300 impl2_MC.elaboration <> e2':289 var
+R36296:36296 impl2_MC.elaboration <> d:292 var
+R36294:36294 impl2_MC.elaboration <> R:291 var
+R36292:36292 impl2_MC.elaboration <> r:290 var
+R36289:36290 impl2_MC.elaboration <> e2:288 var
+R36329:36332 impl2_MC.elaboration <> Elab:249 ind
+R36355:36359 impl2_MC.elaboration <> LPair constr
+R36365:36367 impl2_MC.elaboration <> e2':289 var
+R36361:36363 impl2_MC.elaboration <> e1':287 var
+R36352:36352 impl2_MC.elaboration <> d:292 var
+R36350:36350 impl2_MC.elaboration <> R:291 var
+R36348:36348 impl2_MC.elaboration <> r:290 var
+R36335:36339 impl2_MC.kernel_syntax <> KPair constr
+R36344:36345 impl2_MC.elaboration <> e2:288 var
+R36341:36342 impl2_MC.elaboration <> e1:286 var
+binder 36400:36401 <> e1:293
+binder 36403:36405 <> e1':294
+binder 36407:36408 <> e2:295
+binder 36410:36412 <> e2':296
+binder 36414:36414 <> r:297
+binder 36416:36416 <> R:298
+binder 36418:36418 <> d:299
+R36453:36480 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36445:36448 impl2_MC.type_theory <> WFET def
+R36452:36452 impl2_MC.elaboration <> R:298 var
+R36450:36450 impl2_MC.elaboration <> r:297 var
+R36491:36518 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36481:36484 impl2_MC.pattern_theory <> WFEC def
+R36490:36490 impl2_MC.elaboration <> R:298 var
+R36488:36488 impl2_MC.elaboration <> r:297 var
+R36486:36486 impl2_MC.elaboration <> d:299 var
+R36536:36563 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36519:36522 impl2_MC.elaboration <> Elab:249 ind
+R36533:36535 impl2_MC.elaboration <> e1':294 var
+R36531:36531 impl2_MC.elaboration <> d:299 var
+R36529:36529 impl2_MC.elaboration <> R:298 var
+R36527:36527 impl2_MC.elaboration <> r:297 var
+R36524:36525 impl2_MC.elaboration <> e1:293 var
+R36581:36608 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36564:36567 impl2_MC.elaboration <> Elab:249 ind
+R36578:36580 impl2_MC.elaboration <> e2':296 var
+R36576:36576 impl2_MC.elaboration <> d:299 var
+R36574:36574 impl2_MC.elaboration <> R:298 var
+R36572:36572 impl2_MC.elaboration <> r:297 var
+R36569:36570 impl2_MC.elaboration <> e2:295 var
+R36609:36612 impl2_MC.elaboration <> Elab:249 ind
+R36635:36639 impl2_MC.elaboration <> LCons constr
+R36645:36647 impl2_MC.elaboration <> e2':296 var
+R36641:36643 impl2_MC.elaboration <> e1':294 var
+R36632:36632 impl2_MC.elaboration <> d:299 var
+R36630:36630 impl2_MC.elaboration <> R:298 var
+R36628:36628 impl2_MC.elaboration <> r:297 var
+R36615:36619 impl2_MC.kernel_syntax <> KCons constr
+R36624:36625 impl2_MC.elaboration <> e2:295 var
+R36621:36622 impl2_MC.elaboration <> e1:293 var
+binder 36678:36678 <> c:300
+R36689:36691 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R36686:36688 impl2_MC.elaboration ELABORATION :::'Ide' not
+R36692:36694 impl2_MC.elaboration ELABORATION :::'KTp' not
+binder 36681:36683 <> inf:301
+binder 36697:36697 <> e:302
+binder 36699:36700 <> e':303
+binder 36702:36702 <> r:304
+binder 36704:36704 <> R:305
+binder 36706:36706 <> d:306
+R36741:36768 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36733:36736 impl2_MC.type_theory <> WFET def
+R36740:36740 impl2_MC.elaboration <> R:305 var
+R36738:36738 impl2_MC.elaboration <> r:304 var
+R36779:36806 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36769:36772 impl2_MC.pattern_theory <> WFEC def
+R36778:36778 impl2_MC.elaboration <> R:305 var
+R36776:36776 impl2_MC.elaboration <> r:304 var
+R36774:36774 impl2_MC.elaboration <> d:306 var
+R36828:36855 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36817:36819 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R36807:36812 impl2_MC.env <> lookup def
+R36816:36816 impl2_MC.elaboration <> c:300 var
+R36814:36814 impl2_MC.elaboration <> d:306 var
+R36820:36823 Coq.Init.Datatypes <> Some constr
+R36825:36827 impl2_MC.elaboration <> inf:301 var
+R36871:36898 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36856:36859 impl2_MC.elaboration <> Elab:249 ind
+R36869:36870 impl2_MC.elaboration <> e':303 var
+R36867:36867 impl2_MC.elaboration <> d:306 var
+R36865:36865 impl2_MC.elaboration <> R:305 var
+R36863:36863 impl2_MC.elaboration <> r:304 var
+R36861:36861 impl2_MC.elaboration <> e:302 var
+R36899:36902 impl2_MC.elaboration <> Elab:249 ind
+R36926:36933 impl2_MC.elaboration <> LVariant constr
+R36941:36942 impl2_MC.elaboration <> e':303 var
+R36937:36939 impl2_MC.elaboration <> inf:301 var
+R36935:36935 impl2_MC.elaboration <> c:300 var
+R36923:36923 impl2_MC.elaboration <> d:306 var
+R36921:36921 impl2_MC.elaboration <> R:305 var
+R36919:36919 impl2_MC.elaboration <> r:304 var
+R36905:36912 impl2_MC.kernel_syntax <> KVariant constr
+R36916:36916 impl2_MC.elaboration <> e:302 var
+R36914:36914 impl2_MC.elaboration <> c:300 var
+binder 36974:36977 <> name:307
+binder 36979:36981 <> cls:308
+binder 36983:36986 <> cls':309
+binder 36988:36988 <> r:310
+binder 36990:36990 <> R:311
+binder 36992:36992 <> d:312
+R37027:37054 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37019:37022 impl2_MC.type_theory <> WFET def
+R37026:37026 impl2_MC.elaboration <> R:311 var
+R37024:37024 impl2_MC.elaboration <> r:310 var
+R37065:37092 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37055:37058 impl2_MC.pattern_theory <> WFEC def
+R37064:37064 impl2_MC.elaboration <> R:311 var
+R37062:37062 impl2_MC.elaboration <> r:310 var
+R37060:37060 impl2_MC.elaboration <> d:312 var
+R37112:37140 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37093:37096 impl2_MC.elaboration <> Elab:249 ind
+R37108:37111 impl2_MC.elaboration <> cls':309 var
+R37106:37106 impl2_MC.elaboration <> d:312 var
+R37104:37104 impl2_MC.elaboration <> R:311 var
+R37102:37102 impl2_MC.elaboration <> r:310 var
+R37098:37100 impl2_MC.elaboration <> cls:308 var
+R37141:37144 impl2_MC.elaboration <> Elab:249 ind
+R37169:37172 impl2_MC.elaboration <> LFix constr
+R37179:37182 impl2_MC.elaboration <> cls':309 var
+R37174:37177 impl2_MC.elaboration <> name:307 var
+R37166:37166 impl2_MC.elaboration <> d:312 var
+R37164:37164 impl2_MC.elaboration <> R:311 var
+R37162:37162 impl2_MC.elaboration <> r:310 var
+R37147:37150 impl2_MC.kernel_syntax <> KFix constr
+R37157:37159 impl2_MC.elaboration <> cls:308 var
+R37152:37155 impl2_MC.elaboration <> name:307 var
+binder 37216:37216 <> B:313
+binder 37218:37218 <> e:314
+binder 37220:37221 <> e':315
+binder 37223:37223 <> r:316
+binder 37225:37226 <> r':317
+binder 37228:37228 <> R:318
+binder 37230:37231 <> R':319
+binder 37233:37233 <> d:320
+binder 37235:37236 <> d':321
+R37271:37298 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37263:37266 impl2_MC.type_theory <> WFET def
+R37270:37270 impl2_MC.elaboration <> R:318 var
+R37268:37268 impl2_MC.elaboration <> r:316 var
+R37309:37336 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37299:37302 impl2_MC.pattern_theory <> WFEC def
+R37308:37308 impl2_MC.elaboration <> R:318 var
+R37306:37306 impl2_MC.elaboration <> r:316 var
+R37304:37304 impl2_MC.elaboration <> d:320 var
+R37370:37396 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37357:37359 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R37337:37350 impl2_MC.elaboration <> tblock_extends def
+R37356:37356 impl2_MC.elaboration <> B:313 var
+R37354:37354 impl2_MC.elaboration <> R:318 var
+R37352:37352 impl2_MC.elaboration <> r:316 var
+R37360:37361 impl2_MC.result_type <> Ok constr
+R37362:37362 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R37365:37366 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R37369:37369 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R37363:37364 impl2_MC.elaboration <> r':317 var
+R37367:37368 impl2_MC.elaboration <> R':319 var
+R37429:37457 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37419:37421 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R37397:37414 impl2_MC.elaboration <> bind_constr_tblock def
+R37418:37418 impl2_MC.elaboration <> B:313 var
+R37416:37416 impl2_MC.elaboration <> d:320 var
+R37422:37425 Coq.Init.Datatypes <> Some constr
+R37427:37428 impl2_MC.elaboration <> d':321 var
+R37476:37503 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37458:37461 impl2_MC.elaboration <> Elab:249 ind
+R37474:37475 impl2_MC.elaboration <> e':315 var
+R37471:37472 impl2_MC.elaboration <> d':321 var
+R37468:37469 impl2_MC.elaboration <> R':319 var
+R37465:37466 impl2_MC.elaboration <> r':317 var
+R37463:37463 impl2_MC.elaboration <> e:314 var
+R37504:37507 impl2_MC.elaboration <> Elab:249 ind
+R37530:37531 impl2_MC.elaboration <> e':315 var
+R37528:37528 impl2_MC.elaboration <> d:320 var
+R37526:37526 impl2_MC.elaboration <> R:318 var
+R37524:37524 impl2_MC.elaboration <> r:316 var
+R37510:37517 impl2_MC.kernel_syntax <> KDefType constr
+R37521:37521 impl2_MC.elaboration <> e:314 var
+R37519:37519 impl2_MC.elaboration <> B:313 var
+binder 37566:37566 <> e:322
+binder 37568:37569 <> e':323
+binder 37571:37571 <> l:324
+binder 37573:37574 <> l':325
+binder 37576:37576 <> r:326
+binder 37578:37578 <> R:327
+binder 37580:37580 <> d:328
+R37616:37644 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37608:37611 impl2_MC.type_theory <> WFET def
+R37615:37615 impl2_MC.elaboration <> R:327 var
+R37613:37613 impl2_MC.elaboration <> r:326 var
+R37655:37683 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37645:37648 impl2_MC.pattern_theory <> WFEC def
+R37654:37654 impl2_MC.elaboration <> R:327 var
+R37652:37652 impl2_MC.elaboration <> r:326 var
+R37650:37650 impl2_MC.elaboration <> d:328 var
+R37699:37727 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37684:37687 impl2_MC.elaboration <> Elab:249 ind
+R37697:37698 impl2_MC.elaboration <> e':323 var
+R37695:37695 impl2_MC.elaboration <> d:328 var
+R37693:37693 impl2_MC.elaboration <> R:327 var
+R37691:37691 impl2_MC.elaboration <> r:326 var
+R37689:37689 impl2_MC.elaboration <> e:322 var
+R37908:37936 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37728:37734 Coq.Lists.List <> Forall2 ind
+R37906:37907 impl2_MC.elaboration <> l':325 var
+R37904:37904 impl2_MC.elaboration <> l:324 var
+binder 37741:37741 <> p:329
+binder 37743:37744 <> p':330
+R37799:37829 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R37792:37794 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R37776:37781 impl2_MC.pattern_theory <> is_WFP def
+R37786:37788 Coq.Init.Datatypes <> fst def
+R37790:37790 impl2_MC.elaboration <> p:329 var
+R37783:37783 impl2_MC.elaboration <> d:328 var
+R37795:37798 Coq.Init.Datatypes <> true constr
+R37844:37874 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R37835:37837 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R37830:37832 Coq.Init.Datatypes <> fst def
+R37834:37834 impl2_MC.elaboration <> p:329 var
+R37838:37840 Coq.Init.Datatypes <> fst def
+R37842:37843 impl2_MC.elaboration <> p':330 var
+R37875:37878 impl2_MC.elaboration <> Elab:249 ind
+R37895:37897 Coq.Init.Datatypes <> snd def
+R37899:37900 impl2_MC.elaboration <> p':330 var
+R37892:37892 impl2_MC.elaboration <> d:328 var
+R37890:37890 impl2_MC.elaboration <> R:327 var
+R37888:37888 impl2_MC.elaboration <> r:326 var
+R37881:37883 Coq.Init.Datatypes <> snd def
+R37885:37885 impl2_MC.elaboration <> p:329 var
+R37937:37940 impl2_MC.elaboration <> Elab:249 ind
+R37962:37967 impl2_MC.elaboration <> LMatch constr
+R37972:37973 impl2_MC.elaboration <> l':325 var
+R37969:37970 impl2_MC.elaboration <> e':323 var
+R37959:37959 impl2_MC.elaboration <> d:328 var
+R37957:37957 impl2_MC.elaboration <> R:327 var
+R37955:37955 impl2_MC.elaboration <> r:326 var
+R37943:37948 impl2_MC.kernel_syntax <> KMatch constr
+R37952:37952 impl2_MC.elaboration <> l:324 var
+R37950:37950 impl2_MC.elaboration <> e:322 var
+binder 38006:38006 <> m:331
+binder 38008:38008 <> r:332
+binder 38010:38010 <> R:333
+binder 38012:38012 <> d:334
+R38048:38078 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R38040:38043 impl2_MC.type_theory <> WFET def
+R38047:38047 impl2_MC.elaboration <> R:333 var
+R38045:38045 impl2_MC.elaboration <> r:332 var
+R38089:38117 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R38079:38082 impl2_MC.pattern_theory <> WFEC def
+R38088:38088 impl2_MC.elaboration <> R:333 var
+R38086:38086 impl2_MC.elaboration <> r:332 var
+R38084:38084 impl2_MC.elaboration <> d:334 var
+R38118:38121 impl2_MC.elaboration <> Elab:249 ind
+R38141:38146 impl2_MC.elaboration <> LError constr
+R38148:38148 impl2_MC.elaboration <> m:331 var
+R38138:38138 impl2_MC.elaboration <> d:334 var
+R38136:38136 impl2_MC.elaboration <> R:333 var
+R38134:38134 impl2_MC.elaboration <> r:332 var
+R38124:38129 impl2_MC.kernel_syntax <> KError constr
+R38131:38131 impl2_MC.elaboration <> m:331 var
+scheme 34588:34591 <> Elab_ind
+scheme 34588:34591 <> Elab_sind
+def 38199:38209 <> elab_result
+R38214:38219 impl2_MC.result_type <> result ind
+R38227:38232 Coq.Strings.String <> string ind
+R38221:38225 impl2_MC.elaboration <> LExpr ind
+def 38252:38258 <> ok_LLam
+binder 38260:38260 <> p:335
+binder 38262:38262 <> e:336
+R38266:38276 impl2_MC.elaboration <> elab_result def
+R38281:38282 impl2_MC.result_type <> Ok constr
+R38285:38288 impl2_MC.elaboration <> LLam constr
+R38292:38292 impl2_MC.elaboration <> e:336 var
+R38290:38290 impl2_MC.elaboration <> p:335 var
+def 38312:38318 <> ok_LApp
+binder 38320:38321 <> e1:337
+binder 38323:38324 <> e2:338
+R38328:38338 impl2_MC.elaboration <> elab_result def
+R38343:38344 impl2_MC.result_type <> Ok constr
+R38347:38350 impl2_MC.elaboration <> LApp constr
+R38355:38356 impl2_MC.elaboration <> e2:338 var
+R38352:38353 impl2_MC.elaboration <> e1:337 var
+def 38375:38382 <> ok_LPair
+binder 38384:38385 <> e1:339
+binder 38387:38388 <> e2:340
+R38392:38402 impl2_MC.elaboration <> elab_result def
+R38407:38408 impl2_MC.result_type <> Ok constr
+R38411:38415 impl2_MC.elaboration <> LPair constr
+R38420:38421 impl2_MC.elaboration <> e2:340 var
+R38417:38418 impl2_MC.elaboration <> e1:339 var
+def 38441:38448 <> ok_LCons
+binder 38450:38451 <> e1:341
+binder 38453:38454 <> e2:342
+R38458:38468 impl2_MC.elaboration <> elab_result def
+R38473:38474 impl2_MC.result_type <> Ok constr
+R38477:38481 impl2_MC.elaboration <> LCons constr
+R38486:38487 impl2_MC.elaboration <> e2:342 var
+R38483:38484 impl2_MC.elaboration <> e1:341 var
+def 38506:38516 <> ok_LVariant
+binder 38518:38518 <> c:343
+binder 38520:38522 <> inf:344
+binder 38524:38524 <> e:345
+R38528:38538 impl2_MC.elaboration <> elab_result def
+R38543:38544 impl2_MC.result_type <> Ok constr
+R38547:38554 impl2_MC.elaboration <> LVariant constr
+R38562:38562 impl2_MC.elaboration <> e:345 var
+R38558:38560 impl2_MC.elaboration <> inf:344 var
+R38556:38556 impl2_MC.elaboration <> c:343 var
+def 38582:38588 <> ok_LFix
+binder 38590:38590 <> i:346
+binder 38592:38592 <> e:347
+R38596:38606 impl2_MC.elaboration <> elab_result def
+R38611:38612 impl2_MC.result_type <> Ok constr
+R38615:38618 impl2_MC.elaboration <> LFix constr
+R38622:38622 impl2_MC.elaboration <> e:347 var
+R38620:38620 impl2_MC.elaboration <> i:346 var
+def 38654:38657 <> elab
+R38663:38667 impl2_MC.elaboration ELABORATION :::'KExpr' not
+binder 38660:38660 <> e:348
+R38674:38677 impl2_MC.elaboration ELABORATION :::'tenv' not
+binder 38671:38671 <> r:349
+R38684:38691 impl2_MC.elaboration ELABORATION :::'register' not
+binder 38681:38681 <> R:350
+R38698:38707 impl2_MC.elaboration ELABORATION :::'constr_env' not
+binder 38695:38695 <> d:351
+R38712:38722 impl2_MC.elaboration <> elab_result def
+R38740:38740 impl2_MC.elaboration <> e:348 var
+R38755:38758 impl2_MC.kernel_syntax <> KVar constr
+R38771:38772 impl2_MC.result_type <> Ok constr
+R38775:38778 impl2_MC.elaboration <> LVar constr
+R38790:38793 impl2_MC.kernel_syntax <> KLit constr
+R38806:38807 impl2_MC.result_type <> Ok constr
+R38810:38813 impl2_MC.elaboration <> LLit constr
+R38826:38828 impl2_MC.kernel_syntax <> KOp constr
+R38864:38866 Coq.Lists.List <> map def
+binder 38873:38873 <> e:354
+R38878:38881 impl2_MC.elaboration <> elab:352 def
+R38889:38889 impl2_MC.elaboration <> d:351 var
+R38887:38887 impl2_MC.elaboration <> R:350 var
+R38885:38885 impl2_MC.elaboration <> r:349 var
+R38883:38883 impl2_MC.elaboration <> e:354 var
+binder 38857:38859 <> lr':355
+R38915:38924 impl2_MC.result_type <> find_error def
+R38926:38928 impl2_MC.elaboration <> lr':355 var
+R38947:38950 Coq.Init.Datatypes <> Some constr
+R39055:39058 Coq.Init.Datatypes <> None constr
+R39063:39064 impl2_MC.result_type <> Ok constr
+R39067:39069 impl2_MC.elaboration <> LOp constr
+R39075:39084 impl2_MC.result_type <> map_result def
+R39090:39094 impl2_MC.elaboration <> LUnit constr
+R39086:39088 impl2_MC.elaboration <> lr':355 var
+R39122:39125 impl2_MC.kernel_syntax <> KLam constr
+R39141:39146 impl2_MC.pattern_theory <> is_WFP def
+R39148:39148 impl2_MC.elaboration <> d:351 var
+R39214:39218 impl2_MC.result_type <> Error constr
+R39169:39173 impl2_MC.result_type <> :::x_'>>='_x not
+R39157:39160 impl2_MC.elaboration <> elab:352 def
+R39168:39168 impl2_MC.elaboration <> d:351 var
+R39166:39166 impl2_MC.elaboration <> R:350 var
+R39164:39164 impl2_MC.elaboration <> r:349 var
+R39162:39162 impl2_MC.elaboration <> e:348 var
+R39174:39180 impl2_MC.elaboration <> ok_LLam def
+R39290:39293 impl2_MC.kernel_syntax <> KApp constr
+R39319:39324 impl2_MC.result_type <> :::x_'>>='_x not
+R39361:39361 impl2_MC.result_type <> :::x_'>>='_x not
+R39306:39309 impl2_MC.elaboration <> elab:352 def
+R39318:39318 impl2_MC.elaboration <> d:351 var
+R39316:39316 impl2_MC.elaboration <> R:350 var
+R39314:39314 impl2_MC.elaboration <> r:349 var
+binder 39329:39329 <> x:356
+R39347:39351 impl2_MC.result_type <> :::x_'>>='_x not
+R39334:39337 impl2_MC.elaboration <> elab:352 def
+R39346:39346 impl2_MC.elaboration <> d:351 var
+R39344:39344 impl2_MC.elaboration <> R:350 var
+R39342:39342 impl2_MC.elaboration <> r:349 var
+R39352:39358 impl2_MC.elaboration <> ok_LApp def
+R39360:39360 impl2_MC.elaboration <> x:356 var
+R39370:39374 impl2_MC.kernel_syntax <> KUnit constr
+R39386:39387 impl2_MC.result_type <> Ok constr
+R39389:39393 impl2_MC.elaboration <> LUnit constr
+R39402:39405 impl2_MC.kernel_syntax <> KNil constr
+R39418:39419 impl2_MC.result_type <> Ok constr
+R39421:39424 impl2_MC.elaboration <> LNil constr
+R39433:39437 impl2_MC.kernel_syntax <> KPair constr
+R39462:39467 impl2_MC.result_type <> :::x_'>>='_x not
+R39505:39505 impl2_MC.result_type <> :::x_'>>='_x not
+R39449:39452 impl2_MC.elaboration <> elab:352 def
+R39461:39461 impl2_MC.elaboration <> d:351 var
+R39459:39459 impl2_MC.elaboration <> R:350 var
+R39457:39457 impl2_MC.elaboration <> r:349 var
+binder 39472:39472 <> x:357
+R39490:39494 impl2_MC.result_type <> :::x_'>>='_x not
+R39477:39480 impl2_MC.elaboration <> elab:352 def
+R39489:39489 impl2_MC.elaboration <> d:351 var
+R39487:39487 impl2_MC.elaboration <> R:350 var
+R39485:39485 impl2_MC.elaboration <> r:349 var
+R39495:39502 impl2_MC.elaboration <> ok_LPair def
+R39504:39504 impl2_MC.elaboration <> x:357 var
+R39514:39518 impl2_MC.kernel_syntax <> KCons constr
+R39543:39548 impl2_MC.result_type <> :::x_'>>='_x not
+R39586:39586 impl2_MC.result_type <> :::x_'>>='_x not
+R39530:39533 impl2_MC.elaboration <> elab:352 def
+R39542:39542 impl2_MC.elaboration <> d:351 var
+R39540:39540 impl2_MC.elaboration <> R:350 var
+R39538:39538 impl2_MC.elaboration <> r:349 var
+binder 39553:39553 <> x:358
+R39571:39575 impl2_MC.result_type <> :::x_'>>='_x not
+R39558:39561 impl2_MC.elaboration <> elab:352 def
+R39570:39570 impl2_MC.elaboration <> d:351 var
+R39568:39568 impl2_MC.elaboration <> R:350 var
+R39566:39566 impl2_MC.elaboration <> r:349 var
+R39576:39583 impl2_MC.elaboration <> ok_LCons def
+R39585:39585 impl2_MC.elaboration <> x:358 var
+R39595:39602 impl2_MC.kernel_syntax <> KVariant constr
+R39618:39623 impl2_MC.env <> lookup def
+R39625:39625 impl2_MC.elaboration <> d:351 var
+R39661:39664 Coq.Init.Datatypes <> Some constr
+R39686:39690 impl2_MC.result_type <> :::x_'>>='_x not
+R39674:39677 impl2_MC.elaboration <> elab:352 def
+R39685:39685 impl2_MC.elaboration <> d:351 var
+R39683:39683 impl2_MC.elaboration <> R:350 var
+R39681:39681 impl2_MC.elaboration <> r:349 var
+R39679:39679 impl2_MC.elaboration <> e:348 var
+R39691:39701 impl2_MC.elaboration <> ok_LVariant def
+R39735:39738 Coq.Init.Datatypes <> None constr
+R39748:39752 impl2_MC.result_type <> Error constr
+R39770:39773 Coq.Strings.String <> ::string_scope:x_'++'_x not
+R39774:39774 Coq.Strings.String <> ::string_scope:x_'++'_x not
+R39795:39799 Coq.Strings.String <> ::string_scope:x_'++'_x not
+R39775:39790 impl2_MC.ids <> constr_to_string proj
+R39792:39792 impl2_MC.elaboration <> ELABORATION.I var
+R39863:39866 impl2_MC.kernel_syntax <> KFix constr
+R39891:39895 impl2_MC.result_type <> :::x_'>>='_x not
+R39879:39882 impl2_MC.elaboration <> elab:352 def
+R39890:39890 impl2_MC.elaboration <> d:351 var
+R39888:39888 impl2_MC.elaboration <> R:350 var
+R39886:39886 impl2_MC.elaboration <> r:349 var
+R39884:39884 impl2_MC.elaboration <> e:348 var
+R39896:39902 impl2_MC.elaboration <> ok_LFix def
+R39914:39921 impl2_MC.kernel_syntax <> KDefType constr
+R39936:39949 impl2_MC.elaboration <> tblock_extends def
+R39953:39953 impl2_MC.elaboration <> R:350 var
+R39951:39951 impl2_MC.elaboration <> r:349 var
+R39987:39988 impl2_MC.result_type <> Ok constr
+R39989:39989 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R39992:39993 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R39996:39996 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R40008:40025 impl2_MC.elaboration <> bind_constr_tblock def
+R40027:40027 impl2_MC.elaboration <> d:351 var
+R40077:40080 Coq.Init.Datatypes <> Some constr
+R40088:40091 impl2_MC.elaboration <> elab:352 def
+R40093:40093 impl2_MC.elaboration <> e:348 var
+R40145:40148 Coq.Init.Datatypes <> None constr
+R40156:40160 impl2_MC.result_type <> Error constr
+R40277:40281 impl2_MC.result_type <> Error constr
+R40292:40296 impl2_MC.result_type <> Error constr
+R40339:40344 impl2_MC.kernel_syntax <> KMatch constr
+R40367:40372 impl2_MC.result_type <> :::x_'>>='_x not
+R40992:40992 impl2_MC.result_type <> :::x_'>>='_x not
+R40355:40358 impl2_MC.elaboration <> elab:352 def
+R40366:40366 impl2_MC.elaboration <> d:351 var
+R40364:40364 impl2_MC.elaboration <> R:350 var
+R40362:40362 impl2_MC.elaboration <> r:349 var
+R40360:40360 impl2_MC.elaboration <> e:348 var
+binder 40377:40378 <> e':359
+R40413:40419 Coq.Lists.List <> forallb def
+R40427:40427 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R40429:40430 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R40432:40432 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 40428:40428 <> p:360
+binder 40427:40432 <> pat:361
+R40437:40442 impl2_MC.pattern_theory <> is_WFP def
+R40446:40446 impl2_MC.elaboration <> p:360 var
+R40444:40444 impl2_MC.elaboration <> d:351 var
+R40932:40936 impl2_MC.result_type <> Error constr
+R40494:40496 Coq.Lists.List <> map def
+R40504:40504 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R40506:40507 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R40509:40509 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 40508:40508 <> e:362
+binder 40505:40505 <> p:363
+binder 40504:40509 <> pat:364
+R40514:40514 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R40516:40517 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R40530:40530 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R40515:40515 impl2_MC.elaboration <> p:363 var
+R40518:40521 impl2_MC.elaboration <> elab:352 def
+R40529:40529 impl2_MC.elaboration <> d:351 var
+R40527:40527 impl2_MC.elaboration <> R:350 var
+R40525:40525 impl2_MC.elaboration <> r:349 var
+R40523:40523 impl2_MC.elaboration <> e:362 var
+binder 40488:40489 <> l':365
+R40574:40577 Coq.Lists.List <> find def
+R40607:40608 impl2_MC.elaboration <> l':365 var
+R40585:40585 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R40587:40588 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R40590:40590 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 40589:40589 <> e:366
+binder 40585:40590 <> pat:367
+R40595:40602 impl2_MC.result_type <> is_error def
+R40604:40604 impl2_MC.elaboration <> e:366 var
+R40754:40757 Coq.Init.Datatypes <> None constr
+R40771:40772 impl2_MC.result_type <> Ok constr
+R40775:40780 impl2_MC.elaboration <> LMatch constr
+R40786:40799 impl2_MC.result_type <> map_snd_result def
+R40804:40808 impl2_MC.elaboration <> LUnit constr
+R40801:40802 impl2_MC.elaboration <> l':365 var
+R40782:40783 impl2_MC.elaboration <> e':359 var
+R40844:40847 Coq.Init.Datatypes <> Some constr
+R40849:40849 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R40851:40852 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R40856:40856 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R41002:41007 impl2_MC.kernel_syntax <> KError constr
+R41014:41015 impl2_MC.result_type <> Ok constr
+R41018:41023 impl2_MC.elaboration <> LError constr
+prf 41058:41069 <> elab_correct
+binder 41080:41080 <> e:368
+binder 41082:41082 <> r:369
+binder 41084:41084 <> R:370
+binder 41086:41086 <> d:371
+binder 41088:41089 <> e':372
+R41108:41120 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R41100:41103 impl2_MC.type_theory <> WFET def
+R41107:41107 impl2_MC.elaboration <> R:370 var
+R41105:41105 impl2_MC.elaboration <> r:369 var
+R41131:41144 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R41121:41124 impl2_MC.pattern_theory <> WFEC def
+R41130:41130 impl2_MC.elaboration <> R:370 var
+R41128:41128 impl2_MC.elaboration <> r:369 var
+R41126:41126 impl2_MC.elaboration <> d:371 var
+R41165:41176 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R41157:41159 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R41145:41148 impl2_MC.elaboration <> elab def
+R41156:41156 impl2_MC.elaboration <> d:371 var
+R41154:41154 impl2_MC.elaboration <> R:370 var
+R41152:41152 impl2_MC.elaboration <> r:369 var
+R41150:41150 impl2_MC.elaboration <> e:368 var
+R41160:41161 impl2_MC.result_type <> Ok constr
+R41163:41164 impl2_MC.elaboration <> e':372 var
+R41177:41180 impl2_MC.elaboration <> Elab ind
+R41190:41191 impl2_MC.elaboration <> e':372 var
+R41188:41188 impl2_MC.elaboration <> d:371 var
+R41186:41186 impl2_MC.elaboration <> R:370 var
+R41184:41184 impl2_MC.elaboration <> r:369 var
+R41182:41182 impl2_MC.elaboration <> e:368 var
+R41402:41411 impl2_MC.kernel_syntax <> KExpr_ind' def
+R41402:41411 impl2_MC.kernel_syntax <> KExpr_ind' def
+R41472:41479 impl2_MC.elaboration <> Elab_Var constr
+R41472:41479 impl2_MC.elaboration <> Elab_Var constr
+R41538:41545 impl2_MC.elaboration <> Elab_Lit constr
+R41538:41545 impl2_MC.elaboration <> Elab_Lit constr
+R41591:41600 impl2_MC.result_type <> find_error def
+R41591:41600 impl2_MC.result_type <> find_error def
+R41638:41656 impl2_MC.result_type <> find_error_is_error thm
+R41638:41656 impl2_MC.result_type <> find_error_is_error thm
+R41689:41704 impl2_MC.result_type <> is_error_correct thm
+R41689:41704 impl2_MC.result_type <> is_error_correct thm
+R41804:41810 impl2_MC.elaboration <> Elab_Op constr
+R41804:41810 impl2_MC.elaboration <> Elab_Op constr
+R41845:41854 impl2_MC.result_type <> map_result def
+R41898:41902 impl2_MC.elaboration <> LUnit constr
+R41857:41859 Coq.Lists.List <> map def
+R41871:41875 impl2_MC.elaboration ELABORATION :::'KExpr' not
+binder 41866:41867 <> e0:373
+R41880:41883 impl2_MC.elaboration <> elab def
+R41885:41886 impl2_MC.elaboration <> e0:373 var
+R41845:41854 impl2_MC.result_type <> map_result def
+R41898:41902 impl2_MC.elaboration <> LUnit constr
+R41857:41859 Coq.Lists.List <> map def
+R41871:41875 impl2_MC.elaboration ELABORATION :::'KExpr' not
+binder 41866:41867 <> e0:374
+R41880:41883 impl2_MC.elaboration <> elab def
+R41885:41886 impl2_MC.elaboration <> e0:374 var
+R42070:42080 Coq.Lists.List <> Forall2_nil constr
+R42070:42080 Coq.Lists.List <> Forall2_nil constr
+R42157:42168 Coq.Lists.List <> Forall2_cons constr
+R42157:42168 Coq.Lists.List <> Forall2_cons constr
+R42229:42234 impl2_MC.result_type <> get_ok def
+R42251:42255 impl2_MC.elaboration <> LUnit constr
+R42237:42240 impl2_MC.elaboration <> elab def
+R42287:42294 impl2_MC.result_type <> is_error def
+R42297:42300 impl2_MC.elaboration <> elab def
+R42229:42234 impl2_MC.result_type <> get_ok def
+R42251:42255 impl2_MC.elaboration <> LUnit constr
+R42237:42240 impl2_MC.elaboration <> elab def
+R42287:42294 impl2_MC.result_type <> is_error def
+R42297:42300 impl2_MC.elaboration <> elab def
+R42287:42294 impl2_MC.result_type <> is_error def
+R42297:42300 impl2_MC.elaboration <> elab def
+R42287:42294 impl2_MC.result_type <> is_error def
+R42297:42300 impl2_MC.elaboration <> elab def
+R42419:42423 impl2_MC.elaboration <> LUnit constr
+R42391:42404 impl2_MC.result_type <> get_ok_correct thm
+R42419:42423 impl2_MC.elaboration <> LUnit constr
+R42391:42404 impl2_MC.result_type <> get_ok_correct thm
+R42572:42574 impl2_MC.elaboration <> LOp constr
+R42572:42574 impl2_MC.elaboration <> LOp constr
+R42710:42717 impl2_MC.result_type <> is_error def
+R42720:42723 impl2_MC.elaboration <> elab def
+R42710:42717 impl2_MC.result_type <> is_error def
+R42720:42723 impl2_MC.elaboration <> elab def
+R42800:42805 impl2_MC.pattern_theory <> is_WFP def
+R42844:42847 impl2_MC.elaboration <> elab def
+R42875:42881 impl2_MC.elaboration <> ok_LLam def
+R42938:42945 impl2_MC.elaboration <> Elab_Lam constr
+R42969:42982 impl2_MC.pattern_theory <> is_WFP_correct thm
+R42800:42805 impl2_MC.pattern_theory <> is_WFP def
+R42844:42847 impl2_MC.elaboration <> elab def
+R42844:42847 impl2_MC.elaboration <> elab def
+R42938:42945 impl2_MC.elaboration <> Elab_Lam constr
+R42969:42982 impl2_MC.pattern_theory <> is_WFP_correct thm
+R42969:42982 impl2_MC.pattern_theory <> is_WFP_correct thm
+R42969:42982 impl2_MC.pattern_theory <> is_WFP_correct thm
+R42969:42982 impl2_MC.pattern_theory <> is_WFP_correct thm
+R43046:43049 impl2_MC.elaboration <> elab def
+R43046:43049 impl2_MC.elaboration <> elab def
+R43138:43141 impl2_MC.elaboration <> elab def
+R43182:43188 impl2_MC.elaboration <> ok_LApp def
+R43246:43253 impl2_MC.elaboration <> Elab_App constr
+R43138:43141 impl2_MC.elaboration <> elab def
+R43246:43253 impl2_MC.elaboration <> Elab_App constr
+R43320:43328 impl2_MC.elaboration <> Elab_Unit constr
+R43320:43328 impl2_MC.elaboration <> Elab_Unit constr
+R43395:43402 impl2_MC.elaboration <> Elab_Nil constr
+R43395:43402 impl2_MC.elaboration <> Elab_Nil constr
+R43466:43469 impl2_MC.elaboration <> elab def
+R43466:43469 impl2_MC.elaboration <> elab def
+R43557:43560 impl2_MC.elaboration <> elab def
+R43601:43607 impl2_MC.elaboration <> ok_LApp def
+R43665:43673 impl2_MC.elaboration <> Elab_Pair constr
+R43557:43560 impl2_MC.elaboration <> elab def
+R43665:43673 impl2_MC.elaboration <> Elab_Pair constr
+R43737:43740 impl2_MC.elaboration <> elab def
+R43737:43740 impl2_MC.elaboration <> elab def
+R43829:43832 impl2_MC.elaboration <> elab def
+R43873:43879 impl2_MC.elaboration <> ok_LApp def
+R43937:43945 impl2_MC.elaboration <> Elab_Cons constr
+R43829:43832 impl2_MC.elaboration <> elab def
+R43937:43945 impl2_MC.elaboration <> Elab_Cons constr
+R44015:44020 impl2_MC.env <> lookup def
+R44015:44020 impl2_MC.env <> lookup def
+R44074:44084 impl2_MC.elaboration <> ok_LVariant def
+R44117:44120 impl2_MC.elaboration <> elab def
+R44187:44198 impl2_MC.elaboration <> Elab_Variant constr
+R44117:44120 impl2_MC.elaboration <> elab def
+R44187:44198 impl2_MC.elaboration <> Elab_Variant constr
+R44262:44265 impl2_MC.elaboration <> elab def
+R44262:44265 impl2_MC.elaboration <> elab def
+R44364:44371 impl2_MC.elaboration <> Elab_Fix constr
+R44364:44371 impl2_MC.elaboration <> Elab_Fix constr
+R44418:44431 impl2_MC.elaboration <> tblock_extends def
+R44418:44431 impl2_MC.elaboration <> tblock_extends def
+R44484:44501 impl2_MC.elaboration <> bind_constr_tblock def
+R44484:44501 impl2_MC.elaboration <> bind_constr_tblock def
+R44541:44552 impl2_MC.elaboration <> Elab_DefType constr
+R44541:44552 impl2_MC.elaboration <> Elab_DefType constr
+R44654:44674 impl2_MC.elaboration <> TBlockExtends_correct thm
+R44654:44674 impl2_MC.elaboration <> TBlockExtends_correct thm
+R44731:44745 impl2_MC.elaboration <> tbl_ext_correct thm
+R44731:44745 impl2_MC.elaboration <> tbl_ext_correct thm
+R44779:44806 impl2_MC.elaboration <> tbl_ext_with_constr_correct2 thm
+R44779:44806 impl2_MC.elaboration <> tbl_ext_with_constr_correct2 thm
+R44899:44913 impl2_MC.elaboration <> tbl_ext_correct thm
+R44899:44913 impl2_MC.elaboration <> tbl_ext_correct thm
+R45015:45018 impl2_MC.elaboration <> elab def
+R45015:45018 impl2_MC.elaboration <> elab def
+R45093:45099 Coq.Lists.List <> forallb def
+R45093:45099 Coq.Lists.List <> forallb def
+R45157:45160 Coq.Lists.List <> find def
+R45157:45160 Coq.Lists.List <> find def
+R45214:45222 Coq.Lists.List <> find_some thm
+R45214:45222 Coq.Lists.List <> find_some thm
+R45357:45366 impl2_MC.elaboration <> Elab_Match constr
+R45357:45366 impl2_MC.elaboration <> Elab_Match constr
+R45397:45410 impl2_MC.result_type <> map_snd_result def
+R45469:45473 impl2_MC.elaboration <> LUnit constr
+R45425:45427 Coq.Lists.List <> map def
+R45435:45435 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R45437:45438 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R45441:45441 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 45439:45440 <> e0:375
+binder 45436:45436 <> p:376
+binder 45435:45441 <> pat:377
+R45446:45446 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R45448:45449 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R45463:45463 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R45447:45447 impl2_MC.elaboration <> p:376 var
+R45450:45453 impl2_MC.elaboration <> elab def
+R45455:45456 impl2_MC.elaboration <> e0:375 var
+R45397:45410 impl2_MC.result_type <> map_snd_result def
+R45469:45473 impl2_MC.elaboration <> LUnit constr
+R45425:45427 Coq.Lists.List <> map def
+R45435:45435 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R45437:45438 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R45441:45441 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 45439:45440 <> e0:378
+binder 45436:45436 <> p:379
+binder 45435:45441 <> pat:380
+R45446:45446 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R45448:45449 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R45463:45463 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R45447:45447 impl2_MC.elaboration <> p:379 var
+R45450:45453 impl2_MC.elaboration <> elab def
+R45455:45456 impl2_MC.elaboration <> e0:378 var
+R45588:45598 Coq.Lists.List <> Forall2_nil constr
+R45588:45598 Coq.Lists.List <> Forall2_nil constr
+R45672:45683 Coq.Lists.List <> Forall2_cons constr
+R45672:45683 Coq.Lists.List <> Forall2_cons constr
+R45708:45725 Coq.Bool.Bool <> andb_true_iff thm
+R45708:45725 Coq.Bool.Bool <> andb_true_iff thm
+R45708:45725 Coq.Bool.Bool <> andb_true_iff thm
+R45887:45892 impl2_MC.result_type <> get_ok def
+R45910:45914 impl2_MC.elaboration <> LUnit constr
+R45895:45898 impl2_MC.elaboration <> elab def
+R45942:45949 impl2_MC.result_type <> is_error def
+R45952:45955 impl2_MC.elaboration <> elab def
+R45887:45892 impl2_MC.result_type <> get_ok def
+R45910:45914 impl2_MC.elaboration <> LUnit constr
+R45895:45898 impl2_MC.elaboration <> elab def
+R45942:45949 impl2_MC.result_type <> is_error def
+R45952:45955 impl2_MC.elaboration <> elab def
+R45942:45949 impl2_MC.result_type <> is_error def
+R45952:45955 impl2_MC.elaboration <> elab def
+R45942:45949 impl2_MC.result_type <> is_error def
+R45952:45955 impl2_MC.elaboration <> elab def
+R46067:46071 impl2_MC.elaboration <> LUnit constr
+R46039:46052 impl2_MC.result_type <> get_ok_correct thm
+R46067:46071 impl2_MC.elaboration <> LUnit constr
+R46039:46052 impl2_MC.result_type <> get_ok_correct thm
+R46257:46264 impl2_MC.result_type <> is_error def
+R46267:46270 impl2_MC.elaboration <> elab def
+R46326:46343 Coq.Bool.Bool <> andb_true_iff thm
+R46257:46264 impl2_MC.result_type <> is_error def
+R46267:46270 impl2_MC.elaboration <> elab def
+R46257:46264 impl2_MC.result_type <> is_error def
+R46267:46270 impl2_MC.elaboration <> elab def
+R46257:46264 impl2_MC.result_type <> is_error def
+R46267:46270 impl2_MC.elaboration <> elab def
+R46257:46264 impl2_MC.result_type <> is_error def
+R46267:46270 impl2_MC.elaboration <> elab def
+R46257:46264 impl2_MC.result_type <> is_error def
+R46267:46270 impl2_MC.elaboration <> elab def
+R46326:46343 Coq.Bool.Bool <> andb_true_iff thm
+R46326:46343 Coq.Bool.Bool <> andb_true_iff thm
+R46326:46343 Coq.Bool.Bool <> andb_true_iff thm
+R46326:46343 Coq.Bool.Bool <> andb_true_iff thm
+R46326:46343 Coq.Bool.Bool <> andb_true_iff thm
+R46326:46343 Coq.Bool.Bool <> andb_true_iff thm
+R46326:46343 Coq.Bool.Bool <> andb_true_iff thm
+R46326:46343 Coq.Bool.Bool <> andb_true_iff thm
+R46326:46343 Coq.Bool.Bool <> andb_true_iff thm
+R46326:46343 Coq.Bool.Bool <> andb_true_iff thm
+R46455:46464 impl2_MC.elaboration <> Elab_Error constr
+R46455:46464 impl2_MC.elaboration <> Elab_Error constr
+prf 46501:46508 <> In_Error
+binder 46518:46518 <> m:381
+binder 46520:46520 <> r:382
+binder 46522:46522 <> R:383
+binder 46524:46524 <> d:384
+binder 46526:46526 <> l:385
+R46581:46592 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R46537:46538 Coq.Lists.List <> In def
+R46551:46553 Coq.Lists.List <> map def
+R46579:46579 impl2_MC.elaboration <> l:385 var
+binder 46560:46560 <> e:386
+R46565:46568 impl2_MC.elaboration <> elab def
+R46576:46576 impl2_MC.elaboration <> d:384 var
+R46574:46574 impl2_MC.elaboration <> R:383 var
+R46572:46572 impl2_MC.elaboration <> r:382 var
+R46570:46570 impl2_MC.elaboration <> e:386 var
+R46541:46545 impl2_MC.result_type <> Error constr
+R46547:46547 impl2_MC.elaboration <> m:381 var
+R46593:46599 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R46602:46603 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 46600:46601 <> e':387
+R46611:46614 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R46604:46605 Coq.Lists.List <> In def
+R46610:46610 impl2_MC.elaboration <> l:385 var
+R46607:46608 impl2_MC.elaboration <> e':387 var
+R46628:46630 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R46615:46618 impl2_MC.elaboration <> elab def
+R46627:46627 impl2_MC.elaboration <> d:384 var
+R46625:46625 impl2_MC.elaboration <> R:383 var
+R46623:46623 impl2_MC.elaboration <> r:382 var
+R46620:46621 impl2_MC.elaboration <> e':387 var
+R46631:46635 impl2_MC.result_type <> Error constr
+R46637:46637 impl2_MC.elaboration <> m:381 var
+prf 46934:46946 <> Forall2_In_ex
+binder 46956:46956 <> l:388
+binder 46958:46958 <> r:389
+binder 46960:46960 <> R:390
+binder 46962:46962 <> d:391
+binder 46964:46965 <> l':392
+binder 46967:46968 <> e1:393
+R47021:47032 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R46979:46985 Coq.Lists.List <> Forall2 ind
+R47019:47020 impl2_MC.elaboration <> l':392 var
+R47017:47017 impl2_MC.elaboration <> l:388 var
+binder 46992:46992 <> e:394
+binder 46994:46995 <> le:395
+R47000:47003 impl2_MC.elaboration <> Elab ind
+R47013:47014 impl2_MC.elaboration <> le:395 var
+R47011:47011 impl2_MC.elaboration <> d:391 var
+R47009:47009 impl2_MC.elaboration <> R:390 var
+R47007:47007 impl2_MC.elaboration <> r:389 var
+R47005:47005 impl2_MC.elaboration <> e:394 var
+R47040:47051 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R47033:47034 Coq.Lists.List <> In def
+R47039:47039 impl2_MC.elaboration <> l:388 var
+R47036:47037 impl2_MC.elaboration <> e1:393 var
+R47052:47058 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R47061:47062 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 47059:47060 <> e2:396
+R47063:47066 impl2_MC.elaboration <> Elab ind
+R47077:47078 impl2_MC.elaboration <> e2:396 var
+R47075:47075 impl2_MC.elaboration <> d:391 var
+R47073:47073 impl2_MC.elaboration <> R:390 var
+R47071:47071 impl2_MC.elaboration <> r:389 var
+R47068:47069 impl2_MC.elaboration <> e1:393 var
+prf 47388:47400 <> forallb_false
+binder 47411:47411 <> l:397
+binder 47413:47413 <> d:398
+R47470:47482 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R47462:47464 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R47425:47431 Coq.Lists.List <> forallb def
+R47461:47461 impl2_MC.elaboration <> l:397 var
+R47439:47439 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R47441:47442 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R47444:47444 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 47440:47440 <> p:399
+binder 47439:47444 <> pat:400
+R47449:47454 impl2_MC.pattern_theory <> is_WFP def
+R47458:47458 impl2_MC.elaboration <> p:399 var
+R47456:47456 impl2_MC.elaboration <> d:398 var
+R47465:47469 Coq.Init.Datatypes <> false constr
+R47483:47490 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R47506:47508 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R47498:47500 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R47494:47497 impl2_MC.elaboration ELABORATION :::'KPat' not
+R47501:47505 impl2_MC.elaboration ELABORATION :::'KExpr' not
+binder 47491:47491 <> x:401
+R47515:47518 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R47509:47510 Coq.Lists.List <> In def
+R47514:47514 impl2_MC.elaboration <> l:397 var
+R47512:47512 impl2_MC.elaboration <> x:401 var
+R47535:47537 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R47519:47524 impl2_MC.pattern_theory <> is_WFP def
+R47529:47531 Coq.Init.Datatypes <> fst def
+R47533:47533 impl2_MC.elaboration <> x:401 var
+R47526:47526 impl2_MC.elaboration <> d:398 var
+R47538:47542 Coq.Init.Datatypes <> false constr
+R47672:47690 Coq.Bool.Bool <> andb_false_iff thm
+R47672:47690 Coq.Bool.Bool <> andb_false_iff thm
+R47672:47690 Coq.Bool.Bool <> andb_false_iff thm
+R47783:47783 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R47785:47786 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R47789:47789 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R47783:47783 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R47785:47786 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R47789:47789 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+prf 47957:47966 <> Forall2_In
+binder 47977:47977 <> d:402
+binder 47979:47979 <> p:403
+binder 47981:47981 <> r:404
+binder 47983:47983 <> R:405
+binder 47985:47985 <> l:406
+binder 47987:47988 <> l':407
+R48159:48170 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R48000:48006 Coq.Lists.List <> Forall2 ind
+R48157:48158 impl2_MC.elaboration <> l':407 var
+R48155:48155 impl2_MC.elaboration <> l:406 var
+binder 48013:48013 <> p:408
+binder 48015:48016 <> p':409
+R48044:48077 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R48037:48039 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R48021:48026 impl2_MC.pattern_theory <> is_WFP def
+R48031:48033 Coq.Init.Datatypes <> fst def
+R48035:48035 impl2_MC.elaboration <> p:408 var
+R48028:48028 impl2_MC.elaboration <> d:402 var
+R48040:48043 Coq.Init.Datatypes <> true constr
+R48092:48125 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R48083:48085 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R48078:48080 Coq.Init.Datatypes <> fst def
+R48082:48082 impl2_MC.elaboration <> p:408 var
+R48086:48088 Coq.Init.Datatypes <> fst def
+R48090:48091 impl2_MC.elaboration <> p':409 var
+R48126:48129 impl2_MC.elaboration <> Elab ind
+R48146:48148 Coq.Init.Datatypes <> snd def
+R48150:48151 impl2_MC.elaboration <> p':409 var
+R48143:48143 impl2_MC.elaboration <> d:402 var
+R48141:48141 impl2_MC.elaboration <> R:405 var
+R48139:48139 impl2_MC.elaboration <> r:404 var
+R48132:48134 Coq.Init.Datatypes <> snd def
+R48136:48136 impl2_MC.elaboration <> p:408 var
+R48177:48189 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R48171:48172 Coq.Lists.List <> In def
+R48176:48176 impl2_MC.elaboration <> l:406 var
+R48174:48174 impl2_MC.elaboration <> p:403 var
+R48206:48208 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R48190:48195 impl2_MC.pattern_theory <> is_WFP def
+R48200:48202 Coq.Init.Datatypes <> fst def
+R48204:48204 impl2_MC.elaboration <> p:403 var
+R48197:48197 impl2_MC.elaboration <> d:402 var
+R48209:48212 Coq.Init.Datatypes <> true constr
+prf 48504:48519 <> elab_correct_err
+binder 48529:48529 <> e:410
+binder 48531:48531 <> r:411
+binder 48533:48533 <> R:412
+binder 48535:48535 <> d:413
+binder 48537:48537 <> m:414
+binder 48539:48540 <> e':415
+R48560:48572 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R48552:48555 impl2_MC.type_theory <> WFET def
+R48559:48559 impl2_MC.elaboration <> R:412 var
+R48557:48557 impl2_MC.elaboration <> r:411 var
+R48583:48595 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R48573:48576 impl2_MC.pattern_theory <> WFEC def
+R48582:48582 impl2_MC.elaboration <> R:412 var
+R48580:48580 impl2_MC.elaboration <> r:411 var
+R48578:48578 impl2_MC.elaboration <> d:413 var
+R48618:48630 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R48608:48610 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R48596:48599 impl2_MC.elaboration <> elab def
+R48607:48607 impl2_MC.elaboration <> d:413 var
+R48605:48605 impl2_MC.elaboration <> R:412 var
+R48603:48603 impl2_MC.elaboration <> r:411 var
+R48601:48601 impl2_MC.elaboration <> e:410 var
+R48611:48615 impl2_MC.result_type <> Error constr
+R48617:48617 impl2_MC.elaboration <> m:414 var
+R48631:48631 Coq.Init.Logic <> ::type_scope:'~'_x not
+R48632:48635 impl2_MC.elaboration <> Elab ind
+R48645:48646 impl2_MC.elaboration <> e':415 var
+R48643:48643 impl2_MC.elaboration <> d:413 var
+R48641:48641 impl2_MC.elaboration <> R:412 var
+R48639:48639 impl2_MC.elaboration <> r:411 var
+R48637:48637 impl2_MC.elaboration <> e:410 var
+R48713:48715 Coq.Init.Logic <> not def
+R48888:48897 impl2_MC.kernel_syntax <> KExpr_ind' def
+R48888:48897 impl2_MC.kernel_syntax <> KExpr_ind' def
+R48969:48978 impl2_MC.result_type <> find_error def
+R48969:48978 impl2_MC.result_type <> find_error def
+R49131:49138 impl2_MC.result_type <> is_error def
+R49173:49180 impl2_MC.result_type <> is_error def
+R49213:49216 impl2_MC.elaboration <> elab def
+R49131:49138 impl2_MC.result_type <> is_error def
+R49213:49216 impl2_MC.elaboration <> elab def
+R49213:49216 impl2_MC.elaboration <> elab def
+R49446:49449 impl2_MC.elaboration <> Elab ind
+R49469:49471 impl2_MC.elaboration <> LOp constr
+R49452:49454 impl2_MC.kernel_syntax <> KOp constr
+R49446:49449 impl2_MC.elaboration <> Elab ind
+R49469:49471 impl2_MC.elaboration <> LOp constr
+R49452:49454 impl2_MC.kernel_syntax <> KOp constr
+R49503:49509 impl2_MC.elaboration <> Elab_Op constr
+R49503:49509 impl2_MC.elaboration <> Elab_Op constr
+R49582:49591 impl2_MC.result_type <> find_error def
+R49623:49631 Coq.Lists.List <> find_some thm
+R49623:49631 Coq.Lists.List <> find_some thm
+R49704:49711 impl2_MC.elaboration <> In_Error thm
+R49704:49711 impl2_MC.elaboration <> In_Error thm
+R49789:49801 impl2_MC.elaboration <> Forall2_In_ex thm
+R49789:49801 impl2_MC.elaboration <> Forall2_In_ex thm
+R49868:49873 impl2_MC.pattern_theory <> is_WFP def
+R49868:49873 impl2_MC.pattern_theory <> is_WFP def
+R49912:49915 impl2_MC.elaboration <> elab def
+R49963:49969 impl2_MC.elaboration <> ok_LLam def
+R49912:49915 impl2_MC.elaboration <> elab def
+R50190:50193 impl2_MC.elaboration <> elab def
+R50190:50193 impl2_MC.elaboration <> elab def
+R50244:50247 impl2_MC.elaboration <> elab def
+R50244:50247 impl2_MC.elaboration <> elab def
+R50589:50592 impl2_MC.elaboration <> elab def
+R50589:50592 impl2_MC.elaboration <> elab def
+R50643:50646 impl2_MC.elaboration <> elab def
+R50643:50646 impl2_MC.elaboration <> elab def
+R50975:50978 impl2_MC.elaboration <> elab def
+R50975:50978 impl2_MC.elaboration <> elab def
+R51029:51032 impl2_MC.elaboration <> elab def
+R51029:51032 impl2_MC.elaboration <> elab def
+R51366:51371 impl2_MC.env <> lookup def
+R51366:51371 impl2_MC.env <> lookup def
+R51426:51429 impl2_MC.elaboration <> elab def
+R51426:51429 impl2_MC.elaboration <> elab def
+R51642:51645 impl2_MC.elaboration <> elab def
+R51642:51645 impl2_MC.elaboration <> elab def
+R51859:51872 impl2_MC.elaboration <> tblock_extends def
+R51859:51872 impl2_MC.elaboration <> tblock_extends def
+R51938:51955 impl2_MC.elaboration <> bind_constr_tblock def
+R51938:51955 impl2_MC.elaboration <> bind_constr_tblock def
+R52128:52142 impl2_MC.elaboration <> tbl_ext_correct thm
+R52209:52229 impl2_MC.elaboration <> TBlockExtends_correct thm
+R52263:52290 impl2_MC.elaboration <> tbl_ext_with_constr_correct2 thm
+R52128:52142 impl2_MC.elaboration <> tbl_ext_correct thm
+R52128:52142 impl2_MC.elaboration <> tbl_ext_correct thm
+R52209:52229 impl2_MC.elaboration <> TBlockExtends_correct thm
+R52209:52229 impl2_MC.elaboration <> TBlockExtends_correct thm
+R52209:52229 impl2_MC.elaboration <> TBlockExtends_correct thm
+R52209:52229 impl2_MC.elaboration <> TBlockExtends_correct thm
+R52263:52290 impl2_MC.elaboration <> tbl_ext_with_constr_correct2 thm
+R52404:52407 impl2_MC.elaboration <> elab def
+R52404:52407 impl2_MC.elaboration <> elab def
+R52458:52464 Coq.Lists.List <> forallb def
+R52458:52464 Coq.Lists.List <> forallb def
+R52506:52509 Coq.Lists.List <> find def
+R52506:52509 Coq.Lists.List <> find def
+R52815:52832 Coq.Bool.Bool <> andb_true_iff thm
+R52815:52832 Coq.Bool.Bool <> andb_true_iff thm
+R52815:52832 Coq.Bool.Bool <> andb_true_iff thm
+R52900:52907 impl2_MC.result_type <> is_error def
+R52931:52938 impl2_MC.result_type <> is_error def
+R52900:52907 impl2_MC.result_type <> is_error def
+R52977:52980 impl2_MC.elaboration <> elab def
+R52977:52980 impl2_MC.elaboration <> elab def
+R53155:53157 Coq.Init.Datatypes <> snd def
+R53155:53157 Coq.Init.Datatypes <> snd def
+R53219:53222 impl2_MC.elaboration <> Elab ind
+R53244:53249 impl2_MC.elaboration <> LMatch constr
+R53225:53230 impl2_MC.kernel_syntax <> KMatch constr
+R53219:53222 impl2_MC.elaboration <> Elab ind
+R53244:53249 impl2_MC.elaboration <> LMatch constr
+R53225:53230 impl2_MC.kernel_syntax <> KMatch constr
+R53286:53295 impl2_MC.elaboration <> Elab_Match constr
+R53286:53295 impl2_MC.elaboration <> Elab_Match constr
+R53416:53428 impl2_MC.elaboration <> forallb_false thm
+R53416:53428 impl2_MC.elaboration <> forallb_false thm
+R53506:53515 impl2_MC.elaboration <> Forall2_In thm
+R53506:53515 impl2_MC.elaboration <> Forall2_In thm
+R54461:54471 impl2_MC.elaboration ELABORATION <> sec

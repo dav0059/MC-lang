@@ -1,0 +1,467 @@
+DIGEST 1245fea91186f7d866faede0d7c8853c
+Fimpl2_MC.kernel_syntax
+R15:28 Coq.Strings.String <> <> lib
+R30:39 Coq.Lists.List <> <> lib
+R41:43 impl2_MC.ids <> <> lib
+R45:54 impl2_MC.primitives <> <> lib
+R64:76 Coq.Lists.List ListNotations <> mod
+sec 142:154 <> KERNEL_SYNTAX
+var 172:172 KERNEL_SYNTAX I
+R176:178 impl2_MC.ids <> IDS rec
+var 193:193 KERNEL_SYNTAX P
+R197:205 impl2_MC.primitives <> PRIM_DATA rec
+ind 224:227 <> KPat
+constr 243:247 <> KPVar
+constr 265:269 <> KPLit
+constr 290:293 <> KPAs
+constr 321:325 <> KPAny
+constr 330:335 <> KPUnit
+constr 342:346 <> KPNil
+constr 352:357 <> KPPair
+constr 384:389 <> KPCons
+constr 416:424 <> KPVariant
+R256:258 impl2_MC.ids <> Ide proj
+R253:253 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.I var
+binder 250:250 <> i:5
+R278:283 impl2_MC.primitives <> BaseVl proj
+R275:275 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.P var
+binder 272:272 <> p:6
+R299:302 impl2_MC.kernel_syntax <> KPat:3 ind
+binder 296:296 <> p:7
+R312:314 impl2_MC.ids <> Ide proj
+R309:309 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.I var
+binder 306:306 <> i:8
+R364:367 impl2_MC.kernel_syntax <> KPat:3 ind
+binder 360:361 <> p1:9
+R375:378 impl2_MC.kernel_syntax <> KPat:3 ind
+binder 371:372 <> p2:10
+R396:399 impl2_MC.kernel_syntax <> KPat:3 ind
+binder 392:393 <> p1:11
+R407:410 impl2_MC.kernel_syntax <> KPat:3 ind
+binder 403:404 <> p2:12
+R433:438 impl2_MC.ids <> Constr proj
+R430:430 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.I var
+binder 427:427 <> c:13
+R446:449 impl2_MC.kernel_syntax <> KPat:3 ind
+binder 443:443 <> p:14
+scheme 224:227 <> KPat_rect
+scheme 224:227 <> KPat_ind
+scheme 224:227 <> KPat_rec
+scheme 224:227 <> KPat_sind
+ind 469:471 <> KTp
+constr 486:495 <> KTFunction
+constr 500:505 <> KTBase
+constr 526:531 <> KTUnit
+constr 537:543 <> KTEmpty
+constr 548:553 <> KTProd
+constr 578:583 <> KTList
+constr 597:605 <> KTVariant
+constr 642:646 <> KTRef
+constr 664:670 <> KTError
+R514:519 impl2_MC.primitives <> BaseTp proj
+R511:511 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.P var
+binder 508:508 <> t:17
+R560:562 impl2_MC.kernel_syntax <> KTp:15 ind
+binder 556:557 <> t1:18
+R570:572 impl2_MC.kernel_syntax <> KTp:15 ind
+binder 566:567 <> t2:19
+R589:591 impl2_MC.kernel_syntax <> KTp:15 ind
+binder 586:586 <> t:20
+R614:617 Coq.Init.Datatypes <> list ind
+R630:632 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R623:628 impl2_MC.ids <> Constr proj
+R620:620 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.I var
+R633:635 impl2_MC.kernel_syntax <> KTp:15 ind
+binder 608:611 <> tags:21
+R655:657 impl2_MC.ids <> Ide proj
+R652:652 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.I var
+binder 649:649 <> i:22
+scheme 469:471 <> KTp_rect
+scheme 469:471 <> KTp_ind
+scheme 469:471 <> KTp_rec
+scheme 469:471 <> KTp_sind
+ind 689:693 <> KExpr
+constr 709:712 <> KVar
+constr 730:733 <> KLit
+constr 754:756 <> KOp
+constr 794:797 <> KLam
+constr 824:827 <> KApp
+constr 856:860 <> KUnit
+constr 865:868 <> KNil
+constr 874:878 <> KPair
+constr 908:912 <> KCons
+constr 942:949 <> KVariant
+constr 981:984 <> KFix
+constr 1019:1026 <> KDefType
+constr 1068:1073 <> KMatch
+constr 1118:1123 <> KError
+R721:723 impl2_MC.ids <> Ide proj
+R718:718 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.I var
+binder 715:715 <> i:25
+R742:747 impl2_MC.primitives <> BaseVl proj
+R739:739 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.P var
+binder 736:736 <> x:26
+R766:767 impl2_MC.primitives <> OP proj
+R763:763 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.P var
+binder 759:760 <> op:27
+R778:781 Coq.Init.Datatypes <> list ind
+R783:787 impl2_MC.kernel_syntax <> KExpr:23 ind
+binder 772:775 <> args:28
+R803:806 impl2_MC.kernel_syntax <> KPat ind
+binder 800:800 <> p:29
+R813:817 impl2_MC.kernel_syntax <> KExpr:23 ind
+binder 810:810 <> e:30
+R834:838 impl2_MC.kernel_syntax <> KExpr:23 ind
+binder 830:831 <> e1:31
+R846:850 impl2_MC.kernel_syntax <> KExpr:23 ind
+binder 842:843 <> e2:32
+R886:890 impl2_MC.kernel_syntax <> KExpr:23 ind
+binder 881:882 <> e1:33
+R898:902 impl2_MC.kernel_syntax <> KExpr:23 ind
+binder 894:895 <> e2:34
+R919:923 impl2_MC.kernel_syntax <> KExpr:23 ind
+binder 915:916 <> e1:35
+R931:935 impl2_MC.kernel_syntax <> KExpr:23 ind
+binder 927:928 <> e2:36
+R958:963 impl2_MC.ids <> Constr proj
+R955:955 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.I var
+binder 952:952 <> c:37
+R971:975 impl2_MC.kernel_syntax <> KExpr:23 ind
+binder 968:968 <> e:38
+R996:998 impl2_MC.ids <> Ide proj
+R993:993 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.I var
+binder 987:990 <> name:39
+R1008:1012 impl2_MC.kernel_syntax <> KExpr:23 ind
+binder 1003:1005 <> cls:40
+R1032:1035 Coq.Init.Datatypes <> list ind
+R1045:1047 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1041:1043 impl2_MC.ids <> Ide proj
+R1038:1038 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.I var
+R1048:1050 impl2_MC.kernel_syntax <> KTp ind
+binder 1029:1029 <> l:41
+R1058:1062 impl2_MC.kernel_syntax <> KExpr:23 ind
+binder 1055:1055 <> e:42
+R1079:1083 impl2_MC.kernel_syntax <> KExpr:23 ind
+binder 1076:1076 <> e:43
+R1094:1097 Coq.Init.Datatypes <> list ind
+R1104:1106 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1100:1103 impl2_MC.kernel_syntax <> KPat ind
+R1107:1111 impl2_MC.kernel_syntax <> KExpr:23 ind
+binder 1087:1091 <> cases:44
+R1132:1138 impl2_MC.ids <> Message proj
+R1129:1129 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.I var
+binder 1126:1126 <> m:45
+scheme 689:693 <> KExpr_rect
+scheme 689:693 <> KExpr_ind
+scheme 689:693 <> KExpr_rec
+scheme 689:693 <> KExpr_sind
+sec 1202:1208 KERNEL_SYNTAX Tp_ind'
+var 1237:1237 KERNEL_SYNTAX.Tp_ind' Q
+R1243:1246 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1240:1242 impl2_MC.kernel_syntax <> KTp ind
+var 1274:1282 KERNEL_SYNTAX.Tp_ind' TFun_case
+R1292:1292 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R1294:1303 impl2_MC.kernel_syntax <> KTFunction constr
+var 1325:1334 KERNEL_SYNTAX.Tp_ind' TBase_case
+binder 1350:1350 <> t:48
+R1353:1353 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R1356:1361 impl2_MC.kernel_syntax <> KTBase constr
+R1363:1363 impl2_MC.kernel_syntax <> t:48 var
+var 1389:1398 KERNEL_SYNTAX.Tp_ind' TUnit_case
+R1407:1407 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R1409:1414 impl2_MC.kernel_syntax <> KTUnit constr
+var 1438:1448 KERNEL_SYNTAX.Tp_ind' TEmpty_case
+R1456:1456 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R1458:1464 impl2_MC.kernel_syntax <> KTEmpty constr
+var 1487:1496 KERNEL_SYNTAX.Tp_ind' TProd_case
+binder 1512:1513 <> t1:52
+binder 1515:1516 <> t2:53
+R1565:1609 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1561:1561 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R1563:1564 impl2_MC.kernel_syntax <> t1:52 var
+R1614:1658 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1610:1610 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R1612:1613 impl2_MC.kernel_syntax <> t2:53 var
+R1659:1659 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R1662:1667 impl2_MC.kernel_syntax <> KTProd constr
+R1672:1673 impl2_MC.kernel_syntax <> t2:53 var
+R1669:1670 impl2_MC.kernel_syntax <> t1:52 var
+var 1696:1705 KERNEL_SYNTAX.Tp_ind' TList_case
+binder 1721:1721 <> t:55
+R1768:1812 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1765:1765 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R1767:1767 impl2_MC.kernel_syntax <> t:55 var
+R1813:1813 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R1816:1821 impl2_MC.kernel_syntax <> KTList constr
+R1823:1823 impl2_MC.kernel_syntax <> t:55 var
+var 1847:1859 KERNEL_SYNTAX.Tp_ind' TVariant_case
+binder 1872:1874 <> lis:57
+R1949:1993 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1918:1923 Coq.Lists.List <> Forall ind
+R1946:1948 impl2_MC.kernel_syntax <> lis:57 var
+binder 1930:1930 <> p:58
+R1935:1935 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R1938:1940 Coq.Init.Datatypes <> snd def
+R1942:1942 impl2_MC.kernel_syntax <> p:58 var
+R1994:1994 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R1997:2005 impl2_MC.kernel_syntax <> KTVariant constr
+R2007:2009 impl2_MC.kernel_syntax <> lis:57 var
+var 2033:2041 KERNEL_SYNTAX.Tp_ind' TRef_case
+binder 2058:2058 <> i:60
+R2061:2061 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R2064:2068 impl2_MC.kernel_syntax <> KTRef constr
+R2070:2070 impl2_MC.kernel_syntax <> i:60 var
+var 2094:2104 KERNEL_SYNTAX.Tp_ind' TError_case
+R2112:2112 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R2114:2120 impl2_MC.kernel_syntax <> KTError constr
+def 2159:2166 <> KTp_ind'
+binder 2168:2168 <> t:63
+R2172:2172 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R2174:2174 impl2_MC.kernel_syntax <> t:63 var
+R2196:2196 impl2_MC.kernel_syntax <> t:63 var
+R2215:2224 impl2_MC.kernel_syntax <> KTFunction constr
+R2237:2245 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.TFun_case var
+R2259:2264 impl2_MC.kernel_syntax <> KTBase constr
+R2281:2290 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.TBase_case var
+R2305:2310 impl2_MC.kernel_syntax <> KTUnit constr
+R2327:2336 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.TUnit_case var
+R2350:2356 impl2_MC.kernel_syntax <> KTEmpty constr
+R2372:2382 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.TEmpty_case var
+R2396:2401 impl2_MC.kernel_syntax <> KTProd constr
+R2418:2427 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.TProd_case var
+R2441:2448 impl2_MC.kernel_syntax <> KTp_ind':64 def
+R2430:2437 impl2_MC.kernel_syntax <> KTp_ind':64 def
+R2462:2467 impl2_MC.kernel_syntax <> KTList constr
+R2484:2493 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.TList_case var
+R2496:2503 impl2_MC.kernel_syntax <> KTp_ind':64 def
+R2517:2525 impl2_MC.kernel_syntax <> KTVariant constr
+R2539:2551 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.TVariant_case var
+binder 2580:2580 <> l:66
+R2584:2589 Coq.Lists.List <> Forall ind
+R2612:2612 impl2_MC.kernel_syntax <> l:66 var
+binder 2596:2596 <> p:67
+R2601:2601 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.Q var
+R2604:2606 Coq.Init.Datatypes <> snd def
+R2608:2608 impl2_MC.kernel_syntax <> p:67 var
+R2640:2640 impl2_MC.kernel_syntax <> l:66 var
+R2665:2666 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R2679:2688 Coq.Lists.List <> Forall_nil constr
+R2716:2717 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R2710:2710 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2712:2713 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2715:2715 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2723:2733 Coq.Lists.List <> Forall_cons constr
+R2749:2756 impl2_MC.kernel_syntax <> lis_ind':68 var
+R2738:2745 impl2_MC.kernel_syntax <> KTp_ind':64 def
+R2798:2802 impl2_MC.kernel_syntax <> KTRef constr
+R2820:2828 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.TRef_case var
+R2843:2849 impl2_MC.kernel_syntax <> KTError constr
+R2865:2875 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.Tp_ind'.TError_case var
+R2904:2910 impl2_MC.kernel_syntax KERNEL_SYNTAX.Tp_ind' <> sec
+sec 2978:2987 KERNEL_SYNTAX KExpr_ind'
+var 3012:3012 KERNEL_SYNTAX.KExpr_ind' Q
+R3020:3023 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3015:3019 impl2_MC.kernel_syntax <> KExpr ind
+var 3054:3062 KERNEL_SYNTAX.KExpr_ind' KVar_case
+binder 3077:3077 <> i:71
+R3080:3080 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3083:3086 impl2_MC.kernel_syntax <> KVar constr
+R3088:3088 impl2_MC.kernel_syntax <> i:71 var
+var 3109:3117 KERNEL_SYNTAX.KExpr_ind' KLit_case
+binder 3132:3132 <> x:73
+R3135:3135 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3138:3141 impl2_MC.kernel_syntax <> KLit constr
+R3143:3143 impl2_MC.kernel_syntax <> x:73 var
+var 3164:3171 KERNEL_SYNTAX.KExpr_ind' KOp_case
+binder 3187:3188 <> op:75
+binder 3190:3190 <> l:76
+R3203:3206 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3193:3198 Coq.Lists.List <> Forall ind
+R3202:3202 impl2_MC.kernel_syntax <> l:76 var
+R3200:3200 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3207:3207 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3210:3212 impl2_MC.kernel_syntax <> KOp constr
+R3217:3217 impl2_MC.kernel_syntax <> l:76 var
+R3214:3215 impl2_MC.kernel_syntax <> op:75 var
+var 3238:3246 KERNEL_SYNTAX.KExpr_ind' KLam_case
+binder 3261:3261 <> p:78
+binder 3263:3263 <> e:79
+R3269:3272 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3266:3266 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3268:3268 impl2_MC.kernel_syntax <> e:79 var
+R3273:3273 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3276:3279 impl2_MC.kernel_syntax <> KLam constr
+R3283:3283 impl2_MC.kernel_syntax <> e:79 var
+R3281:3281 impl2_MC.kernel_syntax <> p:78 var
+var 3304:3312 KERNEL_SYNTAX.KExpr_ind' KApp_case
+binder 3327:3328 <> e1:81
+binder 3330:3331 <> e2:82
+R3338:3341 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3334:3334 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3336:3337 impl2_MC.kernel_syntax <> e1:81 var
+R3346:3349 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3342:3342 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3344:3345 impl2_MC.kernel_syntax <> e2:82 var
+R3350:3350 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3353:3356 impl2_MC.kernel_syntax <> KApp constr
+R3361:3362 impl2_MC.kernel_syntax <> e2:82 var
+R3358:3359 impl2_MC.kernel_syntax <> e1:81 var
+var 3383:3392 KERNEL_SYNTAX.KExpr_ind' KUnit_case
+R3399:3399 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3401:3405 impl2_MC.kernel_syntax <> KUnit constr
+var 3425:3433 KERNEL_SYNTAX.KExpr_ind' KNil_case
+R3441:3441 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3443:3446 impl2_MC.kernel_syntax <> KNil constr
+var 3467:3476 KERNEL_SYNTAX.KExpr_ind' KPair_case
+binder 3490:3491 <> e1:86
+binder 3493:3494 <> e2:87
+R3501:3504 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3497:3497 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3499:3500 impl2_MC.kernel_syntax <> e1:86 var
+R3509:3512 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3505:3505 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3507:3508 impl2_MC.kernel_syntax <> e2:87 var
+R3513:3513 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3516:3520 impl2_MC.kernel_syntax <> KPair constr
+R3525:3526 impl2_MC.kernel_syntax <> e2:87 var
+R3522:3523 impl2_MC.kernel_syntax <> e1:86 var
+var 3547:3556 KERNEL_SYNTAX.KExpr_ind' KCons_case
+binder 3570:3571 <> e1:89
+binder 3573:3574 <> e2:90
+R3581:3584 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3577:3577 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3579:3580 impl2_MC.kernel_syntax <> e1:89 var
+R3589:3592 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3585:3585 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3587:3588 impl2_MC.kernel_syntax <> e2:90 var
+R3593:3593 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3596:3600 impl2_MC.kernel_syntax <> KCons constr
+R3605:3606 impl2_MC.kernel_syntax <> e2:90 var
+R3602:3603 impl2_MC.kernel_syntax <> e1:89 var
+var 3627:3639 KERNEL_SYNTAX.KExpr_ind' KVariant_case
+binder 3650:3650 <> c:92
+binder 3652:3652 <> e:93
+R3658:3661 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3655:3655 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3657:3657 impl2_MC.kernel_syntax <> e:93 var
+R3662:3662 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3665:3672 impl2_MC.kernel_syntax <> KVariant constr
+R3676:3676 impl2_MC.kernel_syntax <> e:93 var
+R3674:3674 impl2_MC.kernel_syntax <> c:92 var
+var 3697:3705 KERNEL_SYNTAX.KExpr_ind' KFix_case
+binder 3720:3720 <> i:95
+binder 3722:3722 <> e:96
+R3728:3731 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3725:3725 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3727:3727 impl2_MC.kernel_syntax <> e:96 var
+R3732:3732 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3735:3738 impl2_MC.kernel_syntax <> KFix constr
+R3742:3742 impl2_MC.kernel_syntax <> e:96 var
+R3740:3740 impl2_MC.kernel_syntax <> i:95 var
+var 3764:3776 KERNEL_SYNTAX.KExpr_ind' KDefType_case
+binder 3787:3787 <> l:98
+binder 3789:3789 <> e:99
+R3795:3798 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3792:3792 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3794:3794 impl2_MC.kernel_syntax <> e:99 var
+R3799:3799 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3802:3809 impl2_MC.kernel_syntax <> KDefType constr
+R3813:3813 impl2_MC.kernel_syntax <> e:99 var
+R3811:3811 impl2_MC.kernel_syntax <> l:98 var
+var 3834:3844 KERNEL_SYNTAX.KExpr_ind' KMatch_case
+binder 3857:3857 <> e:101
+binder 3859:3859 <> l:102
+R3900:3938 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3897:3897 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3899:3899 impl2_MC.kernel_syntax <> e:101 var
+R3968:4007 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3939:3944 Coq.Lists.List <> Forall ind
+R3967:3967 impl2_MC.kernel_syntax <> l:102 var
+binder 3951:3951 <> p:103
+R3956:3956 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R3959:3961 Coq.Init.Datatypes <> snd def
+R3963:3963 impl2_MC.kernel_syntax <> p:103 var
+R4008:4008 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R4011:4016 impl2_MC.kernel_syntax <> KMatch constr
+R4020:4020 impl2_MC.kernel_syntax <> l:102 var
+R4018:4018 impl2_MC.kernel_syntax <> e:101 var
+var 4041:4051 KERNEL_SYNTAX.KExpr_ind' KError_case
+binder 4064:4064 <> m:105
+R4067:4067 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R4070:4075 impl2_MC.kernel_syntax <> KError constr
+R4077:4077 impl2_MC.kernel_syntax <> m:105 var
+def 4098:4107 <> KExpr_ind'
+R4113:4117 impl2_MC.kernel_syntax <> KExpr ind
+binder 4110:4110 <> e:107
+R4122:4122 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R4124:4124 impl2_MC.kernel_syntax <> e:107 var
+R4144:4144 impl2_MC.kernel_syntax <> e:107 var
+R4161:4164 impl2_MC.kernel_syntax <> KVar constr
+R4177:4185 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KVar_case var
+R4196:4199 impl2_MC.kernel_syntax <> KLit constr
+R4212:4220 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KLit_case var
+R4231:4233 impl2_MC.kernel_syntax <> KOp constr
+R4247:4254 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KOp_case var
+binder 4276:4276 <> l:110
+R4280:4285 Coq.Lists.List <> Forall ind
+R4289:4289 impl2_MC.kernel_syntax <> l:110 var
+R4287:4287 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R4338:4338 impl2_MC.kernel_syntax <> l:110 var
+R4384:4385 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R4392:4401 Coq.Lists.List <> Forall_nil constr
+R4444:4445 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R4451:4461 Coq.Lists.List <> Forall_cons constr
+R4479:4491 impl2_MC.kernel_syntax <> lis_expr_ind':111 var
+R4466:4475 impl2_MC.kernel_syntax <> KExpr_ind':108 def
+R4553:4556 impl2_MC.kernel_syntax <> KLam constr
+R4569:4577 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KLam_case var
+R4580:4589 impl2_MC.kernel_syntax <> KExpr_ind':108 def
+R4603:4606 impl2_MC.kernel_syntax <> KApp constr
+R4619:4627 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KApp_case var
+R4643:4652 impl2_MC.kernel_syntax <> KExpr_ind':108 def
+R4630:4639 impl2_MC.kernel_syntax <> KExpr_ind':108 def
+R4665:4669 impl2_MC.kernel_syntax <> KUnit constr
+R4681:4690 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KUnit_case var
+R4702:4705 impl2_MC.kernel_syntax <> KNil constr
+R4718:4726 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KNil_case var
+R4738:4742 impl2_MC.kernel_syntax <> KPair constr
+R4754:4763 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KPair_case var
+R4779:4788 impl2_MC.kernel_syntax <> KExpr_ind':108 def
+R4766:4775 impl2_MC.kernel_syntax <> KExpr_ind':108 def
+R4801:4805 impl2_MC.kernel_syntax <> KCons constr
+R4817:4826 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KCons_case var
+R4842:4851 impl2_MC.kernel_syntax <> KExpr_ind':108 def
+R4829:4838 impl2_MC.kernel_syntax <> KExpr_ind':108 def
+R4864:4871 impl2_MC.kernel_syntax <> KVariant constr
+R4880:4892 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KVariant_case var
+R4895:4904 impl2_MC.kernel_syntax <> KExpr_ind':108 def
+R4917:4920 impl2_MC.kernel_syntax <> KFix constr
+R4933:4941 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KFix_case var
+R4944:4953 impl2_MC.kernel_syntax <> KExpr_ind':108 def
+R4965:4972 impl2_MC.kernel_syntax <> KDefType constr
+R4981:4993 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KDefType_case var
+R4996:5005 impl2_MC.kernel_syntax <> KExpr_ind':108 def
+R5017:5022 impl2_MC.kernel_syntax <> KMatch constr
+R5033:5043 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KMatch_case var
+binder 5106:5106 <> l:113
+R5110:5115 Coq.Lists.List <> Forall ind
+R5138:5138 impl2_MC.kernel_syntax <> l:113 var
+binder 5122:5122 <> p:114
+R5127:5127 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.Q var
+R5130:5132 Coq.Init.Datatypes <> snd def
+R5134:5134 impl2_MC.kernel_syntax <> p:114 var
+R5179:5179 impl2_MC.kernel_syntax <> l:113 var
+R5218:5219 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R5231:5240 Coq.Lists.List <> Forall_nil constr
+R5282:5283 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R5276:5276 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5278:5279 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5281:5281 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5289:5299 Coq.Lists.List <> Forall_cons constr
+R5317:5330 impl2_MC.kernel_syntax <> lis_cases_ind':115 var
+R5304:5313 impl2_MC.kernel_syntax <> KExpr_ind':108 def
+R5046:5055 impl2_MC.kernel_syntax <> KExpr_ind':108 def
+R5382:5387 impl2_MC.kernel_syntax <> KError constr
+R5398:5408 impl2_MC.kernel_syntax <> KERNEL_SYNTAX.KExpr_ind'.KError_case var
+R5433:5442 impl2_MC.kernel_syntax KERNEL_SYNTAX.KExpr_ind' <> sec
+R5457:5469 impl2_MC.kernel_syntax KERNEL_SYNTAX <> sec

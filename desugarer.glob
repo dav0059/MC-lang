@@ -1,0 +1,3528 @@
+DIGEST 7972a706058186808e55a84d36d761d1
+Fimpl2_MC.desugarer
+R15:24 Coq.Lists.List <> <> lib
+R26:39 Coq.Strings.String <> <> lib
+R41:48 Coq.Arith.PeanoNat <> <> lib
+R59:71 Coq.Lists.List ListNotations <> mod
+R89:98 impl2_MC.primitives <> <> lib
+R100:102 impl2_MC.ids <> <> lib
+R104:116 impl2_MC.kernel_syntax <> <> lib
+R118:131 impl2_MC.surface_syntax <> <> lib
+ind 641:647 <> BaseTyp
+constr 666:670 <> TpNat
+constr 679:684 <> TpBool
+constr 693:700 <> TpString
+scheme 641:647 <> BaseTyp_rect
+scheme 641:647 <> BaseTyp_ind
+scheme 641:647 <> BaseTyp_rec
+scheme 641:647 <> BaseTyp_sind
+ind 720:726 <> BaseVal
+constr 745:749 <> VlNat
+constr 766:771 <> VlBool
+constr 789:796 <> VlString
+R755:757 Coq.Init.Datatypes <> nat ind
+binder 752:752 <> n:5
+R777:780 Coq.Init.Datatypes <> bool ind
+binder 774:774 <> b:6
+R802:807 Coq.Strings.String <> string ind
+binder 799:799 <> s:7
+scheme 720:726 <> BaseVal_rect
+scheme 720:726 <> BaseVal_ind
+scheme 720:726 <> BaseVal_rec
+scheme 720:726 <> BaseVal_sind
+ind 833:834 <> Op
+constr 853:857 <> OpNot
+constr 866:870 <> OpAnd
+constr 879:882 <> OpOr
+constr 890:894 <> OpSum
+constr 903:907 <> OpSub
+constr 915:919 <> OpMul
+constr 928:935 <> OpConcat
+constr 944:947 <> OpEq
+scheme 833:834 <> Op_rect
+scheme 833:834 <> Op_ind
+scheme 833:834 <> Op_rec
+scheme 833:834 <> Op_sind
+def 969:982 <> typeof_base_vl
+R988:994 impl2_MC.desugarer <> BaseVal ind
+binder 985:985 <> v:10
+R999:1005 impl2_MC.desugarer <> BaseTyp ind
+R1023:1023 impl2_MC.desugarer <> v:10 var
+R1038:1042 impl2_MC.desugarer <> VlNat constr
+R1049:1053 impl2_MC.desugarer <> TpNat constr
+R1063:1068 impl2_MC.desugarer <> VlBool constr
+R1075:1080 impl2_MC.desugarer <> TpBool constr
+R1090:1097 impl2_MC.desugarer <> VlString constr
+R1104:1111 impl2_MC.desugarer <> TpString constr
+def 1142:1155 <> interp_prim_op
+R1161:1162 impl2_MC.desugarer <> Op ind
+binder 1158:1158 <> o:12
+R1169:1172 Coq.Init.Datatypes <> list ind
+R1174:1180 impl2_MC.desugarer <> BaseVal ind
+binder 1166:1166 <> l:13
+R1185:1190 Coq.Init.Datatypes <> option ind
+R1192:1198 impl2_MC.desugarer <> BaseVal ind
+R1219:1219 impl2_MC.desugarer <> l:13 var
+R1216:1216 impl2_MC.desugarer <> o:12 var
+R1233:1237 impl2_MC.desugarer <> OpNot constr
+R1240:1240 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R1250:1250 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R1241:1246 impl2_MC.desugarer <> VlBool constr
+R1266:1269 Coq.Init.Datatypes <> Some constr
+R1272:1277 impl2_MC.desugarer <> VlBool constr
+R1280:1283 Coq.Init.Datatypes <> negb def
+R1297:1301 impl2_MC.desugarer <> OpAnd constr
+R1304:1304 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1314:1315 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1325:1325 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1305:1310 impl2_MC.desugarer <> VlBool constr
+R1316:1321 impl2_MC.desugarer <> VlBool constr
+R1330:1333 Coq.Init.Datatypes <> Some constr
+R1336:1341 impl2_MC.desugarer <> VlBool constr
+R1344:1347 Coq.Init.Datatypes <> andb def
+R1365:1368 impl2_MC.desugarer <> OpOr constr
+R1371:1371 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1381:1382 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1392:1392 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1372:1377 impl2_MC.desugarer <> VlBool constr
+R1383:1388 impl2_MC.desugarer <> VlBool constr
+R1398:1401 Coq.Init.Datatypes <> Some constr
+R1404:1409 impl2_MC.desugarer <> VlBool constr
+R1412:1414 Coq.Init.Datatypes <> orb def
+R1432:1436 impl2_MC.desugarer <> OpSum constr
+R1439:1439 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1448:1449 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1458:1458 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1440:1444 impl2_MC.desugarer <> VlNat constr
+R1450:1454 impl2_MC.desugarer <> VlNat constr
+R1465:1468 Coq.Init.Datatypes <> Some constr
+R1471:1475 impl2_MC.desugarer <> VlNat constr
+R1480:1482 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R1495:1499 impl2_MC.desugarer <> OpSub constr
+R1502:1502 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1511:1512 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1521:1521 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1503:1507 impl2_MC.desugarer <> VlNat constr
+R1513:1517 impl2_MC.desugarer <> VlNat constr
+R1528:1531 Coq.Init.Datatypes <> Some constr
+R1534:1538 impl2_MC.desugarer <> VlNat constr
+R1543:1545 Coq.Init.Peano <> ::nat_scope:x_'-'_x not
+R1558:1562 impl2_MC.desugarer <> OpMul constr
+R1565:1565 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1574:1575 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1584:1584 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1566:1570 impl2_MC.desugarer <> VlNat constr
+R1576:1580 impl2_MC.desugarer <> VlNat constr
+R1591:1594 Coq.Init.Datatypes <> Some constr
+R1597:1601 impl2_MC.desugarer <> VlNat constr
+R1606:1608 Coq.Init.Peano <> ::nat_scope:x_'*'_x not
+R1621:1628 impl2_MC.desugarer <> OpConcat constr
+R1631:1631 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1643:1644 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1656:1656 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1632:1639 impl2_MC.desugarer <> VlString constr
+R1645:1652 impl2_MC.desugarer <> VlString constr
+R1661:1664 Coq.Init.Datatypes <> Some constr
+R1667:1674 impl2_MC.desugarer <> VlString constr
+R1677:1689 Coq.Strings.String <> append def
+R1706:1709 impl2_MC.desugarer <> OpEq constr
+R1712:1712 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1715:1716 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1719:1719 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R1768:1772 impl2_MC.desugarer <> VlNat constr
+R1778:1782 impl2_MC.desugarer <> VlNat constr
+R1790:1793 Coq.Init.Datatypes <> Some constr
+R1796:1801 impl2_MC.desugarer <> VlBool constr
+R1804:1810 Coq.Arith.PeanoNat Nat eqb def
+R1845:1850 impl2_MC.desugarer <> VlBool constr
+R1856:1861 impl2_MC.desugarer <> VlBool constr
+R1869:1872 Coq.Init.Datatypes <> Some constr
+R1875:1880 impl2_MC.desugarer <> VlBool constr
+R1883:1890 Coq.Bool.Bool <> eqb def
+R1926:1933 impl2_MC.desugarer <> VlString constr
+R1939:1946 impl2_MC.desugarer <> VlString constr
+R1954:1957 Coq.Init.Datatypes <> Some constr
+R1960:1965 impl2_MC.desugarer <> VlBool constr
+R1968:1970 Coq.Strings.String <> eqb def
+R2020:2023 Coq.Init.Datatypes <> None constr
+R2081:2084 Coq.Init.Datatypes <> None constr
+def 2120:2130 <> eqb_BaseTyp
+R2139:2145 impl2_MC.desugarer <> BaseTyp ind
+binder 2133:2133 <> t:18
+binder 2135:2136 <> t':19
+R2150:2153 Coq.Init.Datatypes <> bool ind
+R2174:2175 impl2_MC.desugarer <> t':19 var
+R2171:2171 impl2_MC.desugarer <> t:18 var
+R2190:2194 impl2_MC.desugarer <> TpNat constr
+R2197:2201 impl2_MC.desugarer <> TpNat constr
+R2205:2210 impl2_MC.desugarer <> TpBool constr
+R2213:2218 impl2_MC.desugarer <> TpBool constr
+R2222:2229 impl2_MC.desugarer <> TpString constr
+R2232:2239 impl2_MC.desugarer <> TpString constr
+R2244:2247 Coq.Init.Datatypes <> true constr
+R2244:2247 Coq.Init.Datatypes <> true constr
+R2244:2247 Coq.Init.Datatypes <> true constr
+R2265:2269 Coq.Init.Datatypes <> false constr
+def 2305:2315 <> eqb_BaseVal
+R2325:2331 impl2_MC.desugarer <> BaseVal ind
+binder 2318:2318 <> v:22
+binder 2320:2321 <> v':23
+R2336:2339 Coq.Init.Datatypes <> bool ind
+R2360:2361 impl2_MC.desugarer <> v':23 var
+R2357:2357 impl2_MC.desugarer <> v:22 var
+R2376:2380 impl2_MC.desugarer <> VlNat constr
+R2385:2389 impl2_MC.desugarer <> VlNat constr
+R2398:2404 Coq.Arith.PeanoNat Nat eqb def
+R2419:2424 impl2_MC.desugarer <> VlBool constr
+R2429:2434 impl2_MC.desugarer <> VlBool constr
+R2442:2449 Coq.Bool.Bool <> eqb def
+R2464:2471 impl2_MC.desugarer <> VlString constr
+R2476:2483 impl2_MC.desugarer <> VlString constr
+R2491:2493 Coq.Strings.String <> eqb def
+R2516:2520 Coq.Init.Datatypes <> false constr
+prf 2547:2559 <> eq_baseTp_dec
+R2576:2582 impl2_MC.desugarer <> BaseTyp ind
+binder 2571:2571 <> x:26
+binder 2573:2573 <> y:27
+R2586:2586 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R2592:2596 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R2603:2603 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R2588:2590 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2587:2587 impl2_MC.desugarer <> x:26 var
+R2591:2591 impl2_MC.desugarer <> y:27 var
+R2598:2601 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R2597:2597 impl2_MC.desugarer <> x:26 var
+R2602:2602 impl2_MC.desugarer <> y:27 var
+prf 2698:2710 <> eq_baseVl_dec
+R2727:2733 impl2_MC.desugarer <> BaseVal ind
+binder 2722:2722 <> x:28
+binder 2724:2724 <> y:29
+R2737:2737 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R2743:2747 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R2754:2754 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R2739:2741 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2738:2738 impl2_MC.desugarer <> x:28 var
+R2742:2742 impl2_MC.desugarer <> y:29 var
+R2749:2752 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R2748:2748 impl2_MC.desugarer <> x:28 var
+R2753:2753 impl2_MC.desugarer <> y:29 var
+R2853:2859 Coq.Arith.PeanoNat Nat eqb def
+R2853:2859 Coq.Arith.PeanoNat Nat eqb def
+R2895:2904 Coq.Arith.PeanoNat Nat eqb_eq thm
+R2895:2904 Coq.Arith.PeanoNat Nat eqb_eq thm
+R2895:2904 Coq.Arith.PeanoNat Nat eqb_eq thm
+R2978:2988 Coq.Arith.PeanoNat Nat eqb_neq thm
+R2978:2988 Coq.Arith.PeanoNat Nat eqb_neq thm
+R2978:2988 Coq.Arith.PeanoNat Nat eqb_neq thm
+R3033:3035 Coq.Init.Logic <> not def
+R3113:3120 Coq.Bool.Bool <> eqb def
+R3113:3120 Coq.Bool.Bool <> eqb def
+R3156:3172 Coq.Bool.Bool <> eqb_true_iff thm
+R3156:3172 Coq.Bool.Bool <> eqb_true_iff thm
+R3156:3172 Coq.Bool.Bool <> eqb_true_iff thm
+R3247:3264 Coq.Bool.Bool <> eqb_false_iff thm
+R3247:3264 Coq.Bool.Bool <> eqb_false_iff thm
+R3247:3264 Coq.Bool.Bool <> eqb_false_iff thm
+R3309:3311 Coq.Init.Logic <> not def
+R3390:3392 Coq.Strings.String <> eqb def
+R3390:3392 Coq.Strings.String <> eqb def
+R3428:3433 Coq.Strings.String <> eqb_eq thm
+R3428:3433 Coq.Strings.String <> eqb_eq thm
+R3428:3433 Coq.Strings.String <> eqb_eq thm
+R3508:3514 Coq.Strings.String <> eqb_neq thm
+R3508:3514 Coq.Strings.String <> eqb_neq thm
+R3508:3514 Coq.Strings.String <> eqb_neq thm
+R3559:3561 Coq.Init.Logic <> not def
+prf 3651:3664 <> eqb_eq_BaseTyp
+binder 3675:3675 <> t:30
+binder 3677:3678 <> t':31
+R3681:3692 Coq.Bool.Bool <> reflect ind
+R3696:3698 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3695:3695 impl2_MC.desugarer <> t:30 var
+R3699:3700 impl2_MC.desugarer <> t':31 var
+R3704:3714 impl2_MC.desugarer <> eqb_BaseTyp def
+R3718:3719 impl2_MC.desugarer <> t':31 var
+R3716:3716 impl2_MC.desugarer <> t:30 var
+R3756:3771 Coq.Bool.Bool <> iff_reflect thm
+R3756:3771 Coq.Bool.Bool <> iff_reflect thm
+prf 3893:3906 <> eqb_eq_BaseVal
+binder 3917:3917 <> v:32
+binder 3919:3920 <> v':33
+R3923:3934 Coq.Bool.Bool <> reflect ind
+R3938:3940 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3937:3937 impl2_MC.desugarer <> v:32 var
+R3941:3942 impl2_MC.desugarer <> v':33 var
+R3946:3956 impl2_MC.desugarer <> eqb_BaseVal def
+R3960:3961 impl2_MC.desugarer <> v':33 var
+R3958:3958 impl2_MC.desugarer <> v:32 var
+R3997:4012 Coq.Bool.Bool <> iff_reflect thm
+R3997:4012 Coq.Bool.Bool <> iff_reflect thm
+R4087:4096 Coq.Arith.PeanoNat Nat eqb_eq thm
+R4087:4096 Coq.Arith.PeanoNat Nat eqb_eq thm
+R4087:4096 Coq.Arith.PeanoNat Nat eqb_eq thm
+R4124:4140 Coq.Bool.Bool <> eqb_true_iff thm
+R4124:4140 Coq.Bool.Bool <> eqb_true_iff thm
+R4124:4140 Coq.Bool.Bool <> eqb_true_iff thm
+R4167:4172 Coq.Strings.String <> eqb_eq thm
+R4167:4172 Coq.Strings.String <> eqb_eq thm
+R4167:4172 Coq.Strings.String <> eqb_eq thm
+R4228:4237 Coq.Arith.PeanoNat Nat eqb_eq thm
+R4228:4237 Coq.Arith.PeanoNat Nat eqb_eq thm
+R4228:4237 Coq.Arith.PeanoNat Nat eqb_eq thm
+R4228:4237 Coq.Arith.PeanoNat Nat eqb_eq thm
+R4228:4237 Coq.Arith.PeanoNat Nat eqb_eq thm
+R4329:4345 Coq.Bool.Bool <> eqb_true_iff thm
+R4329:4345 Coq.Bool.Bool <> eqb_true_iff thm
+R4329:4345 Coq.Bool.Bool <> eqb_true_iff thm
+R4329:4345 Coq.Bool.Bool <> eqb_true_iff thm
+R4329:4345 Coq.Bool.Bool <> eqb_true_iff thm
+R4437:4442 Coq.Strings.String <> eqb_eq thm
+R4437:4442 Coq.Strings.String <> eqb_eq thm
+R4437:4442 Coq.Strings.String <> eqb_eq thm
+R4437:4442 Coq.Strings.String <> eqb_eq thm
+R4437:4442 Coq.Strings.String <> eqb_eq thm
+def 4532:4539 <> bns_data
+R4543:4551 impl2_MC.primitives <> PRIM_DATA rec
+R4564:4569 impl2_MC.primitives <> BaseTp proj
+R4564:4569 impl2_MC.primitives <> BaseTp proj
+R4564:4569 impl2_MC.primitives <> BaseTp proj
+R4592:4597 impl2_MC.primitives <> BaseVl proj
+R4592:4597 impl2_MC.primitives <> BaseVl proj
+R4620:4621 impl2_MC.primitives <> OP proj
+R4620:4621 impl2_MC.primitives <> OP proj
+R4637:4654 impl2_MC.primitives <> base_tp_of_base_vl proj
+R4637:4654 impl2_MC.primitives <> base_tp_of_base_vl proj
+R4683:4691 impl2_MC.primitives <> interp_op proj
+R4683:4691 impl2_MC.primitives <> interp_op proj
+R4719:4728 impl2_MC.primitives <> eqb_BaseTp proj
+R4719:4728 impl2_MC.primitives <> eqb_BaseTp proj
+R4754:4763 impl2_MC.primitives <> eqb_BaseVl proj
+R4754:4763 impl2_MC.primitives <> eqb_BaseVl proj
+R4789:4801 impl2_MC.primitives <> eq_BaseTp_dec proj
+R4789:4801 impl2_MC.primitives <> eq_BaseTp_dec proj
+R4830:4842 impl2_MC.primitives <> eq_BaseVl_dec proj
+R4830:4842 impl2_MC.primitives <> eq_BaseVl_dec proj
+R4871:4883 impl2_MC.primitives <> eqb_eq_BaseTp proj
+R4871:4883 impl2_MC.primitives <> eqb_eq_BaseTp proj
+R4913:4925 impl2_MC.primitives <> eqb_eq_BaseVl proj
+R4913:4925 impl2_MC.primitives <> eqb_eq_BaseVl proj
+R4574:4580 impl2_MC.desugarer <> BaseTyp ind
+R4602:4608 impl2_MC.desugarer <> BaseVal ind
+R4626:4627 impl2_MC.desugarer <> Op ind
+R4659:4672 impl2_MC.desugarer <> typeof_base_vl def
+R4696:4709 impl2_MC.desugarer <> interp_prim_op def
+R4733:4743 impl2_MC.desugarer <> eqb_BaseTyp def
+R4768:4778 impl2_MC.desugarer <> eqb_BaseVal def
+R4807:4819 impl2_MC.desugarer <> eq_baseTp_dec thm
+R4848:4860 impl2_MC.desugarer <> eq_baseVl_dec thm
+R4889:4902 impl2_MC.desugarer <> eqb_eq_BaseTyp thm
+R4931:4944 impl2_MC.desugarer <> eqb_eq_BaseVal thm
+sec 4962:4970 <> Desugarer
+R4998:5000 impl2_MC.ids <> IDS rec
+binder 4995:4995 <> I:34
+sec 5044:5049 Desugarer common
+var 5076:5076 Desugarer.common X
+var 5103:5103 Desugarer.common Y
+prf 5127:5140 <> forall2_eq_map
+R5154:5157 Coq.Init.Datatypes <> list ind
+R5159:5159 impl2_MC.desugarer <> Desugarer.common.X var
+binder 5151:5151 <> l:37
+R5167:5170 Coq.Init.Datatypes <> list ind
+R5172:5172 impl2_MC.desugarer <> Desugarer.common.Y var
+binder 5163:5164 <> l':38
+R5180:5183 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5179:5179 impl2_MC.desugarer <> Desugarer.common.X var
+R5184:5184 impl2_MC.desugarer <> Desugarer.common.Y var
+binder 5176:5176 <> f:39
+R5231:5236 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R5198:5204 Coq.Lists.List <> Forall2 ind
+R5229:5230 impl2_MC.desugarer <> l':38 var
+R5227:5227 impl2_MC.desugarer <> l:37 var
+binder 5211:5211 <> x:40
+binder 5213:5213 <> y:41
+R5221:5223 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5218:5218 impl2_MC.desugarer <> f:39 var
+R5220:5220 impl2_MC.desugarer <> x:40 var
+R5224:5224 impl2_MC.desugarer <> y:41 var
+R5244:5246 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5237:5239 Coq.Lists.List <> map def
+R5243:5243 impl2_MC.desugarer <> l:37 var
+R5241:5241 impl2_MC.desugarer <> f:39 var
+R5247:5248 impl2_MC.desugarer <> l':38 var
+R5598:5608 Coq.Lists.List <> Forall2_nil constr
+R5598:5608 Coq.Lists.List <> Forall2_nil constr
+R5664:5675 Coq.Lists.List <> Forall2_cons constr
+R5664:5675 Coq.Lists.List <> Forall2_cons constr
+prf 5794:5813 <> Forall2P_eq_Forall2f
+binder 5823:5823 <> l:42
+binder 5825:5826 <> l':43
+R5833:5836 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5832:5832 impl2_MC.desugarer <> Desugarer.common.X var
+R5838:5841 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5837:5837 impl2_MC.desugarer <> Desugarer.common.Y var
+binder 5829:5829 <> P:44
+R5853:5856 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5852:5852 impl2_MC.desugarer <> Desugarer.common.X var
+R5857:5857 impl2_MC.desugarer <> Desugarer.common.Y var
+binder 5849:5849 <> f:45
+R5876:5876 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5906:5910 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 5884:5884 <> x:46
+binder 5886:5886 <> y:47
+R5894:5898 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R5889:5889 impl2_MC.desugarer <> P:44 var
+R5893:5893 impl2_MC.desugarer <> y:47 var
+R5891:5891 impl2_MC.desugarer <> x:46 var
+R5902:5904 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5899:5899 impl2_MC.desugarer <> f:45 var
+R5901:5901 impl2_MC.desugarer <> x:46 var
+R5905:5905 impl2_MC.desugarer <> y:47 var
+R5925:5929 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R5911:5917 Coq.Lists.List <> Forall2 ind
+R5923:5924 impl2_MC.desugarer <> l':43 var
+R5921:5921 impl2_MC.desugarer <> l:42 var
+R5919:5919 impl2_MC.desugarer <> P:44 var
+R5930:5936 Coq.Lists.List <> Forall2 ind
+R5961:5962 impl2_MC.desugarer <> l':43 var
+R5959:5959 impl2_MC.desugarer <> l:42 var
+binder 5943:5943 <> x:48
+binder 5945:5945 <> y:49
+R5953:5955 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5950:5950 impl2_MC.desugarer <> f:45 var
+R5952:5952 impl2_MC.desugarer <> x:48 var
+R5956:5956 impl2_MC.desugarer <> y:49 var
+R6135:6145 Coq.Lists.List <> Forall2_nil constr
+R6176:6187 Coq.Lists.List <> Forall2_cons constr
+R6135:6145 Coq.Lists.List <> Forall2_nil constr
+R6135:6145 Coq.Lists.List <> Forall2_nil constr
+R6176:6187 Coq.Lists.List <> Forall2_cons constr
+R6135:6145 Coq.Lists.List <> Forall2_nil constr
+R6135:6145 Coq.Lists.List <> Forall2_nil constr
+R6176:6187 Coq.Lists.List <> Forall2_cons constr
+R6306:6311 impl2_MC.desugarer Desugarer.common <> sec
+def 6420:6438 <> from_lispat_to_cons
+R6444:6447 Coq.Init.Datatypes <> list ind
+R6450:6453 impl2_MC.kernel_syntax <> KPat ind
+R6457:6464 impl2_MC.desugarer <> bns_data def
+R6455:6455 impl2_MC.desugarer <> Desugarer.I var
+binder 6441:6441 <> l:50
+R6470:6473 impl2_MC.kernel_syntax <> KPat ind
+R6477:6484 impl2_MC.desugarer <> bns_data def
+R6475:6475 impl2_MC.desugarer <> Desugarer.I var
+R6510:6510 impl2_MC.desugarer <> l:50 var
+R6533:6534 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R6541:6545 impl2_MC.kernel_syntax <> KPNil constr
+R6563:6564 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6570:6575 impl2_MC.kernel_syntax <> KPCons constr
+R6580:6598 impl2_MC.desugarer <> from_lispat_to_cons:51 def
+def 6670:6687 <> from_lispat_to_tup
+R6692:6695 Coq.Init.Datatypes <> list ind
+R6698:6701 impl2_MC.kernel_syntax <> KPat ind
+R6705:6712 impl2_MC.desugarer <> bns_data def
+R6703:6703 impl2_MC.desugarer <> Desugarer.I var
+binder 6690:6690 <> l:53
+R6740:6740 impl2_MC.desugarer <> l:53 var
+R6763:6764 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R6771:6776 impl2_MC.kernel_syntax <> KPUnit constr
+R6794:6795 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6801:6806 impl2_MC.kernel_syntax <> KPPair constr
+R6811:6828 impl2_MC.desugarer <> from_lispat_to_tup:54 def
+ind 6935:6945 <> Desugar_Pat
+constr 6995:7002 <> dsg_PVar
+constr 7090:7098 <> dsg_PBool
+constr 7178:7185 <> dsg_PNat
+constr 7264:7274 <> dsg_PString
+constr 7357:7364 <> dsg_PAny
+constr 7410:7416 <> dsg_PAs
+constr 7565:7572 <> dsg_PTup
+constr 7735:7743 <> dsg_PCons
+constr 7905:7916 <> dsg_PVariant
+R6953:6956 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6948:6950 impl2_MC.surface_syntax <> Pat ind
+R6952:6952 impl2_MC.desugarer <> Desugarer.I var
+R6972:6975 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6957:6960 impl2_MC.kernel_syntax <> KPat ind
+R6964:6971 impl2_MC.desugarer <> bns_data def
+R6962:6962 impl2_MC.desugarer <> Desugarer.I var
+binder 7019:7019 <> i:58
+R7051:7061 impl2_MC.desugarer <> Desugar_Pat:56 ind
+R7073:7077 impl2_MC.kernel_syntax <> KPVar constr
+R7079:7079 impl2_MC.desugarer <> i:58 var
+R7064:7067 impl2_MC.surface_syntax <> PVar constr
+R7069:7069 impl2_MC.desugarer <> i:58 var
+binder 7114:7114 <> b:59
+R7117:7127 impl2_MC.desugarer <> Desugar_Pat:56 ind
+R7141:7145 impl2_MC.kernel_syntax <> KPLit constr
+R7149:7156 impl2_MC.desugarer <> bns_data def
+R7159:7164 impl2_MC.desugarer <> VlBool constr
+R7166:7166 impl2_MC.desugarer <> b:59 var
+R7130:7134 impl2_MC.surface_syntax <> PBool constr
+R7136:7136 impl2_MC.desugarer <> b:59 var
+binder 7202:7202 <> n:60
+R7205:7215 impl2_MC.desugarer <> Desugar_Pat:56 ind
+R7228:7232 impl2_MC.kernel_syntax <> KPLit constr
+R7236:7243 impl2_MC.desugarer <> bns_data def
+R7246:7250 impl2_MC.desugarer <> VlNat constr
+R7252:7252 impl2_MC.desugarer <> n:60 var
+R7218:7221 impl2_MC.surface_syntax <> PNat constr
+R7223:7223 impl2_MC.desugarer <> n:60 var
+binder 7288:7288 <> s:61
+R7291:7301 impl2_MC.desugarer <> Desugar_Pat:56 ind
+R7317:7321 impl2_MC.kernel_syntax <> KPLit constr
+R7325:7332 impl2_MC.desugarer <> bns_data def
+R7335:7342 impl2_MC.desugarer <> VlString constr
+R7344:7344 impl2_MC.desugarer <> s:61 var
+R7304:7310 impl2_MC.surface_syntax <> PString constr
+R7312:7312 impl2_MC.desugarer <> s:61 var
+R7374:7384 impl2_MC.desugarer <> Desugar_Pat:56 ind
+R7394:7398 impl2_MC.kernel_syntax <> KPAny constr
+R7387:7390 impl2_MC.surface_syntax <> PAny constr
+binder 7434:7435 <> p1:62
+binder 7437:7438 <> p2:63
+binder 7440:7440 <> i:64
+R7488:7521 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7471:7481 impl2_MC.desugarer <> Desugar_Pat:56 ind
+R7486:7487 impl2_MC.desugarer <> p2:63 var
+R7483:7484 impl2_MC.desugarer <> p1:62 var
+R7522:7532 impl2_MC.desugarer <> Desugar_Pat:56 ind
+R7546:7549 impl2_MC.kernel_syntax <> KPAs constr
+R7554:7554 impl2_MC.desugarer <> i:64 var
+R7551:7552 impl2_MC.desugarer <> p2:63 var
+R7535:7537 impl2_MC.surface_syntax <> PAs constr
+R7542:7542 impl2_MC.desugarer <> i:64 var
+R7539:7540 impl2_MC.desugarer <> p1:62 var
+binder 7589:7589 <> l:65
+binder 7591:7592 <> l':66
+R7647:7679 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7623:7629 Coq.Lists.List <> Forall2 ind
+R7645:7646 impl2_MC.desugarer <> l':66 var
+R7643:7643 impl2_MC.desugarer <> l:65 var
+R7631:7641 impl2_MC.desugarer <> Desugar_Pat:56 ind
+R7680:7690 impl2_MC.desugarer <> Desugar_Pat:56 ind
+R7702:7719 impl2_MC.desugarer <> from_lispat_to_tup def
+R7721:7722 impl2_MC.desugarer <> l':66 var
+R7693:7696 impl2_MC.surface_syntax <> PTup constr
+R7698:7698 impl2_MC.desugarer <> l:65 var
+binder 7759:7759 <> l:67
+binder 7761:7762 <> l':68
+R7817:7849 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7793:7799 Coq.Lists.List <> Forall2 ind
+R7815:7816 impl2_MC.desugarer <> l':68 var
+R7813:7813 impl2_MC.desugarer <> l:67 var
+R7801:7811 impl2_MC.desugarer <> Desugar_Pat:56 ind
+R7850:7860 impl2_MC.desugarer <> Desugar_Pat:56 ind
+R7873:7891 impl2_MC.desugarer <> from_lispat_to_cons def
+R7893:7894 impl2_MC.desugarer <> l':68 var
+R7863:7867 impl2_MC.surface_syntax <> PCons constr
+R7869:7869 impl2_MC.desugarer <> l:67 var
+binder 7929:7929 <> c:69
+binder 7931:7931 <> l:70
+binder 7933:7934 <> l':71
+R7989:8022 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7965:7971 Coq.Lists.List <> Forall2 ind
+R7987:7988 impl2_MC.desugarer <> l':71 var
+R7985:7985 impl2_MC.desugarer <> l:70 var
+R7973:7983 impl2_MC.desugarer <> Desugar_Pat:56 ind
+R8023:8033 impl2_MC.desugarer <> Desugar_Pat:56 ind
+R8051:8059 impl2_MC.kernel_syntax <> KPVariant constr
+R8064:8081 impl2_MC.desugarer <> from_lispat_to_tup def
+R8083:8084 impl2_MC.desugarer <> l':71 var
+R8061:8061 impl2_MC.desugarer <> c:69 var
+R8036:8043 impl2_MC.surface_syntax <> PVariant constr
+R8047:8047 impl2_MC.desugarer <> l:70 var
+R8045:8045 impl2_MC.desugarer <> c:69 var
+scheme 6935:6945 <> Desugar_Pat_ind
+scheme 6935:6945 <> Desugar_Pat_sind
+sec 8173:8188 Desugarer Desugar_Pat_ind'
+var 8215:8215 Desugarer.Desugar_Pat_ind' P
+R8225:8228 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8220:8222 impl2_MC.surface_syntax <> Pat ind
+R8224:8224 impl2_MC.desugarer <> Desugarer.I var
+R8244:8247 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8229:8232 impl2_MC.kernel_syntax <> KPat ind
+R8236:8243 impl2_MC.desugarer <> bns_data def
+R8234:8234 impl2_MC.desugarer <> Desugarer.I var
+var 8280:8288 Desugarer.Desugar_Pat_ind' PVar_case
+binder 8303:8303 <> i:73
+R8306:8306 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R8318:8322 impl2_MC.kernel_syntax <> KPVar constr
+R8324:8324 impl2_MC.desugarer <> i:73 var
+R8309:8312 impl2_MC.surface_syntax <> PVar constr
+R8314:8314 impl2_MC.desugarer <> i:73 var
+var 8354:8363 Desugarer.Desugar_Pat_ind' PBool_case
+binder 8377:8377 <> b:75
+R8380:8380 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R8394:8398 impl2_MC.kernel_syntax <> KPLit constr
+R8402:8409 impl2_MC.desugarer <> bns_data def
+R8412:8417 impl2_MC.desugarer <> VlBool constr
+R8419:8419 impl2_MC.desugarer <> b:75 var
+R8383:8387 impl2_MC.surface_syntax <> PBool constr
+R8389:8389 impl2_MC.desugarer <> b:75 var
+var 8449:8457 Desugarer.Desugar_Pat_ind' PNat_case
+binder 8472:8472 <> n:77
+R8475:8475 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R8488:8492 impl2_MC.kernel_syntax <> KPLit constr
+R8496:8503 impl2_MC.desugarer <> bns_data def
+R8506:8510 impl2_MC.desugarer <> VlNat constr
+R8512:8512 impl2_MC.desugarer <> n:77 var
+R8478:8481 impl2_MC.surface_syntax <> PNat constr
+R8483:8483 impl2_MC.desugarer <> n:77 var
+var 8542:8553 Desugarer.Desugar_Pat_ind' PString_case
+binder 8565:8565 <> s:79
+R8568:8568 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R8584:8588 impl2_MC.kernel_syntax <> KPLit constr
+R8592:8599 impl2_MC.desugarer <> bns_data def
+R8602:8609 impl2_MC.desugarer <> VlString constr
+R8611:8611 impl2_MC.desugarer <> s:79 var
+R8571:8577 impl2_MC.surface_syntax <> PString constr
+R8579:8579 impl2_MC.desugarer <> s:79 var
+var 8641:8649 Desugarer.Desugar_Pat_ind' PAny_case
+R8657:8657 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R8665:8669 impl2_MC.kernel_syntax <> KPAny constr
+R8659:8662 impl2_MC.surface_syntax <> PAny constr
+var 8698:8705 Desugarer.Desugar_Pat_ind' PAs_case
+binder 8721:8721 <> i:82
+binder 8723:8723 <> p:83
+binder 8725:8726 <> p':84
+R8779:8782 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8773:8773 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R8777:8778 impl2_MC.desugarer <> p':84 var
+R8775:8775 impl2_MC.desugarer <> p:83 var
+R8783:8783 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R8796:8799 impl2_MC.kernel_syntax <> KPAs constr
+R8804:8804 impl2_MC.desugarer <> i:82 var
+R8801:8802 impl2_MC.desugarer <> p':84 var
+R8786:8788 impl2_MC.surface_syntax <> PAs constr
+R8792:8792 impl2_MC.desugarer <> i:82 var
+R8790:8790 impl2_MC.desugarer <> p:83 var
+var 8833:8841 Desugarer.Desugar_Pat_ind' PTup_case
+binder 8856:8856 <> l:86
+binder 8858:8859 <> l':87
+R8919:8922 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8905:8911 Coq.Lists.List <> Forall2 ind
+R8917:8918 impl2_MC.desugarer <> l':87 var
+R8915:8915 impl2_MC.desugarer <> l:86 var
+R8913:8913 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R8923:8923 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R8935:8952 impl2_MC.desugarer <> from_lispat_to_tup def
+R8954:8955 impl2_MC.desugarer <> l':87 var
+R8926:8929 impl2_MC.surface_syntax <> PTup constr
+R8931:8931 impl2_MC.desugarer <> l:86 var
+var 8984:8993 Desugarer.Desugar_Pat_ind' PCons_case
+binder 9007:9007 <> l:89
+binder 9009:9010 <> l':90
+R9070:9073 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9056:9062 Coq.Lists.List <> Forall2 ind
+R9068:9069 impl2_MC.desugarer <> l':90 var
+R9066:9066 impl2_MC.desugarer <> l:89 var
+R9064:9064 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R9074:9074 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R9087:9105 impl2_MC.desugarer <> from_lispat_to_cons def
+R9107:9108 impl2_MC.desugarer <> l':90 var
+R9077:9081 impl2_MC.surface_syntax <> PCons constr
+R9083:9083 impl2_MC.desugarer <> l:89 var
+var 9137:9149 Desugarer.Desugar_Pat_ind' PVariant_case
+binder 9160:9160 <> c:92
+binder 9162:9162 <> l:93
+binder 9164:9165 <> l':94
+R9226:9271 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9212:9218 Coq.Lists.List <> Forall2 ind
+R9224:9225 impl2_MC.desugarer <> l':94 var
+R9222:9222 impl2_MC.desugarer <> l:93 var
+R9220:9220 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R9272:9272 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R9290:9298 impl2_MC.kernel_syntax <> KPVariant constr
+R9303:9320 impl2_MC.desugarer <> from_lispat_to_tup def
+R9322:9323 impl2_MC.desugarer <> l':94 var
+R9300:9300 impl2_MC.desugarer <> c:92 var
+R9275:9282 impl2_MC.surface_syntax <> PVariant constr
+R9286:9286 impl2_MC.desugarer <> l:93 var
+R9284:9284 impl2_MC.desugarer <> c:92 var
+def 9382:9397 <> Desugar_Pat_ind'
+R9404:9406 impl2_MC.surface_syntax <> Pat ind
+R9408:9408 impl2_MC.desugarer <> Desugarer.I var
+binder 9400:9401 <> ps:96
+R9416:9419 impl2_MC.kernel_syntax <> KPat ind
+R9423:9430 impl2_MC.desugarer <> bns_data def
+R9421:9421 impl2_MC.desugarer <> Desugarer.I var
+binder 9412:9413 <> pk:97
+R9480:9490 impl2_MC.desugarer <> Desugar_Pat ind
+R9495:9496 impl2_MC.desugarer <> pk:97 var
+R9492:9493 impl2_MC.desugarer <> ps:96 var
+binder 9477:9477 <> H:98
+R9501:9501 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R9506:9507 impl2_MC.desugarer <> pk:97 var
+R9503:9504 impl2_MC.desugarer <> ps:96 var
+R9540:9540 impl2_MC.desugarer <> H:98 var
+R9570:9577 impl2_MC.desugarer <> dsg_PVar constr
+R9582:9590 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.PVar_case var
+R9615:9623 impl2_MC.desugarer <> dsg_PBool constr
+R9628:9637 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.PBool_case var
+R9662:9669 impl2_MC.desugarer <> dsg_PNat constr
+R9675:9683 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.PNat_case var
+R9709:9719 impl2_MC.desugarer <> dsg_PString constr
+R9724:9735 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.PString_case var
+R9761:9768 impl2_MC.desugarer <> dsg_PAny constr
+R9773:9781 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.PAny_case var
+R9806:9812 impl2_MC.desugarer <> dsg_PAs constr
+R9819:9826 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.PAs_case var
+R9829:9844 impl2_MC.desugarer <> Desugar_Pat_ind':99 def
+R9846:9846 impl2_MC.desugarer <> H:98 var
+R9872:9879 impl2_MC.desugarer <> dsg_PTup constr
+R9886:9894 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.PTup_case var
+binder 9946:9948 <> lis:101
+binder 9950:9953 <> lis':102
+R10009:10015 Coq.Lists.List <> Forall2 ind
+R10033:10036 impl2_MC.desugarer <> lis':102 var
+R10029:10031 impl2_MC.desugarer <> lis:101 var
+R10017:10027 impl2_MC.desugarer <> Desugar_Pat ind
+binder 10006:10006 <> H:103
+R10076:10082 Coq.Lists.List <> Forall2 ind
+R10090:10093 impl2_MC.desugarer <> lis':102 var
+R10086:10088 impl2_MC.desugarer <> lis:101 var
+R10084:10084 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R10133:10133 impl2_MC.desugarer <> H:103 var
+R10170:10180 Coq.Lists.List <> Forall2_nil constr
+R10187:10197 Coq.Lists.List <> Forall2_nil constr
+R10199:10199 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R10233:10244 Coq.Lists.List <> Forall2_cons constr
+R10296:10307 Coq.Lists.List <> Forall2_cons constr
+R10371:10383 impl2_MC.desugarer <> list_pat_ind':104 var
+R10349:10364 impl2_MC.desugarer <> Desugar_Pat_ind':99 def
+R10434:10434 impl2_MC.desugarer <> H:98 var
+R10460:10468 impl2_MC.desugarer <> dsg_PCons constr
+R10475:10484 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.PCons_case var
+binder 10534:10536 <> lis:106
+binder 10538:10541 <> lis':107
+R10597:10603 Coq.Lists.List <> Forall2 ind
+R10621:10624 impl2_MC.desugarer <> lis':107 var
+R10617:10619 impl2_MC.desugarer <> lis:106 var
+R10605:10615 impl2_MC.desugarer <> Desugar_Pat ind
+binder 10594:10594 <> H:108
+R10664:10670 Coq.Lists.List <> Forall2 ind
+R10678:10681 impl2_MC.desugarer <> lis':107 var
+R10674:10676 impl2_MC.desugarer <> lis:106 var
+R10672:10672 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R10721:10721 impl2_MC.desugarer <> H:108 var
+R10758:10768 Coq.Lists.List <> Forall2_nil constr
+R10775:10785 Coq.Lists.List <> Forall2_nil constr
+R10787:10787 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R10821:10832 Coq.Lists.List <> Forall2_cons constr
+R10884:10895 Coq.Lists.List <> Forall2_cons constr
+R10959:10971 impl2_MC.desugarer <> list_pat_ind':109 var
+R10937:10952 impl2_MC.desugarer <> Desugar_Pat_ind':99 def
+R11022:11022 impl2_MC.desugarer <> H:98 var
+R11048:11059 impl2_MC.desugarer <> dsg_PVariant constr
+R11066:11078 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.PVariant_case var
+binder 11130:11132 <> lis:111
+binder 11134:11137 <> lis':112
+R11193:11199 Coq.Lists.List <> Forall2 ind
+R11217:11220 impl2_MC.desugarer <> lis':112 var
+R11213:11215 impl2_MC.desugarer <> lis:111 var
+R11201:11211 impl2_MC.desugarer <> Desugar_Pat ind
+binder 11190:11190 <> H:113
+R11260:11266 Coq.Lists.List <> Forall2 ind
+R11274:11277 impl2_MC.desugarer <> lis':112 var
+R11270:11272 impl2_MC.desugarer <> lis:111 var
+R11268:11268 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R11317:11317 impl2_MC.desugarer <> H:113 var
+R11354:11364 Coq.Lists.List <> Forall2_nil constr
+R11371:11381 Coq.Lists.List <> Forall2_nil constr
+R11383:11383 impl2_MC.desugarer <> Desugarer.Desugar_Pat_ind'.P var
+R11417:11428 Coq.Lists.List <> Forall2_cons constr
+R11479:11490 Coq.Lists.List <> Forall2_cons constr
+R11555:11567 impl2_MC.desugarer <> list_pat_ind':114 var
+R11532:11547 impl2_MC.desugarer <> Desugar_Pat_ind':99 def
+R11618:11618 impl2_MC.desugarer <> H:98 var
+R11660:11675 impl2_MC.desugarer Desugarer.Desugar_Pat_ind' <> sec
+def 11747:11757 <> desugar_Pat
+R11764:11766 impl2_MC.surface_syntax <> Pat ind
+R11768:11768 impl2_MC.desugarer <> Desugarer.I var
+binder 11760:11760 <> p:116
+R11773:11776 impl2_MC.kernel_syntax <> KPat ind
+R11780:11787 impl2_MC.desugarer <> bns_data def
+R11778:11778 impl2_MC.desugarer <> Desugarer.I var
+R11807:11807 impl2_MC.desugarer <> p:116 var
+R11825:11828 impl2_MC.surface_syntax <> PVar constr
+R11855:11859 impl2_MC.kernel_syntax <> KPVar constr
+R11874:11878 impl2_MC.surface_syntax <> PBool constr
+R11905:11909 impl2_MC.kernel_syntax <> KPLit constr
+R11913:11920 impl2_MC.desugarer <> bns_data def
+R11923:11928 impl2_MC.desugarer <> VlBool constr
+R11944:11947 impl2_MC.surface_syntax <> PNat constr
+R11975:11979 impl2_MC.kernel_syntax <> KPLit constr
+R11983:11990 impl2_MC.desugarer <> bns_data def
+R11993:11997 impl2_MC.desugarer <> VlNat constr
+R12012:12018 impl2_MC.surface_syntax <> PString constr
+R12043:12047 impl2_MC.kernel_syntax <> KPLit constr
+R12051:12058 impl2_MC.desugarer <> bns_data def
+R12061:12068 impl2_MC.desugarer <> VlString constr
+R12083:12086 impl2_MC.surface_syntax <> PAny constr
+R12113:12117 impl2_MC.kernel_syntax <> KPAny constr
+R12130:12132 impl2_MC.surface_syntax <> PAs constr
+R12160:12163 impl2_MC.kernel_syntax <> KPAs constr
+R12166:12176 impl2_MC.desugarer <> desugar_Pat:117 def
+R12194:12197 impl2_MC.surface_syntax <> PTup constr
+R12224:12241 impl2_MC.desugarer <> from_lispat_to_tup def
+R12244:12246 Coq.Lists.List <> map def
+R12248:12258 impl2_MC.desugarer <> desugar_Pat:117 def
+R12278:12282 impl2_MC.surface_syntax <> PCons constr
+R12308:12326 impl2_MC.desugarer <> from_lispat_to_cons def
+R12329:12331 Coq.Lists.List <> map def
+R12333:12343 impl2_MC.desugarer <> desugar_Pat:117 def
+R12360:12367 impl2_MC.surface_syntax <> PVariant constr
+R12390:12398 impl2_MC.kernel_syntax <> KPVariant constr
+R12403:12420 impl2_MC.desugarer <> from_lispat_to_tup def
+R12423:12425 Coq.Lists.List <> map def
+R12427:12437 impl2_MC.desugarer <> desugar_Pat:117 def
+prf 12552:12570 <> desugar_Pat_correct
+binder 12580:12580 <> p:119
+binder 12582:12583 <> p':120
+R12616:12619 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R12611:12613 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12598:12608 impl2_MC.desugarer <> desugar_Pat def
+R12610:12610 impl2_MC.desugarer <> p:119 var
+R12614:12615 impl2_MC.desugarer <> p':120 var
+R12620:12630 impl2_MC.desugarer <> Desugar_Pat ind
+R12634:12635 impl2_MC.desugarer <> p':120 var
+R12632:12632 impl2_MC.desugarer <> p:119 var
+R12766:12773 impl2_MC.surface_syntax <> Pat_ind' def
+R12854:12861 impl2_MC.desugarer <> dsg_PVar constr
+R12864:12872 impl2_MC.desugarer <> dsg_PBool constr
+R12875:12882 impl2_MC.desugarer <> dsg_PNat constr
+R12885:12895 impl2_MC.desugarer <> dsg_PString constr
+R12898:12905 impl2_MC.desugarer <> dsg_PAny constr
+R12925:12931 impl2_MC.desugarer <> dsg_PAs constr
+R12963:12970 impl2_MC.desugarer <> dsg_PTup constr
+R12980:12988 impl2_MC.desugarer <> dsg_PCons constr
+R12998:13009 impl2_MC.desugarer <> dsg_PVariant constr
+R13084:13094 Coq.Lists.List <> Forall2_nil constr
+R13120:13131 Coq.Lists.List <> Forall2_cons constr
+R12766:12773 impl2_MC.surface_syntax <> Pat_ind' def
+R12854:12861 impl2_MC.desugarer <> dsg_PVar constr
+R12854:12861 impl2_MC.desugarer <> dsg_PVar constr
+R12854:12861 impl2_MC.desugarer <> dsg_PVar constr
+R12854:12861 impl2_MC.desugarer <> dsg_PVar constr
+R12854:12861 impl2_MC.desugarer <> dsg_PVar constr
+R12854:12861 impl2_MC.desugarer <> dsg_PVar constr
+R12854:12861 impl2_MC.desugarer <> dsg_PVar constr
+R12854:12861 impl2_MC.desugarer <> dsg_PVar constr
+R12854:12861 impl2_MC.desugarer <> dsg_PVar constr
+R12864:12872 impl2_MC.desugarer <> dsg_PBool constr
+R12875:12882 impl2_MC.desugarer <> dsg_PNat constr
+R12885:12895 impl2_MC.desugarer <> dsg_PString constr
+R12898:12905 impl2_MC.desugarer <> dsg_PAny constr
+R12925:12931 impl2_MC.desugarer <> dsg_PAs constr
+R12864:12872 impl2_MC.desugarer <> dsg_PBool constr
+R12875:12882 impl2_MC.desugarer <> dsg_PNat constr
+R12885:12895 impl2_MC.desugarer <> dsg_PString constr
+R12898:12905 impl2_MC.desugarer <> dsg_PAny constr
+R12925:12931 impl2_MC.desugarer <> dsg_PAs constr
+R12864:12872 impl2_MC.desugarer <> dsg_PBool constr
+R12875:12882 impl2_MC.desugarer <> dsg_PNat constr
+R12885:12895 impl2_MC.desugarer <> dsg_PString constr
+R12898:12905 impl2_MC.desugarer <> dsg_PAny constr
+R12925:12931 impl2_MC.desugarer <> dsg_PAs constr
+R12864:12872 impl2_MC.desugarer <> dsg_PBool constr
+R12875:12882 impl2_MC.desugarer <> dsg_PNat constr
+R12885:12895 impl2_MC.desugarer <> dsg_PString constr
+R12898:12905 impl2_MC.desugarer <> dsg_PAny constr
+R12925:12931 impl2_MC.desugarer <> dsg_PAs constr
+R12864:12872 impl2_MC.desugarer <> dsg_PBool constr
+R12875:12882 impl2_MC.desugarer <> dsg_PNat constr
+R12885:12895 impl2_MC.desugarer <> dsg_PString constr
+R12898:12905 impl2_MC.desugarer <> dsg_PAny constr
+R12925:12931 impl2_MC.desugarer <> dsg_PAs constr
+R12864:12872 impl2_MC.desugarer <> dsg_PBool constr
+R12875:12882 impl2_MC.desugarer <> dsg_PNat constr
+R12885:12895 impl2_MC.desugarer <> dsg_PString constr
+R12898:12905 impl2_MC.desugarer <> dsg_PAny constr
+R12925:12931 impl2_MC.desugarer <> dsg_PAs constr
+R12864:12872 impl2_MC.desugarer <> dsg_PBool constr
+R12875:12882 impl2_MC.desugarer <> dsg_PNat constr
+R12885:12895 impl2_MC.desugarer <> dsg_PString constr
+R12898:12905 impl2_MC.desugarer <> dsg_PAny constr
+R12925:12931 impl2_MC.desugarer <> dsg_PAs constr
+R12864:12872 impl2_MC.desugarer <> dsg_PBool constr
+R12875:12882 impl2_MC.desugarer <> dsg_PNat constr
+R12885:12895 impl2_MC.desugarer <> dsg_PString constr
+R12898:12905 impl2_MC.desugarer <> dsg_PAny constr
+R12925:12931 impl2_MC.desugarer <> dsg_PAs constr
+R12864:12872 impl2_MC.desugarer <> dsg_PBool constr
+R12875:12882 impl2_MC.desugarer <> dsg_PNat constr
+R12885:12895 impl2_MC.desugarer <> dsg_PString constr
+R12898:12905 impl2_MC.desugarer <> dsg_PAny constr
+R12925:12931 impl2_MC.desugarer <> dsg_PAs constr
+R12963:12970 impl2_MC.desugarer <> dsg_PTup constr
+R12963:12970 impl2_MC.desugarer <> dsg_PTup constr
+R12980:12988 impl2_MC.desugarer <> dsg_PCons constr
+R12963:12970 impl2_MC.desugarer <> dsg_PTup constr
+R12980:12988 impl2_MC.desugarer <> dsg_PCons constr
+R12998:13009 impl2_MC.desugarer <> dsg_PVariant constr
+R13084:13094 Coq.Lists.List <> Forall2_nil constr
+R13084:13094 Coq.Lists.List <> Forall2_nil constr
+R13084:13094 Coq.Lists.List <> Forall2_nil constr
+R13084:13094 Coq.Lists.List <> Forall2_nil constr
+R13084:13094 Coq.Lists.List <> Forall2_nil constr
+R13084:13094 Coq.Lists.List <> Forall2_nil constr
+R13120:13131 Coq.Lists.List <> Forall2_cons constr
+R13120:13131 Coq.Lists.List <> Forall2_cons constr
+R13120:13131 Coq.Lists.List <> Forall2_cons constr
+prf 13361:13380 <> desugar_Pat_complete
+binder 13390:13390 <> p:121
+binder 13392:13393 <> p':122
+R13422:13425 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R13406:13416 impl2_MC.desugarer <> Desugar_Pat ind
+R13420:13421 impl2_MC.desugarer <> p':122 var
+R13418:13418 impl2_MC.desugarer <> p:121 var
+R13439:13441 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13426:13436 impl2_MC.desugarer <> desugar_Pat def
+R13438:13438 impl2_MC.desugarer <> p:121 var
+R13442:13443 impl2_MC.desugarer <> p':122 var
+R13523:13538 impl2_MC.desugarer <> Desugar_Pat_ind' def
+R13650:13663 impl2_MC.desugarer <> forall2_eq_map thm
+R13523:13538 impl2_MC.desugarer <> Desugar_Pat_ind' def
+R13650:13663 impl2_MC.desugarer <> forall2_eq_map thm
+R13650:13663 impl2_MC.desugarer <> forall2_eq_map thm
+R13650:13663 impl2_MC.desugarer <> forall2_eq_map thm
+prf 13724:13749 <> desugar_Pat_eq_Desugar_Pat
+binder 13759:13759 <> p:123
+binder 13761:13762 <> p':124
+R13791:13795 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R13775:13785 impl2_MC.desugarer <> Desugar_Pat ind
+R13789:13790 impl2_MC.desugarer <> p':124 var
+R13787:13787 impl2_MC.desugarer <> p:123 var
+R13809:13811 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13796:13806 impl2_MC.desugarer <> desugar_Pat def
+R13808:13808 impl2_MC.desugarer <> p:123 var
+R13812:13813 impl2_MC.desugarer <> p':124 var
+R13873:13892 impl2_MC.desugarer <> desugar_Pat_complete thm
+R13873:13892 impl2_MC.desugarer <> desugar_Pat_complete thm
+R13916:13934 impl2_MC.desugarer <> desugar_Pat_correct thm
+R13916:13934 impl2_MC.desugarer <> desugar_Pat_correct thm
+def 14073:14090 <> from_listTp_to_tup
+R14096:14099 Coq.Init.Datatypes <> list ind
+R14102:14104 impl2_MC.kernel_syntax <> KTp ind
+R14108:14115 impl2_MC.desugarer <> bns_data def
+R14106:14106 impl2_MC.desugarer <> Desugarer.I var
+binder 14093:14093 <> l:125
+R14139:14139 impl2_MC.desugarer <> l:125 var
+R14158:14159 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R14166:14171 impl2_MC.kernel_syntax <> KTUnit constr
+R14185:14186 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R14192:14197 impl2_MC.kernel_syntax <> KTProd constr
+R14202:14219 impl2_MC.desugarer <> from_listTp_to_tup:126 def
+ind 14322:14331 <> Desugar_Tp
+constr 14377:14389 <> dsg_TFunction
+constr 14439:14447 <> dsg_TBool
+constr 14513:14520 <> dsg_TNat
+constr 14586:14596 <> dsg_TString
+constr 14665:14674 <> dsg_TEmpty
+constr 14721:14729 <> dsg_TProd
+constr 14890:14898 <> dsg_TList
+constr 15064:15075 <> dsg_TVariant
+constr 15525:15532 <> dsg_TRef
+constr 15592:15601 <> dsg_TError
+R14338:14341 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R14334:14335 impl2_MC.surface_syntax <> Tp ind
+R14337:14337 impl2_MC.desugarer <> Desugarer.I var
+R14356:14359 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R14342:14344 impl2_MC.kernel_syntax <> KTp ind
+R14348:14355 impl2_MC.desugarer <> bns_data def
+R14346:14346 impl2_MC.desugarer <> Desugarer.I var
+R14395:14404 impl2_MC.desugarer <> Desugar_Tp:128 ind
+R14419:14428 impl2_MC.kernel_syntax <> KTFunction constr
+R14407:14415 impl2_MC.surface_syntax <> TFunction constr
+R14457:14466 impl2_MC.desugarer <> Desugar_Tp:128 ind
+R14478:14483 impl2_MC.kernel_syntax <> KTBase constr
+R14487:14494 impl2_MC.desugarer <> bns_data def
+R14496:14501 impl2_MC.desugarer <> TpBool constr
+R14469:14473 impl2_MC.surface_syntax <> TBool constr
+R14531:14540 impl2_MC.desugarer <> Desugar_Tp:128 ind
+R14551:14556 impl2_MC.kernel_syntax <> KTBase constr
+R14560:14567 impl2_MC.desugarer <> bns_data def
+R14570:14574 impl2_MC.desugarer <> TpNat constr
+R14543:14546 impl2_MC.surface_syntax <> TNat constr
+R14604:14613 impl2_MC.desugarer <> Desugar_Tp:128 ind
+R14627:14632 impl2_MC.kernel_syntax <> KTBase constr
+R14636:14643 impl2_MC.desugarer <> bns_data def
+R14646:14653 impl2_MC.desugarer <> TpString constr
+R14616:14622 impl2_MC.surface_syntax <> TString constr
+R14683:14692 impl2_MC.desugarer <> Desugar_Tp:128 ind
+R14704:14710 impl2_MC.kernel_syntax <> KTEmpty constr
+R14695:14700 impl2_MC.surface_syntax <> TEmpty constr
+binder 14746:14746 <> l:130
+binder 14748:14749 <> l':131
+R14805:14836 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R14782:14788 Coq.Lists.List <> Forall2 ind
+R14803:14804 impl2_MC.desugarer <> l':131 var
+R14801:14801 impl2_MC.desugarer <> l:130 var
+R14790:14799 impl2_MC.desugarer <> Desugar_Tp:128 ind
+R14837:14846 impl2_MC.desugarer <> Desugar_Tp:128 ind
+R14858:14875 impl2_MC.desugarer <> from_listTp_to_tup def
+R14877:14878 impl2_MC.desugarer <> l':131 var
+R14849:14852 impl2_MC.surface_syntax <> TTup constr
+R14854:14854 impl2_MC.desugarer <> l:130 var
+binder 14915:14915 <> t:132
+binder 14917:14918 <> t':133
+R14965:14997 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R14950:14959 impl2_MC.desugarer <> Desugar_Tp:128 ind
+R14963:14964 impl2_MC.desugarer <> t':133 var
+R14961:14961 impl2_MC.desugarer <> t:132 var
+R14998:15007 impl2_MC.desugarer <> Desugar_Tp:128 ind
+R15020:15025 impl2_MC.kernel_syntax <> KTList constr
+R15027:15028 impl2_MC.desugarer <> t':133 var
+R15010:15014 impl2_MC.surface_syntax <> TList constr
+R15016:15016 impl2_MC.desugarer <> t:132 var
+binder 15089:15090 <> l1:134
+binder 15092:15093 <> l2:135
+binder 15095:15096 <> l3:136
+R15269:15300 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R15128:15134 Coq.Lists.List <> Forall2 ind
+R15267:15268 impl2_MC.desugarer <> l2:135 var
+R15264:15265 impl2_MC.desugarer <> l1:134 var
+binder 15141:15141 <> p:137
+binder 15143:15143 <> q:138
+R15192:15227 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R15184:15186 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15179:15181 Coq.Init.Datatypes <> fst def
+R15183:15183 impl2_MC.desugarer <> p:137 var
+R15187:15189 Coq.Init.Datatypes <> fst def
+R15191:15191 impl2_MC.desugarer <> q:138 var
+R15228:15234 Coq.Lists.List <> Forall2 ind
+R15256:15258 Coq.Init.Datatypes <> snd def
+R15260:15260 impl2_MC.desugarer <> q:138 var
+R15248:15250 Coq.Init.Datatypes <> snd def
+R15252:15252 impl2_MC.desugarer <> p:137 var
+R15236:15245 impl2_MC.desugarer <> Desugar_Tp:128 ind
+R15443:15476 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R15301:15307 Coq.Lists.List <> Forall2 ind
+R15441:15442 impl2_MC.desugarer <> l3:136 var
+R15438:15439 impl2_MC.desugarer <> l2:135 var
+binder 15314:15314 <> p:139
+binder 15316:15316 <> q:140
+R15366:15401 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R15358:15360 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15353:15355 Coq.Init.Datatypes <> fst def
+R15357:15357 impl2_MC.desugarer <> p:139 var
+R15361:15363 Coq.Init.Datatypes <> fst def
+R15365:15365 impl2_MC.desugarer <> q:140 var
+R15407:15409 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15402:15404 Coq.Init.Datatypes <> snd def
+R15406:15406 impl2_MC.desugarer <> q:140 var
+R15410:15427 impl2_MC.desugarer <> from_listTp_to_tup def
+R15430:15432 Coq.Init.Datatypes <> snd def
+R15434:15434 impl2_MC.desugarer <> p:139 var
+R15477:15486 impl2_MC.desugarer <> Desugar_Tp:128 ind
+R15503:15511 impl2_MC.kernel_syntax <> KTVariant constr
+R15513:15514 impl2_MC.desugarer <> l3:136 var
+R15489:15496 impl2_MC.surface_syntax <> TVariant constr
+R15498:15499 impl2_MC.desugarer <> l1:134 var
+binder 15550:15550 <> i:141
+R15553:15562 impl2_MC.desugarer <> Desugar_Tp:128 ind
+R15574:15578 impl2_MC.kernel_syntax <> KTRef constr
+R15580:15580 impl2_MC.desugarer <> i:141 var
+R15565:15568 impl2_MC.surface_syntax <> TRef constr
+R15570:15570 impl2_MC.desugarer <> i:141 var
+R15610:15619 impl2_MC.desugarer <> Desugar_Tp:128 ind
+R15631:15637 impl2_MC.kernel_syntax <> KTError constr
+R15622:15627 impl2_MC.surface_syntax <> TError constr
+scheme 14322:14331 <> Desugar_Tp_ind
+scheme 14322:14331 <> Desugar_Tp_sind
+sec 15724:15738 Desugarer Desugar_Tp_ind'
+var 15779:15779 Desugarer.Desugar_Tp_ind' P
+R15787:15790 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R15783:15784 impl2_MC.surface_syntax <> Tp ind
+R15786:15786 impl2_MC.desugarer <> Desugarer.I var
+R15805:15808 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R15791:15793 impl2_MC.kernel_syntax <> KTp ind
+R15797:15804 impl2_MC.desugarer <> bns_data def
+R15795:15795 impl2_MC.desugarer <> Desugarer.I var
+var 15856:15864 Desugarer.Desugar_Tp_ind' TFun_case
+R15872:15872 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R15885:15894 impl2_MC.kernel_syntax <> KTFunction constr
+R15874:15882 impl2_MC.surface_syntax <> TFunction constr
+var 15924:15933 Desugarer.Desugar_Tp_ind' TBool_case
+R15940:15940 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R15950:15955 impl2_MC.kernel_syntax <> KTBase constr
+R15959:15966 impl2_MC.desugarer <> bns_data def
+R15969:15974 impl2_MC.desugarer <> TpBool constr
+R15942:15946 impl2_MC.surface_syntax <> TBool constr
+var 16004:16012 Desugarer.Desugar_Tp_ind' TNat_case
+R16020:16020 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R16029:16034 impl2_MC.kernel_syntax <> KTBase constr
+R16038:16045 impl2_MC.desugarer <> bns_data def
+R16048:16052 impl2_MC.desugarer <> TpNat constr
+R16022:16025 impl2_MC.surface_syntax <> TNat constr
+var 16082:16093 Desugarer.Desugar_Tp_ind' TString_case
+R16098:16098 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R16110:16115 impl2_MC.kernel_syntax <> KTBase constr
+R16119:16126 impl2_MC.desugarer <> bns_data def
+R16129:16136 impl2_MC.desugarer <> TpString constr
+R16100:16106 impl2_MC.surface_syntax <> TString constr
+var 16167:16177 Desugarer.Desugar_Tp_ind' TEmpty_case
+R16183:16183 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R16193:16199 impl2_MC.kernel_syntax <> KTEmpty constr
+R16185:16190 impl2_MC.surface_syntax <> TEmpty constr
+var 16229:16238 Desugarer.Desugar_Tp_ind' TProd_case
+binder 16252:16252 <> l:148
+binder 16254:16255 <> l':149
+R16314:16359 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16300:16306 Coq.Lists.List <> Forall2 ind
+R16312:16313 impl2_MC.desugarer <> l':149 var
+R16310:16310 impl2_MC.desugarer <> l:148 var
+R16308:16308 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R16360:16360 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R16372:16389 impl2_MC.desugarer <> from_listTp_to_tup def
+R16391:16392 impl2_MC.desugarer <> l':149 var
+R16363:16366 impl2_MC.surface_syntax <> TTup constr
+R16368:16368 impl2_MC.desugarer <> l:148 var
+var 16421:16430 Desugarer.Desugar_Tp_ind' TList_case
+binder 16444:16444 <> t:151
+binder 16446:16447 <> t':152
+R16499:16545 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16493:16493 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R16497:16498 impl2_MC.desugarer <> t':152 var
+R16495:16495 impl2_MC.desugarer <> t:151 var
+R16546:16546 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R16559:16564 impl2_MC.kernel_syntax <> KTList constr
+R16566:16567 impl2_MC.desugarer <> t':152 var
+R16549:16553 impl2_MC.surface_syntax <> TList constr
+R16555:16555 impl2_MC.desugarer <> t:151 var
+var 16597:16609 Desugarer.Desugar_Tp_ind' TVariant_case
+binder 16620:16621 <> l1:154
+binder 16623:16624 <> l2:155
+binder 16626:16627 <> l3:156
+R16788:16833 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16673:16679 Coq.Lists.List <> Forall2 ind
+R16786:16787 impl2_MC.desugarer <> l2:155 var
+R16783:16784 impl2_MC.desugarer <> l1:154 var
+binder 16686:16686 <> p:157
+binder 16688:16688 <> q:158
+R16706:16755 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R16698:16700 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16693:16695 Coq.Init.Datatypes <> fst def
+R16697:16697 impl2_MC.desugarer <> p:157 var
+R16701:16703 Coq.Init.Datatypes <> fst def
+R16705:16705 impl2_MC.desugarer <> q:158 var
+R16756:16762 Coq.Lists.List <> Forall2 ind
+R16775:16777 Coq.Init.Datatypes <> snd def
+R16779:16779 impl2_MC.desugarer <> q:158 var
+R16767:16769 Coq.Init.Datatypes <> snd def
+R16771:16771 impl2_MC.desugarer <> p:157 var
+R16764:16764 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R16975:17020 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16834:16840 Coq.Lists.List <> Forall2 ind
+R16973:16974 impl2_MC.desugarer <> l3:156 var
+R16970:16971 impl2_MC.desugarer <> l2:155 var
+binder 16847:16847 <> p:159
+binder 16849:16849 <> q:160
+R16867:16933 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R16859:16861 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16854:16856 Coq.Init.Datatypes <> fst def
+R16858:16858 impl2_MC.desugarer <> p:159 var
+R16862:16864 Coq.Init.Datatypes <> fst def
+R16866:16866 impl2_MC.desugarer <> q:160 var
+R16939:16941 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16934:16936 Coq.Init.Datatypes <> snd def
+R16938:16938 impl2_MC.desugarer <> q:160 var
+R16942:16959 impl2_MC.desugarer <> from_listTp_to_tup def
+R16962:16964 Coq.Init.Datatypes <> snd def
+R16966:16966 impl2_MC.desugarer <> p:159 var
+R17021:17021 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R17038:17046 impl2_MC.kernel_syntax <> KTVariant constr
+R17048:17049 impl2_MC.desugarer <> l3:156 var
+R17024:17031 impl2_MC.surface_syntax <> TVariant constr
+R17033:17034 impl2_MC.desugarer <> l1:154 var
+var 17078:17086 Desugarer.Desugar_Tp_ind' TRef_case
+binder 17101:17101 <> x:162
+R17104:17104 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R17116:17120 impl2_MC.kernel_syntax <> KTRef constr
+R17122:17122 impl2_MC.desugarer <> x:162 var
+R17107:17110 impl2_MC.surface_syntax <> TRef constr
+R17112:17112 impl2_MC.desugarer <> x:162 var
+var 17152:17162 Desugarer.Desugar_Tp_ind' TError_case
+R17168:17168 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R17178:17184 impl2_MC.kernel_syntax <> KTError constr
+R17170:17175 impl2_MC.surface_syntax <> TError constr
+def 17214:17228 <> Desugar_Tp_ind'
+R17235:17236 impl2_MC.surface_syntax <> Tp ind
+R17238:17238 impl2_MC.desugarer <> Desugarer.I var
+binder 17231:17232 <> ts:165
+R17246:17248 impl2_MC.kernel_syntax <> KTp ind
+R17252:17259 impl2_MC.desugarer <> bns_data def
+R17250:17250 impl2_MC.desugarer <> Desugarer.I var
+binder 17242:17243 <> tk:166
+R17266:17275 impl2_MC.desugarer <> Desugar_Tp ind
+R17280:17281 impl2_MC.desugarer <> tk:166 var
+R17277:17278 impl2_MC.desugarer <> ts:165 var
+binder 17263:17263 <> H:167
+R17330:17330 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R17335:17336 impl2_MC.desugarer <> tk:166 var
+R17332:17333 impl2_MC.desugarer <> ts:165 var
+R17366:17366 impl2_MC.desugarer <> H:167 var
+R17392:17404 impl2_MC.desugarer <> dsg_TFunction constr
+R17423:17431 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.TFun_case var
+R17452:17460 impl2_MC.desugarer <> dsg_TBool constr
+R17483:17492 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.TBool_case var
+R17513:17520 impl2_MC.desugarer <> dsg_TNat constr
+R17544:17552 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.TNat_case var
+R17573:17583 impl2_MC.desugarer <> dsg_TString constr
+R17604:17615 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.TString_case var
+R17636:17645 impl2_MC.desugarer <> dsg_TEmpty constr
+R17667:17677 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.TEmpty_case var
+R17698:17706 impl2_MC.desugarer <> dsg_TProd constr
+R17729:17738 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.TProd_case var
+binder 17780:17780 <> l:170
+binder 17782:17783 <> l':171
+R17789:17795 Coq.Lists.List <> Forall2 ind
+R17810:17811 impl2_MC.desugarer <> l':171 var
+R17808:17808 impl2_MC.desugarer <> l:170 var
+R17797:17806 impl2_MC.desugarer <> Desugar_Tp ind
+binder 17786:17786 <> H:172
+R17815:17821 Coq.Lists.List <> Forall2 ind
+R17827:17828 impl2_MC.desugarer <> l':171 var
+R17825:17825 impl2_MC.desugarer <> l:170 var
+R17823:17823 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R17868:17868 impl2_MC.desugarer <> H:172 var
+R17905:17915 Coq.Lists.List <> Forall2_nil constr
+R17922:17932 Coq.Lists.List <> Forall2_nil constr
+R17967:17978 Coq.Lists.List <> Forall2_cons constr
+R18025:18036 Coq.Lists.List <> Forall2_cons constr
+R18099:18109 impl2_MC.desugarer <> lis_tp_ind':173 var
+R18078:18092 impl2_MC.desugarer <> Desugar_Tp_ind':168 def
+R18158:18158 impl2_MC.desugarer <> H:167 var
+R18179:18187 impl2_MC.desugarer <> dsg_TList constr
+R18210:18219 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.TList_case var
+R18222:18236 impl2_MC.desugarer <> Desugar_Tp_ind':168 def
+R18238:18238 impl2_MC.desugarer <> H:167 var
+R18259:18270 impl2_MC.desugarer <> dsg_TVariant constr
+R18290:18302 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.TVariant_case var
+binder 18349:18349 <> l:175
+binder 18351:18352 <> l':176
+R18401:18407 Coq.Lists.List <> Forall2 ind
+R18525:18526 impl2_MC.desugarer <> l':176 var
+R18523:18523 impl2_MC.desugarer <> l:175 var
+binder 18414:18414 <> p:177
+binder 18416:18416 <> q:178
+R18434:18486 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R18426:18428 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18421:18423 Coq.Init.Datatypes <> fst def
+R18425:18425 impl2_MC.desugarer <> p:177 var
+R18429:18431 Coq.Init.Datatypes <> fst def
+R18433:18433 impl2_MC.desugarer <> q:178 var
+R18487:18493 Coq.Lists.List <> Forall2 ind
+R18515:18517 Coq.Init.Datatypes <> snd def
+R18519:18519 impl2_MC.desugarer <> q:178 var
+R18507:18509 Coq.Init.Datatypes <> snd def
+R18511:18511 impl2_MC.desugarer <> p:177 var
+R18495:18504 impl2_MC.desugarer <> Desugar_Tp ind
+binder 18398:18398 <> H:179
+R18574:18580 Coq.Lists.List <> Forall2 ind
+R18686:18687 impl2_MC.desugarer <> l':176 var
+R18684:18684 impl2_MC.desugarer <> l:175 var
+binder 18587:18587 <> p:180
+binder 18589:18589 <> q:181
+R18607:18656 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R18599:18601 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18594:18596 Coq.Init.Datatypes <> fst def
+R18598:18598 impl2_MC.desugarer <> p:180 var
+R18602:18604 Coq.Init.Datatypes <> fst def
+R18606:18606 impl2_MC.desugarer <> q:181 var
+R18657:18663 Coq.Lists.List <> Forall2 ind
+R18676:18678 Coq.Init.Datatypes <> snd def
+R18680:18680 impl2_MC.desugarer <> q:181 var
+R18668:18670 Coq.Init.Datatypes <> snd def
+R18672:18672 impl2_MC.desugarer <> p:180 var
+R18665:18665 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R18727:18727 impl2_MC.desugarer <> H:179 var
+R18764:18774 Coq.Lists.List <> Forall2_nil constr
+R18782:18792 Coq.Lists.List <> Forall2_nil constr
+R18826:18837 Coq.Lists.List <> Forall2_cons constr
+R18887:18898 Coq.Lists.List <> Forall2_cons constr
+R19713:19728 impl2_MC.desugarer <> lis_variant_ind':182 var
+R18989:18992 Coq.Init.Logic <> conj constr
+R19002:19005 Coq.Init.Logic <> conj constr
+binder 19033:19033 <> l:185
+binder 19035:19036 <> l':186
+R19105:19111 Coq.Lists.List <> Forall2 ind
+R19126:19127 impl2_MC.desugarer <> l':186 var
+R19124:19124 impl2_MC.desugarer <> l:185 var
+R19113:19122 impl2_MC.desugarer <> Desugar_Tp ind
+binder 19102:19102 <> H:187
+R19132:19138 Coq.Lists.List <> Forall2 ind
+R19144:19145 impl2_MC.desugarer <> l':186 var
+R19142:19142 impl2_MC.desugarer <> l:185 var
+R19140:19140 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.P var
+R19217:19217 impl2_MC.desugarer <> H:187 var
+R19286:19296 Coq.Lists.List <> Forall2_nil constr
+R19303:19313 Coq.Lists.List <> Forall2_nil constr
+R19379:19390 Coq.Lists.List <> Forall2_cons constr
+R19469:19480 Coq.Lists.List <> Forall2_cons constr
+R19574:19590 impl2_MC.desugarer <> lis_variant_ind'':188 var
+R19487:19501 impl2_MC.desugarer <> Desugar_Tp_ind':168 def
+R19861:19868 impl2_MC.desugarer <> dsg_TRef constr
+R19892:19900 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.TRef_case var
+R19922:19931 impl2_MC.desugarer <> dsg_TError constr
+R19953:19963 impl2_MC.desugarer <> Desugarer.Desugar_Tp_ind'.TError_case var
+R20014:20028 impl2_MC.desugarer Desugarer.Desugar_Tp_ind' <> sec
+def 20096:20105 <> desugar_Tp
+R20111:20112 impl2_MC.surface_syntax <> Tp ind
+R20114:20114 impl2_MC.desugarer <> Desugarer.I var
+binder 20108:20108 <> t:190
+R20119:20121 impl2_MC.kernel_syntax <> KTp ind
+R20125:20132 impl2_MC.desugarer <> bns_data def
+R20123:20123 impl2_MC.desugarer <> Desugarer.I var
+R20153:20153 impl2_MC.desugarer <> t:190 var
+R20172:20180 impl2_MC.surface_syntax <> TFunction constr
+R20194:20203 impl2_MC.kernel_syntax <> KTFunction constr
+R20217:20221 impl2_MC.surface_syntax <> TBool constr
+R20240:20245 impl2_MC.kernel_syntax <> KTBase constr
+R20249:20256 impl2_MC.desugarer <> bns_data def
+R20259:20264 impl2_MC.desugarer <> TpBool constr
+R20278:20281 impl2_MC.surface_syntax <> TNat constr
+R20301:20306 impl2_MC.kernel_syntax <> KTBase constr
+R20310:20317 impl2_MC.desugarer <> bns_data def
+R20320:20324 impl2_MC.desugarer <> TpNat constr
+R20338:20344 impl2_MC.surface_syntax <> TString constr
+R20361:20366 impl2_MC.kernel_syntax <> KTBase constr
+R20370:20377 impl2_MC.desugarer <> bns_data def
+R20380:20387 impl2_MC.desugarer <> TpString constr
+R20401:20406 impl2_MC.surface_syntax <> TEmpty constr
+R20423:20429 impl2_MC.kernel_syntax <> KTEmpty constr
+R20443:20446 impl2_MC.surface_syntax <> TTup constr
+R20465:20482 impl2_MC.desugarer <> from_listTp_to_tup def
+R20485:20487 Coq.Lists.List <> map def
+R20489:20498 impl2_MC.desugarer <> desugar_Tp:191 def
+R20516:20520 impl2_MC.surface_syntax <> TList constr
+R20538:20543 impl2_MC.kernel_syntax <> KTList constr
+R20546:20555 impl2_MC.desugarer <> desugar_Tp:191 def
+R20557:20557 impl2_MC.desugarer <> t:190 var
+R20571:20578 impl2_MC.surface_syntax <> TVariant constr
+R20602:20604 Coq.Lists.List <> map def
+binder 20611:20611 <> x:193
+R20616:20616 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20622:20623 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20648:20648 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20617:20619 Coq.Init.Datatypes <> fst def
+R20621:20621 impl2_MC.desugarer <> x:193 var
+R20624:20626 Coq.Lists.List <> map def
+R20642:20644 Coq.Init.Datatypes <> snd def
+R20646:20646 impl2_MC.desugarer <> x:193 var
+R20629:20638 impl2_MC.desugarer <> desugar_Tp:191 def
+binder 20597:20597 <> l:194
+R20692:20700 impl2_MC.kernel_syntax <> KTVariant constr
+R20703:20705 Coq.Lists.List <> map def
+R20754:20754 impl2_MC.desugarer <> l:194 var
+binder 20712:20712 <> x:195
+R20717:20717 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20723:20724 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20751:20751 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R20718:20720 Coq.Init.Datatypes <> fst def
+R20722:20722 impl2_MC.desugarer <> x:195 var
+R20725:20742 impl2_MC.desugarer <> from_listTp_to_tup def
+R20745:20747 Coq.Init.Datatypes <> snd def
+R20749:20749 impl2_MC.desugarer <> x:195 var
+R20770:20773 impl2_MC.surface_syntax <> TRef constr
+R20792:20796 impl2_MC.kernel_syntax <> KTRef constr
+R20811:20816 impl2_MC.surface_syntax <> TError constr
+R20833:20839 impl2_MC.kernel_syntax <> KTError constr
+prf 20948:20965 <> desugar_Tp_correct
+binder 20975:20975 <> t:196
+binder 20977:20978 <> t':197
+R21011:21014 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R21006:21008 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R20994:21003 impl2_MC.desugarer <> desugar_Tp def
+R21005:21005 impl2_MC.desugarer <> t:196 var
+R21009:21010 impl2_MC.desugarer <> t':197 var
+R21015:21024 impl2_MC.desugarer <> Desugar_Tp ind
+R21028:21029 impl2_MC.desugarer <> t':197 var
+R21026:21026 impl2_MC.desugarer <> t:196 var
+R21155:21161 impl2_MC.surface_syntax <> Tp_ind' def
+R21246:21258 impl2_MC.desugarer <> dsg_TFunction constr
+R21261:21269 impl2_MC.desugarer <> dsg_TBool constr
+R21272:21279 impl2_MC.desugarer <> dsg_TNat constr
+R21282:21292 impl2_MC.desugarer <> dsg_TString constr
+R21295:21304 impl2_MC.desugarer <> dsg_TEmpty constr
+R21324:21333 impl2_MC.desugarer <> dsg_TError constr
+R21336:21343 impl2_MC.desugarer <> dsg_TRef constr
+R21346:21354 impl2_MC.desugarer <> dsg_TList constr
+R21155:21161 impl2_MC.surface_syntax <> Tp_ind' def
+R21246:21258 impl2_MC.desugarer <> dsg_TFunction constr
+R21246:21258 impl2_MC.desugarer <> dsg_TFunction constr
+R21246:21258 impl2_MC.desugarer <> dsg_TFunction constr
+R21246:21258 impl2_MC.desugarer <> dsg_TFunction constr
+R21246:21258 impl2_MC.desugarer <> dsg_TFunction constr
+R21246:21258 impl2_MC.desugarer <> dsg_TFunction constr
+R21246:21258 impl2_MC.desugarer <> dsg_TFunction constr
+R21246:21258 impl2_MC.desugarer <> dsg_TFunction constr
+R21246:21258 impl2_MC.desugarer <> dsg_TFunction constr
+R21246:21258 impl2_MC.desugarer <> dsg_TFunction constr
+R21261:21269 impl2_MC.desugarer <> dsg_TBool constr
+R21272:21279 impl2_MC.desugarer <> dsg_TNat constr
+R21282:21292 impl2_MC.desugarer <> dsg_TString constr
+R21295:21304 impl2_MC.desugarer <> dsg_TEmpty constr
+R21324:21333 impl2_MC.desugarer <> dsg_TError constr
+R21336:21343 impl2_MC.desugarer <> dsg_TRef constr
+R21346:21354 impl2_MC.desugarer <> dsg_TList constr
+R21261:21269 impl2_MC.desugarer <> dsg_TBool constr
+R21272:21279 impl2_MC.desugarer <> dsg_TNat constr
+R21282:21292 impl2_MC.desugarer <> dsg_TString constr
+R21295:21304 impl2_MC.desugarer <> dsg_TEmpty constr
+R21324:21333 impl2_MC.desugarer <> dsg_TError constr
+R21336:21343 impl2_MC.desugarer <> dsg_TRef constr
+R21346:21354 impl2_MC.desugarer <> dsg_TList constr
+R21261:21269 impl2_MC.desugarer <> dsg_TBool constr
+R21272:21279 impl2_MC.desugarer <> dsg_TNat constr
+R21282:21292 impl2_MC.desugarer <> dsg_TString constr
+R21295:21304 impl2_MC.desugarer <> dsg_TEmpty constr
+R21324:21333 impl2_MC.desugarer <> dsg_TError constr
+R21336:21343 impl2_MC.desugarer <> dsg_TRef constr
+R21346:21354 impl2_MC.desugarer <> dsg_TList constr
+R21261:21269 impl2_MC.desugarer <> dsg_TBool constr
+R21272:21279 impl2_MC.desugarer <> dsg_TNat constr
+R21282:21292 impl2_MC.desugarer <> dsg_TString constr
+R21295:21304 impl2_MC.desugarer <> dsg_TEmpty constr
+R21324:21333 impl2_MC.desugarer <> dsg_TError constr
+R21336:21343 impl2_MC.desugarer <> dsg_TRef constr
+R21346:21354 impl2_MC.desugarer <> dsg_TList constr
+R21261:21269 impl2_MC.desugarer <> dsg_TBool constr
+R21272:21279 impl2_MC.desugarer <> dsg_TNat constr
+R21282:21292 impl2_MC.desugarer <> dsg_TString constr
+R21295:21304 impl2_MC.desugarer <> dsg_TEmpty constr
+R21324:21333 impl2_MC.desugarer <> dsg_TError constr
+R21336:21343 impl2_MC.desugarer <> dsg_TRef constr
+R21346:21354 impl2_MC.desugarer <> dsg_TList constr
+R21261:21269 impl2_MC.desugarer <> dsg_TBool constr
+R21272:21279 impl2_MC.desugarer <> dsg_TNat constr
+R21282:21292 impl2_MC.desugarer <> dsg_TString constr
+R21295:21304 impl2_MC.desugarer <> dsg_TEmpty constr
+R21324:21333 impl2_MC.desugarer <> dsg_TError constr
+R21336:21343 impl2_MC.desugarer <> dsg_TRef constr
+R21346:21354 impl2_MC.desugarer <> dsg_TList constr
+R21261:21269 impl2_MC.desugarer <> dsg_TBool constr
+R21272:21279 impl2_MC.desugarer <> dsg_TNat constr
+R21282:21292 impl2_MC.desugarer <> dsg_TString constr
+R21295:21304 impl2_MC.desugarer <> dsg_TEmpty constr
+R21324:21333 impl2_MC.desugarer <> dsg_TError constr
+R21336:21343 impl2_MC.desugarer <> dsg_TRef constr
+R21346:21354 impl2_MC.desugarer <> dsg_TList constr
+R21261:21269 impl2_MC.desugarer <> dsg_TBool constr
+R21272:21279 impl2_MC.desugarer <> dsg_TNat constr
+R21282:21292 impl2_MC.desugarer <> dsg_TString constr
+R21295:21304 impl2_MC.desugarer <> dsg_TEmpty constr
+R21324:21333 impl2_MC.desugarer <> dsg_TError constr
+R21336:21343 impl2_MC.desugarer <> dsg_TRef constr
+R21346:21354 impl2_MC.desugarer <> dsg_TList constr
+R21261:21269 impl2_MC.desugarer <> dsg_TBool constr
+R21272:21279 impl2_MC.desugarer <> dsg_TNat constr
+R21282:21292 impl2_MC.desugarer <> dsg_TString constr
+R21295:21304 impl2_MC.desugarer <> dsg_TEmpty constr
+R21324:21333 impl2_MC.desugarer <> dsg_TError constr
+R21336:21343 impl2_MC.desugarer <> dsg_TRef constr
+R21346:21354 impl2_MC.desugarer <> dsg_TList constr
+R21261:21269 impl2_MC.desugarer <> dsg_TBool constr
+R21272:21279 impl2_MC.desugarer <> dsg_TNat constr
+R21282:21292 impl2_MC.desugarer <> dsg_TString constr
+R21295:21304 impl2_MC.desugarer <> dsg_TEmpty constr
+R21324:21333 impl2_MC.desugarer <> dsg_TError constr
+R21336:21343 impl2_MC.desugarer <> dsg_TRef constr
+R21346:21354 impl2_MC.desugarer <> dsg_TList constr
+R21380:21388 impl2_MC.desugarer <> dsg_TProd constr
+R21380:21388 impl2_MC.desugarer <> dsg_TProd constr
+R21440:21450 Coq.Lists.List <> Forall2_nil constr
+R21440:21450 Coq.Lists.List <> Forall2_nil constr
+R21482:21493 Coq.Lists.List <> Forall2_cons constr
+R21482:21493 Coq.Lists.List <> Forall2_cons constr
+R21620:21622 Coq.Lists.List <> map def
+R21641:21643 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R21633:21638 impl2_MC.ids <> Constr proj
+R21640:21640 impl2_MC.desugarer <> Desugarer.I var
+R21644:21647 Coq.Init.Datatypes <> list ind
+R21650:21651 impl2_MC.surface_syntax <> Tp ind
+R21653:21653 impl2_MC.desugarer <> Desugarer.I var
+binder 21630:21630 <> x:198
+R21682:21682 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R21688:21689 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R21712:21712 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R21683:21685 Coq.Init.Datatypes <> fst def
+R21687:21687 impl2_MC.desugarer <> x:198 var
+R21690:21692 Coq.Lists.List <> map def
+R21706:21708 Coq.Init.Datatypes <> snd def
+R21710:21710 impl2_MC.desugarer <> x:198 var
+R21694:21703 impl2_MC.desugarer <> desugar_Tp def
+R21620:21622 Coq.Lists.List <> map def
+R21641:21643 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R21633:21638 impl2_MC.ids <> Constr proj
+R21640:21640 impl2_MC.desugarer <> Desugarer.I var
+R21644:21647 Coq.Init.Datatypes <> list ind
+R21650:21651 impl2_MC.surface_syntax <> Tp ind
+R21653:21653 impl2_MC.desugarer <> Desugarer.I var
+binder 21630:21630 <> x:199
+R21682:21682 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R21688:21689 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R21712:21712 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R21683:21685 Coq.Init.Datatypes <> fst def
+R21687:21687 impl2_MC.desugarer <> x:199 var
+R21690:21692 Coq.Lists.List <> map def
+R21706:21708 Coq.Init.Datatypes <> snd def
+R21710:21710 impl2_MC.desugarer <> x:199 var
+R21694:21703 impl2_MC.desugarer <> desugar_Tp def
+R21756:21758 Coq.Lists.List <> map def
+R21777:21779 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R21769:21774 impl2_MC.ids <> Constr proj
+R21776:21776 impl2_MC.desugarer <> Desugarer.I var
+R21780:21783 Coq.Init.Datatypes <> list ind
+R21786:21788 impl2_MC.kernel_syntax <> KTp ind
+R21792:21799 impl2_MC.desugarer <> bns_data def
+R21790:21790 impl2_MC.desugarer <> Desugarer.I var
+binder 21766:21766 <> x:200
+R21828:21828 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R21834:21835 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R21862:21862 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R21829:21831 Coq.Init.Datatypes <> fst def
+R21833:21833 impl2_MC.desugarer <> x:200 var
+R21836:21853 impl2_MC.desugarer <> from_listTp_to_tup def
+R21856:21858 Coq.Init.Datatypes <> snd def
+R21860:21860 impl2_MC.desugarer <> x:200 var
+R21756:21758 Coq.Lists.List <> map def
+R21777:21779 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R21769:21774 impl2_MC.ids <> Constr proj
+R21776:21776 impl2_MC.desugarer <> Desugarer.I var
+R21780:21783 Coq.Init.Datatypes <> list ind
+R21786:21788 impl2_MC.kernel_syntax <> KTp ind
+R21792:21799 impl2_MC.desugarer <> bns_data def
+R21790:21790 impl2_MC.desugarer <> Desugarer.I var
+binder 21766:21766 <> x:201
+R21828:21828 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R21834:21835 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R21862:21862 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R21829:21831 Coq.Init.Datatypes <> fst def
+R21833:21833 impl2_MC.desugarer <> x:201 var
+R21836:21853 impl2_MC.desugarer <> from_listTp_to_tup def
+R21856:21858 Coq.Init.Datatypes <> snd def
+R21860:21860 impl2_MC.desugarer <> x:201 var
+R21906:21917 impl2_MC.desugarer <> dsg_TVariant constr
+R21906:21917 impl2_MC.desugarer <> dsg_TVariant constr
+R22069:22079 Coq.Lists.List <> Forall2_nil constr
+R22069:22079 Coq.Lists.List <> Forall2_nil constr
+R22133:22144 Coq.Lists.List <> Forall2_cons constr
+R22133:22144 Coq.Lists.List <> Forall2_cons constr
+R22264:22274 Coq.Lists.List <> Forall2_nil constr
+R22264:22274 Coq.Lists.List <> Forall2_nil constr
+R22306:22317 Coq.Lists.List <> Forall2_cons constr
+R22306:22317 Coq.Lists.List <> Forall2_cons constr
+R22466:22472 Coq.Lists.List <> Forall2 ind
+R22652:22654 Coq.Lists.List <> map def
+R22673:22675 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R22665:22670 impl2_MC.ids <> Constr proj
+R22672:22672 impl2_MC.desugarer <> Desugarer.I var
+R22676:22679 Coq.Init.Datatypes <> list ind
+R22682:22683 impl2_MC.surface_syntax <> Tp ind
+R22685:22685 impl2_MC.desugarer <> Desugarer.I var
+binder 22661:22661 <> x:202
+R22726:22726 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22732:22733 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22756:22756 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22727:22729 Coq.Init.Datatypes <> fst def
+R22731:22731 impl2_MC.desugarer <> x:202 var
+R22734:22736 Coq.Lists.List <> map def
+R22750:22752 Coq.Init.Datatypes <> snd def
+R22754:22754 impl2_MC.desugarer <> x:202 var
+R22738:22747 impl2_MC.desugarer <> desugar_Tp def
+binder 22504:22504 <> p:203
+binder 22506:22506 <> q:204
+R22552:22583 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R22544:22546 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22539:22541 Coq.Init.Datatypes <> fst def
+R22543:22543 impl2_MC.desugarer <> p:203 var
+R22547:22549 Coq.Init.Datatypes <> fst def
+R22551:22551 impl2_MC.desugarer <> q:204 var
+R22584:22590 Coq.Lists.List <> Forall2 ind
+R22612:22614 Coq.Init.Datatypes <> snd def
+R22616:22616 impl2_MC.desugarer <> q:204 var
+R22604:22606 Coq.Init.Datatypes <> snd def
+R22608:22608 impl2_MC.desugarer <> p:203 var
+R22592:22601 impl2_MC.desugarer <> Desugar_Tp ind
+R22466:22472 Coq.Lists.List <> Forall2 ind
+R22652:22654 Coq.Lists.List <> map def
+R22673:22675 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R22665:22670 impl2_MC.ids <> Constr proj
+R22672:22672 impl2_MC.desugarer <> Desugarer.I var
+R22676:22679 Coq.Init.Datatypes <> list ind
+R22682:22683 impl2_MC.surface_syntax <> Tp ind
+R22685:22685 impl2_MC.desugarer <> Desugarer.I var
+binder 22661:22661 <> x:205
+R22726:22726 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22732:22733 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22756:22756 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22727:22729 Coq.Init.Datatypes <> fst def
+R22731:22731 impl2_MC.desugarer <> x:205 var
+R22734:22736 Coq.Lists.List <> map def
+R22750:22752 Coq.Init.Datatypes <> snd def
+R22754:22754 impl2_MC.desugarer <> x:205 var
+R22738:22747 impl2_MC.desugarer <> desugar_Tp def
+binder 22504:22504 <> p:206
+binder 22506:22506 <> q:207
+R22552:22583 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R22544:22546 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22539:22541 Coq.Init.Datatypes <> fst def
+R22543:22543 impl2_MC.desugarer <> p:206 var
+R22547:22549 Coq.Init.Datatypes <> fst def
+R22551:22551 impl2_MC.desugarer <> q:207 var
+R22584:22590 Coq.Lists.List <> Forall2 ind
+R22612:22614 Coq.Init.Datatypes <> snd def
+R22616:22616 impl2_MC.desugarer <> q:207 var
+R22604:22606 Coq.Init.Datatypes <> snd def
+R22608:22608 impl2_MC.desugarer <> p:206 var
+R22592:22601 impl2_MC.desugarer <> Desugar_Tp ind
+R22867:22869 Coq.Lists.List <> map def
+R22888:22890 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R22880:22885 impl2_MC.ids <> Constr proj
+R22887:22887 impl2_MC.desugarer <> Desugarer.I var
+R22891:22894 Coq.Init.Datatypes <> list ind
+R22897:22899 impl2_MC.kernel_syntax <> KTp ind
+R22903:22910 impl2_MC.desugarer <> bns_data def
+R22901:22901 impl2_MC.desugarer <> Desugarer.I var
+binder 22876:22876 <> x:208
+R22965:22965 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22971:22972 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22999:22999 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22966:22968 Coq.Init.Datatypes <> fst def
+R22970:22970 impl2_MC.desugarer <> x:208 var
+R22973:22990 impl2_MC.desugarer <> from_listTp_to_tup def
+R22993:22995 Coq.Init.Datatypes <> snd def
+R22997:22997 impl2_MC.desugarer <> x:208 var
+R22867:22869 Coq.Lists.List <> map def
+R22888:22890 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R22880:22885 impl2_MC.ids <> Constr proj
+R22887:22887 impl2_MC.desugarer <> Desugarer.I var
+R22891:22894 Coq.Init.Datatypes <> list ind
+R22897:22899 impl2_MC.kernel_syntax <> KTp ind
+R22903:22910 impl2_MC.desugarer <> bns_data def
+R22901:22901 impl2_MC.desugarer <> Desugarer.I var
+binder 22876:22876 <> x:209
+R22965:22965 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22971:22972 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22999:22999 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R22966:22968 Coq.Init.Datatypes <> fst def
+R22970:22970 impl2_MC.desugarer <> x:209 var
+R22973:22990 impl2_MC.desugarer <> from_listTp_to_tup def
+R22993:22995 Coq.Init.Datatypes <> snd def
+R22997:22997 impl2_MC.desugarer <> x:209 var
+R23192:23202 Coq.Lists.List <> Forall2_nil constr
+R23192:23202 Coq.Lists.List <> Forall2_nil constr
+R23300:23311 Coq.Lists.List <> Forall2_cons constr
+R23300:23311 Coq.Lists.List <> Forall2_cons constr
+prf 23679:23697 <> desugar_Tp_complete
+binder 23707:23707 <> t:210
+binder 23709:23710 <> t':211
+R23740:23743 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23725:23734 impl2_MC.desugarer <> Desugar_Tp ind
+R23738:23739 impl2_MC.desugarer <> t':211 var
+R23736:23736 impl2_MC.desugarer <> t:210 var
+R23756:23758 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23744:23753 impl2_MC.desugarer <> desugar_Tp def
+R23755:23755 impl2_MC.desugarer <> t:210 var
+R23759:23760 impl2_MC.desugarer <> t':211 var
+R23849:23863 impl2_MC.desugarer <> Desugar_Tp_ind' def
+R23849:23863 impl2_MC.desugarer <> Desugar_Tp_ind' def
+R23921:23934 impl2_MC.desugarer <> forall2_eq_map thm
+R23921:23934 impl2_MC.desugarer <> forall2_eq_map thm
+R24482:24495 impl2_MC.desugarer <> forall2_eq_map thm
+R24482:24495 impl2_MC.desugarer <> forall2_eq_map thm
+R24656:24666 Coq.Lists.List <> Forall2_nil constr
+R24656:24666 Coq.Lists.List <> Forall2_nil constr
+R24771:24782 Coq.Lists.List <> Forall2_cons constr
+R24771:24782 Coq.Lists.List <> Forall2_cons constr
+R24955:24968 impl2_MC.desugarer <> forall2_eq_map thm
+R24955:24968 impl2_MC.desugarer <> forall2_eq_map thm
+prf 25092:25115 <> desugar_Tp_eq_Desugar_Tp
+binder 25125:25125 <> t:212
+binder 25127:25128 <> t':213
+R25157:25161 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R25142:25151 impl2_MC.desugarer <> Desugar_Tp ind
+R25155:25156 impl2_MC.desugarer <> t':213 var
+R25153:25153 impl2_MC.desugarer <> t:212 var
+R25174:25176 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25162:25171 impl2_MC.desugarer <> desugar_Tp def
+R25173:25173 impl2_MC.desugarer <> t:212 var
+R25177:25178 impl2_MC.desugarer <> t':213 var
+R25239:25257 impl2_MC.desugarer <> desugar_Tp_complete thm
+R25239:25257 impl2_MC.desugarer <> desugar_Tp_complete thm
+R25280:25297 impl2_MC.desugarer <> desugar_Tp_correct thm
+R25280:25297 impl2_MC.desugarer <> desugar_Tp_correct thm
+def 25402:25419 <> from_lispat_to_lam
+R25425:25428 Coq.Init.Datatypes <> list ind
+R25431:25434 impl2_MC.kernel_syntax <> KPat ind
+R25438:25445 impl2_MC.desugarer <> bns_data def
+R25436:25436 impl2_MC.desugarer <> Desugarer.I var
+binder 25422:25422 <> l:214
+binder 25449:25449 <> e:215
+R25475:25475 impl2_MC.desugarer <> l:214 var
+R25498:25499 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R25506:25509 impl2_MC.kernel_syntax <> KLam constr
+R25520:25520 impl2_MC.desugarer <> e:215 var
+R25512:25517 impl2_MC.kernel_syntax <> KPUnit constr
+R25539:25540 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R25546:25549 impl2_MC.kernel_syntax <> KLam constr
+R25554:25571 impl2_MC.desugarer <> from_lispat_to_lam:216 def
+R25575:25575 impl2_MC.desugarer <> e:215 var
+def 25614:25633 <> from_lisargs_to_napp
+R25639:25642 Coq.Init.Datatypes <> list ind
+R25645:25649 impl2_MC.kernel_syntax <> KExpr ind
+R25653:25660 impl2_MC.desugarer <> bns_data def
+R25651:25651 impl2_MC.desugarer <> Desugarer.I var
+binder 25636:25636 <> l:218
+binder 25664:25664 <> e:219
+R25690:25690 impl2_MC.desugarer <> l:218 var
+R25712:25713 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R25720:25720 impl2_MC.desugarer <> e:219 var
+R25739:25740 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R25746:25749 impl2_MC.kernel_syntax <> KApp constr
+R25752:25771 impl2_MC.desugarer <> from_lisargs_to_napp:220 def
+R25775:25775 impl2_MC.desugarer <> e:219 var
+def 25819:25837 <> from_lisexpr_to_tup
+R25843:25846 Coq.Init.Datatypes <> list ind
+R25849:25853 impl2_MC.kernel_syntax <> KExpr ind
+R25857:25864 impl2_MC.desugarer <> bns_data def
+R25855:25855 impl2_MC.desugarer <> Desugarer.I var
+binder 25840:25840 <> l:222
+R25893:25893 impl2_MC.desugarer <> l:222 var
+R25916:25917 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R25924:25928 impl2_MC.kernel_syntax <> KUnit constr
+R25947:25948 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R25954:25958 impl2_MC.kernel_syntax <> KPair constr
+R25963:25981 impl2_MC.desugarer <> from_lisexpr_to_tup:223 def
+def 26036:26055 <> from_lisexpr_to_cons
+R26061:26064 Coq.Init.Datatypes <> list ind
+R26067:26071 impl2_MC.kernel_syntax <> KExpr ind
+R26075:26082 impl2_MC.desugarer <> bns_data def
+R26073:26073 impl2_MC.desugarer <> Desugarer.I var
+binder 26058:26058 <> l:225
+R26110:26110 impl2_MC.desugarer <> l:225 var
+R26133:26134 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R26142:26145 impl2_MC.kernel_syntax <> KNil constr
+R26164:26165 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R26172:26176 impl2_MC.kernel_syntax <> KCons constr
+R26181:26200 impl2_MC.desugarer <> from_lisexpr_to_cons:226 def
+ind 27324:27335 <> Desugar_Expr
+constr 27385:27391 <> dsg_Var
+constr 27473:27480 <> dsg_Bool
+constr 27583:27589 <> dsg_Nat
+constr 27691:27700 <> dsg_String
+constr 27805:27811 <> dsg_Not
+constr 27964:27970 <> dsg_And
+constr 28190:28195 <> dsg_Or
+constr 28413:28419 <> dsg_Sum
+constr 28638:28644 <> dsg_Sub
+constr 28863:28869 <> dsg_Mul
+constr 29091:29100 <> dsg_Concat
+constr 29325:29333 <> dsg_Equal
+constr 29575:29581 <> dsg_Lam
+constr 29803:29809 <> dsg_App
+constr 30040:30046 <> dsg_Tup
+constr 30201:30208 <> dsg_Cons
+constr 30365:30375 <> dsg_Variant
+constr 30550:30556 <> dsg_Let
+constr 30818:30823 <> dsg_If
+constr 31275:31284 <> dsg_LetRec
+constr 31518:31528 <> dsg_DefType
+constr 31803:31811 <> dsg_Match
+constr 32100:32108 <> dsg_Error
+R27344:27347 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R27338:27341 impl2_MC.surface_syntax <> Expr ind
+R27343:27343 impl2_MC.desugarer <> Desugarer.I var
+R27364:27367 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R27348:27352 impl2_MC.kernel_syntax <> KExpr ind
+R27356:27363 impl2_MC.desugarer <> bns_data def
+R27354:27354 impl2_MC.desugarer <> Desugarer.I var
+binder 27407:27407 <> i:230
+R27435:27446 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R27457:27460 impl2_MC.kernel_syntax <> KVar constr
+R27462:27462 impl2_MC.desugarer <> i:230 var
+R27449:27451 impl2_MC.surface_syntax <> Var constr
+R27453:27453 impl2_MC.desugarer <> i:230 var
+binder 27495:27495 <> b:231
+R27523:27534 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R27547:27550 impl2_MC.kernel_syntax <> KLit constr
+R27554:27561 impl2_MC.desugarer <> bns_data def
+R27564:27569 impl2_MC.desugarer <> VlBool constr
+R27571:27571 impl2_MC.desugarer <> b:231 var
+R27537:27540 impl2_MC.surface_syntax <> Bool constr
+R27542:27542 impl2_MC.desugarer <> b:231 var
+binder 27605:27605 <> n:232
+R27633:27644 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R27656:27659 impl2_MC.kernel_syntax <> KLit constr
+R27663:27670 impl2_MC.desugarer <> bns_data def
+R27673:27677 impl2_MC.desugarer <> VlNat constr
+R27679:27679 impl2_MC.desugarer <> n:232 var
+R27647:27649 impl2_MC.surface_syntax <> Nat constr
+R27651:27651 impl2_MC.desugarer <> n:232 var
+binder 27713:27713 <> s:233
+R27741:27752 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R27767:27770 impl2_MC.kernel_syntax <> KLit constr
+R27774:27781 impl2_MC.desugarer <> bns_data def
+R27784:27791 impl2_MC.desugarer <> VlString constr
+R27793:27793 impl2_MC.desugarer <> s:233 var
+R27755:27760 impl2_MC.surface_syntax <> String constr
+R27762:27762 impl2_MC.desugarer <> s:233 var
+binder 27827:27827 <> e:234
+binder 27829:27830 <> e':235
+R27875:27902 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R27858:27869 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R27873:27874 impl2_MC.desugarer <> e':235 var
+R27871:27871 impl2_MC.desugarer <> e:234 var
+R27903:27914 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R27926:27928 impl2_MC.kernel_syntax <> KOp constr
+R27932:27939 impl2_MC.desugarer <> bns_data def
+R27942:27946 impl2_MC.desugarer <> OpNot constr
+R27949:27949 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R27952:27952 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R27950:27951 impl2_MC.desugarer <> e':235 var
+R27917:27919 impl2_MC.surface_syntax <> Not constr
+R27921:27921 impl2_MC.desugarer <> e:234 var
+binder 27986:27987 <> e1:236
+binder 27989:27990 <> e2:237
+binder 27992:27994 <> e1':238
+binder 27996:27998 <> e2':239
+R28044:28072 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28025:28036 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28041:28043 impl2_MC.desugarer <> e1':238 var
+R28038:28039 impl2_MC.desugarer <> e1:236 var
+R28092:28119 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28073:28084 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28089:28091 impl2_MC.desugarer <> e2':239 var
+R28086:28087 impl2_MC.desugarer <> e2:237 var
+R28120:28131 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28147:28149 impl2_MC.kernel_syntax <> KOp constr
+R28153:28160 impl2_MC.desugarer <> bns_data def
+R28163:28167 impl2_MC.desugarer <> OpAnd constr
+R28170:28170 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R28174:28175 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R28179:28179 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R28171:28173 impl2_MC.desugarer <> e1':238 var
+R28176:28178 impl2_MC.desugarer <> e2':239 var
+R28134:28136 impl2_MC.surface_syntax <> And constr
+R28141:28142 impl2_MC.desugarer <> e2:237 var
+R28138:28139 impl2_MC.desugarer <> e1:236 var
+binder 28212:28213 <> e1:240
+binder 28215:28216 <> e2:241
+binder 28218:28220 <> e1':242
+binder 28222:28224 <> e2':243
+R28270:28297 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28251:28262 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28267:28269 impl2_MC.desugarer <> e1':242 var
+R28264:28265 impl2_MC.desugarer <> e1:240 var
+R28317:28344 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28298:28309 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28314:28316 impl2_MC.desugarer <> e2':243 var
+R28311:28312 impl2_MC.desugarer <> e2:241 var
+R28345:28356 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28371:28373 impl2_MC.kernel_syntax <> KOp constr
+R28377:28384 impl2_MC.desugarer <> bns_data def
+R28387:28390 impl2_MC.desugarer <> OpOr constr
+R28393:28393 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R28397:28398 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R28402:28402 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R28394:28396 impl2_MC.desugarer <> e1':242 var
+R28399:28401 impl2_MC.desugarer <> e2':243 var
+R28359:28360 impl2_MC.surface_syntax <> Or constr
+R28365:28366 impl2_MC.desugarer <> e2:241 var
+R28362:28363 impl2_MC.desugarer <> e1:240 var
+binder 28435:28436 <> e1:244
+binder 28438:28439 <> e2:245
+binder 28441:28443 <> e1':246
+binder 28445:28447 <> e2':247
+R28493:28520 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28474:28485 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28490:28492 impl2_MC.desugarer <> e1':246 var
+R28487:28488 impl2_MC.desugarer <> e1:244 var
+R28540:28567 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28521:28532 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28537:28539 impl2_MC.desugarer <> e2':247 var
+R28534:28535 impl2_MC.desugarer <> e2:245 var
+R28568:28579 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28595:28597 impl2_MC.kernel_syntax <> KOp constr
+R28601:28608 impl2_MC.desugarer <> bns_data def
+R28611:28615 impl2_MC.desugarer <> OpSum constr
+R28618:28618 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R28622:28623 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R28627:28627 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R28619:28621 impl2_MC.desugarer <> e1':246 var
+R28624:28626 impl2_MC.desugarer <> e2':247 var
+R28582:28584 impl2_MC.surface_syntax <> Sum constr
+R28589:28590 impl2_MC.desugarer <> e2:245 var
+R28586:28587 impl2_MC.desugarer <> e1:244 var
+binder 28660:28661 <> e1:248
+binder 28663:28664 <> e2:249
+binder 28666:28668 <> e1':250
+binder 28670:28672 <> e2':251
+R28718:28745 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28699:28710 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28715:28717 impl2_MC.desugarer <> e1':250 var
+R28712:28713 impl2_MC.desugarer <> e1:248 var
+R28765:28792 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28746:28757 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28762:28764 impl2_MC.desugarer <> e2':251 var
+R28759:28760 impl2_MC.desugarer <> e2:249 var
+R28793:28804 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28820:28822 impl2_MC.kernel_syntax <> KOp constr
+R28826:28833 impl2_MC.desugarer <> bns_data def
+R28836:28840 impl2_MC.desugarer <> OpSub constr
+R28843:28843 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R28847:28848 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R28852:28852 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R28844:28846 impl2_MC.desugarer <> e1':250 var
+R28849:28851 impl2_MC.desugarer <> e2':251 var
+R28807:28809 impl2_MC.surface_syntax <> Sub constr
+R28814:28815 impl2_MC.desugarer <> e2:249 var
+R28811:28812 impl2_MC.desugarer <> e1:248 var
+binder 28885:28886 <> e1:252
+binder 28888:28889 <> e2:253
+binder 28891:28893 <> e1':254
+binder 28895:28897 <> e2':255
+R28944:28972 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28925:28936 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28941:28943 impl2_MC.desugarer <> e1':254 var
+R28938:28939 impl2_MC.desugarer <> e1:252 var
+R28992:29019 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28973:28984 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R28989:28991 impl2_MC.desugarer <> e2':255 var
+R28986:28987 impl2_MC.desugarer <> e2:253 var
+R29020:29031 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R29047:29049 impl2_MC.kernel_syntax <> KOp constr
+R29053:29060 impl2_MC.desugarer <> bns_data def
+R29063:29067 impl2_MC.desugarer <> OpMul constr
+R29070:29070 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R29074:29075 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R29079:29079 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R29071:29073 impl2_MC.desugarer <> e1':254 var
+R29076:29078 impl2_MC.desugarer <> e2':255 var
+R29034:29036 impl2_MC.surface_syntax <> Mul constr
+R29041:29042 impl2_MC.desugarer <> e2:253 var
+R29038:29039 impl2_MC.desugarer <> e1:252 var
+binder 29113:29114 <> e1:256
+binder 29116:29117 <> e2:257
+binder 29119:29121 <> e1':258
+binder 29123:29125 <> e2':259
+R29172:29199 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29153:29164 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R29169:29171 impl2_MC.desugarer <> e1':258 var
+R29166:29167 impl2_MC.desugarer <> e1:256 var
+R29219:29246 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29200:29211 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R29216:29218 impl2_MC.desugarer <> e2':259 var
+R29213:29214 impl2_MC.desugarer <> e2:257 var
+R29247:29258 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R29277:29279 impl2_MC.kernel_syntax <> KOp constr
+R29283:29290 impl2_MC.desugarer <> bns_data def
+R29293:29300 impl2_MC.desugarer <> OpConcat constr
+R29303:29303 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R29307:29308 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R29312:29312 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R29304:29306 impl2_MC.desugarer <> e1':258 var
+R29309:29311 impl2_MC.desugarer <> e2':259 var
+R29261:29266 impl2_MC.surface_syntax <> Concat constr
+R29271:29272 impl2_MC.desugarer <> e2:257 var
+R29268:29269 impl2_MC.desugarer <> e1:256 var
+binder 29347:29348 <> e1:260
+binder 29350:29351 <> e2:261
+binder 29353:29355 <> e1':262
+binder 29357:29359 <> e2':263
+R29405:29432 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29386:29397 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R29402:29404 impl2_MC.desugarer <> e1':262 var
+R29399:29400 impl2_MC.desugarer <> e1:260 var
+R29452:29479 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29433:29444 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R29449:29451 impl2_MC.desugarer <> e2':263 var
+R29446:29447 impl2_MC.desugarer <> e2:261 var
+R29480:29491 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R29509:29511 impl2_MC.kernel_syntax <> KOp constr
+R29515:29522 impl2_MC.desugarer <> bns_data def
+R29525:29528 impl2_MC.desugarer <> OpEq constr
+R29531:29531 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R29535:29536 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R29540:29540 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R29532:29534 impl2_MC.desugarer <> e1':262 var
+R29537:29539 impl2_MC.desugarer <> e2':263 var
+R29494:29498 impl2_MC.surface_syntax <> Equal constr
+R29503:29504 impl2_MC.desugarer <> e2:261 var
+R29500:29501 impl2_MC.desugarer <> e1:260 var
+binder 29597:29598 <> lp:264
+binder 29600:29602 <> lp':265
+binder 29604:29604 <> e:266
+binder 29606:29607 <> e':267
+R29662:29696 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29636:29642 Coq.Lists.List <> Forall2 ind
+R29659:29661 impl2_MC.desugarer <> lp':265 var
+R29656:29657 impl2_MC.desugarer <> lp:264 var
+R29644:29654 impl2_MC.desugarer <> Desugar_Pat ind
+R29714:29742 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29697:29708 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R29712:29713 impl2_MC.desugarer <> e':267 var
+R29710:29710 impl2_MC.desugarer <> e:266 var
+R29743:29754 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R29768:29785 impl2_MC.desugarer <> from_lispat_to_lam def
+R29791:29792 impl2_MC.desugarer <> e':267 var
+R29787:29789 impl2_MC.desugarer <> lp':265 var
+R29757:29759 impl2_MC.surface_syntax <> Lam constr
+R29764:29764 impl2_MC.desugarer <> e:266 var
+R29761:29762 impl2_MC.desugarer <> lp:264 var
+binder 29825:29825 <> l:268
+binder 29827:29828 <> l':269
+binder 29830:29830 <> e:270
+binder 29832:29833 <> e':271
+R29878:29906 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29861:29872 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R29876:29877 impl2_MC.desugarer <> e':271 var
+R29874:29874 impl2_MC.desugarer <> e:270 var
+R29932:29959 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R29907:29913 Coq.Lists.List <> Forall2 ind
+R29930:29931 impl2_MC.desugarer <> l':269 var
+R29928:29928 impl2_MC.desugarer <> l:268 var
+R29915:29926 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R29960:29971 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R29984:29987 impl2_MC.kernel_syntax <> KApp constr
+R30024:30028 impl2_MC.kernel_syntax <> KUnit constr
+R29990:30009 impl2_MC.desugarer <> from_lisargs_to_napp def
+R30020:30021 impl2_MC.desugarer <> e':271 var
+R30012:30014 Coq.Lists.List <> rev def
+R30016:30017 impl2_MC.desugarer <> l':269 var
+R29974:29976 impl2_MC.surface_syntax <> App constr
+R29980:29980 impl2_MC.desugarer <> l:268 var
+R29978:29978 impl2_MC.desugarer <> e:270 var
+binder 30062:30062 <> l:272
+binder 30064:30065 <> l':273
+R30119:30146 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R30094:30100 Coq.Lists.List <> Forall2 ind
+R30117:30118 impl2_MC.desugarer <> l':273 var
+R30115:30115 impl2_MC.desugarer <> l:272 var
+R30102:30113 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R30147:30158 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R30169:30187 impl2_MC.desugarer <> from_lisexpr_to_tup def
+R30189:30190 impl2_MC.desugarer <> l':273 var
+R30161:30163 impl2_MC.surface_syntax <> Tup constr
+R30165:30165 impl2_MC.desugarer <> l:272 var
+binder 30223:30223 <> l:274
+binder 30225:30226 <> l':275
+R30280:30307 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R30255:30261 Coq.Lists.List <> Forall2 ind
+R30278:30279 impl2_MC.desugarer <> l':275 var
+R30276:30276 impl2_MC.desugarer <> l:274 var
+R30263:30274 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R30308:30319 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R30331:30350 impl2_MC.desugarer <> from_lisexpr_to_cons def
+R30352:30353 impl2_MC.desugarer <> l':275 var
+R30322:30325 impl2_MC.surface_syntax <> Cons constr
+R30327:30327 impl2_MC.desugarer <> l:274 var
+binder 30387:30387 <> c:276
+binder 30389:30389 <> l:277
+binder 30391:30392 <> l':278
+R30447:30475 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R30422:30428 Coq.Lists.List <> Forall2 ind
+R30445:30446 impl2_MC.desugarer <> l':278 var
+R30443:30443 impl2_MC.desugarer <> l:277 var
+R30430:30441 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R30476:30487 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R30505:30512 impl2_MC.kernel_syntax <> KVariant constr
+R30517:30535 impl2_MC.desugarer <> from_lisexpr_to_tup def
+R30537:30538 impl2_MC.desugarer <> l':278 var
+R30514:30514 impl2_MC.desugarer <> c:276 var
+R30490:30497 impl2_MC.surface_syntax <> EVariant constr
+R30501:30501 impl2_MC.desugarer <> l:277 var
+R30499:30499 impl2_MC.desugarer <> c:276 var
+binder 30572:30572 <> p:279
+binder 30574:30575 <> p':280
+binder 30577:30578 <> e1:281
+binder 30580:30581 <> e2:282
+binder 30583:30585 <> e1':283
+binder 30587:30589 <> e2':284
+R30632:30660 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R30616:30626 impl2_MC.desugarer <> Desugar_Pat ind
+R30630:30631 impl2_MC.desugarer <> p':280 var
+R30628:30628 impl2_MC.desugarer <> p:279 var
+R30680:30707 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R30661:30672 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R30677:30679 impl2_MC.desugarer <> e1':283 var
+R30674:30675 impl2_MC.desugarer <> e1:281 var
+R30727:30755 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R30708:30719 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R30724:30726 impl2_MC.desugarer <> e2':284 var
+R30721:30722 impl2_MC.desugarer <> e2:282 var
+R30756:30767 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R30785:30788 impl2_MC.kernel_syntax <> KApp constr
+R30804:30806 impl2_MC.desugarer <> e1':283 var
+R30791:30794 impl2_MC.kernel_syntax <> KLam constr
+R30799:30801 impl2_MC.desugarer <> e2':284 var
+R30796:30797 impl2_MC.desugarer <> p':280 var
+R30770:30773 impl2_MC.surface_syntax <> ELet constr
+R30780:30781 impl2_MC.desugarer <> e2:282 var
+R30777:30778 impl2_MC.desugarer <> e1:281 var
+R30775:30775 impl2_MC.desugarer <> p:279 var
+binder 30840:30841 <> e1:285
+binder 30843:30844 <> e2:286
+binder 30846:30847 <> e3:287
+binder 30849:30851 <> e1':288
+binder 30853:30855 <> e2':289
+binder 30857:30859 <> e3':290
+R30907:30934 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R30888:30899 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R30904:30906 impl2_MC.desugarer <> e1':288 var
+R30901:30902 impl2_MC.desugarer <> e1:285 var
+R30954:30981 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R30935:30946 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R30951:30953 impl2_MC.desugarer <> e2':289 var
+R30948:30949 impl2_MC.desugarer <> e2:286 var
+R31001:31028 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R30982:30993 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R30998:31000 impl2_MC.desugarer <> e3':290 var
+R30995:30996 impl2_MC.desugarer <> e3:287 var
+R31029:31040 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R31086:31091 impl2_MC.kernel_syntax <> KMatch constr
+R31097:31126 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R31165:31195 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R31235:31264 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R31127:31127 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31159:31160 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31164:31164 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31129:31133 impl2_MC.kernel_syntax <> KPLit constr
+R31137:31144 impl2_MC.desugarer <> bns_data def
+R31147:31152 impl2_MC.desugarer <> VlBool constr
+R31154:31157 Coq.Init.Datatypes <> true constr
+R31161:31163 impl2_MC.desugarer <> e2':289 var
+R31196:31196 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31229:31230 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31234:31234 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R31198:31202 impl2_MC.kernel_syntax <> KPLit constr
+R31206:31213 impl2_MC.desugarer <> bns_data def
+R31216:31221 impl2_MC.desugarer <> VlBool constr
+R31223:31227 Coq.Init.Datatypes <> false constr
+R31231:31233 impl2_MC.desugarer <> e3':290 var
+R31093:31095 impl2_MC.desugarer <> e1':288 var
+R31043:31044 impl2_MC.surface_syntax <> If constr
+R31052:31053 impl2_MC.desugarer <> e3:287 var
+R31049:31050 impl2_MC.desugarer <> e2:286 var
+R31046:31047 impl2_MC.desugarer <> e1:285 var
+binder 31298:31298 <> i:291
+binder 31300:31301 <> e1:292
+binder 31303:31304 <> e2:293
+binder 31306:31308 <> e1':294
+binder 31310:31312 <> e2':295
+R31360:31389 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31341:31352 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R31357:31359 impl2_MC.desugarer <> e1':294 var
+R31354:31355 impl2_MC.desugarer <> e1:292 var
+R31409:31438 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31390:31401 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R31406:31408 impl2_MC.desugarer <> e2':295 var
+R31403:31404 impl2_MC.desugarer <> e2:293 var
+R31439:31450 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R31470:31473 impl2_MC.kernel_syntax <> KApp constr
+R31497:31500 impl2_MC.kernel_syntax <> KFix constr
+R31504:31506 impl2_MC.desugarer <> e1':294 var
+R31502:31502 impl2_MC.desugarer <> i:291 var
+R31476:31479 impl2_MC.kernel_syntax <> KLam constr
+R31491:31493 impl2_MC.desugarer <> e2':295 var
+R31482:31486 impl2_MC.kernel_syntax <> KPVar constr
+R31488:31488 impl2_MC.desugarer <> i:291 var
+R31453:31458 impl2_MC.surface_syntax <> LetRec constr
+R31465:31466 impl2_MC.desugarer <> e2:293 var
+R31462:31463 impl2_MC.desugarer <> e1:292 var
+R31460:31460 impl2_MC.desugarer <> i:291 var
+binder 31541:31541 <> l:296
+binder 31543:31544 <> l':297
+binder 31546:31546 <> e:298
+binder 31548:31549 <> e':299
+R31675:31703 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31578:31584 Coq.Lists.List <> Forall2 ind
+R31673:31674 impl2_MC.desugarer <> l':297 var
+R31671:31671 impl2_MC.desugarer <> l:296 var
+binder 31591:31591 <> p:300
+binder 31593:31593 <> q:301
+R31639:31642 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R31631:31633 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R31626:31628 Coq.Init.Datatypes <> fst def
+R31630:31630 impl2_MC.desugarer <> p:300 var
+R31634:31636 Coq.Init.Datatypes <> fst def
+R31638:31638 impl2_MC.desugarer <> q:301 var
+R31643:31652 impl2_MC.desugarer <> Desugar_Tp ind
+R31663:31665 Coq.Init.Datatypes <> snd def
+R31667:31667 impl2_MC.desugarer <> q:301 var
+R31655:31657 Coq.Init.Datatypes <> snd def
+R31659:31659 impl2_MC.desugarer <> p:300 var
+R31721:31750 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31704:31715 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R31719:31720 impl2_MC.desugarer <> e':299 var
+R31717:31717 impl2_MC.desugarer <> e:298 var
+R31751:31762 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R31779:31786 impl2_MC.kernel_syntax <> KDefType constr
+R31791:31792 impl2_MC.desugarer <> e':299 var
+R31788:31789 impl2_MC.desugarer <> l':297 var
+R31765:31771 impl2_MC.surface_syntax <> DefType constr
+R31775:31775 impl2_MC.desugarer <> e:298 var
+R31773:31773 impl2_MC.desugarer <> l:296 var
+binder 31826:31826 <> l:302
+binder 31828:31829 <> l':303
+binder 31831:31831 <> e:304
+binder 31833:31834 <> e':305
+R31880:31908 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31863:31874 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R31878:31879 impl2_MC.desugarer <> e':305 var
+R31876:31876 impl2_MC.desugarer <> e:304 var
+R32022:32051 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31909:31915 Coq.Lists.List <> Forall2 ind
+R32020:32021 impl2_MC.desugarer <> l':303 var
+R32018:32018 impl2_MC.desugarer <> l:302 var
+binder 31922:31922 <> p:306
+binder 31924:31924 <> q:307
+R31984:31987 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R31957:31967 impl2_MC.desugarer <> Desugar_Pat ind
+R31978:31980 Coq.Init.Datatypes <> fst def
+R31982:31982 impl2_MC.desugarer <> q:307 var
+R31970:31972 Coq.Init.Datatypes <> fst def
+R31974:31974 impl2_MC.desugarer <> p:306 var
+R31988:31999 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R32010:32012 Coq.Init.Datatypes <> snd def
+R32014:32014 impl2_MC.desugarer <> q:307 var
+R32002:32004 Coq.Init.Datatypes <> snd def
+R32006:32006 impl2_MC.desugarer <> p:306 var
+R32052:32063 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R32078:32083 impl2_MC.kernel_syntax <> KMatch constr
+R32088:32089 impl2_MC.desugarer <> l':303 var
+R32085:32086 impl2_MC.desugarer <> e':305 var
+R32066:32070 impl2_MC.surface_syntax <> Match constr
+R32074:32074 impl2_MC.desugarer <> l:302 var
+R32072:32072 impl2_MC.desugarer <> e:304 var
+binder 32122:32122 <> m:308
+R32125:32136 impl2_MC.desugarer <> Desugar_Expr:228 ind
+R32150:32155 impl2_MC.kernel_syntax <> KError constr
+R32157:32157 impl2_MC.desugarer <> m:308 var
+R32139:32144 impl2_MC.surface_syntax <> EError constr
+R32146:32146 impl2_MC.desugarer <> m:308 var
+scheme 27324:27335 <> Desugar_Expr_ind
+scheme 27324:27335 <> Desugar_Expr_sind
+sec 32268:32284 Desugarer Desugar_Expr_ind'
+var 32313:32313 Desugarer.Desugar_Expr_ind' P
+R32324:32327 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32318:32321 impl2_MC.surface_syntax <> Expr ind
+R32323:32323 impl2_MC.desugarer <> Desugarer.I var
+R32344:32347 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32328:32332 impl2_MC.kernel_syntax <> KExpr ind
+R32336:32343 impl2_MC.desugarer <> bns_data def
+R32334:32334 impl2_MC.desugarer <> Desugarer.I var
+var 32380:32387 Desugarer.Desugar_Expr_ind' Var_case
+binder 32404:32404 <> i:310
+R32407:32407 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R32418:32421 impl2_MC.kernel_syntax <> KVar constr
+R32423:32423 impl2_MC.desugarer <> i:310 var
+R32410:32412 impl2_MC.surface_syntax <> Var constr
+R32414:32414 impl2_MC.desugarer <> i:310 var
+var 32452:32460 Desugarer.Desugar_Expr_ind' Bool_case
+binder 32476:32476 <> b:312
+R32479:32479 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R32492:32495 impl2_MC.kernel_syntax <> KLit constr
+R32499:32506 impl2_MC.desugarer <> bns_data def
+R32509:32514 impl2_MC.desugarer <> VlBool constr
+R32516:32516 impl2_MC.desugarer <> b:312 var
+R32482:32485 impl2_MC.surface_syntax <> Bool constr
+R32487:32487 impl2_MC.desugarer <> b:312 var
+var 32546:32553 Desugarer.Desugar_Expr_ind' Nat_case
+binder 32570:32570 <> n:314
+R32573:32573 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R32585:32588 impl2_MC.kernel_syntax <> KLit constr
+R32592:32599 impl2_MC.desugarer <> bns_data def
+R32602:32606 impl2_MC.desugarer <> VlNat constr
+R32608:32608 impl2_MC.desugarer <> n:314 var
+R32576:32578 impl2_MC.surface_syntax <> Nat constr
+R32580:32580 impl2_MC.desugarer <> n:314 var
+var 32639:32649 Desugarer.Desugar_Expr_ind' String_case
+binder 32663:32663 <> s:316
+R32666:32666 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R32681:32684 impl2_MC.kernel_syntax <> KLit constr
+R32688:32695 impl2_MC.desugarer <> bns_data def
+R32698:32705 impl2_MC.desugarer <> VlString constr
+R32707:32707 impl2_MC.desugarer <> s:316 var
+R32669:32674 impl2_MC.surface_syntax <> String constr
+R32676:32676 impl2_MC.desugarer <> s:316 var
+var 32737:32744 Desugarer.Desugar_Expr_ind' Not_case
+binder 32761:32761 <> e:318
+binder 32763:32764 <> e':319
+R32773:32776 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32767:32767 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R32771:32772 impl2_MC.desugarer <> e':319 var
+R32769:32769 impl2_MC.desugarer <> e:318 var
+R32777:32777 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R32789:32791 impl2_MC.kernel_syntax <> KOp constr
+R32795:32802 impl2_MC.desugarer <> bns_data def
+R32804:32808 impl2_MC.desugarer <> OpNot constr
+R32810:32810 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R32813:32813 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R32811:32812 impl2_MC.desugarer <> e':319 var
+R32780:32782 impl2_MC.surface_syntax <> Not constr
+R32784:32784 impl2_MC.desugarer <> e:318 var
+var 32842:32849 Desugarer.Desugar_Expr_ind' And_case
+binder 32866:32867 <> e1:321
+binder 32869:32870 <> e2:322
+binder 32872:32874 <> e1':323
+binder 32876:32878 <> e2':324
+R32933:32980 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32925:32925 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R32930:32932 impl2_MC.desugarer <> e1':323 var
+R32927:32928 impl2_MC.desugarer <> e1:321 var
+R32989:33036 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32981:32981 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R32986:32988 impl2_MC.desugarer <> e2':324 var
+R32983:32984 impl2_MC.desugarer <> e2:322 var
+R33037:33037 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R33053:33055 impl2_MC.kernel_syntax <> KOp constr
+R33059:33066 impl2_MC.desugarer <> bns_data def
+R33068:33072 impl2_MC.desugarer <> OpAnd constr
+R33074:33074 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33078:33079 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33083:33083 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33075:33077 impl2_MC.desugarer <> e1':323 var
+R33080:33082 impl2_MC.desugarer <> e2':324 var
+R33040:33042 impl2_MC.surface_syntax <> And constr
+R33047:33048 impl2_MC.desugarer <> e2:322 var
+R33044:33045 impl2_MC.desugarer <> e1:321 var
+var 33112:33118 Desugarer.Desugar_Expr_ind' Or_case
+binder 33135:33136 <> e1:326
+binder 33138:33139 <> e2:327
+binder 33141:33143 <> e1':328
+binder 33145:33147 <> e2':329
+R33202:33249 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33194:33194 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R33199:33201 impl2_MC.desugarer <> e1':328 var
+R33196:33197 impl2_MC.desugarer <> e1:326 var
+R33258:33305 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33250:33250 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R33255:33257 impl2_MC.desugarer <> e2':329 var
+R33252:33253 impl2_MC.desugarer <> e2:327 var
+R33306:33306 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R33321:33323 impl2_MC.kernel_syntax <> KOp constr
+R33327:33334 impl2_MC.desugarer <> bns_data def
+R33336:33339 impl2_MC.desugarer <> OpOr constr
+R33341:33341 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33345:33346 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33350:33350 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33342:33344 impl2_MC.desugarer <> e1':328 var
+R33347:33349 impl2_MC.desugarer <> e2':329 var
+R33309:33310 impl2_MC.surface_syntax <> Or constr
+R33315:33316 impl2_MC.desugarer <> e2:327 var
+R33312:33313 impl2_MC.desugarer <> e1:326 var
+var 33379:33386 Desugarer.Desugar_Expr_ind' Sum_case
+binder 33403:33404 <> e1:331
+binder 33406:33407 <> e2:332
+binder 33409:33411 <> e1':333
+binder 33413:33415 <> e2':334
+R33470:33517 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33462:33462 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R33467:33469 impl2_MC.desugarer <> e1':333 var
+R33464:33465 impl2_MC.desugarer <> e1:331 var
+R33526:33572 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33518:33518 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R33523:33525 impl2_MC.desugarer <> e2':334 var
+R33520:33521 impl2_MC.desugarer <> e2:332 var
+R33573:33573 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R33589:33591 impl2_MC.kernel_syntax <> KOp constr
+R33595:33602 impl2_MC.desugarer <> bns_data def
+R33604:33608 impl2_MC.desugarer <> OpSum constr
+R33610:33610 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33614:33615 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33619:33619 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33611:33613 impl2_MC.desugarer <> e1':333 var
+R33616:33618 impl2_MC.desugarer <> e2':334 var
+R33576:33578 impl2_MC.surface_syntax <> Sum constr
+R33583:33584 impl2_MC.desugarer <> e2:332 var
+R33580:33581 impl2_MC.desugarer <> e1:331 var
+var 33648:33655 Desugarer.Desugar_Expr_ind' Sub_case
+binder 33672:33673 <> e1:336
+binder 33675:33676 <> e2:337
+binder 33678:33680 <> e1':338
+binder 33682:33684 <> e2':339
+R33739:33786 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33731:33731 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R33736:33738 impl2_MC.desugarer <> e1':338 var
+R33733:33734 impl2_MC.desugarer <> e1:336 var
+R33795:33842 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33787:33787 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R33792:33794 impl2_MC.desugarer <> e2':339 var
+R33789:33790 impl2_MC.desugarer <> e2:337 var
+R33843:33843 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R33859:33861 impl2_MC.kernel_syntax <> KOp constr
+R33865:33872 impl2_MC.desugarer <> bns_data def
+R33874:33878 impl2_MC.desugarer <> OpSub constr
+R33880:33880 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33884:33885 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33889:33889 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R33881:33883 impl2_MC.desugarer <> e1':338 var
+R33886:33888 impl2_MC.desugarer <> e2':339 var
+R33846:33848 impl2_MC.surface_syntax <> Sub constr
+R33853:33854 impl2_MC.desugarer <> e2:337 var
+R33850:33851 impl2_MC.desugarer <> e1:336 var
+var 33918:33925 Desugarer.Desugar_Expr_ind' Mul_case
+binder 33942:33943 <> e1:341
+binder 33945:33946 <> e2:342
+binder 33948:33950 <> e1':343
+binder 33952:33954 <> e2':344
+R34009:34056 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34001:34001 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R34006:34008 impl2_MC.desugarer <> e1':343 var
+R34003:34004 impl2_MC.desugarer <> e1:341 var
+R34065:34112 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34057:34057 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R34062:34064 impl2_MC.desugarer <> e2':344 var
+R34059:34060 impl2_MC.desugarer <> e2:342 var
+R34113:34113 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R34129:34131 impl2_MC.kernel_syntax <> KOp constr
+R34135:34142 impl2_MC.desugarer <> bns_data def
+R34144:34148 impl2_MC.desugarer <> OpMul constr
+R34150:34150 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34154:34155 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34159:34159 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34151:34153 impl2_MC.desugarer <> e1':343 var
+R34156:34158 impl2_MC.desugarer <> e2':344 var
+R34116:34118 impl2_MC.surface_syntax <> Mul constr
+R34123:34124 impl2_MC.desugarer <> e2:342 var
+R34120:34121 impl2_MC.desugarer <> e1:341 var
+var 34188:34198 Desugarer.Desugar_Expr_ind' Concat_case
+binder 34212:34213 <> e1:346
+binder 34215:34216 <> e2:347
+binder 34218:34220 <> e1':348
+binder 34222:34224 <> e2':349
+R34279:34326 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34271:34271 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R34276:34278 impl2_MC.desugarer <> e1':348 var
+R34273:34274 impl2_MC.desugarer <> e1:346 var
+R34335:34382 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34327:34327 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R34332:34334 impl2_MC.desugarer <> e2':349 var
+R34329:34330 impl2_MC.desugarer <> e2:347 var
+R34383:34383 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R34402:34404 impl2_MC.kernel_syntax <> KOp constr
+R34408:34415 impl2_MC.desugarer <> bns_data def
+R34417:34424 impl2_MC.desugarer <> OpConcat constr
+R34426:34426 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34430:34431 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34435:34435 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34427:34429 impl2_MC.desugarer <> e1':348 var
+R34432:34434 impl2_MC.desugarer <> e2':349 var
+R34386:34391 impl2_MC.surface_syntax <> Concat constr
+R34396:34397 impl2_MC.desugarer <> e2:347 var
+R34393:34394 impl2_MC.desugarer <> e1:346 var
+var 34464:34470 Desugarer.Desugar_Expr_ind' Eq_case
+binder 34488:34489 <> e1:351
+binder 34491:34492 <> e2:352
+binder 34494:34496 <> e1':353
+binder 34498:34500 <> e2':354
+R34555:34602 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34547:34547 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R34552:34554 impl2_MC.desugarer <> e1':353 var
+R34549:34550 impl2_MC.desugarer <> e1:351 var
+R34611:34658 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34603:34603 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R34608:34610 impl2_MC.desugarer <> e2':354 var
+R34605:34606 impl2_MC.desugarer <> e2:352 var
+R34659:34659 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R34677:34679 impl2_MC.kernel_syntax <> KOp constr
+R34683:34690 impl2_MC.desugarer <> bns_data def
+R34692:34695 impl2_MC.desugarer <> OpEq constr
+R34697:34697 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34701:34702 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34706:34706 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34698:34700 impl2_MC.desugarer <> e1':353 var
+R34703:34705 impl2_MC.desugarer <> e2':354 var
+R34662:34666 impl2_MC.surface_syntax <> Equal constr
+R34671:34672 impl2_MC.desugarer <> e2:352 var
+R34668:34669 impl2_MC.desugarer <> e1:351 var
+var 34735:34742 Desugarer.Desugar_Expr_ind' Lam_case
+binder 34759:34760 <> lp:356
+binder 34762:34764 <> lp':357
+binder 34766:34766 <> e:358
+binder 34768:34769 <> e':359
+R34842:34889 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34816:34822 Coq.Lists.List <> Forall2 ind
+R34839:34841 impl2_MC.desugarer <> lp':357 var
+R34836:34837 impl2_MC.desugarer <> lp:356 var
+R34824:34834 impl2_MC.desugarer <> Desugar_Pat ind
+R34896:34943 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R34890:34890 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R34894:34895 impl2_MC.desugarer <> e':359 var
+R34892:34892 impl2_MC.desugarer <> e:358 var
+R34944:34944 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R34958:34975 impl2_MC.desugarer <> from_lispat_to_lam def
+R34981:34982 impl2_MC.desugarer <> e':359 var
+R34977:34979 impl2_MC.desugarer <> lp':357 var
+R34947:34949 impl2_MC.surface_syntax <> Lam constr
+R34954:34954 impl2_MC.desugarer <> e:358 var
+R34951:34952 impl2_MC.desugarer <> lp:356 var
+var 35012:35019 Desugarer.Desugar_Expr_ind' App_case
+binder 35036:35036 <> e:361
+binder 35038:35039 <> e':362
+binder 35041:35041 <> l:363
+binder 35043:35044 <> l':364
+R35097:35144 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35091:35091 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R35095:35096 impl2_MC.desugarer <> e':362 var
+R35093:35093 impl2_MC.desugarer <> e:361 var
+R35159:35205 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35145:35151 Coq.Lists.List <> Forall2 ind
+R35157:35158 impl2_MC.desugarer <> l':364 var
+R35155:35155 impl2_MC.desugarer <> l:363 var
+R35153:35153 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R35206:35206 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R35219:35222 impl2_MC.kernel_syntax <> KApp constr
+R35259:35263 impl2_MC.kernel_syntax <> KUnit constr
+R35225:35244 impl2_MC.desugarer <> from_lisargs_to_napp def
+R35255:35256 impl2_MC.desugarer <> e':362 var
+R35247:35249 Coq.Lists.List <> rev def
+R35251:35252 impl2_MC.desugarer <> l':364 var
+R35209:35211 impl2_MC.surface_syntax <> App constr
+R35215:35215 impl2_MC.desugarer <> l:363 var
+R35213:35213 impl2_MC.desugarer <> e:361 var
+var 35292:35299 Desugarer.Desugar_Expr_ind' Tup_case
+binder 35316:35316 <> l:366
+binder 35318:35319 <> l':367
+R35380:35427 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35366:35372 Coq.Lists.List <> Forall2 ind
+R35378:35379 impl2_MC.desugarer <> l':367 var
+R35376:35376 impl2_MC.desugarer <> l:366 var
+R35374:35374 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R35428:35428 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R35439:35457 impl2_MC.desugarer <> from_lisexpr_to_tup def
+R35459:35460 impl2_MC.desugarer <> l':367 var
+R35431:35433 impl2_MC.surface_syntax <> Tup constr
+R35435:35435 impl2_MC.desugarer <> l:366 var
+var 35489:35497 Desugarer.Desugar_Expr_ind' Cons_case
+binder 35513:35513 <> l:369
+binder 35515:35516 <> l':370
+R35577:35624 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35563:35569 Coq.Lists.List <> Forall2 ind
+R35575:35576 impl2_MC.desugarer <> l':370 var
+R35573:35573 impl2_MC.desugarer <> l:369 var
+R35571:35571 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R35625:35625 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R35637:35656 impl2_MC.desugarer <> from_lisexpr_to_cons def
+R35658:35659 impl2_MC.desugarer <> l':370 var
+R35628:35631 impl2_MC.surface_syntax <> Cons constr
+R35633:35633 impl2_MC.desugarer <> l:369 var
+var 35695:35706 Desugarer.Desugar_Expr_ind' Variant_case
+binder 35718:35718 <> c:372
+binder 35720:35720 <> l:373
+binder 35722:35723 <> l':374
+R35784:35831 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R35770:35776 Coq.Lists.List <> Forall2 ind
+R35782:35783 impl2_MC.desugarer <> l':374 var
+R35780:35780 impl2_MC.desugarer <> l:373 var
+R35778:35778 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R35832:35832 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R35850:35857 impl2_MC.kernel_syntax <> KVariant constr
+R35862:35880 impl2_MC.desugarer <> from_lisexpr_to_tup def
+R35882:35883 impl2_MC.desugarer <> l':374 var
+R35859:35859 impl2_MC.desugarer <> c:372 var
+R35835:35842 impl2_MC.surface_syntax <> EVariant constr
+R35846:35846 impl2_MC.desugarer <> l:373 var
+R35844:35844 impl2_MC.desugarer <> c:372 var
+var 35914:35922 Desugarer.Desugar_Expr_ind' ELet_case
+binder 35938:35938 <> p:376
+binder 35940:35941 <> p':377
+binder 35943:35944 <> e1:378
+binder 35946:35948 <> e1':379
+binder 35950:35951 <> e2:380
+binder 35953:35955 <> e2':381
+R36018:36065 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36002:36012 impl2_MC.desugarer <> Desugar_Pat ind
+R36016:36017 impl2_MC.desugarer <> p':377 var
+R36014:36014 impl2_MC.desugarer <> p:376 var
+R36074:36121 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36066:36066 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R36071:36073 impl2_MC.desugarer <> e1':379 var
+R36068:36069 impl2_MC.desugarer <> e1:378 var
+R36130:36177 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36122:36122 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R36127:36129 impl2_MC.desugarer <> e2':381 var
+R36124:36125 impl2_MC.desugarer <> e2:380 var
+R36178:36178 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R36196:36199 impl2_MC.kernel_syntax <> KApp constr
+R36215:36217 impl2_MC.desugarer <> e1':379 var
+R36202:36205 impl2_MC.kernel_syntax <> KLam constr
+R36210:36212 impl2_MC.desugarer <> e2':381 var
+R36207:36208 impl2_MC.desugarer <> p':377 var
+R36181:36184 impl2_MC.surface_syntax <> ELet constr
+R36191:36192 impl2_MC.desugarer <> e2:380 var
+R36188:36189 impl2_MC.desugarer <> e1:378 var
+R36186:36186 impl2_MC.desugarer <> p:376 var
+var 36246:36252 Desugarer.Desugar_Expr_ind' If_case
+binder 36270:36271 <> e1:383
+binder 36273:36275 <> e1':384
+binder 36277:36278 <> e2:385
+binder 36280:36282 <> e2':386
+binder 36284:36285 <> e3:387
+binder 36287:36289 <> e3':388
+R36344:36391 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36336:36336 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R36341:36343 impl2_MC.desugarer <> e1':384 var
+R36338:36339 impl2_MC.desugarer <> e1:383 var
+R36400:36447 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36392:36392 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R36397:36399 impl2_MC.desugarer <> e2':386 var
+R36394:36395 impl2_MC.desugarer <> e2:385 var
+R36456:36503 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36448:36448 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R36453:36455 impl2_MC.desugarer <> e3':388 var
+R36450:36451 impl2_MC.desugarer <> e3:387 var
+R36504:36504 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R36521:36526 impl2_MC.kernel_syntax <> KMatch constr
+R36532:36593 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R36634:36696 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R36738:36738 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R36594:36594 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R36626:36628 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R36632:36633 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R36596:36600 impl2_MC.kernel_syntax <> KPLit constr
+R36604:36611 impl2_MC.desugarer <> bns_data def
+R36614:36619 impl2_MC.desugarer <> VlBool constr
+R36621:36624 Coq.Init.Datatypes <> true constr
+R36629:36631 impl2_MC.desugarer <> e2':386 var
+R36697:36697 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R36730:36732 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R36736:36737 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R36699:36703 impl2_MC.kernel_syntax <> KPLit constr
+R36707:36714 impl2_MC.desugarer <> bns_data def
+R36717:36722 impl2_MC.desugarer <> VlBool constr
+R36724:36728 Coq.Init.Datatypes <> false constr
+R36733:36735 impl2_MC.desugarer <> e3':388 var
+R36528:36530 impl2_MC.desugarer <> e1':384 var
+R36507:36508 impl2_MC.surface_syntax <> If constr
+R36516:36517 impl2_MC.desugarer <> e3:387 var
+R36513:36514 impl2_MC.desugarer <> e2:385 var
+R36510:36511 impl2_MC.desugarer <> e1:383 var
+var 36767:36777 Desugarer.Desugar_Expr_ind' LetRec_case
+binder 36791:36791 <> i:390
+binder 36793:36794 <> e1:391
+binder 36796:36798 <> e1':392
+binder 36800:36801 <> e2:393
+binder 36803:36805 <> e2':394
+R36860:36907 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36852:36852 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R36857:36859 impl2_MC.desugarer <> e1':392 var
+R36854:36855 impl2_MC.desugarer <> e1:391 var
+R36916:36963 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R36908:36908 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R36913:36915 impl2_MC.desugarer <> e2':394 var
+R36910:36911 impl2_MC.desugarer <> e2:393 var
+R36964:36964 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R36984:36987 impl2_MC.kernel_syntax <> KApp constr
+R37011:37014 impl2_MC.kernel_syntax <> KFix constr
+R37018:37020 impl2_MC.desugarer <> e1':392 var
+R37016:37016 impl2_MC.desugarer <> i:390 var
+R36990:36993 impl2_MC.kernel_syntax <> KLam constr
+R37005:37007 impl2_MC.desugarer <> e2':394 var
+R36996:37000 impl2_MC.kernel_syntax <> KPVar constr
+R37002:37002 impl2_MC.desugarer <> i:390 var
+R36967:36972 impl2_MC.surface_syntax <> LetRec constr
+R36979:36980 impl2_MC.desugarer <> e2:393 var
+R36976:36977 impl2_MC.desugarer <> e1:391 var
+R36974:36974 impl2_MC.desugarer <> i:390 var
+var 37051:37062 Desugarer.Desugar_Expr_ind' DefType_case
+binder 37075:37075 <> l:396
+binder 37077:37078 <> l':397
+binder 37080:37080 <> e:398
+binder 37082:37083 <> e':399
+R37200:37247 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37131:37137 Coq.Lists.List <> Forall2 ind
+R37198:37199 impl2_MC.desugarer <> l':397 var
+R37196:37196 impl2_MC.desugarer <> l:396 var
+binder 37144:37144 <> p:400
+binder 37146:37146 <> q:401
+R37164:37167 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R37156:37158 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R37151:37153 Coq.Init.Datatypes <> fst def
+R37155:37155 impl2_MC.desugarer <> p:400 var
+R37159:37161 Coq.Init.Datatypes <> fst def
+R37163:37163 impl2_MC.desugarer <> q:401 var
+R37168:37177 impl2_MC.desugarer <> Desugar_Tp ind
+R37188:37190 Coq.Init.Datatypes <> snd def
+R37192:37192 impl2_MC.desugarer <> q:401 var
+R37180:37182 Coq.Init.Datatypes <> snd def
+R37184:37184 impl2_MC.desugarer <> p:400 var
+R37254:37301 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37248:37248 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R37252:37253 impl2_MC.desugarer <> e':399 var
+R37250:37250 impl2_MC.desugarer <> e:398 var
+R37302:37302 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R37319:37326 impl2_MC.kernel_syntax <> KDefType constr
+R37331:37332 impl2_MC.desugarer <> e':399 var
+R37328:37329 impl2_MC.desugarer <> l':397 var
+R37305:37311 impl2_MC.surface_syntax <> DefType constr
+R37315:37315 impl2_MC.desugarer <> e:398 var
+R37313:37313 impl2_MC.desugarer <> l:396 var
+var 37362:37371 Desugarer.Desugar_Expr_ind' Match_case
+binder 37386:37386 <> e:403
+binder 37388:37389 <> e':404
+binder 37391:37391 <> l:405
+binder 37393:37394 <> l':406
+R37448:37496 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37442:37442 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R37446:37447 impl2_MC.desugarer <> e':404 var
+R37444:37444 impl2_MC.desugarer <> e:403 var
+R37571:37619 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R37497:37503 Coq.Lists.List <> Forall2 ind
+R37569:37570 impl2_MC.desugarer <> l':406 var
+R37567:37567 impl2_MC.desugarer <> l:405 var
+binder 37510:37510 <> p:407
+binder 37512:37512 <> q:408
+R37544:37547 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R37517:37527 impl2_MC.desugarer <> Desugar_Pat ind
+R37538:37540 Coq.Init.Datatypes <> fst def
+R37542:37542 impl2_MC.desugarer <> q:408 var
+R37530:37532 Coq.Init.Datatypes <> fst def
+R37534:37534 impl2_MC.desugarer <> p:407 var
+R37548:37548 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R37559:37561 Coq.Init.Datatypes <> snd def
+R37563:37563 impl2_MC.desugarer <> q:408 var
+R37551:37553 Coq.Init.Datatypes <> snd def
+R37555:37555 impl2_MC.desugarer <> p:407 var
+R37620:37620 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R37635:37640 impl2_MC.kernel_syntax <> KMatch constr
+R37645:37646 impl2_MC.desugarer <> l':406 var
+R37642:37643 impl2_MC.desugarer <> e':404 var
+R37623:37627 impl2_MC.surface_syntax <> Match constr
+R37631:37631 impl2_MC.desugarer <> l:405 var
+R37629:37629 impl2_MC.desugarer <> e:403 var
+var 37675:37684 Desugarer.Desugar_Expr_ind' Error_case
+binder 37699:37699 <> m:410
+R37702:37702 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R37716:37721 impl2_MC.kernel_syntax <> KError constr
+R37723:37723 impl2_MC.desugarer <> m:410 var
+R37705:37710 impl2_MC.surface_syntax <> EError constr
+R37712:37712 impl2_MC.desugarer <> m:410 var
+def 37765:37781 <> Desugar_Expr_ind'
+R37787:37790 impl2_MC.surface_syntax <> Expr ind
+R37792:37792 impl2_MC.desugarer <> Desugarer.I var
+binder 37784:37784 <> e:412
+R37800:37804 impl2_MC.kernel_syntax <> KExpr ind
+R37808:37815 impl2_MC.desugarer <> bns_data def
+R37806:37806 impl2_MC.desugarer <> Desugarer.I var
+binder 37796:37797 <> e':413
+R37822:37833 impl2_MC.desugarer <> Desugar_Expr ind
+R37837:37838 impl2_MC.desugarer <> e':413 var
+R37835:37835 impl2_MC.desugarer <> e:412 var
+binder 37819:37819 <> H:414
+R37886:37886 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R37890:37891 impl2_MC.desugarer <> e':413 var
+R37888:37888 impl2_MC.desugarer <> e:412 var
+R37924:37924 impl2_MC.desugarer <> H:414 var
+R37954:37960 impl2_MC.desugarer <> dsg_Var constr
+R38000:38007 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Var_case var
+R38032:38039 impl2_MC.desugarer <> dsg_Bool constr
+R38078:38086 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Bool_case var
+R38112:38118 impl2_MC.desugarer <> dsg_Nat constr
+R38158:38165 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Nat_case var
+R38191:38200 impl2_MC.desugarer <> dsg_String constr
+R38237:38247 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.String_case var
+R38272:38278 impl2_MC.desugarer <> dsg_Not constr
+R38318:38325 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Not_case var
+R38328:38344 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R38373:38379 impl2_MC.desugarer <> dsg_And constr
+R38419:38426 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.And_case var
+R38591:38607 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R38498:38514 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R38636:38641 impl2_MC.desugarer <> dsg_Or constr
+R38682:38688 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Or_case var
+R38854:38870 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R38761:38777 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R38900:38906 impl2_MC.desugarer <> dsg_Sum constr
+R38946:38953 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Sum_case var
+R39119:39135 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R39026:39042 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R39164:39170 impl2_MC.desugarer <> dsg_Sub constr
+R39210:39217 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Sub_case var
+R39382:39398 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R39289:39305 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R39428:39434 impl2_MC.desugarer <> dsg_Mul constr
+R39474:39481 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Mul_case var
+R39646:39662 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R39553:39569 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R39691:39700 impl2_MC.desugarer <> dsg_Concat constr
+R39737:39747 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Concat_case var
+R39912:39928 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R39819:39835 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R39957:39965 impl2_MC.desugarer <> dsg_Equal constr
+R40003:40009 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Eq_case var
+R40175:40191 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R40082:40098 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R40220:40226 impl2_MC.desugarer <> dsg_Lam constr
+R40266:40273 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Lam_case var
+R40350:40366 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R40398:40404 impl2_MC.desugarer <> dsg_App constr
+R40444:40451 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.App_case var
+binder 40524:40524 <> l:417
+binder 40526:40527 <> l':418
+R40533:40539 Coq.Lists.List <> Forall2 ind
+R40556:40557 impl2_MC.desugarer <> l':418 var
+R40554:40554 impl2_MC.desugarer <> l:417 var
+R40541:40552 impl2_MC.desugarer <> Desugar_Expr ind
+binder 40530:40530 <> H:419
+R40562:40568 Coq.Lists.List <> Forall2 ind
+R40574:40575 impl2_MC.desugarer <> l':418 var
+R40572:40572 impl2_MC.desugarer <> l:417 var
+R40570:40570 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R40622:40622 impl2_MC.desugarer <> H:419 var
+R40666:40676 Coq.Lists.List <> Forall2_nil constr
+R40694:40704 Coq.Lists.List <> Forall2_nil constr
+R40745:40756 Coq.Lists.List <> Forall2_cons constr
+R40773:40784 Coq.Lists.List <> Forall2_cons constr
+R40898:40909 impl2_MC.desugarer <> lis_exp_ind':420 var
+R40791:40807 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R40454:40470 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R40992:40998 impl2_MC.desugarer <> dsg_Tup constr
+R41038:41045 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Tup_case var
+binder 41096:41096 <> l:422
+binder 41098:41099 <> l':423
+R41105:41111 Coq.Lists.List <> Forall2 ind
+R41128:41129 impl2_MC.desugarer <> l':423 var
+R41126:41126 impl2_MC.desugarer <> l:422 var
+R41113:41124 impl2_MC.desugarer <> Desugar_Expr ind
+binder 41102:41102 <> H:424
+R41134:41140 Coq.Lists.List <> Forall2 ind
+R41146:41147 impl2_MC.desugarer <> l':423 var
+R41144:41144 impl2_MC.desugarer <> l:422 var
+R41142:41142 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R41194:41194 impl2_MC.desugarer <> H:424 var
+R41238:41248 Coq.Lists.List <> Forall2_nil constr
+R41266:41276 Coq.Lists.List <> Forall2_nil constr
+R41317:41328 Coq.Lists.List <> Forall2_cons constr
+R41345:41356 Coq.Lists.List <> Forall2_cons constr
+R41470:41481 impl2_MC.desugarer <> lis_exp_ind':425 var
+R41363:41379 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R41563:41570 impl2_MC.desugarer <> dsg_Cons constr
+R41609:41617 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Cons_case var
+binder 41667:41667 <> l:427
+binder 41669:41670 <> l':428
+R41676:41682 Coq.Lists.List <> Forall2 ind
+R41699:41700 impl2_MC.desugarer <> l':428 var
+R41697:41697 impl2_MC.desugarer <> l:427 var
+R41684:41695 impl2_MC.desugarer <> Desugar_Expr ind
+binder 41673:41673 <> H:429
+R41705:41711 Coq.Lists.List <> Forall2 ind
+R41717:41718 impl2_MC.desugarer <> l':428 var
+R41715:41715 impl2_MC.desugarer <> l:427 var
+R41713:41713 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R41765:41765 impl2_MC.desugarer <> H:429 var
+R41809:41819 Coq.Lists.List <> Forall2_nil constr
+R41837:41847 Coq.Lists.List <> Forall2_nil constr
+R41888:41899 Coq.Lists.List <> Forall2_cons constr
+R41916:41927 Coq.Lists.List <> Forall2_cons constr
+R42041:42051 impl2_MC.desugarer <> lis_exp_ind:430 var
+R41934:41950 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R42136:42146 impl2_MC.desugarer <> dsg_Variant constr
+R42182:42193 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Variant_case var
+binder 42242:42242 <> l:432
+binder 42244:42245 <> l':433
+R42251:42257 Coq.Lists.List <> Forall2 ind
+R42274:42275 impl2_MC.desugarer <> l':433 var
+R42272:42272 impl2_MC.desugarer <> l:432 var
+R42259:42270 impl2_MC.desugarer <> Desugar_Expr ind
+binder 42248:42248 <> H:434
+R42280:42286 Coq.Lists.List <> Forall2 ind
+R42292:42293 impl2_MC.desugarer <> l':433 var
+R42290:42290 impl2_MC.desugarer <> l:432 var
+R42288:42288 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R42340:42340 impl2_MC.desugarer <> H:434 var
+R42384:42394 Coq.Lists.List <> Forall2_nil constr
+R42412:42422 Coq.Lists.List <> Forall2_nil constr
+R42463:42474 Coq.Lists.List <> Forall2_cons constr
+R42491:42502 Coq.Lists.List <> Forall2_cons constr
+R42616:42626 impl2_MC.desugarer <> lis_exp_ind:435 var
+R42509:42525 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R42708:42714 impl2_MC.desugarer <> dsg_Let constr
+R42754:42762 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.ELet_case var
+R42930:42946 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R42838:42854 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R42976:42981 impl2_MC.desugarer <> dsg_If constr
+R43022:43028 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.If_case var
+R43284:43300 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R43192:43208 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R43100:43116 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R43333:43342 impl2_MC.desugarer <> dsg_LetRec constr
+R43379:43389 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.LetRec_case var
+R43555:43571 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R43462:43478 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R43603:43613 impl2_MC.desugarer <> dsg_DefType constr
+R43649:43660 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.DefType_case var
+R43667:43683 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R43712:43720 impl2_MC.desugarer <> dsg_Match constr
+R43758:43767 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Match_case var
+binder 43840:43840 <> l:437
+binder 43842:43843 <> l':438
+R43884:43890 Coq.Lists.List <> Forall2 ind
+R43967:43968 impl2_MC.desugarer <> l':438 var
+R43965:43965 impl2_MC.desugarer <> l:437 var
+binder 43897:43897 <> p:439
+binder 43899:43899 <> q:440
+R43931:43934 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R43904:43914 impl2_MC.desugarer <> Desugar_Pat ind
+R43925:43927 Coq.Init.Datatypes <> fst def
+R43929:43929 impl2_MC.desugarer <> q:440 var
+R43917:43919 Coq.Init.Datatypes <> fst def
+R43921:43921 impl2_MC.desugarer <> p:439 var
+R43935:43946 impl2_MC.desugarer <> Desugar_Expr ind
+R43957:43959 Coq.Init.Datatypes <> snd def
+R43961:43961 impl2_MC.desugarer <> q:440 var
+R43949:43951 Coq.Init.Datatypes <> snd def
+R43953:43953 impl2_MC.desugarer <> p:439 var
+binder 43881:43881 <> H:441
+R44007:44013 Coq.Lists.List <> Forall2 ind
+R44079:44080 impl2_MC.desugarer <> l':438 var
+R44077:44077 impl2_MC.desugarer <> l:437 var
+binder 44020:44020 <> p:442
+binder 44022:44022 <> q:443
+R44054:44057 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R44027:44037 impl2_MC.desugarer <> Desugar_Pat ind
+R44048:44050 Coq.Init.Datatypes <> fst def
+R44052:44052 impl2_MC.desugarer <> q:443 var
+R44040:44042 Coq.Init.Datatypes <> fst def
+R44044:44044 impl2_MC.desugarer <> p:442 var
+R44058:44058 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R44069:44071 Coq.Init.Datatypes <> snd def
+R44073:44073 impl2_MC.desugarer <> q:443 var
+R44061:44063 Coq.Init.Datatypes <> snd def
+R44065:44065 impl2_MC.desugarer <> p:442 var
+R44121:44121 impl2_MC.desugarer <> H:441 var
+R44159:44169 Coq.Lists.List <> Forall2_nil constr
+R44177:44187 Coq.Lists.List <> Forall2_nil constr
+R44222:44233 Coq.Lists.List <> Forall2_cons constr
+R44289:44300 Coq.Lists.List <> Forall2_cons constr
+binder 44311:44311 <> p:446
+binder 44313:44313 <> q:447
+R44345:44348 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R44318:44328 impl2_MC.desugarer <> Desugar_Pat ind
+R44339:44341 Coq.Init.Datatypes <> fst def
+R44343:44343 impl2_MC.desugarer <> q:447 var
+R44331:44333 Coq.Init.Datatypes <> fst def
+R44335:44335 impl2_MC.desugarer <> p:446 var
+R44349:44349 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.P var
+R44360:44362 Coq.Init.Datatypes <> snd def
+R44364:44364 impl2_MC.desugarer <> q:447 var
+R44352:44354 Coq.Init.Datatypes <> snd def
+R44356:44356 impl2_MC.desugarer <> p:446 var
+R44466:44469 Coq.Init.Logic <> conj constr
+R44479:44482 Coq.Init.Logic <> conj constr
+R44487:44503 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R44550:44561 impl2_MC.desugarer <> lis_exp_ind':444 var
+R43770:43786 impl2_MC.desugarer <> Desugar_Expr_ind':415 def
+R44711:44719 impl2_MC.desugarer <> dsg_Error constr
+R44757:44766 impl2_MC.desugarer <> Desugarer.Desugar_Expr_ind'.Error_case var
+R44849:44865 impl2_MC.desugarer Desugarer.Desugar_Expr_ind' <> sec
+def 44940:44951 <> desugar_Expr
+R44957:44960 impl2_MC.surface_syntax <> Expr ind
+R44962:44962 impl2_MC.desugarer <> Desugarer.I var
+binder 44954:44954 <> e:449
+R44967:44971 impl2_MC.kernel_syntax <> KExpr ind
+R44975:44982 impl2_MC.desugarer <> bns_data def
+R44973:44973 impl2_MC.desugarer <> Desugarer.I var
+R45008:45008 impl2_MC.desugarer <> e:449 var
+R45031:45033 impl2_MC.surface_syntax <> Var constr
+R45054:45057 impl2_MC.kernel_syntax <> KVar constr
+R45077:45080 impl2_MC.surface_syntax <> Bool constr
+R45101:45104 impl2_MC.kernel_syntax <> KLit constr
+R45108:45115 impl2_MC.desugarer <> bns_data def
+R45118:45123 impl2_MC.desugarer <> VlBool constr
+R45143:45145 impl2_MC.surface_syntax <> Nat constr
+R45167:45170 impl2_MC.kernel_syntax <> KLit constr
+R45174:45181 impl2_MC.desugarer <> bns_data def
+R45184:45188 impl2_MC.desugarer <> VlNat constr
+R45208:45213 impl2_MC.surface_syntax <> String constr
+R45232:45235 impl2_MC.kernel_syntax <> KLit constr
+R45239:45246 impl2_MC.desugarer <> bns_data def
+R45249:45256 impl2_MC.desugarer <> VlString constr
+R45276:45278 impl2_MC.surface_syntax <> Not constr
+R45300:45302 impl2_MC.kernel_syntax <> KOp constr
+R45306:45313 impl2_MC.desugarer <> bns_data def
+R45316:45320 impl2_MC.desugarer <> OpNot constr
+R45323:45323 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R45338:45338 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R45324:45335 impl2_MC.desugarer <> desugar_Expr:450 def
+R45337:45337 impl2_MC.desugarer <> e:449 var
+R45355:45357 impl2_MC.surface_syntax <> And constr
+R45379:45381 impl2_MC.kernel_syntax <> KOp constr
+R45385:45392 impl2_MC.desugarer <> bns_data def
+R45395:45399 impl2_MC.desugarer <> OpAnd constr
+R45402:45402 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45418:45419 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45435:45435 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45403:45414 impl2_MC.desugarer <> desugar_Expr:450 def
+R45420:45431 impl2_MC.desugarer <> desugar_Expr:450 def
+R45452:45453 impl2_MC.surface_syntax <> Or constr
+R45476:45478 impl2_MC.kernel_syntax <> KOp constr
+R45482:45489 impl2_MC.desugarer <> bns_data def
+R45492:45495 impl2_MC.desugarer <> OpOr constr
+R45498:45498 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45514:45515 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45531:45531 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45499:45510 impl2_MC.desugarer <> desugar_Expr:450 def
+R45516:45527 impl2_MC.desugarer <> desugar_Expr:450 def
+R45548:45550 impl2_MC.surface_syntax <> Sum constr
+R45572:45574 impl2_MC.kernel_syntax <> KOp constr
+R45578:45585 impl2_MC.desugarer <> bns_data def
+R45588:45592 impl2_MC.desugarer <> OpSum constr
+R45595:45595 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45611:45612 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45628:45628 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45596:45607 impl2_MC.desugarer <> desugar_Expr:450 def
+R45613:45624 impl2_MC.desugarer <> desugar_Expr:450 def
+R45645:45647 impl2_MC.surface_syntax <> Sub constr
+R45669:45671 impl2_MC.kernel_syntax <> KOp constr
+R45675:45682 impl2_MC.desugarer <> bns_data def
+R45685:45689 impl2_MC.desugarer <> OpSub constr
+R45692:45692 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45708:45709 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45725:45725 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45693:45704 impl2_MC.desugarer <> desugar_Expr:450 def
+R45710:45721 impl2_MC.desugarer <> desugar_Expr:450 def
+R45742:45744 impl2_MC.surface_syntax <> Mul constr
+R45766:45768 impl2_MC.kernel_syntax <> KOp constr
+R45772:45779 impl2_MC.desugarer <> bns_data def
+R45782:45786 impl2_MC.desugarer <> OpMul constr
+R45789:45789 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45805:45806 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45822:45822 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45790:45801 impl2_MC.desugarer <> desugar_Expr:450 def
+R45807:45818 impl2_MC.desugarer <> desugar_Expr:450 def
+R45839:45844 impl2_MC.surface_syntax <> Concat constr
+R45863:45865 impl2_MC.kernel_syntax <> KOp constr
+R45869:45876 impl2_MC.desugarer <> bns_data def
+R45879:45886 impl2_MC.desugarer <> OpConcat constr
+R45889:45889 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45905:45906 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45922:45922 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45890:45901 impl2_MC.desugarer <> desugar_Expr:450 def
+R45907:45918 impl2_MC.desugarer <> desugar_Expr:450 def
+R45939:45943 impl2_MC.surface_syntax <> Equal constr
+R45963:45965 impl2_MC.kernel_syntax <> KOp constr
+R45969:45976 impl2_MC.desugarer <> bns_data def
+R45979:45982 impl2_MC.desugarer <> OpEq constr
+R45985:45985 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R46001:46002 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R46018:46018 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R45986:45997 impl2_MC.desugarer <> desugar_Expr:450 def
+R46003:46014 impl2_MC.desugarer <> desugar_Expr:450 def
+R46036:46038 impl2_MC.surface_syntax <> Lam constr
+R46059:46076 impl2_MC.desugarer <> from_lispat_to_lam def
+R46099:46110 impl2_MC.desugarer <> desugar_Expr:450 def
+R46112:46112 impl2_MC.desugarer <> e:449 var
+R46079:46081 Coq.Lists.List <> map def
+R46083:46093 impl2_MC.desugarer <> desugar_Pat def
+R46130:46132 impl2_MC.surface_syntax <> App constr
+R46153:46156 impl2_MC.kernel_syntax <> KApp constr
+R46225:46229 impl2_MC.kernel_syntax <> KUnit constr
+R46159:46178 impl2_MC.desugarer <> from_lisargs_to_napp def
+R46208:46219 impl2_MC.desugarer <> desugar_Expr:450 def
+R46221:46221 impl2_MC.desugarer <> e:449 var
+R46181:46183 Coq.Lists.List <> rev def
+R46186:46188 Coq.Lists.List <> map def
+R46190:46201 impl2_MC.desugarer <> desugar_Expr:450 def
+R46246:46248 impl2_MC.surface_syntax <> Tup constr
+R46269:46287 impl2_MC.desugarer <> from_lisexpr_to_tup def
+R46290:46292 Coq.Lists.List <> map def
+R46294:46305 impl2_MC.desugarer <> desugar_Expr:450 def
+R46325:46328 impl2_MC.surface_syntax <> Cons constr
+R46348:46367 impl2_MC.desugarer <> from_lisexpr_to_cons def
+R46370:46372 Coq.Lists.List <> map def
+R46374:46385 impl2_MC.desugarer <> desugar_Expr:450 def
+R46405:46412 impl2_MC.surface_syntax <> EVariant constr
+R46428:46435 impl2_MC.kernel_syntax <> KVariant constr
+R46440:46458 impl2_MC.desugarer <> from_lisexpr_to_tup def
+R46461:46463 Coq.Lists.List <> map def
+R46465:46476 impl2_MC.desugarer <> desugar_Expr:450 def
+R46497:46500 impl2_MC.surface_syntax <> ELet constr
+R46520:46523 impl2_MC.kernel_syntax <> KApp constr
+R46567:46578 impl2_MC.desugarer <> desugar_Expr:450 def
+R46526:46529 impl2_MC.kernel_syntax <> KLam constr
+R46548:46559 impl2_MC.desugarer <> desugar_Expr:450 def
+R46532:46542 impl2_MC.desugarer <> desugar_Pat def
+R46599:46600 impl2_MC.surface_syntax <> If constr
+R46622:46627 impl2_MC.kernel_syntax <> KMatch constr
+R46647:46690 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R46743:46787 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R46841:46841 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R46691:46691 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R46723:46725 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R46741:46742 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R46693:46697 impl2_MC.kernel_syntax <> KPLit constr
+R46701:46708 impl2_MC.desugarer <> bns_data def
+R46711:46716 impl2_MC.desugarer <> VlBool constr
+R46718:46721 Coq.Init.Datatypes <> true constr
+R46726:46737 impl2_MC.desugarer <> desugar_Expr:450 def
+R46788:46788 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R46821:46823 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R46839:46840 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R46790:46794 impl2_MC.kernel_syntax <> KPLit constr
+R46798:46805 impl2_MC.desugarer <> bns_data def
+R46808:46813 impl2_MC.desugarer <> VlBool constr
+R46815:46819 Coq.Init.Datatypes <> false constr
+R46824:46835 impl2_MC.desugarer <> desugar_Expr:450 def
+R46630:46641 impl2_MC.desugarer <> desugar_Expr:450 def
+R46859:46864 impl2_MC.surface_syntax <> LetRec constr
+R46882:46885 impl2_MC.kernel_syntax <> KApp constr
+R46923:46926 impl2_MC.kernel_syntax <> KFix constr
+R46931:46942 impl2_MC.desugarer <> desugar_Expr:450 def
+R46888:46891 impl2_MC.kernel_syntax <> KLam constr
+R46904:46915 impl2_MC.desugarer <> desugar_Expr:450 def
+R46894:46898 impl2_MC.kernel_syntax <> KPVar constr
+R46964:46970 impl2_MC.surface_syntax <> DefType constr
+R46987:46994 impl2_MC.kernel_syntax <> KDefType constr
+R47044:47055 impl2_MC.desugarer <> desugar_Expr:450 def
+R47057:47057 impl2_MC.desugarer <> e:449 var
+R46997:46999 Coq.Lists.List <> map def
+binder 47006:47006 <> p:452
+R47011:47011 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R47017:47018 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R47037:47037 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R47012:47014 Coq.Init.Datatypes <> fst def
+R47016:47016 impl2_MC.desugarer <> p:452 var
+R47019:47028 impl2_MC.desugarer <> desugar_Tp def
+R47031:47033 Coq.Init.Datatypes <> snd def
+R47035:47035 impl2_MC.desugarer <> p:452 var
+R47076:47080 impl2_MC.surface_syntax <> Match constr
+R47099:47104 impl2_MC.kernel_syntax <> KMatch constr
+R47171:47173 Coq.Lists.List <> map def
+binder 47180:47180 <> p:453
+R47185:47185 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R47205:47206 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R47227:47227 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R47186:47196 impl2_MC.desugarer <> desugar_Pat def
+R47199:47201 Coq.Init.Datatypes <> fst def
+R47203:47203 impl2_MC.desugarer <> p:453 var
+R47207:47218 impl2_MC.desugarer <> desugar_Expr:450 def
+R47221:47223 Coq.Init.Datatypes <> snd def
+R47225:47225 impl2_MC.desugarer <> p:453 var
+R47107:47118 impl2_MC.desugarer <> desugar_Expr:450 def
+R47120:47120 impl2_MC.desugarer <> e:449 var
+R47248:47253 impl2_MC.surface_syntax <> EError constr
+R47272:47277 impl2_MC.kernel_syntax <> KError constr
+prf 47413:47432 <> desugar_Expr_correct
+binder 47442:47442 <> e:454
+binder 47444:47445 <> e':455
+R47482:47485 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R47477:47479 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R47463:47474 impl2_MC.desugarer <> desugar_Expr def
+R47476:47476 impl2_MC.desugarer <> e:454 var
+R47480:47481 impl2_MC.desugarer <> e':455 var
+R47486:47497 impl2_MC.desugarer <> Desugar_Expr ind
+R47501:47502 impl2_MC.desugarer <> e':455 var
+R47499:47499 impl2_MC.desugarer <> e:454 var
+R47628:47636 impl2_MC.surface_syntax <> Expr_ind' def
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47628:47636 impl2_MC.surface_syntax <> Expr_ind' def
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47713:47719 impl2_MC.desugarer <> dsg_Var constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47722:47729 impl2_MC.desugarer <> dsg_Bool constr
+R47732:47738 impl2_MC.desugarer <> dsg_Nat constr
+R47741:47750 impl2_MC.desugarer <> dsg_String constr
+R47753:47761 impl2_MC.desugarer <> dsg_Error constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47791:47797 impl2_MC.desugarer <> dsg_Not constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47800:47806 impl2_MC.desugarer <> dsg_And constr
+R47809:47814 impl2_MC.desugarer <> dsg_Or constr
+R47817:47823 impl2_MC.desugarer <> dsg_Sub constr
+R47826:47832 impl2_MC.desugarer <> dsg_Sum constr
+R47835:47841 impl2_MC.desugarer <> dsg_Mul constr
+R47871:47880 impl2_MC.desugarer <> dsg_Concat constr
+R47883:47891 impl2_MC.desugarer <> dsg_Equal constr
+R47917:47923 impl2_MC.desugarer <> dsg_Lam constr
+R47917:47923 impl2_MC.desugarer <> dsg_Lam constr
+R47957:47976 impl2_MC.desugarer <> Forall2P_eq_Forall2f thm
+R47982:48007 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R47957:47976 impl2_MC.desugarer <> Forall2P_eq_Forall2f thm
+R47982:48007 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R48035:48048 impl2_MC.desugarer <> forall2_eq_map thm
+R48035:48048 impl2_MC.desugarer <> forall2_eq_map thm
+R48082:48088 impl2_MC.desugarer <> dsg_App constr
+R48082:48088 impl2_MC.desugarer <> dsg_App constr
+R48168:48178 Coq.Lists.List <> Forall2_nil constr
+R48168:48178 Coq.Lists.List <> Forall2_nil constr
+R48206:48217 Coq.Lists.List <> Forall2_cons constr
+R48206:48217 Coq.Lists.List <> Forall2_cons constr
+R48288:48294 impl2_MC.desugarer <> dsg_Tup constr
+R48288:48294 impl2_MC.desugarer <> dsg_Tup constr
+R48367:48377 Coq.Lists.List <> Forall2_nil constr
+R48367:48377 Coq.Lists.List <> Forall2_nil constr
+R48404:48415 Coq.Lists.List <> Forall2_cons constr
+R48404:48415 Coq.Lists.List <> Forall2_cons constr
+R48488:48495 impl2_MC.desugarer <> dsg_Cons constr
+R48488:48495 impl2_MC.desugarer <> dsg_Cons constr
+R48569:48579 Coq.Lists.List <> Forall2_nil constr
+R48569:48579 Coq.Lists.List <> Forall2_nil constr
+R48606:48617 Coq.Lists.List <> Forall2_cons constr
+R48606:48617 Coq.Lists.List <> Forall2_cons constr
+R48688:48698 impl2_MC.desugarer <> dsg_Variant constr
+R48688:48698 impl2_MC.desugarer <> dsg_Variant constr
+R48772:48782 Coq.Lists.List <> Forall2_nil constr
+R48772:48782 Coq.Lists.List <> Forall2_nil constr
+R48811:48822 Coq.Lists.List <> Forall2_cons constr
+R48811:48822 Coq.Lists.List <> Forall2_cons constr
+R48893:48899 impl2_MC.desugarer <> dsg_Let constr
+R48928:48953 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R48893:48899 impl2_MC.desugarer <> dsg_Let constr
+R48928:48953 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R48928:48953 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R48928:48953 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R49004:49009 impl2_MC.desugarer <> dsg_If constr
+R49004:49009 impl2_MC.desugarer <> dsg_If constr
+R49041:49050 impl2_MC.desugarer <> dsg_LetRec constr
+R49041:49050 impl2_MC.desugarer <> dsg_LetRec constr
+R49082:49092 impl2_MC.desugarer <> dsg_DefType constr
+R49082:49092 impl2_MC.desugarer <> dsg_DefType constr
+R49173:49183 Coq.Lists.List <> Forall2_nil constr
+R49173:49183 Coq.Lists.List <> Forall2_nil constr
+R49210:49221 Coq.Lists.List <> Forall2_cons constr
+R49210:49221 Coq.Lists.List <> Forall2_cons constr
+R49293:49316 impl2_MC.desugarer <> desugar_Tp_eq_Desugar_Tp thm
+R49293:49316 impl2_MC.desugarer <> desugar_Tp_eq_Desugar_Tp thm
+R49293:49316 impl2_MC.desugarer <> desugar_Tp_eq_Desugar_Tp thm
+R49370:49378 impl2_MC.desugarer <> dsg_Match constr
+R49370:49378 impl2_MC.desugarer <> dsg_Match constr
+R49459:49469 Coq.Lists.List <> Forall2_nil constr
+R49459:49469 Coq.Lists.List <> Forall2_nil constr
+R49497:49508 Coq.Lists.List <> Forall2_cons constr
+R49620:49645 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R49497:49508 Coq.Lists.List <> Forall2_cons constr
+R49620:49645 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R49620:49645 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+prf 49799:49819 <> desugar_Expr_complete
+binder 49829:49829 <> e:456
+binder 49831:49832 <> e':457
+R49863:49866 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R49846:49857 impl2_MC.desugarer <> Desugar_Expr ind
+R49861:49862 impl2_MC.desugarer <> e':457 var
+R49859:49859 impl2_MC.desugarer <> e:456 var
+R49881:49883 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R49867:49878 impl2_MC.desugarer <> desugar_Expr def
+R49880:49880 impl2_MC.desugarer <> e:456 var
+R49884:49885 impl2_MC.desugarer <> e':457 var
+R49979:49995 impl2_MC.desugarer <> Desugar_Expr_ind' def
+R50083:50096 impl2_MC.desugarer <> forall2_eq_map thm
+R50125:50144 impl2_MC.desugarer <> Forall2P_eq_Forall2f thm
+R50150:50175 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R50205:50224 impl2_MC.desugarer <> desugar_Pat_complete thm
+R49979:49995 impl2_MC.desugarer <> Desugar_Expr_ind' def
+R50083:50096 impl2_MC.desugarer <> forall2_eq_map thm
+R50083:50096 impl2_MC.desugarer <> forall2_eq_map thm
+R50083:50096 impl2_MC.desugarer <> forall2_eq_map thm
+R50083:50096 impl2_MC.desugarer <> forall2_eq_map thm
+R50083:50096 impl2_MC.desugarer <> forall2_eq_map thm
+R50083:50096 impl2_MC.desugarer <> forall2_eq_map thm
+R50083:50096 impl2_MC.desugarer <> forall2_eq_map thm
+R50083:50096 impl2_MC.desugarer <> forall2_eq_map thm
+R50125:50144 impl2_MC.desugarer <> Forall2P_eq_Forall2f thm
+R50150:50175 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R50125:50144 impl2_MC.desugarer <> Forall2P_eq_Forall2f thm
+R50150:50175 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R50125:50144 impl2_MC.desugarer <> Forall2P_eq_Forall2f thm
+R50150:50175 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R50125:50144 impl2_MC.desugarer <> Forall2P_eq_Forall2f thm
+R50150:50175 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R50125:50144 impl2_MC.desugarer <> Forall2P_eq_Forall2f thm
+R50150:50175 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R50125:50144 impl2_MC.desugarer <> Forall2P_eq_Forall2f thm
+R50150:50175 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R50125:50144 impl2_MC.desugarer <> Forall2P_eq_Forall2f thm
+R50150:50175 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R50125:50144 impl2_MC.desugarer <> Forall2P_eq_Forall2f thm
+R50150:50175 impl2_MC.desugarer <> desugar_Pat_eq_Desugar_Pat thm
+R50205:50224 impl2_MC.desugarer <> desugar_Pat_complete thm
+R50205:50224 impl2_MC.desugarer <> desugar_Pat_complete thm
+R50205:50224 impl2_MC.desugarer <> desugar_Pat_complete thm
+R50205:50224 impl2_MC.desugarer <> desugar_Pat_complete thm
+R50205:50224 impl2_MC.desugarer <> desugar_Pat_complete thm
+R50205:50224 impl2_MC.desugarer <> desugar_Pat_complete thm
+R50205:50224 impl2_MC.desugarer <> desugar_Pat_complete thm
+R50205:50224 impl2_MC.desugarer <> desugar_Pat_complete thm
+R50310:50320 Coq.Lists.List <> Forall2_nil constr
+R50310:50320 Coq.Lists.List <> Forall2_nil constr
+R50348:50359 Coq.Lists.List <> Forall2_cons constr
+R50348:50359 Coq.Lists.List <> Forall2_cons constr
+R50463:50481 impl2_MC.desugarer <> desugar_Tp_complete thm
+R50463:50481 impl2_MC.desugarer <> desugar_Tp_complete thm
+R50645:50655 Coq.Lists.List <> Forall2_nil constr
+R50645:50655 Coq.Lists.List <> Forall2_nil constr
+R50683:50694 Coq.Lists.List <> Forall2_cons constr
+R50683:50694 Coq.Lists.List <> Forall2_cons constr
+R50796:50815 impl2_MC.desugarer <> desugar_Pat_complete thm
+R50796:50815 impl2_MC.desugarer <> desugar_Pat_complete thm
+prf 50936:50963 <> desugar_Expr_eq_Desugar_Expr
+binder 50973:50973 <> e:458
+binder 50975:50976 <> e':459
+R51006:51010 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R50989:51000 impl2_MC.desugarer <> Desugar_Expr ind
+R51004:51005 impl2_MC.desugarer <> e':459 var
+R51002:51002 impl2_MC.desugarer <> e:458 var
+R51025:51027 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R51011:51022 impl2_MC.desugarer <> desugar_Expr def
+R51024:51024 impl2_MC.desugarer <> e:458 var
+R51028:51029 impl2_MC.desugarer <> e':459 var
+R51090:51110 impl2_MC.desugarer <> desugar_Expr_complete thm
+R51090:51110 impl2_MC.desugarer <> desugar_Expr_complete thm
+R51134:51153 impl2_MC.desugarer <> desugar_Expr_correct thm
+R51134:51153 impl2_MC.desugarer <> desugar_Expr_correct thm
+R51191:51199 impl2_MC.desugarer Desugarer <> sec

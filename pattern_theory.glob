@@ -1,0 +1,681 @@
+DIGEST 669cfe8ccb7b2b365adfd1e24228fc96
+Fimpl2_MC.pattern_theory
+R15:17 impl2_MC.ids <> <> lib
+R19:28 impl2_MC.primitives <> <> lib
+R30:42 impl2_MC.kernel_syntax <> <> lib
+R44:51 impl2_MC.type_env <> <> lib
+R53:55 impl2_MC.env <> <> lib
+R57:67 impl2_MC.type_theory <> <> lib
+R86:95 Coq.Lists.List <> <> lib
+R106:118 Coq.Lists.List ListNotations <> mod
+sec 183:196 <> PATTERN_THEORY
+R221:223 impl2_MC.ids <> IDS rec
+binder 218:218 <> I:1
+R244:252 impl2_MC.primitives <> PRIM_DATA rec
+binder 241:241 <> P:2
+R296:298 impl2_MC.ids <> Ide proj
+R300:300 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+not 281:281 PATTERN_THEORY :::'Ide'
+R340:343 impl2_MC.kernel_syntax <> KPat ind
+R345:345 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+R347:347 impl2_MC.pattern_theory <> PATTERN_THEORY.P var
+not 324:324 PATTERN_THEORY :::'KPat'
+R389:394 impl2_MC.ids <> Constr proj
+R396:396 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+not 371:371 PATTERN_THEORY :::'Constr'
+R434:436 impl2_MC.kernel_syntax <> KTp ind
+R438:438 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+R440:440 impl2_MC.pattern_theory <> PATTERN_THEORY.P var
+not 419:419 PATTERN_THEORY :::'KTp'
+R479:482 impl2_MC.type_env <> tenv def
+R484:484 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+R486:486 impl2_MC.pattern_theory <> PATTERN_THEORY.P var
+not 463:463 PATTERN_THEORY :::'tenv'
+R529:536 impl2_MC.type_theory <> register def
+R538:538 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+not 509:509 PATTERN_THEORY :::'register'
+def 619:620 <> pv
+R626:629 impl2_MC.pattern_theory PATTERN_THEORY :::'KPat' not
+binder 623:623 <> p:3
+R634:637 Coq.Init.Datatypes <> list ind
+R639:641 impl2_MC.pattern_theory PATTERN_THEORY :::'Ide' not
+R659:659 impl2_MC.pattern_theory <> p:3 var
+R674:678 impl2_MC.kernel_syntax <> KPVar constr
+R693:693 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R695:695 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R704:708 impl2_MC.kernel_syntax <> KPLit constr
+R723:724 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R734:738 impl2_MC.kernel_syntax <> KPAny constr
+R753:754 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R763:766 impl2_MC.kernel_syntax <> KPAs constr
+R783:785 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R790:790 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R786:787 impl2_MC.pattern_theory <> pv:4 def
+R789:789 impl2_MC.pattern_theory <> p:3 var
+R799:804 impl2_MC.kernel_syntax <> KPUnit constr
+R818:819 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R828:832 impl2_MC.kernel_syntax <> KPNil constr
+R847:848 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R857:862 impl2_MC.kernel_syntax <> KPPair constr
+R881:884 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R876:877 impl2_MC.pattern_theory <> pv:4 def
+R885:886 impl2_MC.pattern_theory <> pv:4 def
+R899:904 impl2_MC.kernel_syntax <> KPCons constr
+R923:926 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R918:919 impl2_MC.pattern_theory <> pv:4 def
+R927:928 impl2_MC.pattern_theory <> pv:4 def
+R941:949 impl2_MC.kernel_syntax <> KPVariant constr
+R960:961 impl2_MC.pattern_theory <> pv:4 def
+R963:963 impl2_MC.pattern_theory <> p:3 var
+def 1071:1079 <> intersect
+R1088:1091 Coq.Init.Datatypes <> list ind
+R1093:1095 impl2_MC.pattern_theory PATTERN_THEORY :::'Ide' not
+binder 1082:1082 <> l:6
+binder 1084:1085 <> l':7
+R1100:1103 Coq.Init.Datatypes <> bool ind
+R1125:1126 impl2_MC.pattern_theory <> l':7 var
+R1122:1122 impl2_MC.pattern_theory <> l:6 var
+R1144:1145 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R1149:1150 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R1158:1162 Coq.Init.Datatypes <> false constr
+R1158:1162 Coq.Init.Datatypes <> false constr
+R1173:1174 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1195:1198 Coq.Lists.List <> find def
+R1224:1225 impl2_MC.pattern_theory <> l':7 var
+binder 1205:1205 <> x:11
+R1210:1215 impl2_MC.ids <> id_eqb proj
+R1217:1217 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+R1219:1219 impl2_MC.pattern_theory <> x:11 var
+R1259:1262 Coq.Init.Datatypes <> Some constr
+R1269:1272 Coq.Init.Datatypes <> true constr
+R1300:1303 Coq.Init.Datatypes <> None constr
+R1310:1318 impl2_MC.pattern_theory <> intersect:8 def
+R1322:1323 impl2_MC.pattern_theory <> l':7 var
+prf 1381:1396 <> find_none_not_In
+binder 1408:1408 <> X:12
+binder 1417:1417 <> i:13
+binder 1419:1419 <> l:14
+binder 1421:1423 <> eqb:15
+R1432:1432 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1480:1491 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1446:1446 impl2_MC.pattern_theory <> X:12 var
+binder 1441:1441 <> x:16
+binder 1443:1443 <> y:17
+R1450:1461 Coq.Bool.Bool <> reflect ind
+R1465:1467 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1464:1464 impl2_MC.pattern_theory <> x:16 var
+R1468:1468 impl2_MC.pattern_theory <> y:17 var
+R1472:1474 impl2_MC.pattern_theory <> eqb:15 var
+R1476:1476 impl2_MC.pattern_theory <> x:16 var
+R1478:1478 impl2_MC.pattern_theory <> y:17 var
+R1524:1534 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1517:1519 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R1492:1495 Coq.Lists.List <> find def
+R1516:1516 impl2_MC.pattern_theory <> l:14 var
+binder 1502:1502 <> x:18
+R1507:1509 impl2_MC.pattern_theory <> eqb:15 var
+R1511:1511 impl2_MC.pattern_theory <> x:18 var
+R1513:1513 impl2_MC.pattern_theory <> i:13 var
+R1520:1523 Coq.Init.Datatypes <> None constr
+R1535:1535 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1536:1537 Coq.Lists.List <> In def
+R1541:1541 impl2_MC.pattern_theory <> l:14 var
+R1539:1539 impl2_MC.pattern_theory <> i:13 var
+prf 1947:1963 <> intersect_correct
+binder 1973:1973 <> l:19
+binder 1975:1976 <> l':20
+R1991:1991 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R2019:2024 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R1992:1998 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R2000:2001 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 1999:1999 <> x:21
+R2008:2011 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R2002:2003 Coq.Lists.List <> In def
+R2007:2007 impl2_MC.pattern_theory <> l:19 var
+R2005:2005 impl2_MC.pattern_theory <> x:21 var
+R2012:2013 Coq.Lists.List <> In def
+R2017:2018 impl2_MC.pattern_theory <> l':20 var
+R2015:2015 impl2_MC.pattern_theory <> x:21 var
+R2039:2041 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2025:2033 impl2_MC.pattern_theory <> intersect def
+R2037:2038 impl2_MC.pattern_theory <> l':20 var
+R2035:2035 impl2_MC.pattern_theory <> l:19 var
+R2042:2045 Coq.Init.Datatypes <> true constr
+R2465:2470 impl2_MC.ids <> id_eqb proj
+R2472:2472 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+R2465:2470 impl2_MC.ids <> id_eqb proj
+R2472:2472 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+R2527:2530 Coq.Lists.List <> find def
+binder 2537:2537 <> x:22
+R2542:2547 impl2_MC.ids <> id_eqb proj
+R2549:2549 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+R2551:2551 impl2_MC.pattern_theory <> x:22 var
+R2527:2530 Coq.Lists.List <> find def
+binder 2537:2537 <> x:23
+R2542:2547 impl2_MC.ids <> id_eqb proj
+R2549:2549 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+R2551:2551 impl2_MC.pattern_theory <> x:23 var
+R2753:2762 impl2_MC.ids <> id_eqb_neq proj
+R2753:2762 impl2_MC.ids <> id_eqb_neq proj
+R2753:2762 impl2_MC.ids <> id_eqb_neq proj
+R2808:2823 impl2_MC.pattern_theory <> find_none_not_In thm
+R2808:2823 impl2_MC.pattern_theory <> find_none_not_In thm
+R2922:2929 impl2_MC.ids <> ids_refl proj
+R2922:2929 impl2_MC.ids <> ids_refl proj
+R3237:3240 Coq.Lists.List <> find def
+R3271:3274 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+binder 3247:3248 <> x0:24
+R3253:3258 impl2_MC.ids <> id_eqb proj
+R3260:3260 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+R3262:3263 impl2_MC.pattern_theory <> x0:24 var
+R3237:3240 Coq.Lists.List <> find def
+R3271:3274 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+binder 3247:3248 <> x0:25
+R3253:3258 impl2_MC.ids <> id_eqb proj
+R3260:3260 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+R3262:3263 impl2_MC.pattern_theory <> x0:25 var
+R3318:3326 Coq.Lists.List <> find_some thm
+R3318:3326 Coq.Lists.List <> find_some thm
+R3418:3426 impl2_MC.ids <> id_eqb_eq proj
+R3418:3426 impl2_MC.ids <> id_eqb_eq proj
+R3418:3426 impl2_MC.ids <> id_eqb_eq proj
+R3530:3531 Coq.Lists.List <> In def
+R3723:3724 Coq.Lists.List <> In def
+prf 3802:3825 <> contra_intersect_correct
+binder 3835:3835 <> l:26
+binder 3837:3838 <> l':27
+R3878:3882 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R3848:3849 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3877:3877 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3850:3856 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R3858:3859 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 3857:3857 <> x:28
+R3866:3869 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R3860:3861 Coq.Lists.List <> In def
+R3865:3865 impl2_MC.pattern_theory <> l:26 var
+R3863:3863 impl2_MC.pattern_theory <> x:28 var
+R3870:3871 Coq.Lists.List <> In def
+R3875:3876 impl2_MC.pattern_theory <> l':27 var
+R3873:3873 impl2_MC.pattern_theory <> x:28 var
+R3883:3884 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3906:3906 Coq.Init.Logic <> ::type_scope:'~'_x not
+R3899:3901 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3885:3893 impl2_MC.pattern_theory <> intersect def
+R3897:3898 impl2_MC.pattern_theory <> l':27 var
+R3895:3895 impl2_MC.pattern_theory <> l:26 var
+R3902:3905 Coq.Init.Datatypes <> true constr
+R3950:3963 Coq.Init.Logic <> not_iff_compat thm
+R3950:3963 Coq.Init.Logic <> not_iff_compat thm
+R3979:3995 impl2_MC.pattern_theory <> intersect_correct thm
+R3979:3995 impl2_MC.pattern_theory <> intersect_correct thm
+def 4031:4040 <> constr_env
+R4045:4047 impl2_MC.env <> env def
+R4060:4062 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4057:4059 impl2_MC.pattern_theory PATTERN_THEORY :::'Ide' not
+R4063:4065 impl2_MC.pattern_theory PATTERN_THEORY :::'KTp' not
+R4049:4054 impl2_MC.pattern_theory PATTERN_THEORY :::'Constr' not
+def 4091:4094 <> WFEC
+R4100:4109 impl2_MC.pattern_theory <> constr_env def
+binder 4097:4097 <> d:29
+R4116:4119 impl2_MC.pattern_theory PATTERN_THEORY :::'tenv' not
+binder 4113:4113 <> r:30
+R4126:4133 impl2_MC.pattern_theory PATTERN_THEORY :::'register' not
+binder 4123:4123 <> R:31
+R4153:4164 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4145:4148 impl2_MC.type_theory <> WFET def
+R4152:4152 impl2_MC.pattern_theory <> R:31 var
+R4150:4150 impl2_MC.pattern_theory <> r:30 var
+binder 4172:4172 <> i:32
+binder 4174:4174 <> t:33
+binder 4176:4176 <> c:34
+R4211:4223 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4197:4199 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4187:4192 impl2_MC.env <> lookup def
+R4196:4196 impl2_MC.pattern_theory <> c:34 var
+R4194:4194 impl2_MC.pattern_theory <> d:29 var
+R4200:4203 Coq.Init.Datatypes <> Some constr
+R4205:4205 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4207:4208 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4210:4210 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4206:4206 impl2_MC.pattern_theory <> i:32 var
+R4209:4209 impl2_MC.pattern_theory <> t:33 var
+R4224:4230 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R4232:4233 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 4231:4231 <> l:35
+R4275:4278 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4251:4253 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4234:4246 impl2_MC.type_env <> last_type_def def
+R4250:4250 impl2_MC.pattern_theory <> c:34 var
+R4248:4248 impl2_MC.pattern_theory <> r:30 var
+R4254:4257 Coq.Init.Datatypes <> Some constr
+R4259:4259 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4261:4262 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4274:4274 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4260:4260 impl2_MC.pattern_theory <> i:32 var
+R4263:4271 impl2_MC.kernel_syntax <> KTVariant constr
+R4273:4273 impl2_MC.pattern_theory <> l:35 var
+R4279:4280 Coq.Lists.List <> In def
+R4289:4289 impl2_MC.pattern_theory <> l:35 var
+R4282:4282 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4284:4285 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4287:4287 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R4283:4283 impl2_MC.pattern_theory <> c:34 var
+R4286:4286 impl2_MC.pattern_theory <> t:33 var
+ind 4352:4354 <> WFP
+constr 4420:4427 <> WFP_PVar
+constr 4530:4537 <> WFP_PLit
+constr 4641:4648 <> WFP_PAny
+constr 4715:4721 <> WFP_PAs
+constr 4925:4933 <> WFP_PUnit
+constr 4998:5005 <> WFP_PNil
+constr 5070:5078 <> WFP_PPair
+constr 5328:5336 <> WFP_PCons
+constr 5585:5596 <> WFP_PVariant
+R4361:4370 impl2_MC.pattern_theory <> constr_env def
+binder 4357:4357 <> d:36
+R4377:4380 impl2_MC.pattern_theory PATTERN_THEORY :::'tenv' not
+binder 4374:4374 <> r:37
+R4387:4394 impl2_MC.pattern_theory PATTERN_THEORY :::'register' not
+binder 4384:4384 <> R:38
+R4402:4405 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4398:4401 impl2_MC.pattern_theory PATTERN_THEORY :::'KPat' not
+binder 4442:4442 <> i:41
+R4478:4504 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4468:4471 impl2_MC.pattern_theory <> WFEC def
+R4477:4477 impl2_MC.pattern_theory <> R:38 var
+R4475:4475 impl2_MC.pattern_theory <> r:37 var
+R4473:4473 impl2_MC.pattern_theory <> d:36 var
+R4505:4507 impl2_MC.pattern_theory <> WFP:39 ind
+R4516:4520 impl2_MC.kernel_syntax <> KPVar constr
+R4522:4522 impl2_MC.pattern_theory <> i:41 var
+R4513:4513 impl2_MC.pattern_theory <> R:38 var
+R4511:4511 impl2_MC.pattern_theory <> r:37 var
+R4509:4509 impl2_MC.pattern_theory <> d:36 var
+binder 4552:4552 <> x:42
+R4588:4615 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4578:4581 impl2_MC.pattern_theory <> WFEC def
+R4587:4587 impl2_MC.pattern_theory <> R:38 var
+R4585:4585 impl2_MC.pattern_theory <> r:37 var
+R4583:4583 impl2_MC.pattern_theory <> d:36 var
+R4616:4618 impl2_MC.pattern_theory <> WFP:39 ind
+R4627:4631 impl2_MC.kernel_syntax <> KPLit constr
+R4633:4633 impl2_MC.pattern_theory <> x:42 var
+R4624:4624 impl2_MC.pattern_theory <> R:38 var
+R4622:4622 impl2_MC.pattern_theory <> r:37 var
+R4620:4620 impl2_MC.pattern_theory <> d:36 var
+R4667:4692 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4657:4660 impl2_MC.pattern_theory <> WFEC def
+R4666:4666 impl2_MC.pattern_theory <> R:38 var
+R4664:4664 impl2_MC.pattern_theory <> r:37 var
+R4662:4662 impl2_MC.pattern_theory <> d:36 var
+R4693:4695 impl2_MC.pattern_theory <> WFP:39 ind
+R4703:4707 impl2_MC.kernel_syntax <> KPAny constr
+R4701:4701 impl2_MC.pattern_theory <> R:38 var
+R4699:4699 impl2_MC.pattern_theory <> r:37 var
+R4697:4697 impl2_MC.pattern_theory <> d:36 var
+binder 4737:4737 <> i:43
+binder 4739:4739 <> p:44
+R4774:4801 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4764:4767 impl2_MC.pattern_theory <> WFEC def
+R4773:4773 impl2_MC.pattern_theory <> R:38 var
+R4771:4771 impl2_MC.pattern_theory <> r:37 var
+R4769:4769 impl2_MC.pattern_theory <> d:36 var
+R4813:4839 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4802:4804 impl2_MC.pattern_theory <> WFP:39 ind
+R4812:4812 impl2_MC.pattern_theory <> p:44 var
+R4810:4810 impl2_MC.pattern_theory <> R:38 var
+R4808:4808 impl2_MC.pattern_theory <> r:37 var
+R4806:4806 impl2_MC.pattern_theory <> d:36 var
+R4868:4894 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4860:4862 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4840:4848 impl2_MC.pattern_theory <> intersect def
+R4857:4857 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R4859:4859 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R4858:4858 impl2_MC.pattern_theory <> i:43 var
+R4851:4852 impl2_MC.pattern_theory <> pv def
+R4854:4854 impl2_MC.pattern_theory <> p:44 var
+R4863:4867 Coq.Init.Datatypes <> false constr
+R4895:4897 impl2_MC.pattern_theory <> WFP:39 ind
+R4906:4909 impl2_MC.kernel_syntax <> KPAs constr
+R4913:4913 impl2_MC.pattern_theory <> i:43 var
+R4911:4911 impl2_MC.pattern_theory <> p:44 var
+R4903:4903 impl2_MC.pattern_theory <> R:38 var
+R4901:4901 impl2_MC.pattern_theory <> r:37 var
+R4899:4899 impl2_MC.pattern_theory <> d:36 var
+R4950:4974 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4940:4943 impl2_MC.pattern_theory <> WFEC def
+R4949:4949 impl2_MC.pattern_theory <> R:38 var
+R4947:4947 impl2_MC.pattern_theory <> r:37 var
+R4945:4945 impl2_MC.pattern_theory <> d:36 var
+R4975:4977 impl2_MC.pattern_theory <> WFP:39 ind
+R4985:4990 impl2_MC.kernel_syntax <> KPUnit constr
+R4983:4983 impl2_MC.pattern_theory <> R:38 var
+R4981:4981 impl2_MC.pattern_theory <> r:37 var
+R4979:4979 impl2_MC.pattern_theory <> d:36 var
+R5023:5047 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5013:5016 impl2_MC.pattern_theory <> WFEC def
+R5022:5022 impl2_MC.pattern_theory <> R:38 var
+R5020:5020 impl2_MC.pattern_theory <> r:37 var
+R5018:5018 impl2_MC.pattern_theory <> d:36 var
+R5048:5050 impl2_MC.pattern_theory <> WFP:39 ind
+R5058:5062 impl2_MC.kernel_syntax <> KPNil constr
+R5056:5056 impl2_MC.pattern_theory <> R:38 var
+R5054:5054 impl2_MC.pattern_theory <> r:37 var
+R5052:5052 impl2_MC.pattern_theory <> d:36 var
+binder 5092:5093 <> p1:45
+binder 5095:5096 <> p2:46
+R5131:5159 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5121:5124 impl2_MC.pattern_theory <> WFEC def
+R5130:5130 impl2_MC.pattern_theory <> R:38 var
+R5128:5128 impl2_MC.pattern_theory <> r:37 var
+R5126:5126 impl2_MC.pattern_theory <> d:36 var
+R5172:5198 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5160:5162 impl2_MC.pattern_theory <> WFP:39 ind
+R5170:5171 impl2_MC.pattern_theory <> p1:45 var
+R5168:5168 impl2_MC.pattern_theory <> R:38 var
+R5166:5166 impl2_MC.pattern_theory <> r:37 var
+R5164:5164 impl2_MC.pattern_theory <> d:36 var
+R5211:5237 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5199:5201 impl2_MC.pattern_theory <> WFP:39 ind
+R5209:5210 impl2_MC.pattern_theory <> p2:46 var
+R5207:5207 impl2_MC.pattern_theory <> R:38 var
+R5205:5205 impl2_MC.pattern_theory <> r:37 var
+R5203:5203 impl2_MC.pattern_theory <> d:36 var
+R5271:5297 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5263:5265 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5238:5246 impl2_MC.pattern_theory <> intersect def
+R5257:5258 impl2_MC.pattern_theory <> pv def
+R5260:5261 impl2_MC.pattern_theory <> p2:46 var
+R5249:5250 impl2_MC.pattern_theory <> pv def
+R5252:5253 impl2_MC.pattern_theory <> p1:45 var
+R5266:5270 Coq.Init.Datatypes <> false constr
+R5298:5300 impl2_MC.pattern_theory <> WFP:39 ind
+R5309:5314 impl2_MC.kernel_syntax <> KPPair constr
+R5319:5320 impl2_MC.pattern_theory <> p2:46 var
+R5316:5317 impl2_MC.pattern_theory <> p1:45 var
+R5306:5306 impl2_MC.pattern_theory <> R:38 var
+R5304:5304 impl2_MC.pattern_theory <> r:37 var
+R5302:5302 impl2_MC.pattern_theory <> d:36 var
+binder 5350:5351 <> p1:47
+binder 5353:5354 <> p2:48
+R5389:5416 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5379:5382 impl2_MC.pattern_theory <> WFEC def
+R5388:5388 impl2_MC.pattern_theory <> R:38 var
+R5386:5386 impl2_MC.pattern_theory <> r:37 var
+R5384:5384 impl2_MC.pattern_theory <> d:36 var
+R5429:5455 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5417:5419 impl2_MC.pattern_theory <> WFP:39 ind
+R5427:5428 impl2_MC.pattern_theory <> p1:47 var
+R5425:5425 impl2_MC.pattern_theory <> R:38 var
+R5423:5423 impl2_MC.pattern_theory <> r:37 var
+R5421:5421 impl2_MC.pattern_theory <> d:36 var
+R5468:5494 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5456:5458 impl2_MC.pattern_theory <> WFP:39 ind
+R5466:5467 impl2_MC.pattern_theory <> p2:48 var
+R5464:5464 impl2_MC.pattern_theory <> R:38 var
+R5462:5462 impl2_MC.pattern_theory <> r:37 var
+R5460:5460 impl2_MC.pattern_theory <> d:36 var
+R5528:5554 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5520:5522 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5495:5503 impl2_MC.pattern_theory <> intersect def
+R5514:5515 impl2_MC.pattern_theory <> pv def
+R5517:5518 impl2_MC.pattern_theory <> p2:48 var
+R5506:5507 impl2_MC.pattern_theory <> pv def
+R5509:5510 impl2_MC.pattern_theory <> p1:47 var
+R5523:5527 Coq.Init.Datatypes <> false constr
+R5555:5557 impl2_MC.pattern_theory <> WFP:39 ind
+R5566:5571 impl2_MC.kernel_syntax <> KPCons constr
+R5576:5577 impl2_MC.pattern_theory <> p2:48 var
+R5573:5574 impl2_MC.pattern_theory <> p1:47 var
+R5563:5563 impl2_MC.pattern_theory <> R:38 var
+R5561:5561 impl2_MC.pattern_theory <> r:37 var
+R5559:5559 impl2_MC.pattern_theory <> d:36 var
+binder 5607:5607 <> c:49
+binder 5609:5609 <> p:50
+R5645:5672 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5635:5638 impl2_MC.pattern_theory <> WFEC def
+R5644:5644 impl2_MC.pattern_theory <> R:38 var
+R5642:5642 impl2_MC.pattern_theory <> r:37 var
+R5640:5640 impl2_MC.pattern_theory <> d:36 var
+R5692:5719 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5685:5687 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5673:5680 impl2_MC.env <> includes def
+R5684:5684 impl2_MC.pattern_theory <> c:49 var
+R5682:5682 impl2_MC.pattern_theory <> d:36 var
+R5688:5691 Coq.Init.Datatypes <> true constr
+R5731:5757 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5720:5722 impl2_MC.pattern_theory <> WFP:39 ind
+R5730:5730 impl2_MC.pattern_theory <> p:50 var
+R5728:5728 impl2_MC.pattern_theory <> R:38 var
+R5726:5726 impl2_MC.pattern_theory <> r:37 var
+R5724:5724 impl2_MC.pattern_theory <> d:36 var
+R5758:5760 impl2_MC.pattern_theory <> WFP:39 ind
+R5769:5777 impl2_MC.kernel_syntax <> KPVariant constr
+R5781:5781 impl2_MC.pattern_theory <> p:50 var
+R5779:5779 impl2_MC.pattern_theory <> c:49 var
+R5766:5766 impl2_MC.pattern_theory <> R:38 var
+R5764:5764 impl2_MC.pattern_theory <> r:37 var
+R5762:5762 impl2_MC.pattern_theory <> d:36 var
+scheme 4352:4354 <> WFP_ind
+scheme 4352:4354 <> WFP_sind
+def 5859:5864 <> is_WFP
+R5870:5879 impl2_MC.pattern_theory <> constr_env def
+binder 5867:5867 <> d:51
+binder 5882:5882 <> p:52
+R5900:5900 impl2_MC.pattern_theory <> p:52 var
+R5914:5918 impl2_MC.kernel_syntax <> KPVar constr
+R5931:5934 Coq.Init.Datatypes <> true constr
+R5943:5947 impl2_MC.kernel_syntax <> KPLit constr
+R5960:5963 Coq.Init.Datatypes <> true constr
+R5973:5977 impl2_MC.kernel_syntax <> KPAny constr
+R5990:5993 Coq.Init.Datatypes <> true constr
+R6002:6005 impl2_MC.kernel_syntax <> KPAs constr
+R6029:6032 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R6019:6024 impl2_MC.pattern_theory <> is_WFP:53 def
+R6028:6028 impl2_MC.pattern_theory <> p:52 var
+R6026:6026 impl2_MC.pattern_theory <> d:51 var
+R6033:6036 Coq.Init.Datatypes <> negb def
+R6039:6047 impl2_MC.pattern_theory <> intersect def
+R6056:6056 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6058:6058 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R6050:6051 impl2_MC.pattern_theory <> pv def
+R6053:6053 impl2_MC.pattern_theory <> p:52 var
+R6067:6072 impl2_MC.kernel_syntax <> KPUnit constr
+R6084:6087 Coq.Init.Datatypes <> true constr
+R6096:6100 impl2_MC.kernel_syntax <> KPNil constr
+R6113:6116 Coq.Init.Datatypes <> true constr
+R6125:6130 impl2_MC.kernel_syntax <> KPPair constr
+R6168:6196 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R6153:6156 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R6142:6147 impl2_MC.pattern_theory <> is_WFP:53 def
+R6149:6149 impl2_MC.pattern_theory <> d:51 var
+R6157:6162 impl2_MC.pattern_theory <> is_WFP:53 def
+R6164:6164 impl2_MC.pattern_theory <> d:51 var
+R6197:6200 Coq.Init.Datatypes <> negb def
+R6203:6211 impl2_MC.pattern_theory <> intersect def
+R6222:6223 impl2_MC.pattern_theory <> pv def
+R6214:6215 impl2_MC.pattern_theory <> pv def
+R6236:6241 impl2_MC.kernel_syntax <> KPCons constr
+R6279:6307 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R6264:6267 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R6253:6258 impl2_MC.pattern_theory <> is_WFP:53 def
+R6260:6260 impl2_MC.pattern_theory <> d:51 var
+R6268:6273 impl2_MC.pattern_theory <> is_WFP:53 def
+R6275:6275 impl2_MC.pattern_theory <> d:51 var
+R6308:6311 Coq.Init.Datatypes <> negb def
+R6314:6322 impl2_MC.pattern_theory <> intersect def
+R6333:6334 impl2_MC.pattern_theory <> pv def
+R6325:6326 impl2_MC.pattern_theory <> pv def
+R6347:6355 impl2_MC.kernel_syntax <> KPVariant constr
+R6376:6379 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R6364:6371 impl2_MC.env <> includes def
+R6373:6373 impl2_MC.pattern_theory <> d:51 var
+R6380:6385 impl2_MC.pattern_theory <> is_WFP:53 def
+R6389:6389 impl2_MC.pattern_theory <> p:52 var
+R6387:6387 impl2_MC.pattern_theory <> d:51 var
+prf 6425:6438 <> is_WFP_correct
+binder 6448:6448 <> d:55
+binder 6450:6450 <> r:56
+binder 6452:6452 <> R:57
+binder 6454:6454 <> p:58
+R6474:6477 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6464:6467 impl2_MC.pattern_theory <> WFEC def
+R6473:6473 impl2_MC.pattern_theory <> R:57 var
+R6471:6471 impl2_MC.pattern_theory <> r:56 var
+R6469:6469 impl2_MC.pattern_theory <> d:55 var
+R6495:6498 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6488:6490 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6478:6483 impl2_MC.pattern_theory <> is_WFP def
+R6487:6487 impl2_MC.pattern_theory <> p:58 var
+R6485:6485 impl2_MC.pattern_theory <> d:55 var
+R6491:6494 Coq.Init.Datatypes <> true constr
+R6499:6501 impl2_MC.pattern_theory <> WFP ind
+R6509:6509 impl2_MC.pattern_theory <> p:58 var
+R6507:6507 impl2_MC.pattern_theory <> R:57 var
+R6505:6505 impl2_MC.pattern_theory <> r:56 var
+R6503:6503 impl2_MC.pattern_theory <> d:55 var
+R6587:6594 impl2_MC.pattern_theory <> WFP_PVar constr
+R6587:6594 impl2_MC.pattern_theory <> WFP_PVar constr
+R6618:6625 impl2_MC.pattern_theory <> WFP_PLit constr
+R6618:6625 impl2_MC.pattern_theory <> WFP_PLit constr
+R6651:6657 impl2_MC.pattern_theory <> WFP_PAs constr
+R6706:6723 Coq.Bool.Bool <> andb_true_iff thm
+R6651:6657 impl2_MC.pattern_theory <> WFP_PAs constr
+R6706:6723 Coq.Bool.Bool <> andb_true_iff thm
+R6706:6723 Coq.Bool.Bool <> andb_true_iff thm
+R6706:6723 Coq.Bool.Bool <> andb_true_iff thm
+R6706:6723 Coq.Bool.Bool <> andb_true_iff thm
+R6800:6801 impl2_MC.pattern_theory <> pv def
+R6800:6801 impl2_MC.pattern_theory <> pv def
+R6868:6871 Coq.Lists.List <> find def
+R6899:6900 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+binder 6878:6878 <> x:59
+R6883:6888 impl2_MC.ids <> id_eqb proj
+R6890:6890 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+R6892:6892 impl2_MC.pattern_theory <> x:59 var
+R6868:6871 Coq.Lists.List <> find def
+R6899:6900 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+binder 6878:6878 <> x:60
+R6883:6888 impl2_MC.ids <> id_eqb proj
+R6890:6890 impl2_MC.pattern_theory <> PATTERN_THEORY.I var
+R6892:6892 impl2_MC.pattern_theory <> x:60 var
+R6937:6954 Coq.Bool.Bool <> negb_true_iff thm
+R6937:6954 Coq.Bool.Bool <> negb_true_iff thm
+R6937:6954 Coq.Bool.Bool <> negb_true_iff thm
+R6993:7014 Coq.Bool.Bool <> not_true_is_false thm
+R6993:7014 Coq.Bool.Bool <> not_true_is_false thm
+R7036:7059 impl2_MC.pattern_theory <> contra_intersect_correct thm
+R7036:7059 impl2_MC.pattern_theory <> contra_intersect_correct thm
+R7081:7083 Coq.Init.Logic <> not def
+R7204:7219 impl2_MC.pattern_theory <> find_none_not_In thm
+R7204:7219 impl2_MC.pattern_theory <> find_none_not_In thm
+R7204:7219 impl2_MC.pattern_theory <> find_none_not_In thm
+R7279:7286 impl2_MC.ids <> ids_refl proj
+R7279:7286 impl2_MC.ids <> ids_refl proj
+R7304:7311 impl2_MC.pattern_theory <> WFP_PAny constr
+R7304:7311 impl2_MC.pattern_theory <> WFP_PAny constr
+R7337:7345 impl2_MC.pattern_theory <> WFP_PUnit constr
+R7337:7345 impl2_MC.pattern_theory <> WFP_PUnit constr
+R7370:7377 impl2_MC.pattern_theory <> WFP_PNil constr
+R7370:7377 impl2_MC.pattern_theory <> WFP_PNil constr
+R7402:7410 impl2_MC.pattern_theory <> WFP_PPair constr
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7402:7410 impl2_MC.pattern_theory <> WFP_PPair constr
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7467:7484 Coq.Bool.Bool <> andb_true_iff thm
+R7567:7584 Coq.Bool.Bool <> negb_true_iff thm
+R7567:7584 Coq.Bool.Bool <> negb_true_iff thm
+R7618:7626 impl2_MC.pattern_theory <> WFP_PCons constr
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7618:7626 impl2_MC.pattern_theory <> WFP_PCons constr
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7683:7700 Coq.Bool.Bool <> andb_true_iff thm
+R7783:7800 Coq.Bool.Bool <> negb_true_iff thm
+R7783:7800 Coq.Bool.Bool <> negb_true_iff thm
+R7845:7856 impl2_MC.pattern_theory <> WFP_PVariant constr
+R7883:7900 Coq.Bool.Bool <> andb_true_iff thm
+R7845:7856 impl2_MC.pattern_theory <> WFP_PVariant constr
+R7883:7900 Coq.Bool.Bool <> andb_true_iff thm
+R7883:7900 Coq.Bool.Bool <> andb_true_iff thm
+R7883:7900 Coq.Bool.Bool <> andb_true_iff thm
+R7883:7900 Coq.Bool.Bool <> andb_true_iff thm
+prf 7975:7989 <> is_WFP_complete
+binder 7999:7999 <> d:61
+binder 8001:8001 <> r:62
+binder 8003:8003 <> R:63
+binder 8005:8005 <> p:64
+R8026:8029 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8016:8019 impl2_MC.pattern_theory <> WFEC def
+R8025:8025 impl2_MC.pattern_theory <> R:63 var
+R8023:8023 impl2_MC.pattern_theory <> r:62 var
+R8021:8021 impl2_MC.pattern_theory <> d:61 var
+R8041:8044 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8030:8032 impl2_MC.pattern_theory <> WFP ind
+R8040:8040 impl2_MC.pattern_theory <> p:64 var
+R8038:8038 impl2_MC.pattern_theory <> R:63 var
+R8036:8036 impl2_MC.pattern_theory <> r:62 var
+R8034:8034 impl2_MC.pattern_theory <> d:61 var
+R8055:8057 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8045:8050 impl2_MC.pattern_theory <> is_WFP def
+R8054:8054 impl2_MC.pattern_theory <> p:64 var
+R8052:8052 impl2_MC.pattern_theory <> d:61 var
+R8058:8061 Coq.Init.Datatypes <> true constr
+R8174:8191 Coq.Bool.Bool <> andb_true_iff thm
+R8174:8191 Coq.Bool.Bool <> andb_true_iff thm
+R8174:8191 Coq.Bool.Bool <> andb_true_iff thm
+R8233:8250 Coq.Bool.Bool <> negb_true_iff thm
+R8233:8250 Coq.Bool.Bool <> negb_true_iff thm
+R8233:8250 Coq.Bool.Bool <> negb_true_iff thm
+R8300:8317 Coq.Bool.Bool <> andb_true_iff thm
+R8356:8373 Coq.Bool.Bool <> negb_true_iff thm
+R8300:8317 Coq.Bool.Bool <> andb_true_iff thm
+R8300:8317 Coq.Bool.Bool <> andb_true_iff thm
+R8300:8317 Coq.Bool.Bool <> andb_true_iff thm
+R8300:8317 Coq.Bool.Bool <> andb_true_iff thm
+R8300:8317 Coq.Bool.Bool <> andb_true_iff thm
+R8300:8317 Coq.Bool.Bool <> andb_true_iff thm
+R8300:8317 Coq.Bool.Bool <> andb_true_iff thm
+R8356:8373 Coq.Bool.Bool <> negb_true_iff thm
+R8356:8373 Coq.Bool.Bool <> negb_true_iff thm
+R8356:8373 Coq.Bool.Bool <> negb_true_iff thm
+R8356:8373 Coq.Bool.Bool <> negb_true_iff thm
+R8433:8450 Coq.Bool.Bool <> andb_true_iff thm
+R8489:8506 Coq.Bool.Bool <> negb_true_iff thm
+R8433:8450 Coq.Bool.Bool <> andb_true_iff thm
+R8433:8450 Coq.Bool.Bool <> andb_true_iff thm
+R8433:8450 Coq.Bool.Bool <> andb_true_iff thm
+R8433:8450 Coq.Bool.Bool <> andb_true_iff thm
+R8433:8450 Coq.Bool.Bool <> andb_true_iff thm
+R8433:8450 Coq.Bool.Bool <> andb_true_iff thm
+R8433:8450 Coq.Bool.Bool <> andb_true_iff thm
+R8489:8506 Coq.Bool.Bool <> negb_true_iff thm
+R8489:8506 Coq.Bool.Bool <> negb_true_iff thm
+R8489:8506 Coq.Bool.Bool <> negb_true_iff thm
+R8489:8506 Coq.Bool.Bool <> negb_true_iff thm
+R8578:8591 impl2_MC.pattern_theory PATTERN_THEORY <> sec
