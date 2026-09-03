@@ -112,15 +112,15 @@ Section MC_lang.
     Let P := bns_data.
     
     Local Notation "'$p' s " := (@PVar I s) (at level 90).
-    Local Notation "'0p' "  := (@PNat I 0) (at level 90). 
-    Local Notation " n 'p+.1'" := (@PNat I (n + 1)) (at level 90, right associativity).
+    Local Notation " '$pn' n"  := (@PNat I n) (at level 90). 
     Local Notation "'pT' " := (@PBool I true) (at level 90, right associativity).
     Local Notation "'pF' " := (@PBool I false) (at level 90, right associativity).
-    Local Notation "'#p' s" := (@PString I s) (at level 90, right associativity).
+    Local Notation "'$ps' s" := (@PString I s) (at level 90, right associativity).
     Local Notation "p 'As' x" := (@PAs I p x) (at level 91, left associativity). 
     Local Notation "'_ "  := (@PAny I) (at level 90, right associativity).
     Local Notation " 'pTup(' l ')' " := (@PTup I l) (at level 90, right associativity).
-    Local Notation " 'pCons(' l ')' " := (@PCons I l) (at level 90, right associativity).
+    Local Notation " 'pNil' " := (@PNil I) (at level 90, right associativity).
+    Local Notation " 'pCons(' head ',' tail ')' " := (@PCons I head tail) (at level 90, right associativity).
     Local Notation " 'pC(' c ',' l ')' " := (@PVariant I c l) (at level 100, right associativity).
 
     Local Notation " 'TFunction' " := (@TFunction I). 
@@ -135,9 +135,10 @@ Section MC_lang.
     Local Notation " 'TError' " := (@TError I).
 
     Local Notation " '$' s " := (@Var I s) (at level 90).
+    Local Notation " '$n' n " := (@Nat I n) (at level 90).
     Local Notation " 'T' " := (@Bool I true) (at level 90). 
     Local Notation " 'F' " := (@Bool I false) (at level 90). 
-    Local Notation " '#' s" := (@String I s) (at level 50).
+    Local Notation " '$s' s " := (@EString I s) (at level 50).
     Local Notation " '!' e " := (@Not I e) (at level 90).
     Local Notation " e1 & e2 " := (@And I e1 e2) (at level 91, left associativity). 
     Local Notation " e1 || e2 " := (@Or I e1 e2) (at level 50, left associativity).
@@ -147,15 +148,21 @@ Section MC_lang.
     Local Notation " e1 '@.' e2 " := (@Concat I e1 e2) (at level 91, left associativity).
     Local Notation " e1 '==' e2 " := (@Equal I e1 e2) (at level 91, left associativity). 
     Local Notation " 'λ' l '.' e  " := (@Lam I l e) (at level 90).  
-    Local Notation " 'Tup' l " := (@Tup I l) (at level 90).  
-    Local Notation " 'Cons' l " := (@Cons I l) (at level 90).
+    Local Notation " 'Tup' l " := (@Tup I l) (at level 90).
+    Local Notation " 'Nil' " := (@Nil I) (at level 90). 
+    Local Notation " 'Cons(' head ',' tail ')' " := (@Cons I head tail) (at level 90).
     Local Notation " 'C(' c ',' l ')' " := (@EVariant I c l) (at level 90).
     Local Notation " 'Let' p '::=' e1 'In' e2" := (@ELet I p e1 e2) (at level 90).
     Local Notation " 'If' e1 'Then' e2 'Else' e3 " := (@If I e1 e2 e3) (at level 90). 
     Local Notation " 'LetRec' i '::=' e1 'In' e2 " := (@LetRec I i e1 e2) (at level 90).
     Local Notation " 'DefType' l 'In' e " := (@DefType I l e) (at level 90). 
     Local Notation " 'Match' e 'With' l " := (@Match I e l) (at level 90). 
-    
+
+    Fixpoint lit_list_to_list (l: list (Expr I)) : Expr I := 
+      match l with 
+      |[]   => Nil 
+      |h::t => Cons(h, lit_list_to_list t)
+      end. 
    
     Definition my_lis : Expr I :=  
       DefType [("LIST_NAT", TVariant([
@@ -172,16 +179,42 @@ Section MC_lang.
                                 (pC("Nil", []), $"acc"); 
                                 (pC("Cons", [$p"n"; $p"t"]), 
                                   App ($"reduce") [$"f"; $"t"; App ($"f") [$"acc"; $"n"]])
-                               ]
-            
-       In App ($"reduce") [λ[$p"x"; $p"y"]. Sum ($"x") ($"y"); 
+                               ]   
+       In 
+       LetRec "append" ::= λ[$p"l1"; $p"l2"]. Match $"l1" With [
+                                (pC("Nil", []), $"l2"); 
+                                (pC("Cons", [$p"n"; $p"t"]), 
+                                  C("Cons", [$"n"; App ($"append") [$"t"; $"l2"]]))
+                            ] 
+       In App ($"reduce") [λ[$p"x"; $p"y"]. C("Cons", [$"y"; $"x"]); 
                         C("Cons", [(@Nat I 3); C("Cons", [(@Nat I 5) ; 
                           C("Cons", [(@Nat I 4); C("Cons", [(@Nat I 6); 
                             C("Cons", [@Nat I 9; C("Nil", [])])])])])]); 
-                        @Nat I 0] . 
+                        C("Nil", [])] . 
                          
      
-
+    Definition native_lis : Expr I := 
+       
+      LetRec "map" ::= λ[$p"f"; $p"l"]. Match $"l" With [
+                            (pNil, Nil); 
+                            (pCons($p"h",$p"t"), Cons(App ($"f") [$"h"], App ($"map") [$"t"]))
+                            ]
+       In 
+      LetRec "reduce" ::= λ[$p"f"; $p"l"; $p"acc"]. Match $"l" With [
+                                (pNil, $"acc"); 
+                                (pCons($p"h", $p"t"), 
+                                  App ($"reduce") [$"f"; $"t"; App ($"f") [$"acc"; $"h"]])
+                               ]   
+       In  
+      LetRec "append" ::= λ[$p"l1"; $p"l2"]. Match $"l1" With [
+                                (pNil, $"l2"); 
+                                (pCons($p"h", $p"t"), Cons($"h", App ($"append") [$"t"; $"l2"]))
+                            ]
+      In 
+      App ($"reduce") [λ[$p"x"; $p"y"]. $"x" @. $"y" ; 
+                       Cons($s "hello",Cons($s " ",Cons($s "world", Nil)))              
+                      ; $s ""].
+      
     Definition my_nat := DefType [("NAT", TVariant([
         ("Z", []); 
         ("S", [TRef "NAT"])
@@ -193,7 +226,7 @@ Section MC_lang.
        In App ($"sum") [C("S", [C("S", [C("S", [C("Z", [])])])]); 
                         C("Z", [])] .
                     
-    Definition my_prog_des := @desugar_Expr I my_lis.
+    Definition my_prog_des := @desugar_Expr I native_lis.
     Definition register_empty := @empty_env (Ide I) (unit). 
     Definition c_env_empty := @empty_env (Constr I) ((Ide I) * (KTp I P)).
     Definition my_prog_elab := elab my_prog_des [] register_empty c_env_empty.

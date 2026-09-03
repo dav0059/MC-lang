@@ -1,4 +1,4 @@
-Require Import Lists.List Strings.String PeanoNat ZArith. 
+Require Import Lists.List Strings.String PeanoNat. 
 Import ListNotations.
 Require Import primitives ids kernel_syntax surface_syntax.  
 Open Scope string_scope.
@@ -224,14 +224,7 @@ Section Desugarer.
 
 
    (* 1. PATTERN DESUGARING *)
-       (* 1.1. helper functions for pattern desugaring*)
-       Fixpoint from_lispat_to_cons (l: list (KPat I bns_data)) : KPat I bns_data := 
-              match l with 
-              |[]   => KPNil
-              |h::t => KPCons h (from_lispat_to_cons t )
-              end. 
-              
-              
+       (* 1.1. helper functions for pattern desugaring*)              
        Fixpoint from_lispat_to_tup (l:list (KPat I bns_data)) := 
               match l with 
               |[]   => KPUnit
@@ -253,10 +246,12 @@ Section Desugarer.
                             Desugar_Pat (PAs p1 i) (KPAs p2 i)
        |dsg_PTup       : forall l l',
                             Forall2 Desugar_Pat l l' -> 
-                            Desugar_Pat (PTup l) (from_lispat_to_tup l')  
-       |dsg_PCons      : forall l l',
-                            Forall2 Desugar_Pat l l' -> 
-                            Desugar_Pat (PCons l) (from_lispat_to_cons l')
+                            Desugar_Pat (PTup l) (from_lispat_to_tup l') 
+       |dsg_PNil       : Desugar_Pat PNil KPNil  
+       |dsg_PCons      : forall head head' tail tail',
+                            Desugar_Pat head head'->
+                            Desugar_Pat tail tail' -> 
+                            Desugar_Pat (PCons head tail) (KPCons head' tail')
        |dsg_PVariant   : forall c l l',
                             Forall2 Desugar_Pat l l' ->  
                             Desugar_Pat (PVariant c l) (KPVariant c (from_lispat_to_tup l')).
@@ -274,11 +269,16 @@ Section Desugarer.
               Hypothesis PString_case  : forall s, P (PString s) (@KPLit _ bns_data (VlString s)).
               Hypothesis PAny_case     : P PAny (KPAny).
               Hypothesis PAs_case      : forall i p p' , 
-                                          P p p' -> P (PAs p i) (KPAs p' i).
+                                          P p p' -> 
+                                          P (PAs p i) (KPAs p' i).
               Hypothesis PTup_case     : forall l l', 
-                                          Forall2 P l l' -> P (PTup l) (from_lispat_to_tup l').
-              Hypothesis PCons_case    : forall l l', 
-                                          Forall2 P l l' -> P (PCons l) (from_lispat_to_cons l').
+                                          Forall2 P l l' -> 
+                                          P (PTup l) (from_lispat_to_tup l').
+              Hypothesis PNil_case     : P PNil KPNil.
+              Hypothesis PCons_case    : forall head head' tail tail', 
+                                          P head head' ->
+                                          P tail tail' ->
+                                          P (PCons head tail) (KPCons head' tail').
               Hypothesis PVariant_case : forall c l l',  
                                           Forall2 P l l' ->
                                           P (PVariant c l) (KPVariant c (from_lispat_to_tup l')).
@@ -304,16 +304,8 @@ Section Desugarer.
                                    Forall2_cons _ _
                                    (Desugar_Pat_ind' Hh) (list_pat_ind' _ _ Ht)    
                             end) _ _ H )
-                     |dsg_PCons H => PCons_case
-                            ((fix list_pat_ind' lis lis' 
-                                                 (H: Forall2 Desugar_Pat lis lis')
-                                   : Forall2 P lis lis' := 
-                            match H with 
-                            |Forall2_nil _ => Forall2_nil P   
-                            |Forall2_cons _ _ Hh Ht  => 
-                                   Forall2_cons _ _
-                                   (Desugar_Pat_ind' Hh) (list_pat_ind' _ _ Ht)    
-                            end) _ _ H) 
+                     |dsg_PNil       => PNil_case 
+                     |dsg_PCons H H' => PCons_case (Desugar_Pat_ind' H) (Desugar_Pat_ind' H')
                      |dsg_PVariant H => PVariant_case  
                             ((fix list_pat_ind' lis lis' 
                                                  (H: Forall2 Desugar_Pat lis lis')
@@ -340,7 +332,8 @@ Section Desugarer.
          |PAny                       => KPAny 
          |PAs p' i                   => KPAs (desugar_Pat p') i
          |PTup lis                   => from_lispat_to_tup (map desugar_Pat lis)   
-         |PCons lis                  => from_lispat_to_cons (map desugar_Pat lis)
+         |PNil                       => KPNil
+         |PCons head tail            => KPCons (desugar_Pat head) (desugar_Pat tail)
          |PVariant c lis             => KPVariant c (from_lispat_to_tup (map desugar_Pat lis))
          end.
 
@@ -356,13 +349,15 @@ Section Desugarer.
               intros; subst; simpl; 
               eauto using 
               dsg_PVar, dsg_PBool, dsg_PNat, dsg_PString, dsg_PAny ,  
-              dsg_PAs; 
-              first [ apply dsg_PTup | apply dsg_PCons | apply dsg_PVariant];  
-              induction l;          
-              try (simpl; apply Forall2_nil);  
-              apply Forall2_cons; 
-              first [inversion H; subst;apply H2; reflexivity 
-                     | apply IHl; inversion H; assumption].  
+              dsg_PAs, dsg_PNil, dsg_PCons.
+              + apply dsg_PTup. induction l.          
+                 * simpl; apply Forall2_nil.
+                 * apply Forall2_cons; inversion H; subst; clear H;
+                   try apply H2; eauto.
+              + apply dsg_PVariant. induction l. 
+                 * simpl; apply Forall2_nil.
+                 * apply Forall2_cons; inversion H; subst; clear H;
+                   try apply H2; eauto.
        Qed. 
 
 
@@ -575,13 +570,6 @@ Section Desugarer.
            eauto.
            + simpl. f_equal. apply forall2_eq_map. assumption.
            + simpl. f_equal. eauto.
-           (* + simpl. f_equal. generalize dependent l3. induction l1.
-             - intros. simpl; inversion H; inversion H0; eauto; subst; discriminate. 
-             - intros. simpl. inversion H; inversion H0; subst; try discriminate.
-               f_equal. 
-               -- destruct y0. destruct H6; simpl in *; subst.
-                  inversion H8; subst. destruct H3; rewrite H1.
-                  repeat f_equal. apply forall2_eq_map; eauto.      *)
            + simpl. f_equal. apply forall2_eq_map.  
              generalize dependent l3. generalize dependent l2. 
              induction l1; intros. 
@@ -624,13 +612,7 @@ Section Desugarer.
               |h::t => KPair h (from_lisexpr_to_tup t)
               end.
               
-       Fixpoint from_lisexpr_to_cons (l: list (KExpr I bns_data)) := 
-              match l with 
-              |[]    => KNil 
-              |h::t  => KCons h (from_lisexpr_to_cons t)
-              end.
-              
-                                                 
+                                               
        (* 3.2. specification for expression desugaring:
        -Lambda rules state that the desugaring of `Lam [p1;...;pn] e` is 
        `Lam(p1, ..., (Lam(pn, Lam(Any, e))...)`. 
@@ -658,7 +640,7 @@ Section Desugarer.
        |dsg_Nat      : forall n, 
                         Desugar_Expr (Nat n) (@KLit _ bns_data (VlNat n))
        |dsg_String   : forall s, 
-                        Desugar_Expr (String s) (@KLit _ bns_data (VlString s))
+                        Desugar_Expr (EString s) (@KLit _ bns_data (VlString s))
        |dsg_Not      : forall e e', 
                         Desugar_Expr e e' ->
                         Desugar_Expr (Not e) (@KOp _ bns_data (OpNot) [e']) 
@@ -701,9 +683,11 @@ Section Desugarer.
        |dsg_Tup      : forall l l',  
                         Forall2 Desugar_Expr l l' ->
                         Desugar_Expr (Tup l) (from_lisexpr_to_tup l')
-       |dsg_Cons     : forall l l',  
-                        Forall2 Desugar_Expr l l' ->
-                        Desugar_Expr (Cons l) (from_lisexpr_to_cons l') 
+       |dsg_Nil      : Desugar_Expr Nil KNil
+       |dsg_Cons     : forall head head' tail tail',  
+                        Desugar_Expr head head' ->
+                        Desugar_Expr tail tail' ->
+                        Desugar_Expr (Cons head tail) (KCons head' tail') 
        |dsg_Variant  : forall c l l',   
                         Forall2 Desugar_Expr l l' -> 
                         Desugar_Expr (EVariant c l) (KVariant c (from_lisexpr_to_tup l'))
@@ -739,175 +723,165 @@ Section Desugarer.
        
        
        
-       (* 3.3. induction principle for Desugar_Expr proposition *)
-       Section Desugar_Expr_ind'.  
+  (* 3.3. induction principle for Desugar_Expr proposition *)
+  Section Desugar_Expr_ind'.  
 
-              Variable P  : Expr I -> KExpr I bns_data -> Prop. 
-              Hypothesis Var_case       : forall i, P (Var i) (KVar i).
-              Hypothesis Bool_case      : forall b, P (Bool b) (@KLit _ bns_data (VlBool b)).
-              Hypothesis Nat_case       : forall n, P (Nat n) (@KLit _ bns_data (VlNat n)). 
-              Hypothesis String_case    : forall s, P (String s) (@KLit _ bns_data (VlString s)).
-              Hypothesis Not_case       : forall e e', P e e' -> P (Not e) (@KOp _ bns_data OpNot [e']).
-              Hypothesis And_case       : forall e1 e2 e1' e2', 
-                                           P e1 e1' -> 
-                                           P e2 e2' -> 
-                                           P (And e1 e2) (@KOp _ bns_data OpAnd [e1'; e2']).
-              Hypothesis Or_case       : forall e1 e2 e1' e2', 
-                                           P e1 e1' -> 
-                                           P e2 e2' -> 
-                                           P (Or e1 e2) (@KOp _ bns_data OpOr [e1'; e2']).
-              Hypothesis Sum_case       : forall e1 e2 e1' e2', 
-                                           P e1 e1' -> 
-                                           P e2 e2' ->
-                                           P (Sum e1 e2) (@KOp _ bns_data OpSum [e1'; e2']).
-              Hypothesis Sub_case       : forall e1 e2 e1' e2', 
-                                           P e1 e1' -> 
-                                           P e2 e2' -> 
-                                           P (Sub e1 e2) (@KOp _ bns_data OpSub [e1'; e2']).
-              Hypothesis Mul_case       : forall e1 e2 e1' e2', 
-                                           P e1 e1' -> 
-                                           P e2 e2' -> 
-                                           P (Mul e1 e2) (@KOp _ bns_data OpMul [e1'; e2']).
-              Hypothesis Concat_case    : forall e1 e2 e1' e2', 
-                                           P e1 e1' -> 
-                                           P e2 e2' -> 
-                                           P (Concat e1 e2) (@KOp _ bns_data OpConcat [e1'; e2']).
-              Hypothesis Eq_case        : forall e1 e2 e1' e2', 
-                                           P e1 e1' -> 
-                                           P e2 e2' -> 
-                                           P (Equal e1 e2) (@KOp _ bns_data OpEq [e1'; e2']).
-              Hypothesis Lam_case       : forall lp lp' e e', 
-                                           Forall2 Desugar_Pat lp lp' -> 
-                                           P e e' -> 
-                                           P (Lam lp e) (from_lispat_to_lam lp' e') .
-              Hypothesis App_case       : forall e e' l l', 
-                                           P e e' -> 
-                                           Forall2 P l l' ->
-                                           P (App e l) (KApp (from_lisargs_to_napp (rev l') e') KUnit).
-              Hypothesis Tup_case       : forall l l', 
-                                           Forall2 P l l' -> 
-                                           P (Tup l) (from_lisexpr_to_tup l').
-              Hypothesis Cons_case      : forall l l', 
-                                           Forall2 P l l' -> 
-                                           P (Cons l) (from_lisexpr_to_cons l').       
-              Hypothesis Variant_case  : forall c l l', 
-                                           Forall2 P l l' -> 
-                                           P (EVariant c l) (KVariant c (from_lisexpr_to_tup l')). 
-              Hypothesis ELet_case      : forall p p' e1 e1' e2 e2', 
-                                           Desugar_Pat p p' -> 
-                                           P e1 e1' -> 
-                                           P e2 e2' -> 
-                                           P (ELet p e1 e2) (KApp (KLam p' e2') e1').
-              Hypothesis If_case        : forall e1 e1' e2 e2' e3 e3', 
-                                           P e1 e1' -> 
-                                           P e2 e2' -> 
-                                           P e3 e3' -> 
-                                           P (If e1 e2 e3) (KMatch e1' [
-                                                            (@KPLit _ bns_data (VlBool true), (e2')); 
-                                                            (@KPLit _ bns_data (VlBool false), (e3'))]).
-              Hypothesis LetRec_case    : forall i e1 e1' e2 e2', 
-                                           P e1 e1' -> 
-                                           P e2 e2' -> 
-                                           P (LetRec i e1 e2) (KApp (KLam (KPVar i) e2') (KFix i e1')). 
-              Hypothesis DefType_case   : forall l l' e e',  
-                                           Forall2 (fun p q => fst p = fst q /\ Desugar_Tp (snd p) (snd q)) l l' -> 
-                                           P e e' -> 
-                                           P (DefType l e) (KDefType l' e'). 
-              Hypothesis Match_case     : forall e e' l l', 
-                                            P e e' -> 
-                                            Forall2 (fun p q => Desugar_Pat (fst p) (fst q) /\ P (snd p) (snd q)) l l' -> 
-                                            P (Match e l) (KMatch e' l').
-              Hypothesis Error_case     : forall m, P (EError m) (KError m).
-              
-              Fixpoint Desugar_Expr_ind' (e: Expr I) (e': KExpr I bns_data) (H: Desugar_Expr e e') 
-                                          : P e e' := 
-                     match H with 
-                     |dsg_Var                                    => Var_case 
-                     |dsg_Bool                                   => Bool_case  
-                     |dsg_Nat                                    => Nat_case  
-                     |dsg_String                                 => String_case 
-                     |dsg_Not Hp                                 => Not_case (Desugar_Expr_ind' Hp) 
-                     |dsg_And Hp1 Hp2                            => And_case 
-                                                                    (Desugar_Expr_ind' Hp1) 
-                                                                    (Desugar_Expr_ind' Hp2)
-                     |dsg_Or Hp1 Hp2                             => Or_case 
-                                                                     (Desugar_Expr_ind' Hp1)
-                                                                     (Desugar_Expr_ind' Hp2) 
-                     |dsg_Sum Hp1 Hp2                            => Sum_case  
-                                                                    (Desugar_Expr_ind' Hp1) 
-                                                                    (Desugar_Expr_ind' Hp2)
-                     |dsg_Sub Hp1 Hp2                            => Sub_case 
-                                                                    (Desugar_Expr_ind' Hp1) 
-                                                                    (Desugar_Expr_ind' Hp2) 
-                     |dsg_Mul Hp1 Hp2                            => Mul_case 
-                                                                    (Desugar_Expr_ind' Hp1) 
-                                                                    (Desugar_Expr_ind' Hp2)
-                     |dsg_Concat Hp1 Hp2                         => Concat_case 
-                                                                    (Desugar_Expr_ind' Hp1) 
-                                                                    (Desugar_Expr_ind' Hp2)
-                     |dsg_Equal Hp1 Hp2                          => Eq_case  
-                                                                    (Desugar_Expr_ind' Hp1) 
-                                                                    (Desugar_Expr_ind' Hp2)
-                     |dsg_Lam Hp1 Hp2                            => Lam_case Hp1  
-                                                                    (Desugar_Expr_ind' Hp2)   
-                     |dsg_App Hp1 Hp2                            => App_case (Desugar_Expr_ind' Hp1)
-                            ((fix lis_exp_ind' l l' (H: Forall2 Desugar_Expr l l') : Forall2 P l l' := 
-                                   match H with 
-                                   |Forall2_nil _            => Forall2_nil _ 
-                                   |Forall2_cons _ _ Hhp Htp => Forall2_cons _ _ (Desugar_Expr_ind' Hhp)  
-                                                                                 (lis_exp_ind' _ _ Htp) 
-                                   end) _ _ Hp2)
-                     |dsg_Tup Hp                                 => Tup_case  
-                            ((fix lis_exp_ind' l l' (H: Forall2 Desugar_Expr l l') : Forall2 P l l' := 
-                                   match H with 
-                                   |Forall2_nil _            => Forall2_nil _ 
-                                   |Forall2_cons _ _ Hhp Htp => Forall2_cons _ _ (Desugar_Expr_ind' Hhp)  
-                                                                                 (lis_exp_ind' _ _ Htp) 
-                                   end) _ _ Hp)
-                     |dsg_Cons Hp                                => Cons_case  
-                            ((fix lis_exp_ind l l' (H: Forall2 Desugar_Expr l l') : Forall2 P l l' := 
-                                   match H with 
-                                   |Forall2_nil _            => Forall2_nil _ 
-                                   |Forall2_cons _ _ Hhp Htp => Forall2_cons _ _ (Desugar_Expr_ind' Hhp)  
-                                                                                 (lis_exp_ind _ _ Htp) 
-                                   end) _ _ Hp)   
-                     |dsg_Variant Hp                             => Variant_case 
-                            ((fix lis_exp_ind l l' (H: Forall2 Desugar_Expr l l') : Forall2 P l l' := 
-                                   match H with 
-                                   |Forall2_nil _            => Forall2_nil _ 
-                                   |Forall2_cons _ _ Hhp Htp => Forall2_cons _ _ (Desugar_Expr_ind' Hhp)  
-                                                                                 (lis_exp_ind _ _ Htp) 
-                                   end) _ _ Hp)
-                     |dsg_Let Hp1 Hp2 Hp3                        => ELet_case Hp1 
-                                                                    (Desugar_Expr_ind' Hp2)
-                                                                    (Desugar_Expr_ind' Hp3)
+        Variable P  : Expr I -> KExpr I bns_data -> Prop. 
+        Hypothesis Var_case       : forall i, P (Var i) (KVar i).
+        Hypothesis Bool_case      : forall b, P (Bool b) (@KLit _ bns_data (VlBool b)).
+        Hypothesis Nat_case       : forall n, P (Nat n) (@KLit _ bns_data (VlNat n)). 
+        Hypothesis String_case    : forall s, P (EString s) (@KLit _ bns_data (VlString s)).
+        Hypothesis Not_case       : forall e e', P e e' -> P (Not e) (@KOp _ bns_data OpNot [e']).
+        Hypothesis And_case       : forall e1 e2 e1' e2', 
+                                      P e1 e1' -> 
+                                      P e2 e2' -> 
+                                      P (And e1 e2) (@KOp _ bns_data OpAnd [e1'; e2']).
+        Hypothesis Or_case       : forall e1 e2 e1' e2', 
+                                      P e1 e1' -> 
+                                      P e2 e2' -> 
+                                      P (Or e1 e2) (@KOp _ bns_data OpOr [e1'; e2']).
+        Hypothesis Sum_case       : forall e1 e2 e1' e2', 
+                                      P e1 e1' -> 
+                                      P e2 e2' ->
+                                      P (Sum e1 e2) (@KOp _ bns_data OpSum [e1'; e2']).
+        Hypothesis Sub_case       : forall e1 e2 e1' e2', 
+                                      P e1 e1' -> 
+                                      P e2 e2' -> 
+                                      P (Sub e1 e2) (@KOp _ bns_data OpSub [e1'; e2']).
+        Hypothesis Mul_case       : forall e1 e2 e1' e2', 
+                                      P e1 e1' -> 
+                                      P e2 e2' -> 
+                                      P (Mul e1 e2) (@KOp _ bns_data OpMul [e1'; e2']).
+        Hypothesis Concat_case    : forall e1 e2 e1' e2', 
+                                      P e1 e1' -> 
+                                      P e2 e2' -> 
+                                      P (Concat e1 e2) (@KOp _ bns_data OpConcat [e1'; e2']).
+        Hypothesis Eq_case        : forall e1 e2 e1' e2', 
+                                      P e1 e1' -> 
+                                      P e2 e2' -> 
+                                      P (Equal e1 e2) (@KOp _ bns_data OpEq [e1'; e2']).
+        Hypothesis Lam_case       : forall lp lp' e e', 
+                                      Forall2 Desugar_Pat lp lp' -> 
+                                      P e e' -> 
+                                      P (Lam lp e) (from_lispat_to_lam lp' e') .
+        Hypothesis App_case       : forall e e' l l', 
+                                      P e e' -> 
+                                      Forall2 P l l' ->
+                                      P (App e l) (KApp (from_lisargs_to_napp (rev l') e') KUnit).
+        Hypothesis Tup_case       : forall l l', 
+                                      Forall2 P l l' -> 
+                                      P (Tup l) (from_lisexpr_to_tup l').
+        Hypothesis Nil_case       : P Nil KNil.
+        Hypothesis Cons_case      : forall head head' tail tail', 
+                                      P head head' ->
+                                      P tail tail' ->  
+                                      P (Cons head tail) (KCons head' tail').       
+        Hypothesis Variant_case  : forall c l l', 
+                                      Forall2 P l l' -> 
+                                      P (EVariant c l) (KVariant c (from_lisexpr_to_tup l')). 
+        Hypothesis ELet_case      : forall p p' e1 e1' e2 e2', 
+                                      Desugar_Pat p p' -> 
+                                      P e1 e1' -> 
+                                      P e2 e2' -> 
+                                      P (ELet p e1 e2) (KApp (KLam p' e2') e1').
+        Hypothesis If_case        : forall e1 e1' e2 e2' e3 e3', 
+                                      P e1 e1' -> 
+                                      P e2 e2' -> 
+                                      P e3 e3' -> 
+                                      P (If e1 e2 e3) (KMatch e1' [
+                                                      (@KPLit _ bns_data (VlBool true), (e2')); 
+                                                      (@KPLit _ bns_data (VlBool false), (e3'))]).
+        Hypothesis LetRec_case    : forall i e1 e1' e2 e2', 
+                                      P e1 e1' -> 
+                                      P e2 e2' -> 
+                                      P (LetRec i e1 e2) (KApp (KLam (KPVar i) e2') (KFix i e1')). 
+        Hypothesis DefType_case   : forall l l' e e',  
+                                      Forall2 (fun p q => fst p = fst q /\ Desugar_Tp (snd p) (snd q)) l l' -> 
+                                      P e e' -> 
+                                      P (DefType l e) (KDefType l' e'). 
+        Hypothesis Match_case     : forall e e' l l', 
+                                      P e e' -> 
+                                      Forall2 (fun p q => Desugar_Pat (fst p) (fst q) /\ P (snd p) (snd q)) l l' -> 
+                                      P (Match e l) (KMatch e' l').
+        Hypothesis Error_case     : forall m, P (EError m) (KError m).
+        
+        Fixpoint Desugar_Expr_ind' (e: Expr I) (e': KExpr I bns_data) (H: Desugar_Expr e e') 
+                                    : P e e' := 
+                match H with 
+                |dsg_Var                  => Var_case 
+                |dsg_Bool                 => Bool_case  
+                |dsg_Nat                  => Nat_case  
+                |dsg_String               => String_case 
+                |dsg_Not Hp               => Not_case (Desugar_Expr_ind' Hp) 
+                |dsg_And Hp1 Hp2          => And_case (Desugar_Expr_ind' Hp1) 
+                                                      (Desugar_Expr_ind' Hp2)
+                |dsg_Or Hp1 Hp2           => Or_case (Desugar_Expr_ind' Hp1)
+                                                     (Desugar_Expr_ind' Hp2) 
+                |dsg_Sum Hp1 Hp2          => Sum_case (Desugar_Expr_ind' Hp1) 
+                                                      (Desugar_Expr_ind' Hp2)
+                |dsg_Sub Hp1 Hp2          => Sub_case (Desugar_Expr_ind' Hp1) 
+                                                      (Desugar_Expr_ind' Hp2) 
+                |dsg_Mul Hp1 Hp2          => Mul_case (Desugar_Expr_ind' Hp1) 
+                                                      (Desugar_Expr_ind' Hp2)
+                |dsg_Concat Hp1 Hp2       => Concat_case (Desugar_Expr_ind' Hp1) 
+                                                         (Desugar_Expr_ind' Hp2)
+                |dsg_Equal Hp1 Hp2        => Eq_case (Desugar_Expr_ind' Hp1) 
+                                                     (Desugar_Expr_ind' Hp2)
+                |dsg_Lam Hp1 Hp2          => Lam_case Hp1 (Desugar_Expr_ind' Hp2)   
+                |dsg_App Hp1 Hp2          => App_case (Desugar_Expr_ind' Hp1)
+                      ((fix lis_exp_ind' l l' (H: Forall2 Desugar_Expr l l') 
+                                              : Forall2 P l l' := 
+                              match H with 
+                              |Forall2_nil _            => Forall2_nil _ 
+                              |Forall2_cons _ _ Hhp Htp => Forall2_cons _ _ (Desugar_Expr_ind' Hhp)  
+                                                                            (lis_exp_ind' _ _ Htp) 
+                              end) _ _ Hp2)
+                |dsg_Tup Hp                                 => Tup_case  
+                      ((fix lis_exp_ind' l l' (H: Forall2 Desugar_Expr l l') 
+                                              : Forall2 P l l' := 
+                              match H with 
+                              |Forall2_nil _            => Forall2_nil _ 
+                              |Forall2_cons _ _ Hhp Htp => Forall2_cons _ _ (Desugar_Expr_ind' Hhp)  
+                                                                            (lis_exp_ind' _ _ Htp) 
+                              end) _ _ Hp)
+                |dsg_Nil                  => Nil_case
+                |dsg_Cons Hp1 Hp2         => Cons_case (Desugar_Expr_ind' Hp1) 
+                                                       (Desugar_Expr_ind' Hp2)   
+                |dsg_Variant Hp           => Variant_case 
+                      ((fix lis_exp_ind l l' (H: Forall2 Desugar_Expr l l') 
+                                             : Forall2 P l l' := 
+                              match H with 
+                              |Forall2_nil _            => Forall2_nil _ 
+                              |Forall2_cons _ _ Hhp Htp => Forall2_cons _ _ (Desugar_Expr_ind' Hhp)  
+                                                                            (lis_exp_ind _ _ Htp) 
+                              end) _ _ Hp)
+                |dsg_Let Hp1 Hp2 Hp3      => ELet_case Hp1 (Desugar_Expr_ind' Hp2)
+                                                           (Desugar_Expr_ind' Hp3)
 
-                     |dsg_If Hp1 Hp2 Hp3                         => If_case 
-                                                                    (Desugar_Expr_ind' Hp1)
-                                                                    (Desugar_Expr_ind' Hp2)
-                                                                    (Desugar_Expr_ind' Hp3)    
-                     |dsg_LetRec Hp1 Hp2                         => LetRec_case 
-                                                                     (Desugar_Expr_ind' Hp1)
-                                                                     (Desugar_Expr_ind' Hp2)   
-                     |dsg_DefType Hp1 Hp2                        => DefType_case Hp1 (Desugar_Expr_ind' Hp2)
-                     |dsg_Match Hp1 Hp2                          => Match_case (Desugar_Expr_ind' Hp1)
-                            ((fix lis_exp_ind' l l' 
-                                  (H: Forall2 (fun p q => Desugar_Pat (fst p) (fst q) /\ Desugar_Expr (snd p) (snd q)) l l')
-                                  : Forall2 (fun p q => Desugar_Pat (fst p) (fst q) /\ P (snd p) (snd q)) l l' := 
-                             match H with 
-                             |Forall2_nil _  => Forall2_nil _ 
-                             |Forall2_cons _ _ Hph Hpt =>   
-                                   @Forall2_cons _ _ (fun p q => Desugar_Pat (fst p) (fst q) /\ P (snd p) (snd q)) _ _ _ _ 
-                                   (match Hph with 
-                                    |conj A B =>  conj A (Desugar_Expr_ind' B) end) 
-                                   (lis_exp_ind' _ _ Hpt)  
-                                                               
-                                   end ) _ _ Hp2) 
-                     |dsg_Error                                  => Error_case  
-                                        
-                     end.
+                |dsg_If Hp1 Hp2 Hp3       => If_case (Desugar_Expr_ind' Hp1)
+                                                     (Desugar_Expr_ind' Hp2)
+                                                     (Desugar_Expr_ind' Hp3)    
+                |dsg_LetRec Hp1 Hp2       => LetRec_case (Desugar_Expr_ind' Hp1)
+                                                         (Desugar_Expr_ind' Hp2)   
+                |dsg_DefType Hp1 Hp2      => DefType_case Hp1 (Desugar_Expr_ind' Hp2)
+                |dsg_Match Hp1 Hp2        => Match_case (Desugar_Expr_ind' Hp1)
+                      ((fix lis_exp_ind' l l' 
+                            (H: Forall2 (fun p q => Desugar_Pat (fst p) (fst q) /\ Desugar_Expr (snd p) (snd q)) l l')
+                            : Forall2 (fun p q => Desugar_Pat (fst p) (fst q) /\ P (snd p) (snd q)) l l' := 
+                        match H with 
+                        |Forall2_nil _  => Forall2_nil _ 
+                        |Forall2_cons _ _ Hph Hpt =>   
+                              @Forall2_cons _ _ (fun p q => Desugar_Pat (fst p) (fst q) /\ P (snd p) (snd q)) _ _ _ _ 
+                              (match Hph with 
+                              |conj A B =>  conj A (Desugar_Expr_ind' B) end) 
+                              (lis_exp_ind' _ _ Hpt)  
+                                                          
+                              end ) _ _ Hp2) 
+                |dsg_Error                                  => Error_case  
+                                  
+                end.
 
-       End Desugar_Expr_ind'.
+  End Desugar_Expr_ind'.
 
 
 
@@ -917,7 +891,7 @@ Section Desugarer.
               |Var i               => KVar i 
               |Bool b              => @KLit _ bns_data (VlBool b)
               |Nat n               => @KLit _ bns_data (VlNat n)
-              |String s            => @KLit _ bns_data (VlString s)
+              |EString s            => @KLit _ bns_data (VlString s)
               |Not e               => @KOp _ bns_data (OpNot) [desugar_Expr e]
               |And e1 e2           => @KOp _ bns_data (OpAnd) [desugar_Expr e1; desugar_Expr e2]
               |Or e1 e2            => @KOp _ bns_data (OpOr) [desugar_Expr e1; desugar_Expr e2]
@@ -929,7 +903,8 @@ Section Desugarer.
               |Lam l e             => from_lispat_to_lam (map desugar_Pat l) (desugar_Expr e)
               |App e l             => KApp (from_lisargs_to_napp (rev (map desugar_Expr l)) (desugar_Expr e)) KUnit
               |Tup l               => from_lisexpr_to_tup (map desugar_Expr l)
-              |Cons l              => from_lisexpr_to_cons (map desugar_Expr l)
+              |Nil                 => KNil
+              |Cons head tail      => KCons (desugar_Expr head) (desugar_Expr tail)
               |EVariant c l        => KVariant c (from_lisexpr_to_tup (map desugar_Expr l))
               |ELet p e1 e2        => KApp (KLam (desugar_Pat p) (desugar_Expr e2)) (desugar_Expr e1)
               |If e1 e2 e3         => KMatch (desugar_Expr e1) [
@@ -954,7 +929,7 @@ Section Desugarer.
               simpl in Hdesugar; subst;
               eauto using dsg_Var, dsg_Bool, dsg_Nat, dsg_String, dsg_Error; 
               eauto using dsg_Not, dsg_And, dsg_Or, dsg_Sub, dsg_Sum, dsg_Mul, 
-                          dsg_Concat, dsg_Equal. 
+                          dsg_Concat, dsg_Equal, dsg_Nil, dsg_Cons. 
               + apply dsg_Lam; eauto. 
                 apply (Forall2P_eq_Forall2f _ (@desugar_Pat_eq_Desugar_Pat)). 
                 apply forall2_eq_map; eauto. 
@@ -966,11 +941,6 @@ Section Desugarer.
                   eauto.
               + apply dsg_Tup. 
                 induction l as [| h t IHt]. 
-                - apply Forall2_nil.
-                - apply Forall2_cons; inversion H; subst; 
-                  eauto.  
-              + apply dsg_Cons. 
-                induction l as [| h t IHt].  
                 - apply Forall2_nil.
                 - apply Forall2_cons; inversion H; subst; 
                   eauto.

@@ -1,879 +1,879 @@
-DIGEST a2beb9198169ac7098858c274b25cfd6
+DIGEST a5992246aef91b09539e53299035d9ed
 Fimpl2_MC.surface_syntax
 R15:17 impl2_MC.ids <> <> lib
 R19:28 impl2_MC.primitives <> <> lib
 R30:43 Coq.Strings.String <> <> lib
 R45:54 Coq.Lists.List <> <> lib
 R65:77 Coq.Lists.List ListNotations <> mod
-sec 140:153 <> SURFACE_SYNTAX
-R174:176 impl2_MC.ids <> IDS rec
-binder 171:171 <> I:1
-ind 195:197 <> Pat
-constr 214:217 <> PVar
-constr 236:240 <> PBool
-constr 256:259 <> PNat
-constr 274:280 <> PString
-constr 298:301 <> PAny
-constr 308:310 <> PAs
-constr 340:343 <> PTup
-constr 365:369 <> PCons
-constr 391:398 <> PVariant
-R226:228 impl2_MC.ids <> Ide proj
-R223:223 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
-binder 220:220 <> x:4
-R246:249 Coq.Init.Datatypes <> bool ind
-binder 243:243 <> x:5
-R265:267 Coq.Init.Datatypes <> nat ind
-binder 262:262 <> x:6
-R286:291 Coq.Strings.String <> string ind
-binder 283:283 <> x:7
-R316:318 impl2_MC.surface_syntax <> Pat:2 ind
-binder 313:313 <> p:8
-R328:330 impl2_MC.ids <> Ide proj
-R325:325 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
-binder 322:322 <> x:9
-R351:354 Coq.Init.Datatypes <> list ind
-R356:358 impl2_MC.surface_syntax <> Pat:2 ind
-binder 346:348 <> lis:10
-R377:380 Coq.Init.Datatypes <> list ind
-R382:384 impl2_MC.surface_syntax <> Pat:2 ind
-binder 372:374 <> lis:11
-R407:412 impl2_MC.ids <> Constr proj
-R404:404 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
-binder 401:401 <> c:12
-R422:425 Coq.Init.Datatypes <> list ind
-R427:429 impl2_MC.surface_syntax <> Pat:2 ind
-binder 417:419 <> lis:13
-scheme 195:197 <> Pat_rect
-scheme 195:197 <> Pat_ind
-scheme 195:197 <> Pat_rec
-scheme 195:197 <> Pat_sind
-ind 452:453 <> Tp
-constr 470:478 <> TFunction
-constr 485:489 <> TBool
-constr 496:499 <> TNat
-constr 506:512 <> TString
-constr 518:523 <> TEmpty
-constr 529:532 <> TTup
-constr 553:557 <> TList
-constr 571:578 <> TVariant
-constr 620:623 <> TRef
-constr 642:647 <> TError
-R540:543 Coq.Init.Datatypes <> list ind
-R545:546 impl2_MC.surface_syntax <> Tp:14 ind
-binder 535:537 <> lis:16
-R563:564 impl2_MC.surface_syntax <> Tp:14 ind
-binder 560:560 <> t:17
-R587:590 Coq.Init.Datatypes <> list ind
-R603:605 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R596:601 impl2_MC.ids <> Constr proj
-R593:593 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
-R606:609 Coq.Init.Datatypes <> list ind
-R611:612 impl2_MC.surface_syntax <> Tp:14 ind
-binder 581:584 <> tags:18
-R632:634 impl2_MC.ids <> Ide proj
-R629:629 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
-binder 626:626 <> i:19
-scheme 452:453 <> Tp_rect
-scheme 452:453 <> Tp_ind
-scheme 452:453 <> Tp_rec
-scheme 452:453 <> Tp_sind
-ind 667:670 <> Expr
-constr 687:689 <> Var
-constr 708:711 <> Bool
-constr 727:729 <> Nat
-constr 744:749 <> String
-constr 767:769 <> Not
-constr 785:787 <> And
-constr 808:809 <> Or
-constr 829:831 <> Sum
-constr 852:854 <> Sub
-constr 875:877 <> Mul
-constr 898:903 <> Concat
-constr 924:928 <> Equal
-constr 948:950 <> Lam
-constr 986:988 <> App
-constr 1024:1026 <> Tup
-constr 1049:1052 <> Cons
-constr 1075:1082 <> EVariant
-constr 1122:1125 <> ELet
-constr 1162:1163 <> If
-constr 1202:1207 <> LetRec
-constr 1251:1257 <> DefType
-constr 1302:1306 <> Match
-constr 1349:1354 <> EError
-R698:700 impl2_MC.ids <> Ide proj
-R695:695 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
-binder 692:692 <> x:22
-R717:720 Coq.Init.Datatypes <> bool ind
-binder 714:714 <> x:23
-R735:737 Coq.Init.Datatypes <> nat ind
-binder 732:732 <> x:24
-R755:760 Coq.Strings.String <> string ind
-binder 752:752 <> x:25
-R775:778 impl2_MC.surface_syntax <> Expr:20 ind
-binder 772:772 <> e:26
-R798:801 impl2_MC.surface_syntax <> Expr:20 ind
-binder 790:791 <> e1:27
-binder 793:794 <> e2:28
-R819:822 impl2_MC.surface_syntax <> Expr:20 ind
-binder 812:813 <> e1:29
-binder 815:816 <> e2:30
-R842:845 impl2_MC.surface_syntax <> Expr:20 ind
-binder 834:835 <> e1:31
-binder 837:838 <> e2:32
-R865:868 impl2_MC.surface_syntax <> Expr:20 ind
-binder 857:858 <> e1:33
-binder 860:861 <> e1:34
-R888:891 impl2_MC.surface_syntax <> Expr:20 ind
-binder 880:881 <> e1:35
-binder 883:884 <> e2:36
-R914:917 impl2_MC.surface_syntax <> Expr:20 ind
-binder 906:907 <> e1:37
-binder 909:910 <> e2:38
-R938:941 impl2_MC.surface_syntax <> Expr:20 ind
-binder 931:932 <> e1:39
-binder 934:935 <> e2:40
-R959:962 Coq.Init.Datatypes <> list ind
-R964:966 impl2_MC.surface_syntax <> Pat ind
-binder 953:956 <> form:41
-R976:979 impl2_MC.surface_syntax <> Expr:20 ind
-binder 970:973 <> body:42
-R995:998 impl2_MC.surface_syntax <> Expr:20 ind
-binder 991:992 <> e1:43
-R1008:1011 Coq.Init.Datatypes <> list ind
-R1013:1016 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1002:1005 <> args:44
-R1034:1037 Coq.Init.Datatypes <> list ind
-R1039:1042 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1029:1031 <> lis:45
-R1060:1063 Coq.Init.Datatypes <> list ind
-R1065:1068 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1055:1057 <> lis:46
-R1091:1096 impl2_MC.ids <> Constr proj
-R1088:1088 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
-binder 1085:1085 <> c:47
-R1107:1110 Coq.Init.Datatypes <> list ind
-R1112:1115 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1101:1104 <> args:48
-R1131:1133 impl2_MC.surface_syntax <> Pat ind
-binder 1128:1128 <> p:49
-R1141:1144 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1137:1138 <> e1:50
-R1152:1155 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1148:1149 <> e2:51
-R1170:1173 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1166:1167 <> e1:52
-R1181:1184 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1177:1178 <> e2:53
-R1192:1195 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1188:1189 <> e3:54
-R1219:1221 impl2_MC.ids <> Ide proj
-R1216:1216 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
-binder 1210:1213 <> name:55
-R1231:1234 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1226:1228 <> cls:56
-R1241:1244 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1238:1238 <> e:57
-R1267:1270 Coq.Init.Datatypes <> list ind
-R1280:1282 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R1276:1278 impl2_MC.ids <> Ide proj
-R1273:1273 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
-R1283:1284 impl2_MC.surface_syntax <> Tp ind
-binder 1260:1264 <> block:58
-R1292:1295 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1289:1289 <> e:59
-R1312:1315 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1309:1309 <> e:60
-R1326:1329 Coq.Init.Datatypes <> list ind
-R1335:1337 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R1332:1334 impl2_MC.surface_syntax <> Pat ind
-R1338:1341 impl2_MC.surface_syntax <> Expr:20 ind
-binder 1319:1323 <> block:61
-R1363:1369 impl2_MC.ids <> Message proj
-R1360:1360 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
-binder 1357:1357 <> m:62
-scheme 667:670 <> Expr_rect
-scheme 667:670 <> Expr_ind
-scheme 667:670 <> Expr_rec
-scheme 667:670 <> Expr_sind
-sec 1393:1400 SURFACE_SYNTAX Pat_ind'
-var 1419:1419 SURFACE_SYNTAX.Pat_ind' P
-R1426:1429 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R1423:1425 impl2_MC.surface_syntax <> Pat ind
-var 1460:1468 SURFACE_SYNTAX.Pat_ind' PVar_case
-binder 1486:1486 <> i:64
-R1489:1489 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R1492:1495 impl2_MC.surface_syntax <> PVar constr
-R1497:1497 impl2_MC.surface_syntax <> i:64 var
-var 1519:1528 SURFACE_SYNTAX.Pat_ind' PBool_case
-binder 1545:1545 <> b:66
-R1548:1548 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R1551:1555 impl2_MC.surface_syntax <> PBool constr
-R1557:1557 impl2_MC.surface_syntax <> b:66 var
-var 1579:1587 SURFACE_SYNTAX.Pat_ind' PNat_case
-binder 1605:1605 <> n:68
+sec 165:178 <> SURFACE_SYNTAX
+R199:201 impl2_MC.ids <> IDS rec
+binder 196:196 <> I:1
+ind 220:222 <> Pat
+constr 239:242 <> PVar
+constr 261:265 <> PBool
+constr 281:284 <> PNat
+constr 299:305 <> PString
+constr 323:326 <> PAny
+constr 333:335 <> PAs
+constr 365:368 <> PTup
+constr 390:393 <> PNil
+constr 399:403 <> PCons
+constr 433:440 <> PVariant
+R251:253 impl2_MC.ids <> Ide proj
+R248:248 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
+binder 245:245 <> x:4
+R271:274 Coq.Init.Datatypes <> bool ind
+binder 268:268 <> x:5
+R290:292 Coq.Init.Datatypes <> nat ind
+binder 287:287 <> x:6
+R311:316 Coq.Strings.String <> string ind
+binder 308:308 <> x:7
+R341:343 impl2_MC.surface_syntax <> Pat:2 ind
+binder 338:338 <> p:8
+R353:355 impl2_MC.ids <> Ide proj
+R350:350 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
+binder 347:347 <> x:9
+R376:379 Coq.Init.Datatypes <> list ind
+R381:383 impl2_MC.surface_syntax <> Pat:2 ind
+binder 371:373 <> lis:10
+R412:414 impl2_MC.surface_syntax <> Pat:2 ind
+binder 406:409 <> head:11
+R424:426 impl2_MC.surface_syntax <> Pat:2 ind
+binder 418:421 <> tail:12
+R449:454 impl2_MC.ids <> Constr proj
+R446:446 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
+binder 443:443 <> c:13
+R464:467 Coq.Init.Datatypes <> list ind
+R469:471 impl2_MC.surface_syntax <> Pat:2 ind
+binder 459:461 <> lis:14
+scheme 220:222 <> Pat_rect
+scheme 220:222 <> Pat_ind
+scheme 220:222 <> Pat_rec
+scheme 220:222 <> Pat_sind
+ind 494:495 <> Tp
+constr 512:520 <> TFunction
+constr 527:531 <> TBool
+constr 538:541 <> TNat
+constr 548:554 <> TString
+constr 560:565 <> TEmpty
+constr 571:574 <> TTup
+constr 595:599 <> TList
+constr 613:620 <> TVariant
+constr 662:665 <> TRef
+constr 684:689 <> TError
+R582:585 Coq.Init.Datatypes <> list ind
+R587:588 impl2_MC.surface_syntax <> Tp:15 ind
+binder 577:579 <> lis:17
+R605:606 impl2_MC.surface_syntax <> Tp:15 ind
+binder 602:602 <> t:18
+R629:632 Coq.Init.Datatypes <> list ind
+R645:647 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R638:643 impl2_MC.ids <> Constr proj
+R635:635 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
+R648:651 Coq.Init.Datatypes <> list ind
+R653:654 impl2_MC.surface_syntax <> Tp:15 ind
+binder 623:626 <> tags:19
+R674:676 impl2_MC.ids <> Ide proj
+R671:671 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
+binder 668:668 <> i:20
+scheme 494:495 <> Tp_rect
+scheme 494:495 <> Tp_ind
+scheme 494:495 <> Tp_rec
+scheme 494:495 <> Tp_sind
+ind 709:712 <> Expr
+constr 729:731 <> Var
+constr 750:753 <> Bool
+constr 769:771 <> Nat
+constr 786:792 <> EString
+constr 810:812 <> Not
+constr 828:830 <> And
+constr 851:852 <> Or
+constr 872:874 <> Sum
+constr 895:897 <> Sub
+constr 918:920 <> Mul
+constr 941:946 <> Concat
+constr 967:971 <> Equal
+constr 991:993 <> Lam
+constr 1029:1031 <> App
+constr 1067:1069 <> Tup
+constr 1092:1094 <> Nil
+constr 1100:1103 <> Cons
+constr 1135:1142 <> EVariant
+constr 1182:1185 <> ELet
+constr 1222:1223 <> If
+constr 1262:1267 <> LetRec
+constr 1311:1317 <> DefType
+constr 1362:1366 <> Match
+constr 1409:1414 <> EError
+R740:742 impl2_MC.ids <> Ide proj
+R737:737 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
+binder 734:734 <> x:23
+R759:762 Coq.Init.Datatypes <> bool ind
+binder 756:756 <> x:24
+R777:779 Coq.Init.Datatypes <> nat ind
+binder 774:774 <> x:25
+R798:803 Coq.Strings.String <> string ind
+binder 795:795 <> x:26
+R818:821 impl2_MC.surface_syntax <> Expr:21 ind
+binder 815:815 <> e:27
+R841:844 impl2_MC.surface_syntax <> Expr:21 ind
+binder 833:834 <> e1:28
+binder 836:837 <> e2:29
+R862:865 impl2_MC.surface_syntax <> Expr:21 ind
+binder 855:856 <> e1:30
+binder 858:859 <> e2:31
+R885:888 impl2_MC.surface_syntax <> Expr:21 ind
+binder 877:878 <> e1:32
+binder 880:881 <> e2:33
+R908:911 impl2_MC.surface_syntax <> Expr:21 ind
+binder 900:901 <> e1:34
+binder 903:904 <> e1:35
+R931:934 impl2_MC.surface_syntax <> Expr:21 ind
+binder 923:924 <> e1:36
+binder 926:927 <> e2:37
+R957:960 impl2_MC.surface_syntax <> Expr:21 ind
+binder 949:950 <> e1:38
+binder 952:953 <> e2:39
+R981:984 impl2_MC.surface_syntax <> Expr:21 ind
+binder 974:975 <> e1:40
+binder 977:978 <> e2:41
+R1002:1005 Coq.Init.Datatypes <> list ind
+R1007:1009 impl2_MC.surface_syntax <> Pat ind
+binder 996:999 <> form:42
+R1019:1022 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1013:1016 <> body:43
+R1038:1041 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1034:1035 <> e1:44
+R1051:1054 Coq.Init.Datatypes <> list ind
+R1056:1059 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1045:1048 <> args:45
+R1077:1080 Coq.Init.Datatypes <> list ind
+R1082:1085 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1072:1074 <> lis:46
+R1112:1115 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1106:1109 <> head:47
+R1125:1128 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1119:1122 <> tail:48
+R1151:1156 impl2_MC.ids <> Constr proj
+R1148:1148 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
+binder 1145:1145 <> c:49
+R1167:1170 Coq.Init.Datatypes <> list ind
+R1172:1175 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1161:1164 <> args:50
+R1191:1193 impl2_MC.surface_syntax <> Pat ind
+binder 1188:1188 <> p:51
+R1201:1204 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1197:1198 <> e1:52
+R1212:1215 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1208:1209 <> e2:53
+R1230:1233 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1226:1227 <> e1:54
+R1241:1244 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1237:1238 <> e2:55
+R1252:1255 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1248:1249 <> e3:56
+R1279:1281 impl2_MC.ids <> Ide proj
+R1276:1276 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
+binder 1270:1273 <> name:57
+R1291:1294 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1286:1288 <> cls:58
+R1301:1304 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1298:1298 <> e:59
+R1327:1330 Coq.Init.Datatypes <> list ind
+R1340:1342 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1336:1338 impl2_MC.ids <> Ide proj
+R1333:1333 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
+R1343:1344 impl2_MC.surface_syntax <> Tp ind
+binder 1320:1324 <> block:60
+R1352:1355 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1349:1349 <> e:61
+R1372:1375 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1369:1369 <> e:62
+R1386:1389 Coq.Init.Datatypes <> list ind
+R1395:1397 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1392:1394 impl2_MC.surface_syntax <> Pat ind
+R1398:1401 impl2_MC.surface_syntax <> Expr:21 ind
+binder 1379:1383 <> block:63
+R1423:1429 impl2_MC.ids <> Message proj
+R1420:1420 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
+binder 1417:1417 <> m:64
+scheme 709:712 <> Expr_rect
+scheme 709:712 <> Expr_ind
+scheme 709:712 <> Expr_rec
+scheme 709:712 <> Expr_sind
+sec 1453:1460 SURFACE_SYNTAX Pat_ind'
+var 1479:1479 SURFACE_SYNTAX.Pat_ind' P
+R1486:1489 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1483:1485 impl2_MC.surface_syntax <> Pat ind
+var 1520:1528 SURFACE_SYNTAX.Pat_ind' PVar_case
+binder 1546:1546 <> i:66
+R1549:1549 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R1552:1555 impl2_MC.surface_syntax <> PVar constr
+R1557:1557 impl2_MC.surface_syntax <> i:66 var
+var 1579:1588 SURFACE_SYNTAX.Pat_ind' PBool_case
+binder 1605:1605 <> b:68
 R1608:1608 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R1611:1614 impl2_MC.surface_syntax <> PNat constr
-R1616:1616 impl2_MC.surface_syntax <> n:68 var
-var 1637:1648 SURFACE_SYNTAX.Pat_ind' PString_case
-binder 1663:1663 <> s:70
-R1666:1666 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R1669:1675 impl2_MC.surface_syntax <> PString constr
-R1677:1677 impl2_MC.surface_syntax <> s:70 var
-var 1698:1706 SURFACE_SYNTAX.Pat_ind' PAny_case
-R1717:1717 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R1719:1722 impl2_MC.surface_syntax <> PAny constr
-var 1742:1749 SURFACE_SYNTAX.Pat_ind' PAs_case
-binder 1768:1768 <> i:73
-binder 1770:1770 <> p:74
-R1776:1779 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R1773:1773 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R1775:1775 impl2_MC.surface_syntax <> p:74 var
-R1780:1780 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R1783:1785 impl2_MC.surface_syntax <> PAs constr
-R1789:1789 impl2_MC.surface_syntax <> i:73 var
-R1787:1787 impl2_MC.surface_syntax <> p:74 var
-var 1811:1819 SURFACE_SYNTAX.Pat_ind' PTup_case
-binder 1837:1837 <> l:76
-R1850:1853 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R1840:1845 Coq.Lists.List <> Forall ind
-R1849:1849 impl2_MC.surface_syntax <> l:76 var
-R1847:1847 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R1854:1854 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R1857:1860 impl2_MC.surface_syntax <> PTup constr
-R1862:1862 impl2_MC.surface_syntax <> l:76 var
-var 1884:1893 SURFACE_SYNTAX.Pat_ind' PCons_case
-binder 1910:1910 <> l:78
-R1923:1926 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R1913:1918 Coq.Lists.List <> Forall ind
-R1922:1922 impl2_MC.surface_syntax <> l:78 var
-R1920:1920 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R1927:1927 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R1930:1934 impl2_MC.surface_syntax <> PCons constr
-R1936:1936 impl2_MC.surface_syntax <> l:78 var
-var 1957:1969 SURFACE_SYNTAX.Pat_ind' PVariant_case
-binder 1983:1983 <> c:80
-binder 1985:1985 <> l:81
-R1998:2001 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R1988:1993 Coq.Lists.List <> Forall ind
-R1997:1997 impl2_MC.surface_syntax <> l:81 var
-R1995:1995 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R2002:2002 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R2005:2012 impl2_MC.surface_syntax <> PVariant constr
-R2016:2016 impl2_MC.surface_syntax <> l:81 var
-R2014:2014 impl2_MC.surface_syntax <> c:80 var
-def 2042:2049 <> Pat_ind'
-R2055:2057 impl2_MC.surface_syntax <> Pat ind
-binder 2052:2052 <> p:83
-R2062:2062 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R2064:2064 impl2_MC.surface_syntax <> p:83 var
-R2086:2086 impl2_MC.surface_syntax <> p:83 var
-R2104:2107 impl2_MC.surface_syntax <> PVar constr
-R2122:2130 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PVar_case var
-R2143:2147 impl2_MC.surface_syntax <> PBool constr
-R2161:2170 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PBool_case var
-R2183:2186 impl2_MC.surface_syntax <> PNat constr
-R2201:2209 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PNat_case var
-R2222:2228 impl2_MC.surface_syntax <> PString constr
-R2240:2251 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PString_case var
-R2264:2267 impl2_MC.surface_syntax <> PAny constr
-R2282:2290 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PAny_case var
-R2303:2305 impl2_MC.surface_syntax <> PAs constr
-R2321:2328 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PAs_case var
-R2331:2338 impl2_MC.surface_syntax <> Pat_ind':84 def
-R2355:2358 impl2_MC.surface_syntax <> PTup constr
-R2373:2381 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PTup_case var
-R2419:2422 Coq.Init.Datatypes <> list ind
-R2424:2426 impl2_MC.surface_syntax <> Pat ind
-binder 2416:2416 <> l:86
-R2431:2436 Coq.Lists.List <> Forall ind
-R2440:2440 impl2_MC.surface_syntax <> l:86 var
-R2438:2438 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R2467:2467 impl2_MC.surface_syntax <> l:86 var
-R2491:2492 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R2498:2507 Coq.Lists.List <> Forall_nil constr
-R2531:2532 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R2539:2549 Coq.Lists.List <> Forall_cons constr
-R2560:2567 impl2_MC.surface_syntax <> Pat_ind':84 def
-R2571:2581 impl2_MC.surface_syntax <> lis_pat_ind:87 var
-R2622:2626 impl2_MC.surface_syntax <> PCons constr
-R2640:2649 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PCons_case var
-R2687:2690 Coq.Init.Datatypes <> list ind
-R2692:2694 impl2_MC.surface_syntax <> Pat ind
-binder 2684:2684 <> l:89
-R2699:2704 Coq.Lists.List <> Forall ind
-R2708:2708 impl2_MC.surface_syntax <> l:89 var
-R2706:2706 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R2735:2735 impl2_MC.surface_syntax <> l:89 var
-R2759:2760 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R2766:2775 Coq.Lists.List <> Forall_nil constr
-R2799:2800 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R2807:2817 Coq.Lists.List <> Forall_cons constr
-R2828:2835 impl2_MC.surface_syntax <> Pat_ind':84 def
-R2839:2849 impl2_MC.surface_syntax <> lis_pat_ind:90 var
-R2890:2897 impl2_MC.surface_syntax <> PVariant constr
-R2908:2920 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PVariant_case var
-R2959:2962 Coq.Init.Datatypes <> list ind
-R2964:2966 impl2_MC.surface_syntax <> Pat ind
-binder 2956:2956 <> l:92
-R2971:2976 Coq.Lists.List <> Forall ind
-R2980:2980 impl2_MC.surface_syntax <> l:92 var
-R2978:2978 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
-R3007:3007 impl2_MC.surface_syntax <> l:92 var
-R3031:3032 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R3038:3047 Coq.Lists.List <> Forall_nil constr
-R3071:3072 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R3079:3089 Coq.Lists.List <> Forall_cons constr
-R3100:3107 impl2_MC.surface_syntax <> Pat_ind':84 def
-R3111:3121 impl2_MC.surface_syntax <> lis_pat_ind:93 var
-R3173:3180 impl2_MC.surface_syntax SURFACE_SYNTAX.Pat_ind' <> sec
-sec 3196:3202 SURFACE_SYNTAX Tp_ind'
-var 3222:3222 SURFACE_SYNTAX.Tp_ind' P
-R3227:3230 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3225:3226 impl2_MC.surface_syntax <> Tp ind
-var 3261:3269 SURFACE_SYNTAX.Tp_ind' TFun_case
-R3277:3277 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3279:3287 impl2_MC.surface_syntax <> TFunction constr
-var 3308:3317 SURFACE_SYNTAX.Tp_ind' TBool_case
-R3324:3324 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3326:3330 impl2_MC.surface_syntax <> TBool constr
-var 3351:3359 SURFACE_SYNTAX.Tp_ind' TNat_case
-R3367:3367 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3369:3372 impl2_MC.surface_syntax <> TNat constr
-var 3393:3404 SURFACE_SYNTAX.Tp_ind' TString_case
-R3409:3409 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3411:3417 impl2_MC.surface_syntax <> TString constr
-var 3438:3448 SURFACE_SYNTAX.Tp_ind' TEmpty_case
-R3454:3454 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3456:3461 impl2_MC.surface_syntax <> TEmpty constr
-var 3482:3490 SURFACE_SYNTAX.Tp_ind' TTup_case
-binder 3505:3505 <> l:101
-R3518:3521 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3508:3513 Coq.Lists.List <> Forall ind
-R3517:3517 impl2_MC.surface_syntax <> l:101 var
-R3515:3515 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3522:3522 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3525:3528 impl2_MC.surface_syntax <> TTup constr
-R3530:3530 impl2_MC.surface_syntax <> l:101 var
-var 3552:3561 SURFACE_SYNTAX.Tp_ind' TList_case
-binder 3575:3575 <> t:103
-R3581:3584 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3578:3578 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3580:3580 impl2_MC.surface_syntax <> t:103 var
-R3585:3585 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3588:3592 impl2_MC.surface_syntax <> TList constr
-R3594:3594 impl2_MC.surface_syntax <> t:103 var
-var 3616:3628 SURFACE_SYNTAX.Tp_ind' TVariant_case
-binder 3639:3639 <> l:105
-R3726:3763 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3677:3682 Coq.Lists.List <> Forall ind
-R3725:3725 impl2_MC.surface_syntax <> l:105 var
-binder 3689:3689 <> p:106
-R3694:3699 Coq.Lists.List <> Forall ind
-R3717:3719 Coq.Init.Datatypes <> snd def
-R3721:3721 impl2_MC.surface_syntax <> p:106 var
-binder 3706:3706 <> t:107
-R3711:3711 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3713:3713 impl2_MC.surface_syntax <> t:107 var
-R3764:3764 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3767:3774 impl2_MC.surface_syntax <> TVariant constr
-R3776:3776 impl2_MC.surface_syntax <> l:105 var
-var 3798:3806 SURFACE_SYNTAX.Tp_ind' TRef_case
-binder 3821:3821 <> x:109
-R3824:3824 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3827:3830 impl2_MC.surface_syntax <> TRef constr
-R3832:3832 impl2_MC.surface_syntax <> x:109 var
-var 3853:3863 SURFACE_SYNTAX.Tp_ind' TError_case
-R3869:3869 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3871:3876 impl2_MC.surface_syntax <> TError constr
-def 3896:3902 <> Tp_ind'
-R3908:3909 impl2_MC.surface_syntax <> Tp ind
-binder 3905:3905 <> t:112
-R3914:3914 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R3916:3916 impl2_MC.surface_syntax <> t:112 var
-R3938:3938 impl2_MC.surface_syntax <> t:112 var
-R3956:3964 impl2_MC.surface_syntax <> TFunction constr
-R3983:3991 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TFun_case var
-R4004:4008 impl2_MC.surface_syntax <> TBool constr
-R4031:4040 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TBool_case var
-R4052:4055 impl2_MC.surface_syntax <> TNat constr
-R4079:4087 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TNat_case var
-R4100:4106 impl2_MC.surface_syntax <> TString constr
-R4127:4138 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TString_case var
-R4150:4155 impl2_MC.surface_syntax <> TEmpty constr
-R4177:4187 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TEmpty_case var
-R4199:4202 impl2_MC.surface_syntax <> TTup constr
-R4226:4234 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TTup_case var
-R4272:4275 Coq.Init.Datatypes <> list ind
-R4277:4278 impl2_MC.surface_syntax <> Tp ind
-binder 4269:4269 <> l:115
-R4283:4288 Coq.Lists.List <> Forall ind
-R4292:4292 impl2_MC.surface_syntax <> l:115 var
-R4290:4290 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R4319:4319 impl2_MC.surface_syntax <> l:115 var
-R4343:4344 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R4351:4360 Coq.Lists.List <> Forall_nil constr
-R4384:4385 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R4391:4401 Coq.Lists.List <> Forall_cons constr
-R4416:4426 impl2_MC.surface_syntax <> lis_tp_ind':116 var
-R4428:4428 impl2_MC.surface_syntax <> t:112 var
-R4406:4412 impl2_MC.surface_syntax <> Tp_ind':113 def
-R4468:4472 impl2_MC.surface_syntax <> TList constr
-R4495:4504 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TList_case var
-R4507:4513 impl2_MC.surface_syntax <> Tp_ind':113 def
-R4527:4534 impl2_MC.surface_syntax <> TVariant constr
-R4554:4566 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TVariant_case var
-R4609:4612 Coq.Init.Datatypes <> list ind
-R4625:4627 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R4618:4623 impl2_MC.ids <> Constr proj
-R4615:4615 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
-R4628:4631 Coq.Init.Datatypes <> list ind
-R4633:4634 impl2_MC.surface_syntax <> Tp ind
-binder 4606:4606 <> l:118
-R4675:4680 Coq.Lists.List <> Forall ind
-R4723:4723 impl2_MC.surface_syntax <> l:118 var
-binder 4687:4687 <> p:119
-R4692:4697 Coq.Lists.List <> Forall ind
-R4715:4717 Coq.Init.Datatypes <> snd def
-R4719:4719 impl2_MC.surface_syntax <> p:119 var
-binder 4704:4704 <> t:120
-R4709:4709 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R4711:4711 impl2_MC.surface_syntax <> t:120 var
-R4750:4750 impl2_MC.surface_syntax <> l:118 var
-R4774:4775 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R4787:4796 Coq.Lists.List <> Forall_nil constr
-R4819:4819 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R4832:4834 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R4820:4820 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R4822:4823 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R4825:4825 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R4841:4851 Coq.Lists.List <> Forall_cons constr
-R4860:4860 impl2_MC.surface_syntax <> t:112 var
-R4928:4931 Coq.Init.Datatypes <> list ind
-R4933:4934 impl2_MC.surface_syntax <> Tp ind
-binder 4925:4925 <> l:123
-R4939:4944 Coq.Lists.List <> Forall ind
-R4961:4961 impl2_MC.surface_syntax <> l:123 var
-binder 4951:4951 <> t:124
-R4956:4956 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
-R4958:4958 impl2_MC.surface_syntax <> t:124 var
-R5013:5013 impl2_MC.surface_syntax <> l:123 var
-R5062:5063 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R5069:5078 Coq.Lists.List <> Forall_nil constr
-R5126:5127 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R5135:5145 Coq.Lists.List <> Forall_cons constr
-R5157:5163 impl2_MC.surface_syntax <> Tp_ind':113 def
-R5219:5235 impl2_MC.surface_syntax <> lis_variant_ind'':125 var
-R5291:5306 impl2_MC.surface_syntax <> lis_variant_ind':121 var
-R5308:5308 impl2_MC.surface_syntax <> t:112 var
-R5352:5355 impl2_MC.surface_syntax <> TRef constr
-R5380:5388 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TRef_case var
-R5401:5406 impl2_MC.surface_syntax <> TError constr
-R5429:5439 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TError_case var
-R5492:5498 impl2_MC.surface_syntax SURFACE_SYNTAX.Tp_ind' <> sec
-sec 5521:5529 SURFACE_SYNTAX Expr_ind'
-var 5552:5552 SURFACE_SYNTAX.Expr_ind' P
-R5559:5562 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5555:5558 impl2_MC.surface_syntax <> Expr ind
-var 5591:5598 SURFACE_SYNTAX.Expr_ind' Var_case
-binder 5614:5614 <> x:128
-R5617:5617 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R5620:5622 impl2_MC.surface_syntax <> Var constr
-R5624:5624 impl2_MC.surface_syntax <> x:128 var
-var 5649:5657 SURFACE_SYNTAX.Expr_ind' Bool_case
-binder 5672:5672 <> b:130
-R5675:5675 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R5678:5681 impl2_MC.surface_syntax <> Bool constr
-R5683:5683 impl2_MC.surface_syntax <> b:130 var
-var 5708:5715 SURFACE_SYNTAX.Expr_ind' Nat_case
-binder 5731:5731 <> n:132
-R5734:5734 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R5737:5739 impl2_MC.surface_syntax <> Nat constr
-R5741:5741 impl2_MC.surface_syntax <> n:132 var
-var 5765:5775 SURFACE_SYNTAX.Expr_ind' String_case
-binder 5788:5788 <> s:134
-R5791:5791 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R5794:5799 impl2_MC.surface_syntax <> String constr
-R5801:5801 impl2_MC.surface_syntax <> s:134 var
-var 5826:5833 SURFACE_SYNTAX.Expr_ind' Not_case
-binder 5849:5849 <> e:136
-R5855:5858 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5852:5852 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R5854:5854 impl2_MC.surface_syntax <> e:136 var
-R5859:5859 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R5862:5864 impl2_MC.surface_syntax <> Not constr
-R5866:5866 impl2_MC.surface_syntax <> e:136 var
-var 5891:5898 SURFACE_SYNTAX.Expr_ind' And_case
-binder 5914:5915 <> e1:138
-binder 5917:5918 <> e2:139
-R5925:5928 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5921:5921 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R5923:5924 impl2_MC.surface_syntax <> e1:138 var
-R5933:5936 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5929:5929 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R5931:5932 impl2_MC.surface_syntax <> e2:139 var
-R5937:5937 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R5940:5942 impl2_MC.surface_syntax <> And constr
-R5947:5948 impl2_MC.surface_syntax <> e2:139 var
-R5944:5945 impl2_MC.surface_syntax <> e1:138 var
-var 5972:5978 SURFACE_SYNTAX.Expr_ind' Or_case
-binder 5995:5996 <> e1:141
-binder 5998:5999 <> e2:142
-R6006:6009 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6002:6002 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6004:6005 impl2_MC.surface_syntax <> e1:141 var
-R6014:6017 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6010:6010 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6012:6013 impl2_MC.surface_syntax <> e2:142 var
-R6018:6018 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6021:6022 impl2_MC.surface_syntax <> Or constr
-R6027:6028 impl2_MC.surface_syntax <> e2:142 var
-R6024:6025 impl2_MC.surface_syntax <> e1:141 var
-var 6053:6060 SURFACE_SYNTAX.Expr_ind' Sum_case
-binder 6076:6077 <> e1:144
-binder 6079:6080 <> e2:145
-R6087:6090 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6083:6083 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6085:6086 impl2_MC.surface_syntax <> e1:144 var
-R6095:6098 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6091:6091 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6093:6094 impl2_MC.surface_syntax <> e2:145 var
-R6099:6099 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6102:6104 impl2_MC.surface_syntax <> Sum constr
-R6109:6110 impl2_MC.surface_syntax <> e2:145 var
-R6106:6107 impl2_MC.surface_syntax <> e1:144 var
-var 6134:6141 SURFACE_SYNTAX.Expr_ind' Sub_case
-binder 6157:6158 <> e1:147
-binder 6160:6161 <> e2:148
-R6168:6171 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6164:6164 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6166:6167 impl2_MC.surface_syntax <> e1:147 var
-R6176:6179 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6172:6172 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6174:6175 impl2_MC.surface_syntax <> e2:148 var
-R6180:6180 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6183:6185 impl2_MC.surface_syntax <> Sub constr
-R6190:6191 impl2_MC.surface_syntax <> e2:148 var
-R6187:6188 impl2_MC.surface_syntax <> e1:147 var
-var 6216:6223 SURFACE_SYNTAX.Expr_ind' Mul_case
-binder 6239:6240 <> e1:150
-binder 6242:6243 <> e2:151
-R6250:6253 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6246:6246 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6248:6249 impl2_MC.surface_syntax <> e1:150 var
-R6258:6261 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6254:6254 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6256:6257 impl2_MC.surface_syntax <> e2:151 var
-R6262:6262 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6265:6267 impl2_MC.surface_syntax <> Mul constr
-R6272:6273 impl2_MC.surface_syntax <> e2:151 var
-R6269:6270 impl2_MC.surface_syntax <> e1:150 var
-var 6297:6307 SURFACE_SYNTAX.Expr_ind' Concat_case
-binder 6320:6321 <> e1:153
-binder 6323:6324 <> e2:154
-R6331:6334 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6327:6327 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6329:6330 impl2_MC.surface_syntax <> e1:153 var
-R6339:6342 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6335:6335 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6337:6338 impl2_MC.surface_syntax <> e2:154 var
-R6343:6343 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6346:6351 impl2_MC.surface_syntax <> Concat constr
-R6356:6357 impl2_MC.surface_syntax <> e2:154 var
-R6353:6354 impl2_MC.surface_syntax <> e1:153 var
-var 6382:6388 SURFACE_SYNTAX.Expr_ind' Eq_case
-binder 6405:6406 <> e1:156
-binder 6408:6409 <> e2:157
-R6416:6419 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6412:6412 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6414:6415 impl2_MC.surface_syntax <> e1:156 var
-R6424:6427 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6420:6420 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6422:6423 impl2_MC.surface_syntax <> e2:157 var
-R6428:6428 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6431:6435 impl2_MC.surface_syntax <> Equal constr
-R6440:6441 impl2_MC.surface_syntax <> e2:157 var
-R6437:6438 impl2_MC.surface_syntax <> e1:156 var
-var 6466:6473 SURFACE_SYNTAX.Expr_ind' Lam_case
-binder 6489:6489 <> l:159
-binder 6491:6491 <> e:160
-R6497:6500 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6494:6494 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6496:6496 impl2_MC.surface_syntax <> e:160 var
-R6501:6501 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6504:6506 impl2_MC.surface_syntax <> Lam constr
-R6510:6510 impl2_MC.surface_syntax <> e:160 var
-R6508:6508 impl2_MC.surface_syntax <> l:159 var
-var 6534:6541 SURFACE_SYNTAX.Expr_ind' App_case
-binder 6557:6557 <> e:162
-binder 6559:6559 <> l:163
-R6565:6568 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6562:6562 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6564:6564 impl2_MC.surface_syntax <> e:162 var
-R6579:6582 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6569:6574 Coq.Lists.List <> Forall ind
-R6578:6578 impl2_MC.surface_syntax <> l:163 var
-R6576:6576 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6583:6583 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6586:6588 impl2_MC.surface_syntax <> App constr
-R6592:6592 impl2_MC.surface_syntax <> l:163 var
-R6590:6590 impl2_MC.surface_syntax <> e:162 var
-var 6616:6623 SURFACE_SYNTAX.Expr_ind' Tup_case
-binder 6639:6639 <> l:165
-R6652:6655 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6642:6647 Coq.Lists.List <> Forall ind
-R6651:6651 impl2_MC.surface_syntax <> l:165 var
-R6649:6649 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6656:6656 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6659:6661 impl2_MC.surface_syntax <> Tup constr
-R6663:6663 impl2_MC.surface_syntax <> l:165 var
-var 6687:6695 SURFACE_SYNTAX.Expr_ind' Cons_case
-binder 6710:6710 <> l:167
-R6723:6726 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6713:6718 Coq.Lists.List <> Forall ind
-R6722:6722 impl2_MC.surface_syntax <> l:167 var
+R1611:1615 impl2_MC.surface_syntax <> PBool constr
+R1617:1617 impl2_MC.surface_syntax <> b:68 var
+var 1639:1647 SURFACE_SYNTAX.Pat_ind' PNat_case
+binder 1665:1665 <> n:70
+R1668:1668 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R1671:1674 impl2_MC.surface_syntax <> PNat constr
+R1676:1676 impl2_MC.surface_syntax <> n:70 var
+var 1697:1708 SURFACE_SYNTAX.Pat_ind' PString_case
+binder 1723:1723 <> s:72
+R1726:1726 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R1729:1735 impl2_MC.surface_syntax <> PString constr
+R1737:1737 impl2_MC.surface_syntax <> s:72 var
+var 1758:1766 SURFACE_SYNTAX.Pat_ind' PAny_case
+R1777:1777 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R1779:1782 impl2_MC.surface_syntax <> PAny constr
+var 1802:1809 SURFACE_SYNTAX.Pat_ind' PAs_case
+binder 1828:1828 <> i:75
+binder 1830:1830 <> p:76
+R1875:1917 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1872:1872 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R1874:1874 impl2_MC.surface_syntax <> p:76 var
+R1918:1918 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R1921:1923 impl2_MC.surface_syntax <> PAs constr
+R1927:1927 impl2_MC.surface_syntax <> i:75 var
+R1925:1925 impl2_MC.surface_syntax <> p:76 var
+var 1949:1957 SURFACE_SYNTAX.Pat_ind' PTup_case
+binder 1975:1975 <> l:78
+R2027:2069 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2017:2022 Coq.Lists.List <> Forall ind
+R2026:2026 impl2_MC.surface_syntax <> l:78 var
+R2024:2024 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R2070:2070 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R2073:2076 impl2_MC.surface_syntax <> PTup constr
+R2078:2078 impl2_MC.surface_syntax <> l:78 var
+var 2100:2108 SURFACE_SYNTAX.Pat_ind' PNil_case
+R2119:2119 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R2121:2124 impl2_MC.surface_syntax <> PNil constr
+var 2145:2154 SURFACE_SYNTAX.Pat_ind' PCons_case
+binder 2171:2174 <> head:81
+binder 2176:2179 <> tail:82
+R2227:2268 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2221:2221 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R2223:2226 impl2_MC.surface_syntax <> head:81 var
+R2275:2317 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2269:2269 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R2271:2274 impl2_MC.surface_syntax <> tail:82 var
+R2318:2318 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R2321:2325 impl2_MC.surface_syntax <> PCons constr
+R2332:2335 impl2_MC.surface_syntax <> tail:82 var
+R2327:2330 impl2_MC.surface_syntax <> head:81 var
+var 2356:2368 SURFACE_SYNTAX.Pat_ind' PVariant_case
+binder 2382:2382 <> c:84
+binder 2384:2384 <> l:85
+R2436:2478 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2426:2431 Coq.Lists.List <> Forall ind
+R2435:2435 impl2_MC.surface_syntax <> l:85 var
+R2433:2433 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R2479:2479 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R2482:2489 impl2_MC.surface_syntax <> PVariant constr
+R2493:2493 impl2_MC.surface_syntax <> l:85 var
+R2491:2491 impl2_MC.surface_syntax <> c:84 var
+def 2519:2526 <> Pat_ind'
+R2532:2534 impl2_MC.surface_syntax <> Pat ind
+binder 2529:2529 <> p:87
+R2539:2539 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R2541:2541 impl2_MC.surface_syntax <> p:87 var
+R2563:2563 impl2_MC.surface_syntax <> p:87 var
+R2581:2584 impl2_MC.surface_syntax <> PVar constr
+R2599:2607 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PVar_case var
+R2620:2624 impl2_MC.surface_syntax <> PBool constr
+R2638:2647 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PBool_case var
+R2660:2663 impl2_MC.surface_syntax <> PNat constr
+R2678:2686 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PNat_case var
+R2699:2705 impl2_MC.surface_syntax <> PString constr
+R2717:2728 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PString_case var
+R2741:2744 impl2_MC.surface_syntax <> PAny constr
+R2759:2767 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PAny_case var
+R2780:2782 impl2_MC.surface_syntax <> PAs constr
+R2798:2805 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PAs_case var
+R2807:2814 impl2_MC.surface_syntax <> Pat_ind':88 def
+R2830:2833 impl2_MC.surface_syntax <> PTup constr
+R2848:2856 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PTup_case var
+R2894:2897 Coq.Init.Datatypes <> list ind
+R2899:2901 impl2_MC.surface_syntax <> Pat ind
+binder 2891:2891 <> l:90
+R2906:2911 Coq.Lists.List <> Forall ind
+R2915:2915 impl2_MC.surface_syntax <> l:90 var
+R2913:2913 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R2942:2942 impl2_MC.surface_syntax <> l:90 var
+R2966:2967 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R2973:2982 Coq.Lists.List <> Forall_nil constr
+R3006:3007 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R3014:3024 Coq.Lists.List <> Forall_cons constr
+R3035:3042 impl2_MC.surface_syntax <> Pat_ind':88 def
+R3046:3056 impl2_MC.surface_syntax <> lis_pat_ind:91 var
+R3095:3098 impl2_MC.surface_syntax <> PNil constr
+R3113:3121 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PNil_case var
+R3133:3137 impl2_MC.surface_syntax <> PCons constr
+R3151:3160 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PCons_case var
+R3171:3178 impl2_MC.surface_syntax <> Pat_ind':88 def
+R3162:3169 impl2_MC.surface_syntax <> Pat_ind':88 def
+R3190:3197 impl2_MC.surface_syntax <> PVariant constr
+R3208:3220 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.PVariant_case var
+R3259:3262 Coq.Init.Datatypes <> list ind
+R3264:3266 impl2_MC.surface_syntax <> Pat ind
+binder 3256:3256 <> l:93
+R3271:3276 Coq.Lists.List <> Forall ind
+R3280:3280 impl2_MC.surface_syntax <> l:93 var
+R3278:3278 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Pat_ind'.P var
+R3307:3307 impl2_MC.surface_syntax <> l:93 var
+R3331:3332 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R3338:3347 Coq.Lists.List <> Forall_nil constr
+R3371:3372 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R3379:3389 Coq.Lists.List <> Forall_cons constr
+R3400:3407 impl2_MC.surface_syntax <> Pat_ind':88 def
+R3411:3421 impl2_MC.surface_syntax <> lis_pat_ind:94 var
+R3473:3480 impl2_MC.surface_syntax SURFACE_SYNTAX.Pat_ind' <> sec
+sec 3496:3502 SURFACE_SYNTAX Tp_ind'
+var 3522:3522 SURFACE_SYNTAX.Tp_ind' P
+R3527:3530 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3525:3526 impl2_MC.surface_syntax <> Tp ind
+var 3561:3569 SURFACE_SYNTAX.Tp_ind' TFun_case
+R3577:3577 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R3579:3587 impl2_MC.surface_syntax <> TFunction constr
+var 3608:3617 SURFACE_SYNTAX.Tp_ind' TBool_case
+R3624:3624 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R3626:3630 impl2_MC.surface_syntax <> TBool constr
+var 3651:3659 SURFACE_SYNTAX.Tp_ind' TNat_case
+R3667:3667 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R3669:3672 impl2_MC.surface_syntax <> TNat constr
+var 3693:3704 SURFACE_SYNTAX.Tp_ind' TString_case
+R3709:3709 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R3711:3717 impl2_MC.surface_syntax <> TString constr
+var 3738:3748 SURFACE_SYNTAX.Tp_ind' TEmpty_case
+R3754:3754 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R3756:3761 impl2_MC.surface_syntax <> TEmpty constr
+var 3782:3790 SURFACE_SYNTAX.Tp_ind' TTup_case
+binder 3805:3805 <> l:102
+R3818:3821 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3808:3813 Coq.Lists.List <> Forall ind
+R3817:3817 impl2_MC.surface_syntax <> l:102 var
+R3815:3815 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R3822:3822 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R3825:3828 impl2_MC.surface_syntax <> TTup constr
+R3830:3830 impl2_MC.surface_syntax <> l:102 var
+var 3852:3861 SURFACE_SYNTAX.Tp_ind' TList_case
+binder 3875:3875 <> t:104
+R3881:3884 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3878:3878 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R3880:3880 impl2_MC.surface_syntax <> t:104 var
+R3885:3885 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R3888:3892 impl2_MC.surface_syntax <> TList constr
+R3894:3894 impl2_MC.surface_syntax <> t:104 var
+var 3916:3928 SURFACE_SYNTAX.Tp_ind' TVariant_case
+binder 3939:3939 <> l:106
+R4026:4063 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3977:3982 Coq.Lists.List <> Forall ind
+R4025:4025 impl2_MC.surface_syntax <> l:106 var
+binder 3989:3989 <> p:107
+R3994:3999 Coq.Lists.List <> Forall ind
+R4017:4019 Coq.Init.Datatypes <> snd def
+R4021:4021 impl2_MC.surface_syntax <> p:107 var
+binder 4006:4006 <> t:108
+R4011:4011 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R4013:4013 impl2_MC.surface_syntax <> t:108 var
+R4064:4064 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R4067:4074 impl2_MC.surface_syntax <> TVariant constr
+R4076:4076 impl2_MC.surface_syntax <> l:106 var
+var 4098:4106 SURFACE_SYNTAX.Tp_ind' TRef_case
+binder 4121:4121 <> x:110
+R4124:4124 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R4127:4130 impl2_MC.surface_syntax <> TRef constr
+R4132:4132 impl2_MC.surface_syntax <> x:110 var
+var 4153:4163 SURFACE_SYNTAX.Tp_ind' TError_case
+R4169:4169 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R4171:4176 impl2_MC.surface_syntax <> TError constr
+def 4196:4202 <> Tp_ind'
+R4208:4209 impl2_MC.surface_syntax <> Tp ind
+binder 4205:4205 <> t:113
+R4214:4214 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R4216:4216 impl2_MC.surface_syntax <> t:113 var
+R4238:4238 impl2_MC.surface_syntax <> t:113 var
+R4256:4264 impl2_MC.surface_syntax <> TFunction constr
+R4283:4291 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TFun_case var
+R4304:4308 impl2_MC.surface_syntax <> TBool constr
+R4331:4340 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TBool_case var
+R4352:4355 impl2_MC.surface_syntax <> TNat constr
+R4379:4387 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TNat_case var
+R4400:4406 impl2_MC.surface_syntax <> TString constr
+R4427:4438 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TString_case var
+R4450:4455 impl2_MC.surface_syntax <> TEmpty constr
+R4477:4487 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TEmpty_case var
+R4499:4502 impl2_MC.surface_syntax <> TTup constr
+R4526:4534 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TTup_case var
+R4572:4575 Coq.Init.Datatypes <> list ind
+R4577:4578 impl2_MC.surface_syntax <> Tp ind
+binder 4569:4569 <> l:116
+R4583:4588 Coq.Lists.List <> Forall ind
+R4592:4592 impl2_MC.surface_syntax <> l:116 var
+R4590:4590 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R4619:4619 impl2_MC.surface_syntax <> l:116 var
+R4643:4644 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R4651:4660 Coq.Lists.List <> Forall_nil constr
+R4684:4685 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R4691:4701 Coq.Lists.List <> Forall_cons constr
+R4716:4726 impl2_MC.surface_syntax <> lis_tp_ind':117 var
+R4728:4728 impl2_MC.surface_syntax <> t:113 var
+R4706:4712 impl2_MC.surface_syntax <> Tp_ind':114 def
+R4765:4769 impl2_MC.surface_syntax <> TList constr
+R4792:4801 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TList_case var
+R4803:4809 impl2_MC.surface_syntax <> Tp_ind':114 def
+R4822:4829 impl2_MC.surface_syntax <> TVariant constr
+R4849:4861 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TVariant_case var
+R4904:4907 Coq.Init.Datatypes <> list ind
+R4920:4922 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R4913:4918 impl2_MC.ids <> Constr proj
+R4910:4910 impl2_MC.surface_syntax <> SURFACE_SYNTAX.I var
+R4923:4926 Coq.Init.Datatypes <> list ind
+R4928:4929 impl2_MC.surface_syntax <> Tp ind
+binder 4901:4901 <> l:119
+R4970:4975 Coq.Lists.List <> Forall ind
+R5018:5018 impl2_MC.surface_syntax <> l:119 var
+binder 4982:4982 <> p:120
+R4987:4992 Coq.Lists.List <> Forall ind
+R5010:5012 Coq.Init.Datatypes <> snd def
+R5014:5014 impl2_MC.surface_syntax <> p:120 var
+binder 4999:4999 <> t:121
+R5004:5004 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R5006:5006 impl2_MC.surface_syntax <> t:121 var
+R5045:5045 impl2_MC.surface_syntax <> l:119 var
+R5069:5070 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R5082:5091 Coq.Lists.List <> Forall_nil constr
+R5114:5114 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R5127:5129 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R5115:5115 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5117:5118 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5120:5120 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R5136:5146 Coq.Lists.List <> Forall_cons constr
+R5155:5155 impl2_MC.surface_syntax <> t:113 var
+R5223:5226 Coq.Init.Datatypes <> list ind
+R5228:5229 impl2_MC.surface_syntax <> Tp ind
+binder 5220:5220 <> l:124
+R5234:5239 Coq.Lists.List <> Forall ind
+R5256:5256 impl2_MC.surface_syntax <> l:124 var
+binder 5246:5246 <> t:125
+R5251:5251 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.P var
+R5253:5253 impl2_MC.surface_syntax <> t:125 var
+R5308:5308 impl2_MC.surface_syntax <> l:124 var
+R5357:5358 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R5364:5373 Coq.Lists.List <> Forall_nil constr
+R5421:5422 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R5430:5440 Coq.Lists.List <> Forall_cons constr
+R5452:5458 impl2_MC.surface_syntax <> Tp_ind':114 def
+R5514:5530 impl2_MC.surface_syntax <> lis_variant_ind'':126 var
+R5586:5601 impl2_MC.surface_syntax <> lis_variant_ind':122 var
+R5603:5603 impl2_MC.surface_syntax <> t:113 var
+R5645:5648 impl2_MC.surface_syntax <> TRef constr
+R5673:5681 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TRef_case var
+R5694:5699 impl2_MC.surface_syntax <> TError constr
+R5722:5732 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Tp_ind'.TError_case var
+R5785:5791 impl2_MC.surface_syntax SURFACE_SYNTAX.Tp_ind' <> sec
+sec 5814:5822 SURFACE_SYNTAX Expr_ind'
+var 5845:5845 SURFACE_SYNTAX.Expr_ind' P
+R5852:5855 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5848:5851 impl2_MC.surface_syntax <> Expr ind
+var 5884:5891 SURFACE_SYNTAX.Expr_ind' Var_case
+binder 5907:5907 <> x:129
+R5910:5910 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R5913:5915 impl2_MC.surface_syntax <> Var constr
+R5917:5917 impl2_MC.surface_syntax <> x:129 var
+var 5942:5950 SURFACE_SYNTAX.Expr_ind' Bool_case
+binder 5965:5965 <> b:131
+R5968:5968 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R5971:5974 impl2_MC.surface_syntax <> Bool constr
+R5976:5976 impl2_MC.surface_syntax <> b:131 var
+var 6001:6008 SURFACE_SYNTAX.Expr_ind' Nat_case
+binder 6024:6024 <> n:133
+R6027:6027 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6030:6032 impl2_MC.surface_syntax <> Nat constr
+R6034:6034 impl2_MC.surface_syntax <> n:133 var
+var 6058:6068 SURFACE_SYNTAX.Expr_ind' String_case
+binder 6081:6081 <> s:135
+R6084:6084 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6087:6093 impl2_MC.surface_syntax <> EString constr
+R6095:6095 impl2_MC.surface_syntax <> s:135 var
+var 6120:6127 SURFACE_SYNTAX.Expr_ind' Not_case
+binder 6143:6143 <> e:137
+R6188:6229 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6185:6185 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6187:6187 impl2_MC.surface_syntax <> e:137 var
+R6230:6230 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6233:6235 impl2_MC.surface_syntax <> Not constr
+R6237:6237 impl2_MC.surface_syntax <> e:137 var
+var 6262:6269 SURFACE_SYNTAX.Expr_ind' And_case
+binder 6285:6286 <> e1:139
+binder 6288:6289 <> e2:140
+R6334:6375 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6330:6330 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6332:6333 impl2_MC.surface_syntax <> e1:139 var
+R6380:6421 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6376:6376 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6378:6379 impl2_MC.surface_syntax <> e2:140 var
+R6422:6422 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6425:6427 impl2_MC.surface_syntax <> And constr
+R6432:6433 impl2_MC.surface_syntax <> e2:140 var
+R6429:6430 impl2_MC.surface_syntax <> e1:139 var
+var 6457:6463 SURFACE_SYNTAX.Expr_ind' Or_case
+binder 6480:6481 <> e1:142
+binder 6483:6484 <> e2:143
+R6529:6570 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6525:6525 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6527:6528 impl2_MC.surface_syntax <> e1:142 var
+R6575:6616 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6571:6571 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6573:6574 impl2_MC.surface_syntax <> e2:143 var
+R6617:6617 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6620:6621 impl2_MC.surface_syntax <> Or constr
+R6626:6627 impl2_MC.surface_syntax <> e2:143 var
+R6623:6624 impl2_MC.surface_syntax <> e1:142 var
+var 6652:6659 SURFACE_SYNTAX.Expr_ind' Sum_case
+binder 6675:6676 <> e1:145
+binder 6678:6679 <> e2:146
+R6724:6765 Coq.Init.Logic <> ::type_scope:x_'->'_x not
 R6720:6720 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6727:6727 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6730:6733 impl2_MC.surface_syntax <> Cons constr
-R6735:6735 impl2_MC.surface_syntax <> l:167 var
-var 6760:6772 SURFACE_SYNTAX.Expr_ind' EVariant_case
-binder 6783:6783 <> c:169
-binder 6785:6785 <> l:170
-R6798:6801 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6788:6793 Coq.Lists.List <> Forall ind
-R6797:6797 impl2_MC.surface_syntax <> l:170 var
-R6795:6795 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6802:6802 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6805:6812 impl2_MC.surface_syntax <> EVariant constr
-R6816:6816 impl2_MC.surface_syntax <> l:170 var
-R6814:6814 impl2_MC.surface_syntax <> c:169 var
-var 6840:6848 SURFACE_SYNTAX.Expr_ind' ELet_case
-binder 6863:6863 <> p:172
-binder 6865:6866 <> e1:173
-binder 6868:6869 <> e2:174
-R6876:6879 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6872:6872 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6874:6875 impl2_MC.surface_syntax <> e1:173 var
-R6884:6887 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6880:6880 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6882:6883 impl2_MC.surface_syntax <> e2:174 var
-R6888:6888 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6891:6894 impl2_MC.surface_syntax <> ELet constr
-R6901:6902 impl2_MC.surface_syntax <> e2:174 var
-R6898:6899 impl2_MC.surface_syntax <> e1:173 var
-R6896:6896 impl2_MC.surface_syntax <> p:172 var
-var 6927:6933 SURFACE_SYNTAX.Expr_ind' If_case
-binder 6950:6951 <> e1:176
-binder 6953:6954 <> e2:177
-binder 6956:6957 <> e3:178
-R6964:6967 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6960:6960 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6962:6963 impl2_MC.surface_syntax <> e1:176 var
-R6972:6975 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6968:6968 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6970:6971 impl2_MC.surface_syntax <> e2:177 var
-R6980:6983 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6976:6976 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6978:6979 impl2_MC.surface_syntax <> e3:178 var
-R6984:6984 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R6987:6988 impl2_MC.surface_syntax <> If constr
-R6996:6997 impl2_MC.surface_syntax <> e3:178 var
-R6993:6994 impl2_MC.surface_syntax <> e2:177 var
-R6990:6991 impl2_MC.surface_syntax <> e1:176 var
-var 7022:7032 SURFACE_SYNTAX.Expr_ind' LetRec_case
-binder 7045:7045 <> i:180
-binder 7047:7048 <> e1:181
-binder 7050:7051 <> e2:182
-R7058:7061 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7054:7054 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R7056:7057 impl2_MC.surface_syntax <> e1:181 var
-R7066:7069 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7062:7062 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R7064:7065 impl2_MC.surface_syntax <> e2:182 var
-R7070:7070 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R7073:7078 impl2_MC.surface_syntax <> LetRec constr
-R7085:7086 impl2_MC.surface_syntax <> e2:182 var
-R7082:7083 impl2_MC.surface_syntax <> e1:181 var
-R7080:7080 impl2_MC.surface_syntax <> i:180 var
-var 7111:7122 SURFACE_SYNTAX.Expr_ind' DefType_case
-binder 7134:7134 <> l:184
-binder 7136:7136 <> e:185
-R7142:7145 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7139:7139 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R7141:7141 impl2_MC.surface_syntax <> e:185 var
-R7146:7146 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R7149:7155 impl2_MC.surface_syntax <> DefType constr
-R7159:7159 impl2_MC.surface_syntax <> e:185 var
-R7157:7157 impl2_MC.surface_syntax <> l:184 var
-var 7184:7193 SURFACE_SYNTAX.Expr_ind' Match_case
-binder 7207:7207 <> e:187
-binder 7209:7209 <> l:188
-R7215:7218 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7212:7212 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R7214:7214 impl2_MC.surface_syntax <> e:187 var
-R7248:7251 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7219:7224 Coq.Lists.List <> Forall ind
-R7247:7247 impl2_MC.surface_syntax <> l:188 var
-binder 7231:7231 <> p:189
-R7236:7236 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R7239:7241 Coq.Init.Datatypes <> snd def
-R7243:7243 impl2_MC.surface_syntax <> p:189 var
-R7252:7252 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R7255:7259 impl2_MC.surface_syntax <> Match constr
-R7263:7263 impl2_MC.surface_syntax <> l:188 var
-R7261:7261 impl2_MC.surface_syntax <> e:187 var
-var 7287:7296 SURFACE_SYNTAX.Expr_ind' Error_case
-binder 7310:7310 <> m:191
-R7313:7313 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R7316:7321 impl2_MC.surface_syntax <> EError constr
-R7323:7323 impl2_MC.surface_syntax <> m:191 var
-def 7355:7363 <> Expr_ind'
-binder 7365:7365 <> e:193
-R7369:7369 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R7371:7371 impl2_MC.surface_syntax <> e:193 var
-R7395:7395 impl2_MC.surface_syntax <> e:193 var
-R7416:7418 impl2_MC.surface_syntax <> Var constr
-R7444:7451 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Var_case var
-R7467:7470 impl2_MC.surface_syntax <> Bool constr
-R7495:7503 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Bool_case var
-R7519:7521 impl2_MC.surface_syntax <> Nat constr
-R7547:7554 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Nat_case var
-R7570:7575 impl2_MC.surface_syntax <> String constr
-R7598:7608 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.String_case var
-R7624:7626 impl2_MC.surface_syntax <> Not constr
-R7652:7659 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Not_case var
-R7662:7670 impl2_MC.surface_syntax <> Expr_ind':194 def
-R7686:7688 impl2_MC.surface_syntax <> And constr
-R7714:7721 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.And_case var
-R7736:7744 impl2_MC.surface_syntax <> Expr_ind':194 def
-R7724:7732 impl2_MC.surface_syntax <> Expr_ind':194 def
-R7761:7762 impl2_MC.surface_syntax <> Or constr
-R7789:7795 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Or_case var
-R7810:7818 impl2_MC.surface_syntax <> Expr_ind':194 def
-R7798:7806 impl2_MC.surface_syntax <> Expr_ind':194 def
-R7834:7836 impl2_MC.surface_syntax <> Sum constr
-R7862:7869 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Sum_case var
-R7884:7892 impl2_MC.surface_syntax <> Expr_ind':194 def
-R7872:7880 impl2_MC.surface_syntax <> Expr_ind':194 def
-R7908:7910 impl2_MC.surface_syntax <> Sub constr
-R7936:7943 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Sub_case var
-R7958:7966 impl2_MC.surface_syntax <> Expr_ind':194 def
-R7946:7954 impl2_MC.surface_syntax <> Expr_ind':194 def
-R7983:7985 impl2_MC.surface_syntax <> Mul constr
-R8011:8018 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Mul_case var
-R8033:8041 impl2_MC.surface_syntax <> Expr_ind':194 def
-R8021:8029 impl2_MC.surface_syntax <> Expr_ind':194 def
-R8059:8064 impl2_MC.surface_syntax <> Concat constr
-R8087:8097 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Concat_case var
-R8112:8120 impl2_MC.surface_syntax <> Expr_ind':194 def
-R8100:8108 impl2_MC.surface_syntax <> Expr_ind':194 def
-R8137:8141 impl2_MC.surface_syntax <> Equal constr
-R8165:8171 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Eq_case var
-R8186:8194 impl2_MC.surface_syntax <> Expr_ind':194 def
-R8174:8182 impl2_MC.surface_syntax <> Expr_ind':194 def
-R8211:8213 impl2_MC.surface_syntax <> Lam constr
-R8239:8246 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Lam_case var
-R8249:8257 impl2_MC.surface_syntax <> Expr_ind':194 def
-R8273:8275 impl2_MC.surface_syntax <> App constr
-R8301:8308 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.App_case var
-R8364:8367 Coq.Init.Datatypes <> list ind
-R8369:8372 impl2_MC.surface_syntax <> Expr ind
-binder 8361:8361 <> l:196
-R8377:8382 Coq.Lists.List <> Forall ind
-R8386:8386 impl2_MC.surface_syntax <> l:196 var
-R8384:8384 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R8421:8421 impl2_MC.surface_syntax <> l:196 var
-R8451:8452 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R8461:8470 Coq.Lists.List <> Forall_nil constr
-R8498:8499 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R8507:8517 Coq.Lists.List <> Forall_cons constr
-R8534:8546 impl2_MC.surface_syntax <> lis_Expr_ind':197 var
-R8522:8530 impl2_MC.surface_syntax <> Expr_ind':194 def
-R8311:8319 impl2_MC.surface_syntax <> Expr_ind':194 def
-R8594:8596 impl2_MC.surface_syntax <> Tup constr
-R8622:8629 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Tup_case var
-R8675:8678 Coq.Init.Datatypes <> list ind
-R8680:8683 impl2_MC.surface_syntax <> Expr ind
-binder 8672:8672 <> l:199
-R8688:8693 Coq.Lists.List <> Forall ind
-R8697:8697 impl2_MC.surface_syntax <> l:199 var
-R8695:8695 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R8732:8732 impl2_MC.surface_syntax <> l:199 var
-R8762:8763 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R8772:8781 Coq.Lists.List <> Forall_nil constr
-R8809:8810 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R8818:8828 Coq.Lists.List <> Forall_cons constr
-R8845:8857 impl2_MC.surface_syntax <> lis_Expr_ind':200 var
-R8833:8841 impl2_MC.surface_syntax <> Expr_ind':194 def
-R8906:8909 impl2_MC.surface_syntax <> Cons constr
-R8935:8943 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Cons_case var
-R8985:8988 Coq.Init.Datatypes <> list ind
-R8990:8993 impl2_MC.surface_syntax <> Expr ind
-binder 8982:8982 <> l:202
-R8998:9003 Coq.Lists.List <> Forall ind
-R9007:9007 impl2_MC.surface_syntax <> l:202 var
-R9005:9005 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R9042:9042 impl2_MC.surface_syntax <> l:202 var
-R9072:9073 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R9082:9091 Coq.Lists.List <> Forall_nil constr
-R9119:9120 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R9128:9138 Coq.Lists.List <> Forall_cons constr
-R9155:9167 impl2_MC.surface_syntax <> lis_Expr_ind':203 var
-R9143:9151 impl2_MC.surface_syntax <> Expr_ind':194 def
-R9219:9226 impl2_MC.surface_syntax <> EVariant constr
-R9248:9260 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.EVariant_case var
-R9302:9305 Coq.Init.Datatypes <> list ind
-R9307:9310 impl2_MC.surface_syntax <> Expr ind
-binder 9299:9299 <> l:205
-R9315:9320 Coq.Lists.List <> Forall ind
-R9324:9324 impl2_MC.surface_syntax <> l:205 var
-R9322:9322 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R9359:9359 impl2_MC.surface_syntax <> l:205 var
-R9389:9390 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R9399:9408 Coq.Lists.List <> Forall_nil constr
-R9436:9437 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R9445:9455 Coq.Lists.List <> Forall_cons constr
-R9472:9484 impl2_MC.surface_syntax <> lis_Expr_ind':206 var
-R9460:9468 impl2_MC.surface_syntax <> Expr_ind':194 def
-R9532:9535 impl2_MC.surface_syntax <> ELet constr
-R9561:9569 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.ELet_case var
-R9584:9592 impl2_MC.surface_syntax <> Expr_ind':194 def
-R9572:9580 impl2_MC.surface_syntax <> Expr_ind':194 def
-R9616:9617 impl2_MC.surface_syntax <> If constr
-R9645:9651 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.If_case var
-R9679:9687 impl2_MC.surface_syntax <> Expr_ind':194 def
-R9666:9674 impl2_MC.surface_syntax <> Expr_ind':194 def
-R9654:9662 impl2_MC.surface_syntax <> Expr_ind':194 def
-R9703:9708 impl2_MC.surface_syntax <> LetRec constr
-R9732:9742 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.LetRec_case var
-R9758:9766 impl2_MC.surface_syntax <> Expr_ind':194 def
-R9745:9753 impl2_MC.surface_syntax <> Expr_ind':194 def
-R9783:9789 impl2_MC.surface_syntax <> DefType constr
-R9812:9823 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.DefType_case var
-R9826:9834 impl2_MC.surface_syntax <> Expr_ind':194 def
-R9851:9855 impl2_MC.surface_syntax <> Match constr
-R9880:9889 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Match_case var
-R9943:9946 Coq.Init.Datatypes <> list ind
-R9952:9954 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R9949:9951 impl2_MC.surface_syntax <> Pat ind
-R9955:9958 impl2_MC.surface_syntax <> Expr ind
-binder 9940:9940 <> l:208
-R9965:9970 Coq.Lists.List <> Forall ind
-R9993:9993 impl2_MC.surface_syntax <> l:208 var
-binder 9977:9977 <> p:209
-R9982:9982 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
-R9985:9987 Coq.Init.Datatypes <> snd def
-R9989:9989 impl2_MC.surface_syntax <> p:209 var
-R10028:10028 impl2_MC.surface_syntax <> l:208 var
-R10058:10059 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R10068:10077 Coq.Lists.List <> Forall_nil constr
-R10105:10106 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R10114:10124 Coq.Lists.List <> Forall_cons constr
-R10142:10154 impl2_MC.surface_syntax <> lis_Expr_ind':210 var
-R10129:10137 impl2_MC.surface_syntax <> Expr_ind':194 def
-R9892:9900 impl2_MC.surface_syntax <> Expr_ind':194 def
-R10202:10207 impl2_MC.surface_syntax <> EError constr
-R10232:10241 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Error_case var
-R10281:10289 impl2_MC.surface_syntax SURFACE_SYNTAX.Expr_ind' <> sec
-R10299:10312 impl2_MC.surface_syntax SURFACE_SYNTAX <> sec
+R6722:6723 impl2_MC.surface_syntax <> e1:145 var
+R6770:6811 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6766:6766 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6768:6769 impl2_MC.surface_syntax <> e2:146 var
+R6812:6812 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6815:6817 impl2_MC.surface_syntax <> Sum constr
+R6822:6823 impl2_MC.surface_syntax <> e2:146 var
+R6819:6820 impl2_MC.surface_syntax <> e1:145 var
+var 6847:6854 SURFACE_SYNTAX.Expr_ind' Sub_case
+binder 6870:6871 <> e1:148
+binder 6873:6874 <> e2:149
+R6919:6960 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6915:6915 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6917:6918 impl2_MC.surface_syntax <> e1:148 var
+R6965:7006 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6961:6961 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R6963:6964 impl2_MC.surface_syntax <> e2:149 var
+R7007:7007 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7010:7012 impl2_MC.surface_syntax <> Sub constr
+R7017:7018 impl2_MC.surface_syntax <> e2:149 var
+R7014:7015 impl2_MC.surface_syntax <> e1:148 var
+var 7043:7050 SURFACE_SYNTAX.Expr_ind' Mul_case
+binder 7066:7067 <> e1:151
+binder 7069:7070 <> e2:152
+R7115:7156 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7111:7111 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7113:7114 impl2_MC.surface_syntax <> e1:151 var
+R7161:7202 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7157:7157 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7159:7160 impl2_MC.surface_syntax <> e2:152 var
+R7203:7203 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7206:7208 impl2_MC.surface_syntax <> Mul constr
+R7213:7214 impl2_MC.surface_syntax <> e2:152 var
+R7210:7211 impl2_MC.surface_syntax <> e1:151 var
+var 7238:7248 SURFACE_SYNTAX.Expr_ind' Concat_case
+binder 7261:7262 <> e1:154
+binder 7264:7265 <> e2:155
+R7310:7351 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7306:7306 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7308:7309 impl2_MC.surface_syntax <> e1:154 var
+R7356:7397 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7352:7352 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7354:7355 impl2_MC.surface_syntax <> e2:155 var
+R7398:7398 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7401:7406 impl2_MC.surface_syntax <> Concat constr
+R7411:7412 impl2_MC.surface_syntax <> e2:155 var
+R7408:7409 impl2_MC.surface_syntax <> e1:154 var
+var 7437:7443 SURFACE_SYNTAX.Expr_ind' Eq_case
+binder 7460:7461 <> e1:157
+binder 7463:7464 <> e2:158
+R7509:7550 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7505:7505 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7507:7508 impl2_MC.surface_syntax <> e1:157 var
+R7555:7596 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7551:7551 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7553:7554 impl2_MC.surface_syntax <> e2:158 var
+R7597:7597 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7600:7604 impl2_MC.surface_syntax <> Equal constr
+R7609:7610 impl2_MC.surface_syntax <> e2:158 var
+R7606:7607 impl2_MC.surface_syntax <> e1:157 var
+var 7635:7642 SURFACE_SYNTAX.Expr_ind' Lam_case
+binder 7658:7658 <> l:160
+binder 7660:7660 <> e:161
+R7704:7745 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7701:7701 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7703:7703 impl2_MC.surface_syntax <> e:161 var
+R7746:7746 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7749:7751 impl2_MC.surface_syntax <> Lam constr
+R7755:7755 impl2_MC.surface_syntax <> e:161 var
+R7753:7753 impl2_MC.surface_syntax <> l:160 var
+var 7779:7786 SURFACE_SYNTAX.Expr_ind' App_case
+binder 7802:7802 <> e:163
+binder 7804:7804 <> l:164
+R7848:7889 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7845:7845 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7847:7847 impl2_MC.surface_syntax <> e:163 var
+R7900:7940 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7890:7895 Coq.Lists.List <> Forall ind
+R7899:7899 impl2_MC.surface_syntax <> l:164 var
+R7897:7897 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7941:7941 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R7944:7946 impl2_MC.surface_syntax <> App constr
+R7950:7950 impl2_MC.surface_syntax <> l:164 var
+R7948:7948 impl2_MC.surface_syntax <> e:163 var
+var 7974:7981 SURFACE_SYNTAX.Expr_ind' Tup_case
+binder 7997:7997 <> l:166
+R8048:8089 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8038:8043 Coq.Lists.List <> Forall ind
+R8047:8047 impl2_MC.surface_syntax <> l:166 var
+R8045:8045 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8090:8090 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8093:8095 impl2_MC.surface_syntax <> Tup constr
+R8097:8097 impl2_MC.surface_syntax <> l:166 var
+var 8122:8129 SURFACE_SYNTAX.Expr_ind' Nil_case
+R8137:8137 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8139:8141 impl2_MC.surface_syntax <> Nil constr
+var 8165:8173 SURFACE_SYNTAX.Expr_ind' Cons_case
+binder 8188:8191 <> head:169
+binder 8193:8196 <> tail:170
+R8243:8284 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8237:8237 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8239:8242 impl2_MC.surface_syntax <> head:169 var
+R8291:8332 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8285:8285 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8287:8290 impl2_MC.surface_syntax <> tail:170 var
+R8333:8333 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8336:8339 impl2_MC.surface_syntax <> Cons constr
+R8346:8349 impl2_MC.surface_syntax <> tail:170 var
+R8341:8344 impl2_MC.surface_syntax <> head:169 var
+var 8374:8386 SURFACE_SYNTAX.Expr_ind' EVariant_case
+binder 8397:8397 <> c:172
+binder 8399:8399 <> l:173
+R8450:8491 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8440:8445 Coq.Lists.List <> Forall ind
+R8449:8449 impl2_MC.surface_syntax <> l:173 var
+R8447:8447 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8492:8492 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8495:8502 impl2_MC.surface_syntax <> EVariant constr
+R8506:8506 impl2_MC.surface_syntax <> l:173 var
+R8504:8504 impl2_MC.surface_syntax <> c:172 var
+var 8530:8538 SURFACE_SYNTAX.Expr_ind' ELet_case
+binder 8553:8553 <> p:175
+binder 8555:8556 <> e1:176
+binder 8558:8559 <> e2:177
+R8604:8645 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8600:8600 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8602:8603 impl2_MC.surface_syntax <> e1:176 var
+R8650:8691 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8646:8646 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8648:8649 impl2_MC.surface_syntax <> e2:177 var
+R8692:8692 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8695:8698 impl2_MC.surface_syntax <> ELet constr
+R8705:8706 impl2_MC.surface_syntax <> e2:177 var
+R8702:8703 impl2_MC.surface_syntax <> e1:176 var
+R8700:8700 impl2_MC.surface_syntax <> p:175 var
+var 8731:8737 SURFACE_SYNTAX.Expr_ind' If_case
+binder 8754:8755 <> e1:179
+binder 8757:8758 <> e2:180
+binder 8760:8761 <> e3:181
+R8806:8847 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8802:8802 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8804:8805 impl2_MC.surface_syntax <> e1:179 var
+R8852:8893 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8848:8848 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8850:8851 impl2_MC.surface_syntax <> e2:180 var
+R8898:8939 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8894:8894 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8896:8897 impl2_MC.surface_syntax <> e3:181 var
+R8940:8940 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R8943:8944 impl2_MC.surface_syntax <> If constr
+R8952:8953 impl2_MC.surface_syntax <> e3:181 var
+R8949:8950 impl2_MC.surface_syntax <> e2:180 var
+R8946:8947 impl2_MC.surface_syntax <> e1:179 var
+var 8978:8988 SURFACE_SYNTAX.Expr_ind' LetRec_case
+binder 9001:9001 <> i:183
+binder 9003:9004 <> e1:184
+binder 9006:9007 <> e2:185
+R9052:9093 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9048:9048 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R9050:9051 impl2_MC.surface_syntax <> e1:184 var
+R9098:9139 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9094:9094 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R9096:9097 impl2_MC.surface_syntax <> e2:185 var
+R9140:9140 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R9143:9148 impl2_MC.surface_syntax <> LetRec constr
+R9155:9156 impl2_MC.surface_syntax <> e2:185 var
+R9152:9153 impl2_MC.surface_syntax <> e1:184 var
+R9150:9150 impl2_MC.surface_syntax <> i:183 var
+var 9181:9192 SURFACE_SYNTAX.Expr_ind' DefType_case
+binder 9204:9204 <> l:187
+binder 9206:9206 <> e:188
+R9250:9291 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9247:9247 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R9249:9249 impl2_MC.surface_syntax <> e:188 var
+R9292:9292 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R9295:9301 impl2_MC.surface_syntax <> DefType constr
+R9305:9305 impl2_MC.surface_syntax <> e:188 var
+R9303:9303 impl2_MC.surface_syntax <> l:187 var
+var 9330:9339 SURFACE_SYNTAX.Expr_ind' Match_case
+binder 9353:9353 <> e:190
+binder 9355:9355 <> l:191
+R9399:9440 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9396:9396 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R9398:9398 impl2_MC.surface_syntax <> e:190 var
+R9470:9511 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9441:9446 Coq.Lists.List <> Forall ind
+R9469:9469 impl2_MC.surface_syntax <> l:191 var
+binder 9453:9453 <> p:192
+R9458:9458 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R9461:9463 Coq.Init.Datatypes <> snd def
+R9465:9465 impl2_MC.surface_syntax <> p:192 var
+R9512:9512 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R9515:9519 impl2_MC.surface_syntax <> Match constr
+R9523:9523 impl2_MC.surface_syntax <> l:191 var
+R9521:9521 impl2_MC.surface_syntax <> e:190 var
+var 9547:9556 SURFACE_SYNTAX.Expr_ind' Error_case
+binder 9570:9570 <> m:194
+R9573:9573 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R9576:9581 impl2_MC.surface_syntax <> EError constr
+R9583:9583 impl2_MC.surface_syntax <> m:194 var
+def 9615:9623 <> Expr_ind'
+binder 9625:9625 <> e:196
+R9629:9629 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R9631:9631 impl2_MC.surface_syntax <> e:196 var
+R9655:9655 impl2_MC.surface_syntax <> e:196 var
+R9676:9678 impl2_MC.surface_syntax <> Var constr
+R9704:9711 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Var_case var
+R9727:9730 impl2_MC.surface_syntax <> Bool constr
+R9755:9763 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Bool_case var
+R9779:9781 impl2_MC.surface_syntax <> Nat constr
+R9807:9814 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Nat_case var
+R9830:9836 impl2_MC.surface_syntax <> EString constr
+R9858:9868 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.String_case var
+R9884:9886 impl2_MC.surface_syntax <> Not constr
+R9912:9919 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Not_case var
+R9921:9929 impl2_MC.surface_syntax <> Expr_ind':197 def
+R9944:9946 impl2_MC.surface_syntax <> And constr
+R9972:9979 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.And_case var
+R9991:9999 impl2_MC.surface_syntax <> Expr_ind':197 def
+R9981:9989 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10014:10015 impl2_MC.surface_syntax <> Or constr
+R10042:10048 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Or_case var
+R10060:10068 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10050:10058 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10083:10085 impl2_MC.surface_syntax <> Sum constr
+R10111:10118 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Sum_case var
+R10130:10138 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10120:10128 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10153:10155 impl2_MC.surface_syntax <> Sub constr
+R10181:10188 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Sub_case var
+R10200:10208 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10190:10198 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10224:10226 impl2_MC.surface_syntax <> Mul constr
+R10252:10259 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Mul_case var
+R10271:10279 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10261:10269 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10296:10301 impl2_MC.surface_syntax <> Concat constr
+R10324:10334 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Concat_case var
+R10346:10354 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10336:10344 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10370:10374 impl2_MC.surface_syntax <> Equal constr
+R10398:10404 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Eq_case var
+R10416:10424 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10406:10414 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10440:10442 impl2_MC.surface_syntax <> Lam constr
+R10468:10475 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Lam_case var
+R10477:10485 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10500:10502 impl2_MC.surface_syntax <> App constr
+R10528:10535 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.App_case var
+R10589:10592 Coq.Init.Datatypes <> list ind
+R10594:10597 impl2_MC.surface_syntax <> Expr ind
+binder 10586:10586 <> l:199
+R10602:10607 Coq.Lists.List <> Forall ind
+R10611:10611 impl2_MC.surface_syntax <> l:199 var
+R10609:10609 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R10646:10646 impl2_MC.surface_syntax <> l:199 var
+R10676:10677 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R10686:10695 Coq.Lists.List <> Forall_nil constr
+R10723:10724 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R10732:10742 Coq.Lists.List <> Forall_cons constr
+R10759:10771 impl2_MC.surface_syntax <> lis_Expr_ind':200 var
+R10747:10755 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10537:10545 impl2_MC.surface_syntax <> Expr_ind':197 def
+R10819:10821 impl2_MC.surface_syntax <> Tup constr
+R10847:10854 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Tup_case var
+R10900:10903 Coq.Init.Datatypes <> list ind
+R10905:10908 impl2_MC.surface_syntax <> Expr ind
+binder 10897:10897 <> l:202
+R10913:10918 Coq.Lists.List <> Forall ind
+R10922:10922 impl2_MC.surface_syntax <> l:202 var
+R10920:10920 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R10957:10957 impl2_MC.surface_syntax <> l:202 var
+R10987:10988 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R10997:11006 Coq.Lists.List <> Forall_nil constr
+R11034:11035 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R11043:11053 Coq.Lists.List <> Forall_cons constr
+R11070:11082 impl2_MC.surface_syntax <> lis_Expr_ind':203 var
+R11058:11066 impl2_MC.surface_syntax <> Expr_ind':197 def
+R11131:11133 impl2_MC.surface_syntax <> Nil constr
+R11160:11167 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Nil_case var
+R11186:11189 impl2_MC.surface_syntax <> Cons constr
+R11215:11223 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Cons_case var
+R11235:11243 impl2_MC.surface_syntax <> Expr_ind':197 def
+R11225:11233 impl2_MC.surface_syntax <> Expr_ind':197 def
+R11259:11266 impl2_MC.surface_syntax <> EVariant constr
+R11288:11300 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.EVariant_case var
+R11342:11345 Coq.Init.Datatypes <> list ind
+R11347:11350 impl2_MC.surface_syntax <> Expr ind
+binder 11339:11339 <> l:205
+R11355:11360 Coq.Lists.List <> Forall ind
+R11364:11364 impl2_MC.surface_syntax <> l:205 var
+R11362:11362 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R11399:11399 impl2_MC.surface_syntax <> l:205 var
+R11429:11430 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R11439:11448 Coq.Lists.List <> Forall_nil constr
+R11476:11477 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R11485:11495 Coq.Lists.List <> Forall_cons constr
+R11512:11524 impl2_MC.surface_syntax <> lis_Expr_ind':206 var
+R11500:11508 impl2_MC.surface_syntax <> Expr_ind':197 def
+R11572:11575 impl2_MC.surface_syntax <> ELet constr
+R11601:11609 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.ELet_case var
+R11624:11632 impl2_MC.surface_syntax <> Expr_ind':197 def
+R11612:11620 impl2_MC.surface_syntax <> Expr_ind':197 def
+R11656:11657 impl2_MC.surface_syntax <> If constr
+R11685:11691 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.If_case var
+R11719:11727 impl2_MC.surface_syntax <> Expr_ind':197 def
+R11706:11714 impl2_MC.surface_syntax <> Expr_ind':197 def
+R11694:11702 impl2_MC.surface_syntax <> Expr_ind':197 def
+R11743:11748 impl2_MC.surface_syntax <> LetRec constr
+R11772:11782 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.LetRec_case var
+R11798:11806 impl2_MC.surface_syntax <> Expr_ind':197 def
+R11785:11793 impl2_MC.surface_syntax <> Expr_ind':197 def
+R11823:11829 impl2_MC.surface_syntax <> DefType constr
+R11852:11863 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.DefType_case var
+R11866:11874 impl2_MC.surface_syntax <> Expr_ind':197 def
+R11891:11895 impl2_MC.surface_syntax <> Match constr
+R11920:11929 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Match_case var
+R11983:11986 Coq.Init.Datatypes <> list ind
+R11992:11994 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R11989:11991 impl2_MC.surface_syntax <> Pat ind
+R11995:11998 impl2_MC.surface_syntax <> Expr ind
+binder 11980:11980 <> l:208
+R12005:12010 Coq.Lists.List <> Forall ind
+R12033:12033 impl2_MC.surface_syntax <> l:208 var
+binder 12017:12017 <> p:209
+R12022:12022 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.P var
+R12025:12027 Coq.Init.Datatypes <> snd def
+R12029:12029 impl2_MC.surface_syntax <> p:209 var
+R12068:12068 impl2_MC.surface_syntax <> l:208 var
+R12098:12099 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R12108:12117 Coq.Lists.List <> Forall_nil constr
+R12145:12146 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R12154:12164 Coq.Lists.List <> Forall_cons constr
+R12182:12194 impl2_MC.surface_syntax <> lis_Expr_ind':210 var
+R12169:12177 impl2_MC.surface_syntax <> Expr_ind':197 def
+R11932:11940 impl2_MC.surface_syntax <> Expr_ind':197 def
+R12242:12247 impl2_MC.surface_syntax <> EError constr
+R12272:12281 impl2_MC.surface_syntax <> SURFACE_SYNTAX.Expr_ind'.Error_case var
+R12321:12329 impl2_MC.surface_syntax SURFACE_SYNTAX.Expr_ind' <> sec
+R12339:12352 impl2_MC.surface_syntax SURFACE_SYNTAX <> sec
