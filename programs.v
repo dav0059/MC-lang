@@ -156,14 +156,17 @@ Section MC_lang.
     Local Notation " 'If' e1 'Then' e2 'Else' e3 " := (@If I e1 e2 e3) (at level 90). 
     Local Notation " 'LetRec' i '::=' e1 'In' e2 " := (@LetRec I i e1 e2) (at level 90).
     Local Notation " 'DefType' l 'In' e " := (@DefType I l e) (at level 90). 
-    Local Notation " 'Match' e 'With' l " := (@Match I e l) (at level 90). 
+    Local Notation " 'Match' e 'With' l " := (@Match I e l) (at level 90).
+    Local Notation " 'error' m" := (@EError I m) (at level 90). 
 
+  
     Fixpoint lit_list_to_list (l: list (Expr I)) : Expr I := 
       match l with 
       |[]   => Nil 
       |h::t => Cons(h, lit_list_to_list t)
       end. 
    
+    
     Definition my_lis : Expr I :=  
       DefType [("LIST_NAT", TVariant([
         ("Nil", []); 
@@ -205,16 +208,34 @@ Section MC_lang.
                                 (pCons($p"h", $p"t"), 
                                   App ($"reduce") [$"f"; $"t"; App ($"f") [$"acc"; $"h"]])
                                ]   
-       In  
+       In 
+      LetRec "forall" ::= λ[$p"f"; $p"l"]. Match $"l" With [
+                                (pNil, T); 
+                                (pCons($p"h", $p"t"), If App ($"f") [$"h"] == F Then F 
+                                                      Else App ($"forall") [$"f"; $"t"])   
+                                ]
+      In  
+      LetRec "exists" ::= λ[$p"f"; $p"l"]. Match $"l" With [
+                                (pNil, F); 
+                                (pCons($p"h", $p"t"), If App ($"f") [$"h"] == T Then T 
+                                                      Else App ($"exists") [$"f"; $"t"])   
+                                ] 
+      In 
+      LetRec "find"   ::= λ[$p"f"; $p"l"]. Match $"l" With [
+                                (pNil, error "find failure"); 
+                                (pCons($p"h", $p"t"), If App ($"f") [$"h"] == T Then $"h" 
+                                                      Else App ($"find") [$"find"; $"t"])      
+                               ]     
+      In    
       LetRec "append" ::= λ[$p"l1"; $p"l2"]. Match $"l1" With [
                                 (pNil, $"l2"); 
                                 (pCons($p"h", $p"t"), Cons($"h", App ($"append") [$"t"; $"l2"]))
                             ]
       In 
-      App ($"reduce") [λ[$p"x"; $p"y"]. $"x" @. $"y" ; 
-                       Cons($s "hello",Cons($s " ",Cons($s "world", Nil)))              
-                      ; $s ""].
+      App ($"exists") [λ[$p"x"]. $"x" == $s"world" ; 
+                       Cons($s "hello",Cons($s " ",Cons($s "world", Nil)))]. 
       
+                       
     Definition my_nat := DefType [("NAT", TVariant([
         ("Z", []); 
         ("S", [TRef "NAT"])
@@ -225,6 +246,70 @@ Section MC_lang.
                           ] 
        In App ($"sum") [C("S", [C("S", [C("S", [C("Z", [])])])]); 
                         C("Z", [])] .
+
+
+    Definition mcr_ast : Expr I := 
+      DefType [("Identifier", TVariant([
+        ("Ide", [TString])
+      ]))] In  
+      DefType [("Constructor", TVariant [
+        ("Constr", [TString])
+      ])] In 
+      DefType [("Message", TVariant [
+        ("Mssg", [TString])
+      ])] In 
+      DefType [("Pat", TVariant([
+        ("PVar", [TRef "Identifier"]);  
+        ("PNat", [TNat]);
+        ("PBool", [TBool]);  
+        ("PString", [TString]);
+        ("PAs", [TRef "Pat"; TRef "Identifier"]); 
+        ("PAny", []); 
+        ("PUnit", []);
+        ("PPair", [TRef "Pat"; TRef "Pat"]); 
+        ("PNil", []); 
+        ("PCons", [TRef "Pat"; TRef "Pat"]); 
+        ("PVariant", [TRef "Constructor"; TRef "Pat"])
+      ]))] In 
+      DefType [("Typ", TVariant([
+        ("TFunction", []); 
+        ("TNat", []); 
+        ("TBool", []); 
+        ("TString", []); 
+        ("TEmpty", []); 
+        ("TUnit", []); 
+        ("TProd", [TRef "Typ"; TRef "Typ"]); 
+        ("TList", [TRef "Typ"]); 
+        ("TVariant", [TList(TTup([TRef "Constructor"; TRef "Typ"]))]); 
+        ("TRef", [TRef "Identifier"]); 
+        ("TError", [])
+      ]))] In 
+      DefType [("Expr", TVariant([
+        ("Var", [TRef "Identifier"]); 
+        ("Nat", [TNat]); 
+        ("Bool", [TBool]); 
+        ("String", [TString]); 
+        ("Sum", [TRef "Expr"; TRef "Expr"]); 
+        ("Sub", [TRef "Expr"; TRef "Expr"]); 
+        ("Mul", [TRef "Expr"; TRef "Expr"]); 
+        ("Not", [TRef "Expr"]); 
+        ("And", [TRef "Expr"; TRef "Expr"]); 
+        ("Or", [TRef "Expr"; TRef "Expr"]); 
+        ("Concat", [TRef "Expr"; TRef "Expr"]); 
+        ("Eq", [TRef "Expr"; TRef "Expr"]); 
+        ("Lam", [TRef "Pat"; TRef "Expr"]); 
+        ("App", [TRef "Expr"; TRef "Expr"]); 
+        ("Unit", []); 
+        ("Pair", [TRef "Expr"; TRef "Expr"]);
+        ("Nil", []); 
+        ("Cons", [TRef "Expr"; TRef "Expr"]); 
+        ("Variant", [TRef "Constructor"; TRef "Expr"]); 
+        ("Fix", [TRef "Identifier"; TRef "Expr"]); 
+        ("DefType", [TList(TTup([TRef "Identifier"; TRef "Typ"])); TRef "Expr"]);
+        ("Match", [TRef "Expr"; TList(TTup([TRef "Pat"; TRef "Expr"]))]); 
+        ("Error", [])
+      ]))] In 
+        C("Sum", [C("Nat", [$n 1]); C("Nat", [$n 1])]).
                     
     Definition my_prog_des := @desugar_Expr I native_lis.
     Definition register_empty := @empty_env (Ide I) (unit). 

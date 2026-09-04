@@ -311,7 +311,7 @@ Section ELABORATION.
 
     Theorem tbl_ext_complete_Err: forall r R B, 
        WFET r R -> 
-      (forall r' R', ~TBlockExtends (r, R, B) (r', R', B)) -> 
+       (forall r' R', ~TBlockExtends (r, R, B) (r', R', B)) -> 
        (exists mssg, tblock_extends r R B = Error mssg).
     Proof. 
       intros * HWfet HBext. 

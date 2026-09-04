@@ -650,17 +650,10 @@ Section TYPE_THEORY.
       Consistent t t' -> Consistent t' t. 
     Proof. 
       intros * HC. 
-      induction HC. 
-      + apply c_TFun.
-      + apply c_TBase. symmetry; eauto.
-      + apply c_TUnit. 
-      + apply c_TEmpty. 
-      + apply c_TProd; eauto.
-      + apply c_TList; eauto.
-      + apply c_TListNil2; eauto.
-      + apply c_TListNil1; eauto.
-      + apply c_TRef; eauto.
-      + apply c_TError. 
+      induction HC; 
+      try apply c_TListNil1;
+      try apply c_TListNil2; 
+      try constructor; eauto.
     Qed. 
 
 
@@ -676,7 +669,16 @@ Section TYPE_THEORY.
       split; eauto. 
     Qed.
 
-
+    
+    Theorem nestempty_inconsistent_with_err : forall t1 t2,  
+      Consistent t1 t2 ->
+      nested_empty t2 = true ->
+      t1 <> KTError. 
+    Proof.
+      intros * HC Hn . 
+      inversion HC; subst; discriminate.
+    Qed.
+     
 
 (* Here I need something powerful than nested_empty function. 
    I need a structural nested_empty function checking if some 

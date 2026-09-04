@@ -1,4 +1,4 @@
-DIGEST 8508259c44874b9aac267293eaa227b6
+DIGEST e36eb6801f021c781464f7baeda9f6cc
 Fimpl2_MC.type_theory
 R15:17 impl2_MC.ids <> <> lib
 R19:28 impl2_MC.primitives <> <> lib
@@ -1577,45 +1577,62 @@ R22401:22401 impl2_MC.type_theory <> t:157 var
 R22409:22418 impl2_MC.type_theory <> Consistent ind
 R22423:22423 impl2_MC.type_theory <> t:157 var
 R22420:22421 impl2_MC.type_theory <> t':158 var
-R22494:22499 impl2_MC.type_theory <> c_TFun constr
-R22494:22499 impl2_MC.type_theory <> c_TFun constr
-R22516:22522 impl2_MC.type_theory <> c_TBase constr
-R22516:22522 impl2_MC.type_theory <> c_TBase constr
-R22556:22562 impl2_MC.type_theory <> c_TUnit constr
-R22556:22562 impl2_MC.type_theory <> c_TUnit constr
-R22580:22587 impl2_MC.type_theory <> c_TEmpty constr
-R22580:22587 impl2_MC.type_theory <> c_TEmpty constr
-R22605:22611 impl2_MC.type_theory <> c_TProd constr
-R22605:22611 impl2_MC.type_theory <> c_TProd constr
-R22635:22641 impl2_MC.type_theory <> c_TList constr
-R22635:22641 impl2_MC.type_theory <> c_TList constr
-R22665:22675 impl2_MC.type_theory <> c_TListNil2 constr
-R22665:22675 impl2_MC.type_theory <> c_TListNil2 constr
-R22699:22709 impl2_MC.type_theory <> c_TListNil1 constr
-R22699:22709 impl2_MC.type_theory <> c_TListNil1 constr
-R22733:22738 impl2_MC.type_theory <> c_TRef constr
-R22733:22738 impl2_MC.type_theory <> c_TRef constr
-R22762:22769 impl2_MC.type_theory <> c_TError constr
-R22762:22769 impl2_MC.type_theory <> c_TError constr
-prf 22798:22814 <> consistent_is_FOT
-binder 22824:22824 <> t:159
-binder 22826:22827 <> t':160
-R22853:22863 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R22838:22847 impl2_MC.type_theory <> Consistent ind
-R22851:22852 impl2_MC.type_theory <> t':160 var
-R22849:22849 impl2_MC.type_theory <> t:159 var
-R22879:22882 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R22872:22874 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R22864:22869 impl2_MC.type_theory <> is_FOT def
-R22871:22871 impl2_MC.type_theory <> t:159 var
-R22875:22878 Coq.Init.Datatypes <> true constr
-R22892:22894 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R22883:22888 impl2_MC.type_theory <> is_FOT def
-R22890:22891 impl2_MC.type_theory <> t':160 var
-R22895:22898 Coq.Init.Datatypes <> true constr
-R23020:23037 Coq.Bool.Bool <> andb_true_iff thm
-R23020:23037 Coq.Bool.Bool <> andb_true_iff thm
-R23020:23037 Coq.Bool.Bool <> andb_true_iff thm
-R23020:23037 Coq.Bool.Bool <> andb_true_iff thm
-R23020:23037 Coq.Bool.Bool <> andb_true_iff thm
-R23619:23629 impl2_MC.type_theory TYPE_THEORY <> sec
+R22496:22506 impl2_MC.type_theory <> c_TListNil1 constr
+R22525:22535 impl2_MC.type_theory <> c_TListNil2 constr
+R22496:22506 impl2_MC.type_theory <> c_TListNil1 constr
+R22496:22506 impl2_MC.type_theory <> c_TListNil1 constr
+R22496:22506 impl2_MC.type_theory <> c_TListNil1 constr
+R22496:22506 impl2_MC.type_theory <> c_TListNil1 constr
+R22496:22506 impl2_MC.type_theory <> c_TListNil1 constr
+R22496:22506 impl2_MC.type_theory <> c_TListNil1 constr
+R22496:22506 impl2_MC.type_theory <> c_TListNil1 constr
+R22496:22506 impl2_MC.type_theory <> c_TListNil1 constr
+R22496:22506 impl2_MC.type_theory <> c_TListNil1 constr
+R22496:22506 impl2_MC.type_theory <> c_TListNil1 constr
+R22525:22535 impl2_MC.type_theory <> c_TListNil2 constr
+R22525:22535 impl2_MC.type_theory <> c_TListNil2 constr
+R22525:22535 impl2_MC.type_theory <> c_TListNil2 constr
+R22525:22535 impl2_MC.type_theory <> c_TListNil2 constr
+R22525:22535 impl2_MC.type_theory <> c_TListNil2 constr
+R22525:22535 impl2_MC.type_theory <> c_TListNil2 constr
+R22525:22535 impl2_MC.type_theory <> c_TListNil2 constr
+R22525:22535 impl2_MC.type_theory <> c_TListNil2 constr
+R22525:22535 impl2_MC.type_theory <> c_TListNil2 constr
+R22525:22535 impl2_MC.type_theory <> c_TListNil2 constr
+prf 22594:22610 <> consistent_is_FOT
+binder 22620:22620 <> t:159
+binder 22622:22623 <> t':160
+R22649:22659 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22634:22643 impl2_MC.type_theory <> Consistent ind
+R22647:22648 impl2_MC.type_theory <> t':160 var
+R22645:22645 impl2_MC.type_theory <> t:159 var
+R22675:22678 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R22668:22670 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22660:22665 impl2_MC.type_theory <> is_FOT def
+R22667:22667 impl2_MC.type_theory <> t:159 var
+R22671:22674 Coq.Init.Datatypes <> true constr
+R22688:22690 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22679:22684 impl2_MC.type_theory <> is_FOT def
+R22686:22687 impl2_MC.type_theory <> t':160 var
+R22691:22694 Coq.Init.Datatypes <> true constr
+R22816:22833 Coq.Bool.Bool <> andb_true_iff thm
+R22816:22833 Coq.Bool.Bool <> andb_true_iff thm
+R22816:22833 Coq.Bool.Bool <> andb_true_iff thm
+R22816:22833 Coq.Bool.Bool <> andb_true_iff thm
+R22816:22833 Coq.Bool.Bool <> andb_true_iff thm
+prf 22885:22915 <> nestempty_inconsistent_with_err
+binder 22926:22927 <> t1:161
+binder 22929:22930 <> t2:162
+R22957:22966 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22941:22950 impl2_MC.type_theory <> Consistent ind
+R22955:22956 impl2_MC.type_theory <> t2:162 var
+R22952:22953 impl2_MC.type_theory <> t1:161 var
+R22989:22998 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22982:22984 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22967:22978 impl2_MC.type_theory <> nested_empty def
+R22980:22981 impl2_MC.type_theory <> t2:162 var
+R22985:22988 Coq.Init.Datatypes <> true constr
+R23001:23004 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R22999:23000 impl2_MC.type_theory <> t1:161 var
+R23005:23011 impl2_MC.kernel_syntax <> KTError constr
+R23652:23662 impl2_MC.type_theory TYPE_THEORY <> sec

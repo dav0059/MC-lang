@@ -22,12 +22,13 @@ Section Values.
     
 
     Inductive Val : Type := 
-    |VCls (name: option Ide) (arg: KPat ) (body: LExpr) (cls_env: env Ide Val)
+    |VCls (arg: KPat ) (body: LExpr) (cls_env: env Ide Val)
+    |VRecCls (name : Ide) (arg: KPat) (body: LExpr) (cls_env: env Ide Val)
     |VLit (x: BaseVl)
     |VUnit 
-    |VNil (el_type: option KTp)
+    |VNil 
     |VPair (v1: Val * KTp) (v2: Val * KTp)
-    |VCons (v1 v2: Val) (el_type: option KTp)
+    |VCons (v1 v2: Val) (el_type: KTp)
     |VVariant (c: Constr) (inf: Ide * KTp) (v: Val)
     |VError (m: Message). 
 
@@ -35,46 +36,51 @@ Section Values.
     Definition v_env := env Ide Val.
                       
     Inductive Typeof : Val -> KTp -> Prop := 
-     |TOf_Cls      : forall name p e s, Typeof (VCls name p e s) (KTFunction) 
+     |TOf_Cls      : forall arg body cls_env, 
+                      Typeof (VCls arg body cls_env) KTFunction
+     |TOf_RCls     : forall name arg body cls_env, 
+                      Typeof (VRecCls name arg body cls_env) KTFunction  
      |TOf_VLit     : forall x, Typeof (VLit x) (KTBase (base_tp_of_base_vl x)) 
      |TOf_VUnit    : Typeof VUnit KTUnit 
-     |TOf_VNil     : Typeof (VNil None) (KTList KTEmpty) 
+     |TOf_VNil     : Typeof VNil (KTList KTEmpty) 
      |TOf_VPair    : forall v1 v2 t1 t2, 
                       Typeof (VPair (v1, t1) (v2, t2)) (KTProd t1 t2)
-     |TOf_VCons    : forall v1 v2 el_type t,  
-                      el_type = Some t ->      
-                      Typeof (VCons v1 v2 el_type) (KTList t)
-     |TOf_VVariant : forall c inf v, Typeof (VVariant c inf v) (KTRef (fst inf))
+     |TOf_VCons    : forall v1 v2 el_type,        
+                      Typeof (VCons v1 v2 el_type) (KTList el_type)
+     |TOf_VVariant : forall c i t v, 
+                      Typeof (VVariant c (i, t) v) (KTRef i)
      |TOf_VError   : forall m, Typeof (VError m) (KTError) .
      
  
     Inductive WFV : Val -> Prop :=
-     |WFV_Cls      : forall name p e s,
-                      WFEV s -> 
-                      WFV (VCls name p e s)
+     |WFV_Cls      : forall arg body cls_env,
+                      WFEV cls_env -> 
+                      WFV (VCls arg body cls_env)
+     |WFV_RCls     : forall name arg body cls_env, 
+                      WFEV cls_env -> 
+                      WFV (VRecCls name arg body cls_env)
      |WFV_VLit     : forall x, WFV (VLit x)
      |WFV_VUnit    :  WFV VUnit 
-     |WFV_VNil     :  WFV (VNil None)  
-     |WFV_VPair    : forall v1 v2 t1 t2, 
+     |WFV_VNil     :  WFV VNil  
+     |WFV_VPair    : forall v1 t1 v2 t2, 
                       WFV v1 -> 
                       Typeof v1 t1 ->
                       WFV v2 ->
                       Typeof v2 t2 -> 
                       WFV (VPair (v1, t1) (v2, t2))
-     |WFV_VCons    : forall v1 v2 el_type t t1 t2, 
-                      el_type = Some t -> 
+     |WFV_VCons    : forall v1 v2 t1 t2 el_type, 
                       WFV v1 -> 
                       WFV v2 -> 
                       Typeof v1 t1 -> 
                       Typeof v2 t2 -> 
-                      Consistent t1 t ->
-                      Consistent t2 (KTList t) -> 
+                      Consistent t1 el_type ->
+                      Consistent t2 (KTList el_type) -> 
                       WFV (VCons v1 v2 el_type)
-     |WFV_VVariant : forall c inf v t, 
+     |WFV_VVariant : forall v tv t c i, 
                       WFV v -> 
-                      Typeof v t -> 
-                      Consistent t (snd inf) ->
-                      WFV (VVariant c inf v)
+                      Typeof v tv -> 
+                      Consistent tv t ->
+                      WFV (VVariant c (i, t) v)
      |WFV_VError   : forall m, WFV (VError m)
 
      with WFEV : v_env -> Prop := 
@@ -91,12 +97,12 @@ Section Values.
      |Match_PLit     : forall p v, 
                         eqb_BaseVl P p v = true ->
                         Match (KPLit p) (VLit v) 
-     |Match_PAs      : forall p i v,
+     |Match_PAs      : forall p v i,
                         Match p v ->
                         Match (KPAs p i) v
      |Match_PAny     : forall v, Match KPAny v 
      |Match_PUnit    : Match KPUnit VUnit
-     |Match_PNil     : Match KPNil (VNil None) 
+     |Match_PNil     : Match KPNil VNil 
      |Match_PPair    : forall p1 p2 v1 v2,  
                         Match p1 (fst v1) -> 
                         Match p2 (fst v2) -> 
@@ -114,52 +120,43 @@ Section Values.
 
     Inductive MatchEnv : KPat -> Val -> v_env -> v_env -> Prop := 
      |MEnv_PVar    :  forall i v s, 
-                           WFEV s -> 
                            MatchEnv (KPVar i) v s (bind s i v id_eqb)
-     |MEnv_PLit    :  forall p v s, 
-                           WFEV s ->  
+     |MEnv_PLit    :  forall p v s,   
                            MatchEnv (KPLit p) (VLit v) s s 
-     |MEnv_PAs     :  forall p i v s s',
-                           WFEV s ->  
+     |MEnv_PAs     :  forall p i v s s',  
                            MatchEnv p v s s' ->
                            MatchEnv (KPAs p i) v s (bind s' i v id_eqb)
      |MEnv_PAny    :  forall v s, 
-                           WFEV s ->
                            MatchEnv KPAny v s s 
-     |MEnv_PUnit   :  forall s, 
-                           WFEV s -> 
+     |MEnv_PUnit   :  forall s,  
                            MatchEnv KPUnit VUnit s s 
-     |MEnv_PNil    :  forall s, 
-                           WFEV s -> 
-                           MatchEnv KPNil (VNil None) s s 
-     |MEnv_PPair   :  forall p1 p2 v1 v2 s s' s'',
-                           WFEV s ->   
+     |MEnv_PNil    :  forall s,  
+                           MatchEnv KPNil VNil s s 
+     |MEnv_PPair   :  forall p1 p2 v1 v2 s s' s'',   
                            MatchEnv p1 (fst v1) s s' -> 
                            MatchEnv p2 (fst v2) s' s'' -> 
                            MatchEnv (KPPair p1 p2) (VPair v1 v2) s s'' 
      |MEnv_PCons    : forall p1 p2 v1 v2 el_type s s' s'',
-                           WFEV s ->   
                            MatchEnv p1 v1 s s' -> 
                            MatchEnv p2 v2 s' s'' -> 
                            MatchEnv (KPCons p1 p2) (VCons v1 v2 el_type) s s'' 
      |MEnv_PVariant : forall c c' p inf v s s', 
-                           WFEV s ->   
                            MatchEnv p v s s' -> 
                            MatchEnv (KPVariant c p) (VVariant c' inf v) s s' .
 
     
      
-    Definition typeof (v: Val) : option KTp := 
+    Definition typeof (v: Val) : KTp := 
        match v with 
-       |VCls _ _ _ _          => Some KTFunction 
-       |VLit x                => Some (KTBase (base_tp_of_base_vl x)) 
-       |VUnit                 => Some KTUnit 
-       |VNil None             => Some (KTList (KTEmpty))
-       |VPair v1 v2           => Some (KTProd (snd v1) (snd v2))
-       |VCons _ _ (Some t)    => Some (KTList t) 
-       |VVariant _ inf _      => Some (KTRef (fst inf))
-       |VError _              => Some KTError
-       |_                     => None 
+       |VCls _ _ _            => KTFunction
+       |VRecCls _ _ _ _       => KTFunction 
+       |VLit x                => KTBase (base_tp_of_base_vl x) 
+       |VUnit                 => KTUnit 
+       |VNil                  => KTList (KTEmpty)
+       |VPair (_, t1) (_, t2) => KTProd t1 t2
+       |VCons _ _ t           => KTList t 
+       |VVariant _ (i, _) _   => KTRef i
+       |VError _              => KTError 
        end. 
        
        
@@ -170,7 +167,7 @@ Section Values.
       |KPAs p _, _                    => has_match p v  
       |KPAny, _                       => true 
       |KPUnit, VUnit                  => true 
-      |KPNil, VNil None               => true 
+      |KPNil, VNil                    => true 
       |KPPair p1 p2, VPair v1 v2      => has_match p1 (fst v1) && has_match p2 (fst v2) 
       |KPCons p1 p2, VCons v1 v2 _    => has_match p1 v1 && has_match p2 v2 
       |KPVariant c p, VVariant c' _ v => constr_eqb I c c' && has_match p v   
@@ -188,7 +185,7 @@ Section Values.
                                          end
       |KPAny, _                       => Some s 
       |KPUnit, VUnit                  => Some s
-      |KPNil, VNil None               => Some s 
+      |KPNil, VNil                    => Some s 
       |KPPair p1 p2, VPair v1 v2      => match match_env p1 (fst v1) s with 
                                          |Some s' => match_env p2 (fst v2) s' 
                                          |None    => None 
@@ -203,25 +200,18 @@ Section Values.
      
 
     Theorem typeof_correct: forall v t, 
-     typeof v = Some t -> Typeof v t.
+     typeof v = t -> Typeof v t.
     Proof. 
         intros * Ht. 
-        destruct v; simpl in Ht; inversion Ht; subst. 
-        + apply TOf_Cls.
-        + apply TOf_VLit.
-        + apply TOf_VUnit. 
-        + destruct el_type; try discriminate; 
-          inversion Ht; subst; apply TOf_VNil.
-        + destruct v1, v2. apply TOf_VPair.
-        + destruct el_type; try discriminate; 
-          inversion Ht; subst; apply TOf_VCons; eauto.
-        + apply TOf_VVariant.
-        + apply TOf_VError.
+        destruct v; simpl in Ht; inversion Ht; subst; clear; 
+        try constructor. 
+        destruct v1, v2. apply TOf_VPair.
+        destruct inf. apply TOf_VVariant.
     Qed.
     
     
     Theorem typeof_complete: forall v t, 
-      Typeof v t -> typeof v = Some t.
+      Typeof v t -> typeof v = t.
     Proof.
         intros * HT; inversion HT; subst; eauto.
     Qed.
@@ -233,22 +223,10 @@ Section Values.
     Proof. 
         intros .
         generalize dependent v. 
-        induction p; intros; simpl in *.
-        + apply Match_PVar.
-        + destruct v; try discriminate; apply Match_PLit; eauto.
-        + apply Match_PAs. eauto.
-        + apply Match_PAny. 
-        + destruct v; try discriminate; apply Match_PUnit.
-        + destruct v; try discriminate.
-          destruct el_type; try discriminate. apply Match_PNil.
-        + destruct v; try discriminate. destruct v1, v2. 
-          apply Match_PPair; apply andb_prop in H; 
-          destruct H; eauto. 
-        + destruct v; try discriminate. apply Match_PCons;
-          apply andb_prop in H; destruct H; eauto.
-        + destruct v; try discriminate; apply Match_PVariant; 
-          apply andb_prop in H; destruct H; rewrite <- constr_eqb_eq in H; 
-          eauto.
+        induction p; intros; simpl in *; 
+        first [destruct v; try discriminate; try constructor; eauto]; 
+        apply andb_prop in H; destruct H; eauto.
+        rewrite <- constr_eqb_eq in H; eauto.
     Qed. 
     
     
@@ -260,61 +238,51 @@ Section Values.
       eauto. 
     Qed. 
 
-
-    Theorem match_env_preservers_wfev: forall s p v s', 
-     WFEV s ->
-     WFV v -> 
+    
+    
+    Theorem MatchEnv_preservs_wfev: forall s p v s', 
+     WFV v ->
+     WFEV s ->  
      MatchEnv p v s s' ->
      WFEV s'.
     Proof. 
-      intros * Hwfev Hwfv HME. 
-      induction HME; eauto; 
+      intros * Hwfv Hwfev HME. 
+      induction HME; eauto;  
       try apply WFEV_some; eauto;
       inversion Hwfv; subst; 
       try apply IHHME2; 
       try apply IHHME1; eauto.
     Qed.
-    
-    
-    Theorem match_env_correct: forall p v s s',
-      WFEV s ->  
-      WFV v -> 
+
+    Theorem match_env_correct: forall p v s s', 
       match_env p v s = Some s' -> 
       MatchEnv p v s s'.
     Proof. 
-      intros * Hwfev Hwfv Hmatch.
+      intros * Hm.
       generalize dependent s'.
       generalize dependent s. 
       generalize dependent v.
       induction p; intros; simpl in *. 
-      + inversion Hmatch; subst; apply MEnv_PVar; eauto. 
-      + destruct v; try discriminate; inversion Hmatch; 
+      + inversion Hm; subst; apply MEnv_PVar; eauto. 
+      + destruct v; try discriminate; inversion Hm; 
         subst; apply MEnv_PLit; eauto.
       + destruct (match_env _) eqn: eqm; try discriminate; 
-        inversion Hmatch. subst; apply MEnv_PAs; eauto.
-      + inversion Hmatch; subst; apply MEnv_PAny; eauto. 
+        inversion Hm. subst; apply MEnv_PAs; eauto.
+      + inversion Hm; subst; apply MEnv_PAny; eauto. 
       + destruct v; try discriminate;
-        inversion Hmatch; subst; apply MEnv_PUnit; eauto.   
-      + destruct v; try destruct el_type; try discriminate.
-        inversion Hmatch; subst; apply MEnv_PNil. eauto. 
+        inversion Hm; subst; apply MEnv_PUnit; eauto.   
+      + destruct v; try discriminate;
+        inversion Hm; subst; apply MEnv_PNil.  
       + destruct v; try discriminate.
         destruct (match_env p1 _) eqn: eqm; try discriminate. 
         destruct v1, v2; apply MEnv_PPair with (s' := v);
-        simpl in *; try apply IHp1; try apply IHp2;  
-        inversion Hwfv; subst; eauto.
-        assert (Hp1: MatchEnv p1 v0 s v) by (apply IHp1; eauto).
-        apply match_env_preservers_wfev with (s := s) (p := p1) (v := v0);
-        eauto.
+        simpl in *; try apply IHp1; try apply IHp2; eauto.
       + destruct v; try discriminate. 
         destruct (match_env _) eqn: eqm; try discriminate.
         apply MEnv_PCons with (s' := v); 
-        try apply IHp1; try apply IHp2; 
-        inversion Hwfv; subst; eauto.
-        assert (Hp1: MatchEnv p1 v1 s v) by (apply IHp1; eauto).
-        apply match_env_preservers_wfev with (s := s) (p := p1) (v := v1);
-        eauto.
+        try apply IHp1; try apply IHp2; eauto.
       + destruct v; try discriminate; apply MEnv_PVariant; 
-        try apply IHp; inversion Hwfv; subst; eauto.
+        apply IHp; eauto.
     Qed.
     
     
@@ -331,54 +299,74 @@ Section Values.
     Qed.
         
 
-   
-    Theorem typeof_eq_err: forall v, 
-     typeof v = Some KTError <-> exists m, v = VError m.
+    Theorem Match_implies_MatchEnv: forall p v s, 
+      Match p v ->  
+      exists s', MatchEnv p v s s'. 
+    Proof. 
+      intros * HM .
+      generalize dependent s.
+      induction HM; intros.   
+      + exists (bind s i v id_eqb). constructor.
+      + exists s; constructor.  
+      + specialize IHHM with s. 
+        destruct IHHM as [s' *]. exists (bind s' i v id_eqb).
+        constructor; eauto.
+      + exists s; constructor.
+      + exists s; constructor.
+      + exists s; constructor. 
+      + specialize IHHM1 with s. destruct IHHM1 as [s' *].
+        specialize IHHM2 with s'. destruct IHHM2 as [s'' *].  
+        exists s''. apply MEnv_PPair with (s' := s');eauto.
+      + specialize IHHM1 with s. destruct IHHM1 as [s' *].
+        specialize IHHM2 with s'. destruct IHHM2 as [s'' *].  
+        exists s''. apply MEnv_PCons with (s' := s');eauto. 
+      + specialize IHHM with s. destruct IHHM as [s' *].
+        exists s'. constructor. eauto.
+    Qed.
+       
+      
+    Theorem Typeof_eq_err: forall v, 
+     Typeof v KTError <-> exists m, v = VError m.
     Proof. 
       split; intros H. 
-      + destruct v; try destruct el_type; try discriminate. 
+      + destruct v; inversion H.
         exists m; eauto.
-      + destruct H; subst; eauto.
+      + destruct H; subst; constructor.
     Qed. 
  
-    Theorem typeof_eq_lit: forall v t, 
-     typeof v = Some (KTBase t) <-> 
+    Theorem Typeof_eq_lit: forall v t, 
+     Typeof v (KTBase t) <-> 
      exists x, v = VLit x /\ base_tp_of_base_vl x = t. 
     Proof. 
       split; intros H. 
-      + destruct v; try destruct el_type; try discriminate. 
-        exists x. split. reflexivity. simpl in H. 
-        inversion H; eauto.
-      + destruct H as [x [Heq Hbtp]]. subst. eauto.
+      + destruct v; inversion H.
+        exists x. eauto.
+      + destruct H as [x [Heq Hbtp]]. subst. constructor.
     Qed.
     
 
-    Theorem tempty_empty: ~exists v, typeof v = Some KTEmpty.
+    Theorem tempty_is_empty: ~exists v, Typeof v KTEmpty.
     Proof. 
-      unfold not. intro contra. 
-      destruct contra as [x]. destruct x; 
-      try destruct el_type; try discriminate.
+      unfold not. intro contra.
+      inversion contra as [v H]; destruct v; inversion H. 
     Qed.  
   
        
-    Theorem typeof_eq_lempty: forall v , 
-     WFV v ->
-     typeof v = Some (KTList KTEmpty) <-> v = VNil None. 
+    Theorem Typeof_eq_listempty: forall v , 
+     WFV v -> 
+     Typeof v (KTList KTEmpty) <-> v = VNil. 
     Proof. 
-      split; intros H'. 
-      + destruct v; try destruct el_type eqn: eqelt; 
-        simpl in *; try discriminate; eauto. 
-        inversion H; inversion H3; inversion H'; subst. 
-        inversion H8; subst.
-        apply typeof_complete in H6.
-        assert (Hyp: exists v, typeof v = Some KTEmpty) by 
-         (exists v1; eauto). 
-        apply tempty_empty in Hyp; contradiction.
-      + subst; eauto.
+      intros * Hwfv ;split. 
+      + intro HTof. destruct v; inversion HTof; subst; eauto.
+        inversion Hwfv; subst.
+        inversion H6; try discriminate; subst.
+        apply ex_intro with (x := v1) in H4.
+        apply tempty_is_empty in H4; contradiction.
+      + intro. subst; constructor.
     Qed. 
 
 
-    Theorem typeof_neq_tvariant: forall v t l, 
+    Theorem Typeof_neq_tvariant: forall v t l, 
       Typeof v t ->
       t <> KTVariant l. 
     Proof. 
@@ -387,7 +375,7 @@ Section Values.
     Qed. 
 
 
-    Theorem typeof_is_FOT: forall v t,
+    Theorem Typeof_is_FOT: forall v t,
       WFV v -> 
       Typeof v t -> 
       is_FOT t = true.
@@ -400,25 +388,12 @@ Section Values.
         try apply IHt1 with (v := v1); 
         try apply IHt2 with (v := v2); 
         eauto. 
-      + inversion Htof; subst; inversion Hwfv; subst; eauto.
-        simpl. inversion H2; subst. 
-        apply consistent_is_FOT in H7; destruct H7; eauto.
-      + apply typeof_neq_tvariant with (l := tags) in Htof.
+      + simpl. inversion Htof; subst; inversion Hwfv; subst; eauto. 
+        apply consistent_is_FOT in H6; destruct H6; eauto.
+      + apply Typeof_neq_tvariant with (l := tags) in Htof.
         contradiction.
     Qed.
     
-
-    Theorem nestempty_inconsistent_with_terr : forall v1 t1 v2 t2, 
-      typeof v1 = Some t1 -> 
-      typeof v2 = Some (KTList t2) ->
-      nested_empty t2 = true -> 
-      is_consistent t1 t2 = true ->
-      t1 <> KTError. 
-    Proof.
-      intros * Htof1 Htof2 Hn Hc . 
-      destruct t1, t2; simpl in *; discriminate.
-    Qed. 
-
     
 
 End Values. 
