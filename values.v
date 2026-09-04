@@ -1,5 +1,7 @@
 Require Import ids primitives kernel_syntax env type_theory pattern_theory elaboration.
-
+Require Import Lists.List.
+Require Import Bool. 
+Import ListNotations.
 
 
 Set Implicit Arguments. 
@@ -144,7 +146,88 @@ Section Values.
                            MatchEnv p v s s' -> 
                            MatchEnv (KPVariant c p) (VVariant c' inf v) s s' .
 
+
+
+    Section FirstMatchProp. 
+
+      Variable X : Set. 
     
+      Inductive FirstMatch : 
+        (X -> Prop) -> list X -> option X -> Prop := 
+      |FirstMatch_Nil  : forall P, FirstMatch P [] None 
+      |FirstMatch_Head : forall P head tail, 
+                          P head ->  
+                          FirstMatch P (head::tail) (Some head)
+      |FirstMatch_Tail : forall P head tail result,
+                          ~P head ->   
+                          FirstMatch P tail result -> 
+                          FirstMatch P (head::tail) result .
+
+      
+      Theorem find_eq_Find_some: 
+        forall l f x P,
+          (forall x, P x <-> f x = true)->  
+           find f l = Some x <-> FirstMatch P l (Some x) .
+      Proof.
+        intros * Hrefl. 
+        split. 
+        + induction l; intro Hf. 
+          * simpl in Hf; discriminate. 
+          * simpl in *. destruct (f a) eqn: eqf. 
+            - inversion Hf; subst; clear Hf. 
+              apply FirstMatch_Head. apply Hrefl. eauto.
+            - apply FirstMatch_Tail; specialize Hrefl with a;
+              apply not_iff_compat in Hrefl;
+              rewrite <- not_true_iff_false in eqf;
+              try apply Hrefl; eauto. 
+        + induction l; intros HF. 
+          * inversion HF. 
+          * inversion HF as [| Q h t Hq | Q h t res Hnq Htail]; 
+            subst; clear HF. 
+            - apply Hrefl in Hq. simpl. rewrite Hq. eauto.
+            - specialize Hrefl with a.
+              apply not_iff_compat in Hrefl. 
+              rewrite Hrefl in Hnq. 
+              rewrite not_true_iff_false in Hnq. simpl. 
+              rewrite Hnq. eauto.   
+      Qed. 
+
+
+      Theorem find_eq_Find_none:
+        forall l f P, 
+         (forall x, P x <-> f x = true) -> 
+         find f l = None <-> FirstMatch P l None .
+      Proof.
+        intros * Hrefl. split. 
+        + intro Hf. induction l.
+          * constructor.
+          * simpl in Hf. destruct (f a) eqn: eqf.
+            - discriminate.
+            - apply IHl in Hf. apply FirstMatch_Tail.
+              specialize Hrefl with a. 
+              apply not_iff_compat in Hrefl. 
+              rewrite <- not_true_iff_false in eqf.
+              apply Hrefl; eauto.
+              eauto.
+        + intro HF. induction HF;  
+          eauto; simpl; pose proof Hrefl as Hrefl'; 
+          specialize Hrefl with head. 
+          * apply Hrefl in H. rewrite H. eauto.
+          * apply not_iff_compat in Hrefl. 
+            apply Hrefl in H. rewrite not_true_iff_false in H.
+            rewrite H. eauto.
+      Qed.
+
+
+      Theorem FirstMatch_deterministic : 
+        forall P l res res', 
+         FirstMatch P l res -> 
+         FirstMatch P l res' ->
+         res = res'.  
+      Proof. 
+
+    End FirstMatchProp.
+
      
     Definition typeof (v: Val) : KTp := 
        match v with 
@@ -224,7 +307,8 @@ Section Values.
         intros .
         generalize dependent v. 
         induction p; intros; simpl in *; 
-        first [destruct v; try discriminate; try constructor; eauto]; 
+        first [destruct v; try discriminate; try constructor; 
+        eauto]; 
         apply andb_prop in H; destruct H; eauto.
         rewrite <- constr_eqb_eq in H; eauto.
     Qed. 
