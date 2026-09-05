@@ -203,6 +203,14 @@ Section Values.
         exists m; eauto.
       + destruct H; subst; constructor.
     Qed. 
+
+    Lemma Typeof_err_contra: forall mssg, 
+      ~Typeof (VError mssg) KTError -> False.
+    Proof. 
+      intros * Hntof. 
+      unfold not in Hntof. apply Hntof. 
+      constructor. 
+    Qed. 
  
     Theorem Typeof_eq_lit: forall v t, 
      Typeof v (KTBase t) <-> 

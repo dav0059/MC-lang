@@ -22,12 +22,12 @@ Section EVALUATION.
     
     Local Notation " 'LExpr' " := (LExpr I P).
     Local Notation " 'Val' " := (Val I P).
-    Local Notation " 'v_env' " := (v_env I P). 
+    Local Notation " 'val_env' " := (val_env I P). 
     Local Notation " 'WFEV' " := (@WFEV I P).
     Local Notation " 'interp_op' " := (interp_op P).
     Local Notation " 'BaseVl' " := (BaseVl P).
     Local Notation " 'id_eqb' " := (id_eqb I). 
-    Local Notation " 'bind' s i v " := (bind s i v id_eqb) (at level 90).
+    Local Notation " 'base_tp_of_base_vl' " := (base_tp_of_base_vl P).
     
     Fixpoint getBaseVl (l: list Val) : list BaseVl :=
       match l with 
@@ -35,118 +35,107 @@ Section EVALUATION.
       |_           => []
       end. 
 
+    Definition all_lit (l: list Val) : Prop := 
+      Forall (fun x => exists t, Typeof x (KTBase t)) l. 
+      
+    Definition one_error (l: list Val) : Prop := 
+      exists m, l = [VError m].
 
+    Lemma one_error_contra: forall mssg, 
+      ~one_error [VError mssg] -> False.
+    Proof. 
+      intros * Herr. unfold not, one_error in Herr.
+      apply Herr. exists mssg; eauto.
+    Qed. 
+        
     
-    Inductive EValOp : list LExpr -> v_env -> list Val -> Prop := 
-     |EValOp_nil   : forall s, 
-                     WFEV s ->
-                     EValOp [] s []
-     |EValOp_cons : forall s tail tail' mssg head x,
-                      WFEV s -> 
-                      EValOp tail s tail' -> 
-                      tail' <> [VError mssg] -> 
-                      EVal head s (VLit x) -> 
-                      EValOp (head::tail) s (VLit x::tail') 
-     |EValOp_err1  : forall s tail tail' mssg' head mssg, 
-                      WFEV s ->   
-                      EValOp tail s tail' -> 
-                      tail' <> [VError mssg'] -> 
-                      EVal head s (VError mssg) -> 
-                      EValOp (head::tail) s [VError mssg] 
-     |EValOp_err2  : forall s head s v tail mssg,
-                      WFEV s ->  
-                      EValOp tail s [VError mssg] ->
-                      EValOp (head::tail) s [VError mssg]        
-
-    with EVal : LExpr -> v_env -> Val -> Prop := 
-    |EV_Var      : forall i s v, 
+    Inductive EVal : LExpr -> val_env -> Val -> Prop := 
+    |EVal_Var      : forall i s v, 
                      WFEV s -> 
                      lookup s i = Some v -> 
                      EVal (LVar i) s v 
-    |EV_Lit      : forall x s , 
+    |EVal_Lit      : forall x s , 
                      WFEV s -> 
                      EVal (LLit x) s (VLit x)  
-    |EV_LOp      : forall s le lv mssg hv lbv op v,       
+    |EVal_LOp      : forall s le lv lbv op v,       
                      WFEV s -> 
                      EValOp (rev le) s lv ->
-                     lv <> [VError mssg] -> 
+                     ~one_error lv -> 
                      getBaseVl (rev lv) = lbv -> 
                      interp_op op lbv = Some v ->
                      EVal (LOp op le) s (VLit v) 
-    |EV_LOpErr   : forall s le lv op mssg, 
+    |EVal_LOpErr   : forall s le op mssg, 
                      WFEV s -> 
                      EValOp (rev le) s [VError mssg] ->
                      EVal (LOp op le) s (VError mssg)
-    |EV_LLam     : forall s arg body, 
+    |EVal_LLam     : forall s arg body, 
                      WFEV s -> 
                      EVal (LLam arg body) s (VCls arg body s)
-    |EV_LApp     : forall s e1 arg body cls_env e2 v mssg 
-                          cls_env' v', 
+    |EVal_LApp     : forall s e1 arg body cls_env 
+                          e2 v cls_env' v', 
                      WFEV s -> 
                      EVal e1 s (VCls arg body cls_env) -> 
                      EVal e2 s v -> 
-                     v <> (VError mssg) ->     
+                     ~Typeof v KTError ->     
                      Match arg v -> 
                      MatchEnv arg v cls_env cls_env' -> 
                      EVal body cls_env' v' ->
                      EVal (LApp e1 e2) s v'  
-    |EV_LAppRec  : forall s e1 name arg body cls_env e2 v mssg 
-                          cls_env' cls_env_rec v', 
+    |EVal_LAppRec  : forall s e1 name arg body cls_env 
+                          e2 v cls_env' v', 
                      WFEV s ->  
                      EVal e1 s (VRecCls name arg body cls_env) ->
                      EVal e2 s v -> 
-                     v <> VError mssg ->
+                     ~Typeof v KTError ->
                      Match arg v -> 
                      MatchEnv arg v cls_env cls_env' -> 
-                     cls_env_rec = 
-                       bind cls_env' name 
-                        (VRecCls name arg body cls_env) ->
-                     EVal body cls_env_rec v' -> 
+                     EVal body (bind cls_env' name 
+                       (VRecCls name arg body cls_env) id_eqb) v' -> 
                      EVal (LApp e1 e2) s v'
-    |EV_LAppErr1  : forall s e1 e2 mssg, 
+    |EVal_LAppErr_fun  : forall s e1 e2 mssg, 
                      WFEV s -> 
                      EVal e1 s (VError mssg) -> 
                      EVal (LApp e1 e2) s (VError mssg) 
-    |EV_LAppErr2  : forall s e1 v e2 mssg, 
+    |EVal_LAppErr_arg  : forall s e1 v e2 mssg, 
                      WFEV s -> 
                      EVal e1 s v -> 
                      Typeof v KTFunction ->  
                      EVal e2 s (VError mssg) -> 
                      EVal (LApp e1 e2) s (VError mssg) 
-    |EV_LUnit     : forall s, 
+    |EVal_LUnit     : forall s, 
                      WFEV s -> 
                      EVal LUnit s VUnit 
-    |EV_LNil      : forall s, 
+    |EVal_LNil      : forall s, 
                      WFEV s -> 
                      EVal LNil s VNil
-    |EV_LPair     : forall s e1 e2 v1 t1 v2 t2,
+    |EVal_LPair     : forall s e1 e2 v1 t1 v2 t2,
                      WFEV s -> 
-                     EVal e1 s v1 -> 
-                     v1 <> VError mssg -> 
+                     EVal e1 s v1 ->  
                      Typeof v1 t1 ->
+                     t1 <> KTError -> 
                      EVal e2 s v2 -> 
-                     v2 <> VError mssg ->
                      Typeof v2 t2 ->
+                     t2 <> KTError -> 
                      EVal (LPair e1 e2) s 
-                      (VPair (v1, t1) (v2, t2))
-    |EV_LPairErr1 : forall e1 s mssg e2, 
+                          (VPair (v1, t1) (v2, t2))
+    |EVal_LPairErr_fst : forall e1 s mssg e2, 
                      WFEV s -> 
                      EVal e1 s (VError mssg) ->
-                     EVal (LPair e1 e2) s (VError m)
-    |EV_LPairErr2 : forall s e1 v1 mssg' e2 mssg, 
+                     EVal (LPair e1 e2) s (VError mssg)
+    |EVal_LPairErr_snd : forall s e1 v1 e2 mssg, 
                      WFEV s -> 
                      EVal e1 s v1 ->
-                     v1 <> VError mssg' ->
+                     ~Typeof v1 KTError -> 
                      EVal e2 s (VError mssg) ->
                      EVal (LPair e1 e2) s (VError mssg)
-    |EV_LCons1      : forall s e1 v1 t1 e2,  
+    |EVal_LCons      : forall s e1 v1 t1 e2,  
                        WFEV s -> 
                        EVal e1 s v1 -> 
                        Typeof v1 t1 -> 
                        t1 <> KTError -> 
                        EVal e2 s VNil -> 
                        EVal (LCons e1 e2) s (VCons v1 VNil t1)
-    |EV_LCons2      : forall s e1 v1 t1 e2 v2 t, 
+    |EVal_LCons_nestt  : forall s e1 v1 t1 e2 v2 t, 
                        WFEV s -> 
                        EVal e1 s v1 ->
                        Typeof v1 t1 ->
@@ -155,7 +144,7 @@ Section EVALUATION.
                        Consistent t1 t ->
                        nested_empty t = true ->  
                        EVal (LCons e1 e2) s (VCons v1 v2 t1)
-    |EV_LCons3      : forall s e1 v1 t1 e2 v2 t, 
+    |EVal_LCons_nestf     : forall s e1 v1 t1 e2 v2 t, 
                        WFEV s -> 
                        EVal e1 s v1 -> 
                        Typeof v1 t1 -> 
@@ -165,17 +154,17 @@ Section EVALUATION.
                        Consistent t1 t -> 
                        nested_empty t = false -> 
                        EVal (LCons e1 e2) s (VCons v1 v2 t)
-    |EV_LConsErr1   : forall s e1 mssg e2, 
+    |EVal_LConsErr_head   : forall s e1 mssg e2, 
                        WFEV s -> 
-                       EVal e1 s (VError m) ->
-                       EVal (LCons e1 e2) s (VError m)
-    |EV_LConsErr2   : forall e1 s v1 mssg' mssg , 
+                       EVal e1 s (VError mssg) ->
+                       EVal (LCons e1 e2) s (VError mssg)
+    |EVal_LConsErr_tail   : forall e1 s v1 e2 mssg , 
                        WFEV s -> 
                        EVal e1 s v1 -> 
-                       v1 <> (Error mssg') -> 
+                       ~Typeof v1 KTError -> 
                        EVal e2 s (VError mssg) -> 
                        EVal (LCons e1 e2) s (VError mssg)
-    |EV_LVariant    : forall s e v t' t c i, 
+    |EVal_LVariant    : forall s e v t' t c i, 
                        WFEV s -> 
                        EVal e s v -> 
                        Typeof v t' -> 
@@ -183,203 +172,213 @@ Section EVALUATION.
                        Consistent t t' -> 
                        EVal (LVariant c (i, t) e) s 
                              (VVariant c (i, t) v)
-    |EV_LVariantErr : forall e s mssg c inf, 
+    |EVal_LVariantErr : forall e s mssg c inf, 
                        WFEV s -> 
                        EVal e s (VError mssg) -> 
                        EVal (LVariant c inf e) s (VError mssg)
-    |EV_LFix        : forall s e arg body cls_env name,
+    |EVal_LFix        : forall s e arg body cls_env name,
                        WFEV s -> 
                        EVal e s (VCls arg body cls_env) ->  
                        EVal (LFix name e) s 
                             (VRecCls name arg body cls_env)
-    |EV_LFixErr     : forall e s mssg name, 
+    |EVal_LFixErr     : forall e s mssg name, 
                        WFEV s -> 
                        EVal e s (VError mssg) -> 
                        EVal (LFix name e) s (VError mssg)
-    |EV_LMatch      : forall s e v mssg p' e' s' v' l, 
+    |EVal_LMatch      : forall s e v p' e' s' v' l, 
                        WFEV s -> 
                        EVal e s v -> 
-                       v <> (VError mssg) -> 
-                       (fun '(p, _) => has_match p v) l = Some (p', e') ->
-                       match_env p' v s = Some s' -> 
+                       ~Typeof v KTError -> 
+                       FirstMatch v l (Some (p', e')) ->
+                       MatchEnv p' v s s' -> 
                        EVal e' s' v' -> 
                        EVal (LMatch e l) s v' 
-    |EV_LMatchErr   : forall e s m l, 
+    |EVal_LMatchErr   : forall e s m l, 
                        WFEV s -> 
                        EVal e s (VError m) -> 
                        EVal (LMatch e l) s (VError m) 
-    |EV_LError      : forall s m, 
+    |EVal_LError      : forall s m, 
                        WFEV s -> 
-                       EVal (LError m) s (VError m).
+                       EVal (LError m) s (VError m)
 
-
-    (* we need a powerful induction principle for mutually recursive types *)
+    
+    with EValOp : list LExpr -> val_env -> list Val -> Prop := 
+     |EValOp_nil      : forall s, 
+                        WFEV s ->
+                        EValOp [] s []
+     |EValOp_cons     : forall s tail tail' head x,
+                        WFEV s -> 
+                        EValOp tail s tail' -> 
+                        ~one_error tail' -> 
+                        EVal head s (VLit x) -> 
+                        EValOp (head::tail) s (VLit x::tail') 
+     |EValOpErr_head : forall s tail tail' head mssg, 
+                        WFEV s ->   
+                        EValOp tail s tail' -> 
+                        ~one_error tail' -> 
+                        EVal head s (VError mssg) -> 
+                        EValOp (head::tail) s [VError mssg] 
+     |EValOpErr_tail : forall s head tail mssg,
+                        WFEV s ->  
+                        EValOp tail s [VError mssg] ->
+                        EValOp (head::tail) s [VError mssg] .
+                      
+                    
+    (* we need a powerful induction principle for mutually recursive types. 
+       Let's Scheme command generates one for us. *)
     Scheme EVal_mut := Induction for EVal Sort Prop
     with EValOp_mut := Induction for EValOp Sort Prop.
 
-    
-    (* the possible VError value gotten from the operands evaluation of a 
-       primitive operation is ever at the head position of the result list.*)
-    Theorem EValOp_VError_Hd: forall l s l' v, 
-      EValOp l s l' ->
-      typeof v = Some KTError ->
-      In v l' -> 
-      hd_error l' = Some v.
+
+    Theorem canonical_EValOp_result: forall l s l',
+      EValOp l s l' -> 
+      all_lit l' \/ one_error l'. 
     Proof. 
-      intros * HEOp Htof HIn .
+      intros * Hevop.
+      generalize dependent l'.  
+      induction l; intros.  
+      + inversion Hevop; subst. left. unfold all_lit.
+        apply Forall_nil.
+      + inversion Hevop; subst; 
+        try (right;unfold one_error; exists mssg; reflexivity). 
+        left. apply IHl in H2. destruct H2; try contradiction.
+        unfold all_lit; apply Forall_cons; eauto. 
+        exists (base_tp_of_base_vl x). constructor.
+    Qed. 
+
+    Corollary EvalOp_result_noerror: forall l s l', 
+      EValOp l s l' -> 
+      ~one_error l' -> 
+      all_lit l'.
+    Proof. 
+      intros * Hevop Hnerr. 
+      apply canonical_EValOp_result in Hevop. 
+      destruct Hevop. eauto. contradiction.
+    Qed.
+
+    Lemma getBaseVl_safe: forall l s l', 
+      EValOp l s l' ->
+      ~one_error l' -> 
+      length (getBaseVl l') = length l'.
+    Proof. 
+      intros * Hevop Hnerr.
       generalize dependent l'. 
       induction l; intros. 
-      + inversion HEOp; subst. contradiction.
-      + inversion HEOp; subst; eauto. 
-        destruct v; try destruct el_type; try discriminate. 
-        destruct H7 as [Htbase | Hterr];
-        destruct HIn; subst; eauto; 
-        assert (contra: hd_error t' = Some (VError m)) by  
-        (apply IHl; eauto); try rewrite contra in H2;  
-        inversion H2; subst; contradiction. 
-    Qed.
-
-    (* spec uses getBaseVl in a safe way, i.e. as a map function 
-       extracting BaseVl from the corresponding VLit.*)
-    Theorem getBaseVl_safe: forall l s l' v, 
-     EValOp l s l' -> 
-     hd_error l' = Some v ->
-     typeof v <> Some (KTError) ->
-     Forall (fun x => exists t, typeof x = Some (KTBase t)) l' /\
-     length (getBaseVl l') = length l'.
-    Proof.
-      intros * HEV Hhd Htof. 
-      split. 
-      + generalize dependent l. 
-        generalize dependent v.
-        induction l'; intros; try discriminate.   
-        inversion HEV; subst; apply Forall_cons; eauto; 
-        simpl in *; inversion Hhd; subst. 
-        - destruct H7 as [Hl | *]. destruct Hl as [t' *].
-          exists t' ; eauto. 
-          contradiction.
-        - inversion H1; subst; contradiction. 
-        - inversion H1; subst; contradiction.
-      + generalize dependent l.  
-        generalize dependent v. 
-        induction l'; intros; eauto. 
-        inversion HEV; subst; simpl in *; inversion Hhd; subst; 
-        try (inversion H0; subst; contradiction). 
-        destruct H7; destruct H. 
-        - destruct v; simpl; eauto;
-          simpl in *; try destruct el_type; discriminate.
-        - contradiction.
-        - inversion H1; subst; contradiction.
-    Qed.
-
+      + inversion Hevop; subst. eauto.
+      + inversion Hevop; subst; clear Hevop; 
+        try (apply one_error_contra in Hnerr; contradiction); 
+        simpl; f_equal; eauto.
+    Qed.   
+          
+      
 
     (* The following lemmas establish that each rule has a short-circuited
        propagation behaviour determined by the left-to-right 
        evaluation order for VError values. *)
     Lemma lop_propagates_leftmost_verror: forall l s l' m op, 
       EValOp (rev l) s l' -> 
-      hd_error l' = Some (VError m) -> 
+      l' = [VError m] -> 
       EVal (LOp op l) s (VError m).
     Proof. 
-      intros * HEvOp Hhd. 
+      intros * Hevop Hl'. 
       destruct l. 
-      + inversion HEvOp; subst; simpl in Hhd; discriminate.
-      + apply EV_LOpErr with (lv := l'); eauto. 
-        inversion HEvOp; eauto; inversion H3; eauto.
+      + inversion Hevop; subst. discriminate.
+      + inversion Hevop; subst; try discriminate; 
+        constructor; eauto. 
     Qed. 
       
 
-    Lemma lapp_propagates_left_verror: forall e1 s m e2, 
-      EVal e1 s (VError m) -> 
-      EVal (LApp e1 e2) s (VError m).
+    Lemma lapp_propagates_left_verror: forall e1 s mssg e2, 
+      EVal e1 s (VError mssg) -> 
+      EVal (LApp e1 e2) s (VError mssg).
     Proof. 
       intros * HEv. 
-      apply EV_LAppErr1; eauto.
+      constructor; eauto.
       inversion HEv; eauto.
     Qed. 
 
-    Lemma lapp_propagates_right_verror: forall e1 s name p e s_cls e2 m, 
-      EVal e1 s (VCls name p e s_cls) -> 
-      EVal e2 s (VError m) -> 
-      EVal (LApp e1 e2) s (VError m).
+    Lemma lapp_propagates_right_verror: forall e1 s v e2 mssg, 
+      EVal e1 s v ->
+      Typeof v KTFunction -> 
+      EVal e2 s (VError mssg) -> 
+      EVal (LApp e1 e2) s (VError mssg).
     Proof. 
       intros * HEv1 HEv2. 
-      apply EV_LAppErr2 with (name := name) (p := p) (e := e)
-      (s_cls := s_cls); eauto.
+      apply EVal_LAppErr_arg with (v := v) ; eauto.
       inversion HEv1; eauto.
     Qed. 
 
 
-    Lemma lpair_propagates_left_verror: forall e1 s m e2, 
-      EVal e1 s (VError m) -> 
-      EVal (LPair e1 e2) s (VError m). 
+    Lemma lpair_propagates_left_verror: forall e1 s mssg e2, 
+      EVal e1 s (VError mssg) -> 
+      EVal (LPair e1 e2) s (VError mssg). 
     Proof. 
       intros * HEv. 
-      apply EV_LPairErr1; eauto. 
+      constructor; eauto. 
       inversion HEv; eauto. 
     Qed. 
 
 
-    Lemma lpair_propagates_right_verror: forall e1 s v e2 m, 
+    Lemma lpair_propagates_right_verror: forall e1 s v e2 mssg, 
       EVal e1 s v -> 
-      typeof v <> Some KTError -> 
-      EVal e2 s (VError m) ->
-      EVal (LPair e1 e2) s (VError m). 
+      ~Typeof v KTError ->  
+      EVal e2 s (VError mssg) ->
+      EVal (LPair e1 e2) s (VError mssg). 
     Proof. 
       intros * HEv1 Htof HEv2. 
-      apply EV_LPairErr2 with (v1 := v); eauto. 
+      apply EVal_LPairErr_snd with (v1 := v); eauto. 
       inversion HEv2; eauto. 
     Qed. 
     
     
-    Lemma lcons_propagates_left_verror: forall e1 s m e2, 
-      EVal e1 s (VError m) -> 
-      EVal (LCons e1 e2) s (VError m).
+    Lemma lcons_propagates_left_verror: forall e1 s mssg e2, 
+      EVal e1 s (VError mssg) -> 
+      EVal (LCons e1 e2) s (VError mssg).
     Proof. 
       intros * HEv. 
-      apply EV_LConsErr1; eauto. 
+      constructor; eauto. 
       inversion HEv; eauto. 
     Qed. 
 
 
-    Lemma lcons_propagates_right_verror: forall e1 s v e2 m,
+    Lemma lcons_propagates_right_verror: forall e1 s v e2 mssg,
       EVal e1 s v -> 
-      typeof v <> Some KTError -> 
-      EVal e2 s (VError m) -> 
-      EVal (LCons e1 e2) s (VError m).
+      ~Typeof v KTError ->  
+      EVal e2 s (VError mssg) -> 
+      EVal (LCons e1 e2) s (VError mssg).
     Proof. 
       intros * HEv1 Htof HEv2. 
-      apply EV_LConsErr2 with (v1 := v); eauto.
+      apply EVal_LConsErr_tail with (v1 := v); eauto.
       inversion HEv1; eauto.
     Qed. 
     
     
-    Lemma lvariant_propagates_verror: forall e s m c inf, 
-      EVal e s (VError m) -> 
-      EVal (LVariant c inf e) s (VError m).
+    Lemma lvariant_propagates_verror: forall e s mssg c inf, 
+      EVal e s (VError mssg) -> 
+      EVal (LVariant c inf e) s (VError mssg).
     Proof. 
       intros * HEv. 
-      apply EV_LVariantErr; eauto. 
+      constructor; eauto. 
       inversion HEv; eauto. 
     Qed. 
     
     
-    Lemma lfix_propagates_verror: forall e s m i, 
-      EVal e s (VError m) -> 
-      EVal (LFix i e) s (VError m). 
+    Lemma lfix_propagates_verror: forall e s mssg i, 
+      EVal e s (VError mssg) -> 
+      EVal (LFix i e) s (VError mssg). 
     Proof. 
       intros * HEnv. 
-      apply EV_LFixErr; eauto. 
+      constructor; eauto. 
       inversion HEnv; eauto. 
     Qed. 
 
 
-    Lemma lmatch_propagates_verror: forall e s m l, 
-      EVal e s (VError m) -> 
-      EVal (LMatch e l) s (VError m). 
+    Lemma lmatch_propagates_verror: forall e s mssg l, 
+      EVal e s (VError mssg) -> 
+      EVal (LMatch e l) s (VError mssg). 
     Proof. 
       intros * HEv. 
-      apply EV_LMatchErr; eauto. 
+      constructor; eauto. 
       inversion HEv; eauto. 
     Qed.
 
@@ -393,40 +392,25 @@ Section EVALUATION.
       induction HEv using EVal_mut with 
        (P0 := fun l s l' _ => EValOp l s l' -> 
          Forall (fun v => WFV v) l'); 
-      try apply WFV_VLit; eauto. 
+      try constructor; eauto. 
       + induction w; subst; unfold lookup, empty_env in e. 
         discriminate. unfold bind in e.
         destruct (id_eqb i i0) eqn: eqid; 
         inversion e; subst; eauto. 
-      + destruct lv; inversion e0; subst.
-        apply IHHEv in e. inversion e; eauto.
-      + apply WFV_Cls. eauto.
-      + apply WFV_VUnit.  
-      + apply WFV_VNil.
-      + apply WFV_VPair; eauto; 
-        apply typeof_correct; eauto.
-      + apply WFV_VCons with (t := t1) (t1 := t1) (t2 := KTList KTEmpty); 
-        try apply typeof_correct; eauto.
-        * assert (H: is_FOT t1 = true) by 
-          (apply typeof_is_FOT with (v := v1), typeof_correct; eauto).
-          apply consistent_refl; eauto.
-        * apply c_TListNil1, typeof_is_FOT with (v := v1),
-          typeof_correct; eauto.
-      + apply WFV_VCons with (t := t1) (t1 := t1) (t2 := KTList t2);
-        apply typeof_correct in e; apply typeof_correct in e0; eauto.
-        * apply consistent_refl, typeof_is_FOT with (v := v1); eauto.
-        * apply c_TList, consistent_sym, is_consistent_correct; eauto.
-      + apply WFV_VCons with (t := t2) (t1 := t1) (t2 := KTList t2);
-        apply typeof_correct in e; apply typeof_correct in e0; eauto.
-        * apply is_consistent_correct; eauto.
-        * apply c_TList, consistent_refl. 
-          apply is_consistent_correct in e4.
-          apply consistent_is_FOT in e4; destruct e4; eauto.
-      + apply WFV_VVariant with (t := t'); eauto.
-        * apply typeof_correct; eauto.
-        * apply consistent_sym, is_consistent_correct; simpl; eauto.
-      + apply WFV_Cls. subst. apply WFEV_some; 
-        inversion IHHEv; subst; try apply WFV_Cls; eauto.
+      + apply WFV_VCons with (t1 := t1) (t2 := KTList KTEmpty); 
+        eauto. constructor.
+        * apply consistent_refl; eauto.
+          apply Typeof_is_FOT with (v := v1); eauto.
+        * apply c_TListNil1, Typeof_is_FOT with (v := v1); eauto.
+      + apply WFV_VCons with (t1 := t1) (t2 := KTList t); eauto.
+        * apply consistent_refl, Typeof_is_FOT with (v := v1); eauto.
+        * apply c_TList, consistent_sym; eauto.
+      + apply WFV_VCons with (t1 := t1) (t2 := KTList t); eauto.
+        apply c_TList, consistent_refl. 
+        apply consistent_is_FOT in c; destruct c; eauto.
+      + apply WFV_VVariant with (t := t) (tv := t'); eauto.
+        apply consistent_sym; eauto.
+      + inversion IHHEv; eauto.
       + apply WFV_VError.
     Qed. 
          
@@ -440,8 +424,6 @@ Section EVALUATION.
       v = v'.
     Proof.
       intros e s v v' Hwfev HEv1 HEv2.
-      generalize dependent HEv2. 
-      generalize dependent Hwfev.
       generalize dependent v'.
       induction HEv1 using EVal_mut with 
         (P0 := fun l s l' _ => forall l'', 
@@ -450,205 +432,215 @@ Section EVALUATION.
       + inversion HEv2; subst; rewrite H1 in e; 
         inversion e; eauto.
       + inversion HEv2; subst; eauto. 
-      + inversion HEv2; subst; try rewrite H5 in e0;
-        inversion e0; eauto;
-        inversion H2; subst; simpl in *; discriminate.
-      + inversion e; inversion HEv2; subst; try discriminate.
-        * assert (Hind: v0::t' = lv0) by (apply IHHEv1; eauto).
-          subst. rewrite H16 in e2; inversion e2; eauto.
-        * assert (Hind: v0::t' = lv0) by (apply IHHEv1; eauto). 
-          subst. simpl in *; inversion H13; subst; 
-          destruct H4 as [ [x Hcontra] | Herr]; 
-          try (rewrite H14 in Hcontra; discriminate);
-          inversion e0; subst; contradiction.
-        * assert (Hind: lv = lv0) by (apply IHHEv1; eauto).
-          subst; rewrite H15 in e2; inversion e2; eauto.
-        * rewrite H2 in e0; inversion e0; subst. contradiction.
-      + inversion e; inversion HEv2; subst; try discriminate.
-        * simpl in *; inversion e0; subst. 
-          assert (VError m::t' = lv0) by (apply IHHEv1; eauto).
-          subst. simpl in *; inversion H11; subst; contradiction.
-        * simpl in *; inversion e0; subst. 
-          assert (VError m::t' = lv0) by (apply IHHEv1; eauto).
-          subst. simpl in *; inversion H13; eauto.
+      + inversion HEv2; subst; clear HEv2.
         * assert (lv = lv0) by (apply IHHEv1; eauto); subst.
-          rewrite H10 in e0; inversion e0; subst. contradiction.
-        * assert (lv = lv0) by (apply IHHEv1; eauto); subst.   
-          rewrite H12 in e0; inversion e0; eauto. 
-      + inversion HEv2; subst. eauto. 
-      + inversion HEv2; subst. 
-        * assert (Hp1: VCls None p e s_cls = VCls None p0 e5 s_cls0) 
+          rewrite H7 in e1. inversion e1; eauto.
+        * assert (lv = [VError mssg]) by (apply IHHEv1; eauto).
+          subst. apply one_error_contra in n. contradiction.
+      + inversion HEv2; subst; clear HEv2.
+        * assert ([VError mssg] = lv) by (apply IHHEv1; eauto); 
+          subst. apply one_error_contra in H3; contradiction.
+        * assert (Heq: [VError mssg] = [VError mssg0]) by 
+          (apply IHHEv1; eauto); inversion Heq; subst; reflexivity.  
+      + inversion HEv2; subst; reflexivity.  
+      + inversion HEv2; subst; clear HEv2. 
+        * assert (Hp1: VCls arg body cls_env =
+                        VCls arg0 body0 cls_env0) 
           by (apply IHHEv1_1; eauto).
           assert (Hp2: v = v0) by (apply IHHEv1_2; eauto). 
-          inversion Hp1; subst. rewrite H6 in e3. inversion e3; subst.  
+          inversion Hp1; subst; clear Hp1.
+          assert (cls_env' = cls_env'0) by 
+           (apply MatchEnv_deterministic with (p:= arg0) (v := v0) 
+            (s := cls_env0); eauto ); subst.          
+          apply IHHEv1_3; eauto. apply EVal_wfv in HEv1_1, HEv1_2. 
+          inversion HEv1_1;  
+          apply MatchEnv_preservs_wfev with (s := cls_env0)
+            (p := arg0) (v := v0); eauto.  
+        * assert (VCls arg body cls_env = 
+                       VRecCls name arg0 body0 cls_env0) 
+          by (apply IHHEv1_1; eauto). 
+          discriminate. 
+        * assert (VCls arg body cls_env = VError mssg) 
+          by (apply IHHEv1_1; eauto). 
+          discriminate .
+        * assert (v = VError mssg) by (apply IHHEv1_2; eauto); 
+          subst. apply Typeof_err_contra in n. contradiction.
+      + inversion HEv2; subst; clear HEv2. 
+        * assert (VRecCls name arg body cls_env = 
+                  VCls arg0 body0 cls_env0)  
+          by (apply IHHEv1_1; eauto). 
+          discriminate.
+        * assert (Hp1: VRecCls name arg body cls_env = 
+                  VRecCls name0 arg0 body0 cls_env0) 
+          by (apply IHHEv1_1; eauto); 
+          inversion Hp1; subst; clear Hp1. 
+          assert (v = v0) by (apply IHHEv1_2; eauto); subst.
+          assert (cls_env' = cls_env'0) by (apply MatchEnv_deterministic
+            with (p := arg0) (v := v0) (s := cls_env0); eauto); subst. 
           apply IHHEv1_3; eauto.
-          apply EVal_wfv in HEv1_1, HEv1_2. 
-          inversion HEv1_1; subst; 
-          apply match_env_preservers_wfev with (s := s_cls0)
-          (p := p0) (v := v0);
-          apply match_env_correct in H6; eauto. 
-        * assert (Hp1: VCls None p e s_cls = VCls (Some i) p0 e5 s_rcls) 
+          apply EVal_wfv in HEv1_1, H3; inversion HEv1_1; subst.
+          apply MatchEnv_preservs_wfev in H6; eauto. 
+          constructor; eauto.
+        * assert (VRecCls name arg body cls_env = VError mssg) 
           by (apply IHHEv1_1; eauto). 
-          inversion Hp1. 
-        * assert (Hp1: VCls None p e s_cls = VError m) 
-          by (apply IHHEv1_1; eauto). 
-          inversion Hp1.
-        * assert (Hp2: v = VError m) by (apply IHHEv1_2; eauto). 
-          rewrite Hp2 in n; contradiction.
-      + inversion HEv2; subst. 
-        * assert (Hp1: VCls (Some i) p e s_rcls = VCls None p0 e6 s_cls) 
-          by (apply IHHEv1_1; eauto). 
-          inversion Hp1.
-        * assert (Hp1: VCls (Some i) p e s_rcls = VCls (Some i0) p0 e6 s_rcls0) 
-          by (apply IHHEv1_1; eauto).
-          assert (Hp2: v = v0) by (apply IHHEv1_2; eauto). 
-          inversion Hp1; subst. rewrite H6 in e3. inversion e3; subst.  
-          apply IHHEv1_3; eauto.
-          apply EVal_wfv in H2, H3. apply match_env_correct, 
-          match_env_preservers_wfev in H6;  
-          inversion H2; subst; try apply WFEV_some; eauto.
-        * assert (Hp1: VCls (Some i) p e s_rcls = VError m) 
-          by (apply IHHEv1_1; eauto). 
-          inversion Hp1.
-        * assert (Hp2: v = VError m) by (apply IHHEv1_2; eauto). 
-          rewrite Hp2 in n; contradiction.
-      + inversion HEv2; subst; eauto.
-        * apply IHHEv1 with (v' := VCls None p e s_cls) in H2. 
-          inversion H2. eauto.
-        * apply IHHEv1 with (v' := VCls (Some i) p e s_rcls) in H2. 
-          inversion H2. eauto.
-        * apply IHHEv1 with (v' := VCls name p e s_cls) in H2. 
-          inversion H2. eauto.
-      + inversion HEv2; subst; eauto; 
-        try (apply IHHEv1_2 with (v' := v) in H3; subst; eauto; 
-          contradiction).
-        apply IHHEv1_1 in H4; eauto; inversion H4.
+          discriminate.
+        * assert (v = VError mssg) by (apply IHHEv1_2; eauto); 
+          subst; apply Typeof_err_contra in n; contradiction.
+      + inversion HEv2; subst; clear HEv2; eauto.
+        * apply IHHEv1 with (v' := VCls arg body cls_env) in H2. 
+          discriminate. eauto.
+        * apply IHHEv1 with (v' := VRecCls name arg body cls_env)
+          in H2. discriminate. eauto. 
+        * apply IHHEv1 with (v' := v) in H2; subst. inversion H3. 
+          eauto.
+      + inversion HEv2; subst; clear HEv2; eauto. 
+        * apply IHHEv1_2 with (v' := v0) in H3; subst.
+          apply Typeof_err_contra in H4; contradiction. eauto.
+        * apply IHHEv1_2 with (v' := v0) in H3; subst.
+          apply Typeof_err_contra in H4; contradiction. eauto.
+        * apply IHHEv1_1 in H4; subst; eauto. inversion t.
       + inversion HEv2; eauto.
       + inversion HEv2; eauto.
-      + inversion HEv2; subst. 
-        * assert (Hp1: v1 = v0) by (apply IHHEv1_1; eauto).
-          assert (Hp2: v2 = v3) by (apply IHHEv1_2; eauto); 
-          subst; rewrite H3 in e; rewrite H6 in e0; inversion e; 
-          inversion e0; subst; eauto.
-        * assert (Hp1: v1 = VError m) by (apply IHHEv1_1 ; eauto); 
-          subst. simpl in e. inversion e; subst. contradiction.
-        * assert (Hp1: v2 = VError m) by (apply IHHEv1_2 ; eauto); 
-          subst. simpl in e0. inversion e0; subst. contradiction.
-      + inversion HEv2; subst. 
-        * assert (Hp1: VError m = v1) by (apply IHHEv1; eauto); 
-          subst. simpl in H3. inversion H3; subst. contradiction.
-        * apply IHHEv1; eauto.
-        * assert (Hp1: VError m = v1) by (apply IHHEv1; eauto). 
-          subst. simpl in H3. contradiction.
-      + inversion HEv2; subst.  
-        * assert (Hp1: VError m = v2) by (apply IHHEv1_2; eauto); 
-          subst. simpl in H6. inversion H6; subst. contradiction.
-        * assert (Hp1: v1 = VError m0) by 
+      + inversion HEv2; subst; clear HEv2. 
+        * assert (v1 = v0) by (apply IHHEv1_1; eauto); subst.
+          assert (v2 = v3) by (apply IHHEv1_2; eauto); subst;
+          repeat f_equal. 
+          apply Typeof_deterministic with (v := v0); eauto.
+          apply Typeof_deterministic with (v := v3); eauto.
+        * assert (v1 = VError mssg) by (apply IHHEv1_1 ; eauto); 
+          subst. inversion t; subst. contradiction. 
+        * assert (v2 = VError mssg) by (apply IHHEv1_2 ; eauto); 
+          subst. inversion t0; subst; contradiction.
+      + inversion HEv2; subst; clear HEv2; eauto. 
+        * assert (VError mssg = v1) by (apply IHHEv1; eauto); 
+          subst. inversion H3; subst; contradiction.
+        * assert (VError mssg = v1) by (apply IHHEv1; eauto). 
+          subst. apply Typeof_err_contra in H3; contradiction.
+      + inversion HEv2; subst; clear HEv2; eauto.  
+        * assert (VError mssg = v2) by (apply IHHEv1_2; eauto); 
+          subst. inversion H6; subst. contradiction.
+        * assert (v1 = VError mssg0) by 
           (apply IHHEv1_1 in H4; eauto); 
-          subst. simpl in *. contradiction.
-        * apply IHHEv1_2; eauto.
-      + inversion HEv2; subst. 
-        * apply IHHEv1_1 in H2; eauto; subst. rewrite H3 in e;  
-          inversion e; eauto.
+          subst. apply Typeof_err_contra in n; contradiction.
+      + inversion HEv2; subst; clear HEv2. 
+        * apply IHHEv1_1 in H2; eauto; subst.
+          f_equal. apply Typeof_deterministic with (v := v0); 
+          eauto. 
         * apply IHHEv1_1 in H2; eauto; subst. 
-          apply IHHEv1_2 in H4; eauto; subst. 
-          rewrite H3 in e; inversion e; eauto.
+          apply IHHEv1_2 in H4; eauto; subst.
+          f_equal. apply Typeof_deterministic with (v := v0); 
+          eauto.
         * apply IHHEv1_1 in H2; eauto; subst. 
-          apply IHHEv1_2 in H5; eauto; subst. 
-          rewrite H3 in e; inversion e; inversion H6; subst.
-          apply is_consistent_correct, consistent_eq_tempty in H10; 
-          subst; eauto. 
+          apply IHHEv1_2 in H5; eauto; subst.
+          f_equal. inversion H6; subst. inversion H7; subst. 
+          apply Typeof_deterministic with (v := v0); eauto.
         * apply IHHEv1_1 in H4; eauto; subst.
-          simpl in *. inversion e; subst; contradiction.
+          inversion t; subst; contradiction.
         * apply IHHEv1_2 in H6; eauto; subst. discriminate.
-      + inversion HEv2; subst.
-        * apply IHHEv1_1 in H2; eauto; subst. 
-          apply IHHEv1_2 in H7; eauto; subst. 
-          rewrite H3 in e; inversion e; eauto.
-        * apply IHHEv1_1 in H2; eauto; subst. 
-          apply IHHEv1_2 in H4; eauto; subst. 
-          rewrite H3 in e; inversion e; subst; eauto.
-        * apply IHHEv1_1 in H2; eauto; subst. 
-          apply IHHEv1_2 in H5; eauto; subst. 
-          rewrite H3 in e; inversion e; subst;
-          rewrite H6 in e0; inversion e0; subst.
-          rewrite H7 in e3; discriminate.
-        * apply IHHEv1_1 in H4; eauto; subst.
-          simpl in *; inversion e; subst. 
-          apply is_consistent_correct in e4.
-          inversion e4; subst. discriminate.
-        * apply IHHEv1_2 in H6; eauto; subst.
-          simpl in *; inversion e0.
-      + inversion HEv2; subst. 
+      + inversion HEv2; subst; clear HEv2.
         * apply IHHEv1_1 in H2; eauto; subst. 
           apply IHHEv1_2 in H7; eauto; subst.
-          rewrite H3 in e; inversion e; inversion e0; subst.
-          apply is_consistent_correct, consistent_eq_tempty in 
-          e4; subst; eauto.
+          f_equal. apply Typeof_deterministic with (v := v0); 
+          eauto.
         * apply IHHEv1_1 in H2; eauto; subst. 
-          apply IHHEv1_2 in H4; eauto; subst. 
-          rewrite H3 in e; inversion e; subst;
-          rewrite H5 in e0; inversion e0; subst.
-          rewrite H6 in e3; discriminate.
+          apply IHHEv1_2 in H4; eauto; subst.
+          f_equal. apply Typeof_deterministic with (v := v0); 
+          eauto.
+        * apply IHHEv1_1 in H2; eauto; subst. 
+          apply IHHEv1_2 in H5; eauto; subst.
+          repeat f_equal.
+          assert (t1 = t3) by ( 
+           apply Typeof_deterministic with (v := v0); eauto); subst.
+          assert (H: KTList t = KTList t4) by (
+           apply Typeof_deterministic with (v := v3); 
+           eauto); inversion H; subst.   
+          rewrite H10 in e; discriminate.
+        * apply IHHEv1_1 in H4; eauto; subst.
+          inversion t0; subst. inversion c; subst.
+          simpl in *. discriminate.
+        * apply IHHEv1_2 in H6; eauto; subst.
+          inversion t2.
+      + inversion HEv2; subst; clear HEv2. 
+        * apply IHHEv1_1 in H2; eauto; subst. 
+          apply IHHEv1_2 in H7; eauto; subst.
+          inversion t2; subst. inversion c; subst.
+          repeat f_equal. apply Typeof_deterministic with 
+          (v := v0); eauto.
+        * apply IHHEv1_1 in H2; eauto; subst. 
+          apply IHHEv1_2 in H4; eauto; subst.
+          assert (H: KTList t = KTList t4) by (
+           apply Typeof_deterministic with (v := v3); 
+           eauto); inversion H; subst.   
+          rewrite H9 in e; discriminate.     
         * apply IHHEv1_1 in H2; eauto; subst. 
           apply IHHEv1_2 in H5; eauto; subst. 
-          rewrite H6 in e0; inversion e0; subst. eauto.
+          repeat f_equal.
+          assert (H: KTList t = KTList t4) by (
+           apply Typeof_deterministic with (v := v3); 
+           eauto); inversion H; subst. eauto.
         * apply IHHEv1_1 in H4; eauto; subst.
-          simpl in *; inversion e; subst. 
-          apply is_consistent_correct in e4.
-          inversion e4; subst. contradiction. 
+          inversion t0; subst; contradiction.  
         * apply IHHEv1_2 in H6; eauto; subst.
-          simpl in *; inversion e0.  
-      + inversion HEv2; subst; eauto;
-        try(assert (Hp1: VError m = v1) by 
-          (apply IHHEv1 in HEv1; eauto);
-          subst; simpl in H3; try inversion H3; subst); 
-        try contradiction;
-        try (apply is_consistent_correct in H9;
-          inversion H9; try discriminate; subst; simpl in *; 
-          discriminate).
-      + inversion HEv2; subst; eauto; 
-        try (assert (Hp1: VError m = v2) by (apply IHHEv1_2; eauto); 
-          subst; simpl in *; discriminate) .
-        apply IHHEv1_2 in H7; eauto; discriminate.
-        apply IHHEv1_1 in H4; eauto; subst; simpl; contradiction.
-      + inversion HEv2; subst. 
+          inversion t2.  
+      + inversion HEv2; subst; eauto; clear HEv2; 
+        try(apply IHHEv1 in H2; eauto; subst;
+          inversion H3; subst; contradiction); 
+        apply IHHEv1 in H2; eauto; subst.
+        * inversion H3; subst. inversion H6; subst.
+          simpl in *; discriminate.
+        * apply Typeof_err_contra in H3; contradiction.
+      + inversion HEv2; subst; eauto; clear HEv2.
+        * apply IHHEv1_2 in H7; eauto; discriminate.
+        * apply IHHEv1_2 in H4; eauto; subst. inversion H5.
+        * apply IHHEv1_2 in H5; eauto; subst; inversion H6.
+        * apply IHHEv1_1 in H4; eauto; subst. 
+          apply Typeof_err_contra in n; contradiction.
+      + inversion HEv2; subst; clear HEv2. 
         * apply IHHEv1 in H4; subst; eauto.
-        * apply IHHEv1 in H5; subst; simpl in e0; inversion e0; 
-          subst; eauto; contradiction. 
-      + inversion HEv2; subst; eauto. 
-        apply IHHEv1 in H3; subst; simpl in H4; inversion H4; 
-        subst; eauto; contradiction. 
-      + inversion HEv2; subst. 
-        * apply IHHEv1 in H2; inversion H2; subst; eauto.
+        * apply IHHEv1 in H5; eauto; subst. 
+          inversion t0; subst. contradiction.
+      + inversion HEv2; subst; eauto; clear HEv2. 
+        apply IHHEv1 in H3; eauto ; subst.  
+        inversion H4; subst; contradiction. 
+      + inversion HEv2; subst; clear HEv2. 
+        * apply IHHEv1 in H4; inversion H4; subst; eauto.
         * apply IHHEv1 in H4; eauto; discriminate.
-      + inversion HEv2; subst; eauto.
-        apply IHHEv1 in H2; eauto; discriminate.
-      + inversion HEv2; subst. 
+      + inversion HEv2; subst; clear HEv2; eauto.
+        apply IHHEv1 in H4; eauto; discriminate.
+      + inversion HEv2; subst; clear HEv2. 
         * apply IHHEv1_1 in H2; subst; eauto.
-          rewrite H4 in e0; inversion e0; subst. 
-          rewrite H5 in e1; inversion e1; subst.
-          apply IHHEv1_2 in H8; eauto.
-          apply match_env_correct, match_env_preservers_wfev in H5; 
-          eauto; apply EVal_wfv in HEv1_1; eauto.
-        * apply IHHEv1_1 in H4; subst; simpl in *; eauto; 
-          contradiction.
+          assert (Hs: Some (p', e') = Some (p'0, e'0)) by 
+            (apply FirstMatch_deterministic with (v := v0) (l := l); 
+             eauto); inversion Hs; subst; clear Hs.
+          apply IHHEv1_2. 
+          apply MatchEnv_preservs_wfev in m; eauto.
+          apply EVal_wfv in HEv1_1; eauto.
+          assert (s' = s'0) by (apply MatchEnv_deterministic 
+            with (p := p'0) (v := v0) (s := s); eauto); 
+          subst; eauto.
+        * apply IHHEv1_1 in H4; eauto; subst. 
+          apply Typeof_err_contra in n; contradiction.
       + inversion HEv2; subst; eauto.
-        apply IHHEv1 in H2; subst; simpl in *; eauto; 
-        contradiction.
+        apply IHHEv1 in H2; eauto; subst. 
+        apply Typeof_err_contra in H3; contradiction.
       + inversion HEv2; subst; eauto.
       + inversion H1; eauto.
-      + inversion H1; subst; eauto. 
-        * apply IHHEv0 in H7; subst; 
-          apply IHHEv1 in H4; subst; eauto.
-        * apply IHHEv1 in H5; eauto; subst. 
-          rewrite H6 in e0; inversion e0; subst.
-          contradiction.
-      + inversion H1; subst. 
-        * apply IHHEv1 in H4; eauto; subst. 
-          rewrite H5 in e0; inversion e0; subst.
-          contradiction.
-        * eauto.
+      + inversion H1; subst; eauto; clear H1.
+        * f_equal. apply IHHEv0 in H9; eauto.
+          apply IHHEv1; eauto.  
+        * apply IHHEv0 in H9; eauto; discriminate.
+        * apply IHHEv1 in H7; eauto; subst. 
+          apply one_error_contra in n; contradiction.
+      + inversion H1; subst; clear H1.
+        * apply IHHEv0 in H9; eauto; discriminate.
+        * apply IHHEv0 in H9; eauto; inversion H9; reflexivity.  
+        * apply IHHEv1 in H7; eauto; subst.
+          apply one_error_contra in n; contradiction.
+      + inversion H1; subst; clear H1; eauto; 
+         assert (contra : [VError mssg] = tail') by (
+              apply IHHEv1; eauto); subst; 
+          apply one_error_contra in H6; contradiction.
+        
     Qed.   
         
 

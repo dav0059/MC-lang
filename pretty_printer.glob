@@ -1,4 +1,4 @@
-DIGEST 8383adeee335db5a83e7a1c148b87b4f
+DIGEST 5d2893d2a4c2dd62ded3625db82f9a82
 Fimpl2_MC.pretty_printer
 R15:17 impl2_MC.ids <> <> lib
 R19:28 impl2_MC.primitives <> <> lib
@@ -50,16 +50,16 @@ R694:706 impl2_MC.pretty_printer <> val_to_string:4 def
 R718:721 Coq.Strings.String <> ::string_scope:x_'++'_x not
 R722:734 impl2_MC.pretty_printer <> val_to_string:4 def
 R746:753 impl2_MC.values <> VVariant constr
-R794:797 Coq.Strings.String <> ::string_scope:x_'++'_x not
+R794:833 Coq.Strings.String <> ::string_scope:x_'++'_x not
 R774:789 impl2_MC.ids <> constr_to_string proj
 R791:791 impl2_MC.pretty_printer <> PRINTER.I var
-R801:804 Coq.Strings.String <> ::string_scope:x_'++'_x not
-R820:823 Coq.Strings.String <> ::string_scope:x_'++'_x not
-R805:817 impl2_MC.pretty_printer <> val_to_string:4 def
-R819:819 impl2_MC.pretty_printer <> v:3 var
-R836:841 impl2_MC.values <> VError constr
-R894:898 Coq.Strings.String <> ::string_scope:x_'++'_x not
-R920:920 Coq.Strings.String <> ::string_scope:x_'++'_x not
-R899:915 impl2_MC.ids <> message_to_string proj
-R917:917 impl2_MC.pretty_printer <> PRINTER.I var
-R940:946 impl2_MC.pretty_printer PRINTER <> sec
+R837:840 Coq.Strings.String <> ::string_scope:x_'++'_x not
+R856:859 Coq.Strings.String <> ::string_scope:x_'++'_x not
+R841:853 impl2_MC.pretty_printer <> val_to_string:4 def
+R855:855 impl2_MC.pretty_printer <> v:3 var
+R872:877 impl2_MC.values <> VError constr
+R930:969 Coq.Strings.String <> ::string_scope:x_'++'_x not
+R991:991 Coq.Strings.String <> ::string_scope:x_'++'_x not
+R970:986 impl2_MC.ids <> message_to_string proj
+R988:988 impl2_MC.pretty_printer <> PRINTER.I var
+R1011:1017 impl2_MC.pretty_printer PRINTER <> sec
