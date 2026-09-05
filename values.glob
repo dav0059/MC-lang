@@ -1,4 +1,4 @@
-DIGEST 2f6031d1f649db1a0da7693ae7b37b71
+DIGEST af29f3d3f5bbf41c27415abee80f1912
 Fimpl2_MC.values
 R15:17 impl2_MC.ids <> <> lib
 R19:28 impl2_MC.primitives <> <> lib
@@ -7,1080 +7,1335 @@ R44:46 impl2_MC.env <> <> lib
 R48:58 impl2_MC.type_theory <> <> lib
 R60:73 impl2_MC.pattern_theory <> <> lib
 R75:85 impl2_MC.elaboration <> <> lib
-sec 151:156 <> Values
-R182:184 impl2_MC.ids <> IDS rec
-binder 178:178 <> I:1
-R205:213 impl2_MC.primitives <> PRIM_DATA rec
-binder 202:202 <> P:2
-R253:255 impl2_MC.ids <> Ide proj
-R257:257 impl2_MC.values <> Values.I var
-not 238:238 Values :::'Ide'
-R299:304 impl2_MC.ids <> Constr proj
-R306:306 impl2_MC.values <> Values.I var
-not 281:281 Values :::'Constr'
-R349:355 impl2_MC.ids <> Message proj
-R357:357 impl2_MC.values <> Values.I var
-not 330:330 Values :::'Message'
-R399:404 impl2_MC.primitives <> BaseVl proj
-R406:406 impl2_MC.values <> Values.P var
-not 381:381 Values :::'BaseVl'
-R445:448 impl2_MC.kernel_syntax <> KPat ind
-R450:450 impl2_MC.values <> Values.I var
-R452:452 impl2_MC.values <> Values.P var
-not 429:429 Values :::'KPat'
-R492:496 impl2_MC.elaboration <> LExpr ind
-R498:498 impl2_MC.values <> Values.I var
-R500:500 impl2_MC.values <> Values.P var
-not 475:475 Values :::'LExpr'
-R539:541 impl2_MC.kernel_syntax <> KTp ind
-R543:543 impl2_MC.values <> Values.I var
-R545:545 impl2_MC.values <> Values.P var
-not 524:524 Values :::'KTp'
-R600:617 impl2_MC.primitives <> base_tp_of_base_vl proj
-R619:619 impl2_MC.values <> Values.P var
-not 568:568 Values :::'base_tp_of_base_vl'_x
-R677:682 impl2_MC.ids <> id_eqb proj
-R684:684 impl2_MC.values <> Values.I var
-not 659:659 Values :::'id_eqb'
-ind 708:710 <> Val
-constr 728:731 <> VCls
-constr 788:794 <> VRecCls
-constr 863:866 <> VLit
-constr 885:889 <> VUnit
-constr 897:900 <> VNil
-constr 908:912 <> VPair
-constr 951:955 <> VCons
-constr 990:997 <> VVariant
-constr 1042:1047 <> VError
-R739:742 impl2_MC.values Values :::'KPat' not
-binder 734:736 <> arg:5
-R753:757 impl2_MC.values Values :::'LExpr' not
-binder 747:750 <> body:6
-R770:772 impl2_MC.env <> env def
-R778:780 impl2_MC.values <> Val:3 ind
-R774:776 impl2_MC.values Values :::'Ide' not
-binder 761:767 <> cls_env:7
-R804:806 impl2_MC.values Values :::'Ide' not
-binder 797:800 <> name:8
-R815:818 impl2_MC.values Values :::'KPat' not
-binder 810:812 <> arg:9
-R828:832 impl2_MC.values Values :::'LExpr' not
-binder 822:825 <> body:10
-R845:847 impl2_MC.env <> env def
-R853:855 impl2_MC.values <> Val:3 ind
-R849:851 impl2_MC.values Values :::'Ide' not
-binder 836:842 <> cls_env:11
-R872:877 impl2_MC.values Values :::'BaseVl' not
-binder 869:869 <> x:12
-R922:924 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R919:921 impl2_MC.values <> Val:3 ind
-R925:927 impl2_MC.values Values :::'KTp' not
-binder 915:916 <> v1:13
-R938:940 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R935:937 impl2_MC.values <> Val:3 ind
-R941:943 impl2_MC.values Values :::'KTp' not
-binder 931:932 <> v2:14
-R965:967 impl2_MC.values <> Val:3 ind
-binder 958:959 <> v1:15
-binder 961:962 <> v2:16
-R980:982 impl2_MC.values Values :::'KTp' not
-binder 971:977 <> el_type:17
-R1003:1008 impl2_MC.values Values :::'Constr' not
-binder 1000:1000 <> c:18
-R1020:1022 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R1017:1019 impl2_MC.values Values :::'Ide' not
-R1023:1025 impl2_MC.values Values :::'KTp' not
-binder 1012:1014 <> inf:19
-R1032:1034 impl2_MC.values <> Val:3 ind
-binder 1029:1029 <> v:20
-R1053:1059 impl2_MC.values Values :::'Message' not
-binder 1050:1050 <> m:21
-scheme 708:710 <> Val_rect
-scheme 708:710 <> Val_ind
-scheme 708:710 <> Val_rec
-scheme 708:710 <> Val_sind
-def 1081:1085 <> v_env
-R1090:1092 impl2_MC.env <> env def
-R1098:1100 impl2_MC.values <> Val ind
+R103:112 Coq.Lists.List <> <> lib
+R130:133 Coq.Bool.Bool <> <> lib
+R144:156 Coq.Lists.List ListNotations <> mod
+sec 221:226 <> Values
+R252:254 impl2_MC.ids <> IDS rec
+binder 248:248 <> I:1
+R275:283 impl2_MC.primitives <> PRIM_DATA rec
+binder 272:272 <> P:2
+R323:325 impl2_MC.ids <> Ide proj
+R327:327 impl2_MC.values <> Values.I var
+not 308:308 Values :::'Ide'
+R369:374 impl2_MC.ids <> Constr proj
+R376:376 impl2_MC.values <> Values.I var
+not 351:351 Values :::'Constr'
+R419:425 impl2_MC.ids <> Message proj
+R427:427 impl2_MC.values <> Values.I var
+not 400:400 Values :::'Message'
+R469:474 impl2_MC.primitives <> BaseVl proj
+R476:476 impl2_MC.values <> Values.P var
+not 451:451 Values :::'BaseVl'
+R515:518 impl2_MC.kernel_syntax <> KPat ind
+R520:520 impl2_MC.values <> Values.I var
+R522:522 impl2_MC.values <> Values.P var
+not 499:499 Values :::'KPat'
+R562:566 impl2_MC.elaboration <> LExpr ind
+R568:568 impl2_MC.values <> Values.I var
+R570:570 impl2_MC.values <> Values.P var
+not 545:545 Values :::'LExpr'
+R609:611 impl2_MC.kernel_syntax <> KTp ind
+R613:613 impl2_MC.values <> Values.I var
+R615:615 impl2_MC.values <> Values.P var
+not 594:594 Values :::'KTp'
+R677:694 impl2_MC.primitives <> base_tp_of_base_vl proj
+R696:696 impl2_MC.values <> Values.P var
+not 638:638 Values :::'base_tp_of_base_vl'_x
+R754:759 impl2_MC.ids <> id_eqb proj
+R761:761 impl2_MC.values <> Values.I var
+not 736:736 Values :::'id_eqb'
+ind 785:787 <> Val
+constr 805:808 <> VCls
+constr 865:871 <> VRecCls
+constr 940:943 <> VLit
+constr 962:966 <> VUnit
+constr 974:977 <> VNil
+constr 985:989 <> VPair
+constr 1028:1032 <> VCons
+constr 1067:1074 <> VVariant
+constr 1119:1124 <> VError
+R816:819 impl2_MC.values Values :::'KPat' not
+binder 811:813 <> arg:5
+R830:834 impl2_MC.values Values :::'LExpr' not
+binder 824:827 <> body:6
+R847:849 impl2_MC.env <> env def
+R855:857 impl2_MC.values <> Val:3 ind
+R851:853 impl2_MC.values Values :::'Ide' not
+binder 838:844 <> cls_env:7
+R881:883 impl2_MC.values Values :::'Ide' not
+binder 874:877 <> name:8
+R892:895 impl2_MC.values Values :::'KPat' not
+binder 887:889 <> arg:9
+R905:909 impl2_MC.values Values :::'LExpr' not
+binder 899:902 <> body:10
+R922:924 impl2_MC.env <> env def
+R930:932 impl2_MC.values <> Val:3 ind
+R926:928 impl2_MC.values Values :::'Ide' not
+binder 913:919 <> cls_env:11
+R949:954 impl2_MC.values Values :::'BaseVl' not
+binder 946:946 <> x:12
+R999:1001 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R996:998 impl2_MC.values <> Val:3 ind
+R1002:1004 impl2_MC.values Values :::'KTp' not
+binder 992:993 <> v1:13
+R1015:1017 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R1012:1014 impl2_MC.values <> Val:3 ind
+R1018:1020 impl2_MC.values Values :::'KTp' not
+binder 1008:1009 <> v2:14
+R1042:1044 impl2_MC.values <> Val:3 ind
+binder 1035:1036 <> v1:15
+binder 1038:1039 <> v2:16
+R1057:1059 impl2_MC.values Values :::'KTp' not
+binder 1048:1054 <> el_type:17
+R1080:1085 impl2_MC.values Values :::'Constr' not
+binder 1077:1077 <> c:18
+R1097:1099 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
 R1094:1096 impl2_MC.values Values :::'Ide' not
-ind 1140:1145 <> Typeof
-constr 1178:1184 <> TOf_Cls
-constr 1289:1296 <> TOf_RCls
-constr 1415:1422 <> TOf_VLit
-constr 1495:1503 <> TOf_VUnit
-constr 1537:1544 <> TOf_VNil
-constr 1588:1596 <> TOf_VPair
-constr 1700:1708 <> TOf_VCons
-constr 1819:1830 <> TOf_VVariant
-constr 1918:1927 <> TOf_VError
-R1152:1155 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R1149:1151 impl2_MC.values <> Val ind
-R1159:1162 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R1156:1158 impl2_MC.values Values :::'KTp' not
-binder 1200:1202 <> arg:24
-binder 1204:1207 <> body:25
-binder 1209:1215 <> cls_env:26
-R1241:1246 impl2_MC.values <> Typeof:22 ind
-R1272:1281 impl2_MC.kernel_syntax <> KTFunction constr
-R1249:1252 impl2_MC.values <> VCls constr
-R1263:1269 impl2_MC.values <> cls_env:26 var
-R1258:1261 impl2_MC.values <> body:25 var
-R1254:1256 impl2_MC.values <> arg:24 var
-binder 1311:1314 <> name:27
-binder 1316:1318 <> arg:28
-binder 1320:1323 <> body:29
-binder 1325:1331 <> cls_env:30
-R1357:1362 impl2_MC.values <> Typeof:22 ind
-R1396:1405 impl2_MC.kernel_syntax <> KTFunction constr
-R1365:1371 impl2_MC.values <> VRecCls constr
-R1387:1393 impl2_MC.values <> cls_env:30 var
-R1382:1385 impl2_MC.values <> body:29 var
-R1378:1380 impl2_MC.values <> arg:28 var
-R1373:1376 impl2_MC.values <> name:27 var
-binder 1437:1437 <> x:31
-R1440:1445 impl2_MC.values <> Typeof:22 ind
-R1457:1462 impl2_MC.kernel_syntax <> KTBase constr
-R1465:1483 impl2_MC.values Values :::'base_tp_of_base_vl'_x not
-R1484:1484 impl2_MC.values <> x:31 var
-R1448:1451 impl2_MC.values <> VLit constr
-R1453:1453 impl2_MC.values <> x:31 var
-R1510:1515 impl2_MC.values <> Typeof:22 ind
-R1523:1528 impl2_MC.kernel_syntax <> KTUnit constr
-R1517:1521 impl2_MC.values <> VUnit constr
-R1552:1557 impl2_MC.values <> Typeof:22 ind
-R1565:1570 impl2_MC.kernel_syntax <> KTList constr
-R1572:1578 impl2_MC.kernel_syntax <> KTEmpty constr
-R1559:1562 impl2_MC.values <> VNil constr
-binder 1610:1611 <> v1:32
-binder 1613:1614 <> v2:33
-binder 1616:1617 <> t1:34
-binder 1619:1620 <> t2:35
-R1646:1651 impl2_MC.values <> Typeof:22 ind
-R1680:1685 impl2_MC.kernel_syntax <> KTProd constr
-R1690:1691 impl2_MC.values <> t2:35 var
-R1687:1688 impl2_MC.values <> t1:34 var
-R1654:1658 impl2_MC.values <> VPair constr
-R1669:1669 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1672:1673 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1676:1676 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1670:1671 impl2_MC.values <> v2:33 var
-R1674:1675 impl2_MC.values <> t2:35 var
-R1660:1660 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1663:1664 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1667:1667 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1661:1662 impl2_MC.values <> v1:32 var
-R1665:1666 impl2_MC.values <> t1:34 var
-binder 1722:1723 <> v1:36
-binder 1725:1726 <> v2:37
-binder 1728:1734 <> el_type:38
-R1767:1772 impl2_MC.values <> Typeof:22 ind
-R1797:1802 impl2_MC.kernel_syntax <> KTList constr
-R1804:1810 impl2_MC.values <> el_type:38 var
-R1775:1779 impl2_MC.values <> VCons constr
-R1787:1793 impl2_MC.values <> el_type:38 var
-R1784:1785 impl2_MC.values <> v2:37 var
-R1781:1782 impl2_MC.values <> v1:36 var
-binder 1841:1841 <> c:39
-binder 1843:1843 <> i:40
-binder 1845:1845 <> t:41
-binder 1847:1847 <> v:42
-R1873:1878 impl2_MC.values <> Typeof:22 ind
-R1903:1907 impl2_MC.kernel_syntax <> KTRef constr
-R1909:1909 impl2_MC.values <> i:40 var
-R1881:1888 impl2_MC.values <> VVariant constr
-R1899:1899 impl2_MC.values <> v:42 var
-R1892:1892 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1894:1895 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1897:1897 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R1893:1893 impl2_MC.values <> i:40 var
-R1896:1896 impl2_MC.values <> t:41 var
-R1890:1890 impl2_MC.values <> c:39 var
-binder 1940:1940 <> m:43
-R1943:1948 impl2_MC.values <> Typeof:22 ind
-R1962:1968 impl2_MC.kernel_syntax <> KTError constr
-R1951:1956 impl2_MC.values <> VError constr
-R1958:1958 impl2_MC.values <> m:43 var
-scheme 1140:1145 <> Typeof_ind
-scheme 1140:1145 <> Typeof_sind
-ind 1995:1997 <> WFV
-constr 2022:2028 <> WFV_Cls
-constr 2157:2164 <> WFV_RCls
-constr 2306:2313 <> WFV_VLit
-constr 2350:2358 <> WFV_VUnit
-constr 2383:2390 <> WFV_VNil
-constr 2416:2424 <> WFV_VPair
-constr 2652:2660 <> WFV_VCons
-constr 2998:3009 <> WFV_VVariant
-constr 3198:3207 <> WFV_VError
-ind 3249:3252 <> WFEV
-constr 3281:3289 <> WFEV_none
-constr 3326:3334 <> WFEV_some
-R2004:2007 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2001:2003 impl2_MC.values <> Val ind
-R3261:3264 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3256:3260 impl2_MC.values <> v_env def
-binder 2044:2046 <> arg:48
-binder 2048:2051 <> body:49
-binder 2053:2059 <> cls_env:50
-R2096:2122 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2084:2087 impl2_MC.values <> WFEV:45 ind
-R2089:2095 impl2_MC.values <> cls_env:50 var
-R2123:2125 impl2_MC.values <> WFV:44 ind
-R2128:2131 impl2_MC.values <> VCls constr
-R2142:2148 impl2_MC.values <> cls_env:50 var
-R2137:2140 impl2_MC.values <> body:49 var
-R2133:2135 impl2_MC.values <> arg:48 var
-binder 2179:2182 <> name:51
-binder 2184:2186 <> arg:52
-binder 2188:2191 <> body:53
-binder 2193:2199 <> cls_env:54
-R2237:2263 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2225:2228 impl2_MC.values <> WFEV:45 ind
-R2230:2236 impl2_MC.values <> cls_env:54 var
-R2264:2266 impl2_MC.values <> WFV:44 ind
-R2269:2275 impl2_MC.values <> VRecCls constr
-R2291:2297 impl2_MC.values <> cls_env:54 var
-R2286:2289 impl2_MC.values <> body:53 var
-R2282:2284 impl2_MC.values <> arg:52 var
-R2277:2280 impl2_MC.values <> name:51 var
-binder 2328:2328 <> x:55
-R2331:2333 impl2_MC.values <> WFV:44 ind
-R2336:2339 impl2_MC.values <> VLit constr
-R2341:2341 impl2_MC.values <> x:55 var
-R2366:2368 impl2_MC.values <> WFV:44 ind
-R2370:2374 impl2_MC.values <> VUnit constr
-R2399:2401 impl2_MC.values <> WFV:44 ind
-R2403:2406 impl2_MC.values <> VNil constr
-binder 2438:2439 <> v1:56
-binder 2441:2442 <> t1:57
-binder 2444:2445 <> v2:58
-binder 2447:2448 <> t2:59
-R2480:2506 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2474:2476 impl2_MC.values <> WFV:44 ind
-R2478:2479 impl2_MC.values <> v1:56 var
-R2519:2544 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2507:2512 impl2_MC.values <> Typeof ind
-R2517:2518 impl2_MC.values <> t1:57 var
-R2514:2515 impl2_MC.values <> v1:56 var
-R2551:2576 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2545:2547 impl2_MC.values <> WFV:44 ind
-R2549:2550 impl2_MC.values <> v2:58 var
-R2589:2615 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2577:2582 impl2_MC.values <> Typeof ind
-R2587:2588 impl2_MC.values <> t2:59 var
-R2584:2585 impl2_MC.values <> v2:58 var
-R2616:2618 impl2_MC.values <> WFV:44 ind
-R2621:2625 impl2_MC.values <> VPair constr
-R2636:2636 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2639:2640 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2643:2643 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2637:2638 impl2_MC.values <> v2:58 var
-R2641:2642 impl2_MC.values <> t2:59 var
-R2627:2627 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2630:2631 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2634:2634 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R2628:2629 impl2_MC.values <> v1:56 var
-R2632:2633 impl2_MC.values <> t1:57 var
-binder 2674:2675 <> v1:60
-binder 2677:2678 <> v2:61
-binder 2680:2681 <> t1:62
-binder 2683:2684 <> t2:63
-binder 2686:2692 <> el_type:64
-R2724:2750 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2718:2720 impl2_MC.values <> WFV:44 ind
-R2722:2723 impl2_MC.values <> v1:60 var
-R2757:2783 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2751:2753 impl2_MC.values <> WFV:44 ind
-R2755:2756 impl2_MC.values <> v2:61 var
-R2796:2822 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2784:2789 impl2_MC.values <> Typeof ind
-R2794:2795 impl2_MC.values <> t1:62 var
-R2791:2792 impl2_MC.values <> v1:60 var
-R2835:2861 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2823:2828 impl2_MC.values <> Typeof ind
-R2833:2834 impl2_MC.values <> t2:63 var
-R2830:2831 impl2_MC.values <> v2:61 var
-R2883:2908 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2862:2871 impl2_MC.type_theory <> Consistent ind
-R2876:2882 impl2_MC.values <> el_type:64 var
-R2873:2874 impl2_MC.values <> t1:62 var
-R2939:2965 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2909:2918 impl2_MC.type_theory <> Consistent ind
-R2924:2929 impl2_MC.kernel_syntax <> KTList constr
-R2931:2937 impl2_MC.values <> el_type:64 var
-R2920:2921 impl2_MC.values <> t2:63 var
-R2966:2968 impl2_MC.values <> WFV:44 ind
-R2971:2975 impl2_MC.values <> VCons constr
-R2983:2989 impl2_MC.values <> el_type:64 var
-R2980:2981 impl2_MC.values <> v2:61 var
-R2977:2978 impl2_MC.values <> v1:60 var
-binder 3020:3020 <> v:65
-binder 3022:3023 <> tv:66
-binder 3025:3025 <> t:67
-binder 3027:3027 <> c:68
-binder 3029:3029 <> i:69
-R3060:3086 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3055:3057 impl2_MC.values <> WFV:44 ind
-R3059:3059 impl2_MC.values <> v:65 var
-R3098:3124 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3087:3092 impl2_MC.values <> Typeof ind
-R3096:3097 impl2_MC.values <> tv:66 var
-R3094:3094 impl2_MC.values <> v:65 var
-R3140:3165 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3125:3134 impl2_MC.type_theory <> Consistent ind
-R3139:3139 impl2_MC.values <> t:67 var
-R3136:3137 impl2_MC.values <> tv:66 var
-R3166:3168 impl2_MC.values <> WFV:44 ind
-R3171:3178 impl2_MC.values <> VVariant constr
-R3189:3189 impl2_MC.values <> v:65 var
-R3182:3182 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R3184:3185 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R3187:3187 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R3183:3183 impl2_MC.values <> i:69 var
-R3186:3186 impl2_MC.values <> t:67 var
-R3180:3180 impl2_MC.values <> c:68 var
-binder 3220:3220 <> m:70
-R3223:3225 impl2_MC.values <> WFV:44 ind
-R3228:3233 impl2_MC.values <> VError constr
-R3235:3235 impl2_MC.values <> m:70 var
-R3293:3296 impl2_MC.values <> WFEV:45 ind
-R3300:3308 impl2_MC.env <> empty_env def
-R3310:3312 impl2_MC.values Values :::'Ide' not
-R3314:3316 impl2_MC.values <> Val ind
-binder 3345:3345 <> i:71
-binder 3347:3347 <> v:72
-binder 3349:3349 <> s:73
-R3378:3402 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3373:3375 impl2_MC.values <> WFV:44 ind
-R3377:3377 impl2_MC.values <> v:72 var
-R3409:3433 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3403:3406 impl2_MC.values <> WFEV:45 ind
-R3408:3408 impl2_MC.values <> s:73 var
-R3434:3437 impl2_MC.values <> WFEV:45 ind
-R3440:3443 impl2_MC.env <> bind def
-R3452:3457 impl2_MC.values Values :::'id_eqb' not
-R3449:3449 impl2_MC.values <> v:72 var
-R3447:3447 impl2_MC.values <> i:71 var
-R3445:3445 impl2_MC.values <> s:73 var
-scheme 1995:1997 <> WFV_ind
-scheme 1995:1997 <> WFV_sind
-scheme 3249:3252 <> WFEV_ind
-scheme 3249:3252 <> WFEV_sind
-ind 3495:3499 <> Match
-constr 3533:3542 <> Match_PVar
-constr 3586:3595 <> Match_PLit
-constr 3723:3731 <> Match_PAs
-constr 3840:3849 <> Match_PAny
-constr 3888:3898 <> Match_PUnit
-constr 3930:3939 <> Match_PNil
-constr 3971:3981 <> Match_PPair
-constr 4168:4178 <> Match_PCons
-constr 4368:4381 <> Match_PVariant
-R3507:3510 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3503:3506 impl2_MC.values Values :::'KPat' not
-R3514:3517 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3511:3513 impl2_MC.values <> Val ind
-binder 3557:3557 <> i:76
-binder 3559:3559 <> v:77
-R3562:3566 impl2_MC.values <> Match:74 ind
-R3578:3578 impl2_MC.values <> v:77 var
-R3569:3573 impl2_MC.kernel_syntax <> KPVar constr
-R3575:3575 impl2_MC.values <> i:76 var
-binder 3610:3610 <> p:78
-binder 3612:3612 <> v:79
-R3663:3690 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3656:3658 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R3640:3649 impl2_MC.primitives <> eqb_BaseVl proj
-R3651:3651 impl2_MC.values <> Values.P var
-R3653:3653 impl2_MC.values <> p:78 var
-R3655:3655 impl2_MC.values <> v:79 var
-R3659:3662 Coq.Init.Datatypes <> true constr
-R3691:3695 impl2_MC.values <> Match:74 ind
-R3708:3711 impl2_MC.values <> VLit constr
-R3713:3713 impl2_MC.values <> v:79 var
-R3698:3702 impl2_MC.kernel_syntax <> KPLit constr
-R3704:3704 impl2_MC.values <> p:78 var
-binder 3747:3747 <> p:80
-binder 3749:3749 <> v:81
-binder 3751:3751 <> i:82
+R1100:1102 impl2_MC.values Values :::'KTp' not
+binder 1089:1091 <> inf:19
+R1109:1111 impl2_MC.values <> Val:3 ind
+binder 1106:1106 <> v:20
+R1130:1136 impl2_MC.values Values :::'Message' not
+binder 1127:1127 <> m:21
+scheme 785:787 <> Val_rect
+scheme 785:787 <> Val_ind
+scheme 785:787 <> Val_rec
+scheme 785:787 <> Val_sind
+def 1158:1164 <> val_env
+R1169:1171 impl2_MC.env <> env def
+R1177:1179 impl2_MC.values <> Val ind
+R1173:1175 impl2_MC.values Values :::'Ide' not
+ind 1219:1224 <> Typeof
+constr 1257:1266 <> Typeof_Cls
+constr 1374:1384 <> Typeof_RCls
+constr 1506:1516 <> Typeof_VLit
+constr 1589:1600 <> Typeof_VUnit
+constr 1635:1645 <> Typeof_VNil
+constr 1689:1700 <> Typeof_VPair
+constr 1807:1818 <> Typeof_VCons
+constr 1932:1946 <> Typeof_VVariant
+constr 2037:2049 <> Typeof_VError
+R1231:1234 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1228:1230 impl2_MC.values <> Val ind
+R1238:1241 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1235:1237 impl2_MC.values Values :::'KTp' not
+binder 1282:1284 <> arg:24
+binder 1286:1289 <> body:25
+binder 1291:1297 <> cls_env:26
+R1326:1331 impl2_MC.values <> Typeof:22 ind
+R1357:1366 impl2_MC.kernel_syntax <> KTFunction constr
+R1334:1337 impl2_MC.values <> VCls constr
+R1348:1354 impl2_MC.values <> cls_env:26 var
+R1343:1346 impl2_MC.values <> body:25 var
+R1339:1341 impl2_MC.values <> arg:24 var
+binder 1399:1402 <> name:27
+binder 1404:1406 <> arg:28
+binder 1408:1411 <> body:29
+binder 1413:1419 <> cls_env:30
+R1448:1453 impl2_MC.values <> Typeof:22 ind
+R1487:1496 impl2_MC.kernel_syntax <> KTFunction constr
+R1456:1462 impl2_MC.values <> VRecCls constr
+R1478:1484 impl2_MC.values <> cls_env:30 var
+R1473:1476 impl2_MC.values <> body:29 var
+R1469:1471 impl2_MC.values <> arg:28 var
+R1464:1467 impl2_MC.values <> name:27 var
+binder 1531:1531 <> x:31
+R1534:1539 impl2_MC.values <> Typeof:22 ind
+R1551:1556 impl2_MC.kernel_syntax <> KTBase constr
+R1559:1577 impl2_MC.values Values :::'base_tp_of_base_vl'_x not
+R1578:1578 impl2_MC.values <> x:31 var
+R1542:1545 impl2_MC.values <> VLit constr
+R1547:1547 impl2_MC.values <> x:31 var
+R1608:1613 impl2_MC.values <> Typeof:22 ind
+R1621:1626 impl2_MC.kernel_syntax <> KTUnit constr
+R1615:1619 impl2_MC.values <> VUnit constr
+R1653:1658 impl2_MC.values <> Typeof:22 ind
+R1666:1671 impl2_MC.kernel_syntax <> KTList constr
+R1673:1679 impl2_MC.kernel_syntax <> KTEmpty constr
+R1660:1663 impl2_MC.values <> VNil constr
+binder 1714:1715 <> v1:32
+binder 1717:1718 <> v2:33
+binder 1720:1721 <> t1:34
+binder 1723:1724 <> t2:35
+R1753:1758 impl2_MC.values <> Typeof:22 ind
+R1787:1792 impl2_MC.kernel_syntax <> KTProd constr
+R1797:1798 impl2_MC.values <> t2:35 var
+R1794:1795 impl2_MC.values <> t1:34 var
+R1761:1765 impl2_MC.values <> VPair constr
+R1776:1776 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1779:1780 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1783:1783 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1777:1778 impl2_MC.values <> v2:33 var
+R1781:1782 impl2_MC.values <> t2:35 var
+R1767:1767 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1770:1771 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1774:1774 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R1768:1769 impl2_MC.values <> v1:32 var
+R1772:1773 impl2_MC.values <> t1:34 var
+binder 1832:1833 <> v1:36
+binder 1835:1836 <> v2:37
+binder 1838:1844 <> el_type:38
+R1880:1885 impl2_MC.values <> Typeof:22 ind
+R1910:1915 impl2_MC.kernel_syntax <> KTList constr
+R1917:1923 impl2_MC.values <> el_type:38 var
+R1888:1892 impl2_MC.values <> VCons constr
+R1900:1906 impl2_MC.values <> el_type:38 var
+R1897:1898 impl2_MC.values <> v2:37 var
+R1894:1895 impl2_MC.values <> v1:36 var
+binder 1957:1957 <> c:39
+binder 1959:1959 <> i:40
+binder 1961:1961 <> t:41
+binder 1963:1963 <> v:42
+R1992:1997 impl2_MC.values <> Typeof:22 ind
+R2022:2026 impl2_MC.kernel_syntax <> KTRef constr
+R2028:2028 impl2_MC.values <> i:40 var
+R2000:2007 impl2_MC.values <> VVariant constr
+R2018:2018 impl2_MC.values <> v:42 var
+R2011:2011 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2013:2014 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2016:2016 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2012:2012 impl2_MC.values <> i:40 var
+R2015:2015 impl2_MC.values <> t:41 var
+R2009:2009 impl2_MC.values <> c:39 var
+binder 2062:2062 <> m:43
+R2065:2070 impl2_MC.values <> Typeof:22 ind
+R2084:2090 impl2_MC.kernel_syntax <> KTError constr
+R2073:2078 impl2_MC.values <> VError constr
+R2080:2080 impl2_MC.values <> m:43 var
+scheme 1219:1224 <> Typeof_ind
+scheme 1219:1224 <> Typeof_sind
+ind 2117:2119 <> WFV
+constr 2144:2150 <> WFV_Cls
+constr 2279:2286 <> WFV_RCls
+constr 2428:2435 <> WFV_VLit
+constr 2472:2480 <> WFV_VUnit
+constr 2505:2512 <> WFV_VNil
+constr 2538:2546 <> WFV_VPair
+constr 2774:2782 <> WFV_VCons
+constr 3120:3131 <> WFV_VVariant
+constr 3320:3329 <> WFV_VError
+ind 3371:3374 <> WFEV
+constr 3405:3413 <> WFEV_none
+constr 3450:3458 <> WFEV_some
+R2126:2129 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2123:2125 impl2_MC.values <> Val ind
+R3385:3388 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3378:3384 impl2_MC.values <> val_env def
+binder 2166:2168 <> arg:48
+binder 2170:2173 <> body:49
+binder 2175:2181 <> cls_env:50
+R2218:2244 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2206:2209 impl2_MC.values <> WFEV:45 ind
+R2211:2217 impl2_MC.values <> cls_env:50 var
+R2245:2247 impl2_MC.values <> WFV:44 ind
+R2250:2253 impl2_MC.values <> VCls constr
+R2264:2270 impl2_MC.values <> cls_env:50 var
+R2259:2262 impl2_MC.values <> body:49 var
+R2255:2257 impl2_MC.values <> arg:48 var
+binder 2301:2304 <> name:51
+binder 2306:2308 <> arg:52
+binder 2310:2313 <> body:53
+binder 2315:2321 <> cls_env:54
+R2359:2385 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2347:2350 impl2_MC.values <> WFEV:45 ind
+R2352:2358 impl2_MC.values <> cls_env:54 var
+R2386:2388 impl2_MC.values <> WFV:44 ind
+R2391:2397 impl2_MC.values <> VRecCls constr
+R2413:2419 impl2_MC.values <> cls_env:54 var
+R2408:2411 impl2_MC.values <> body:53 var
+R2404:2406 impl2_MC.values <> arg:52 var
+R2399:2402 impl2_MC.values <> name:51 var
+binder 2450:2450 <> x:55
+R2453:2455 impl2_MC.values <> WFV:44 ind
+R2458:2461 impl2_MC.values <> VLit constr
+R2463:2463 impl2_MC.values <> x:55 var
+R2488:2490 impl2_MC.values <> WFV:44 ind
+R2492:2496 impl2_MC.values <> VUnit constr
+R2521:2523 impl2_MC.values <> WFV:44 ind
+R2525:2528 impl2_MC.values <> VNil constr
+binder 2560:2561 <> v1:56
+binder 2563:2564 <> t1:57
+binder 2566:2567 <> v2:58
+binder 2569:2570 <> t2:59
+R2602:2628 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2596:2598 impl2_MC.values <> WFV:44 ind
+R2600:2601 impl2_MC.values <> v1:56 var
+R2641:2666 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2629:2634 impl2_MC.values <> Typeof ind
+R2639:2640 impl2_MC.values <> t1:57 var
+R2636:2637 impl2_MC.values <> v1:56 var
+R2673:2698 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2667:2669 impl2_MC.values <> WFV:44 ind
+R2671:2672 impl2_MC.values <> v2:58 var
+R2711:2737 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2699:2704 impl2_MC.values <> Typeof ind
+R2709:2710 impl2_MC.values <> t2:59 var
+R2706:2707 impl2_MC.values <> v2:58 var
+R2738:2740 impl2_MC.values <> WFV:44 ind
+R2743:2747 impl2_MC.values <> VPair constr
+R2758:2758 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2761:2762 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2765:2765 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2759:2760 impl2_MC.values <> v2:58 var
+R2763:2764 impl2_MC.values <> t2:59 var
+R2749:2749 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2752:2753 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2756:2756 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R2750:2751 impl2_MC.values <> v1:56 var
+R2754:2755 impl2_MC.values <> t1:57 var
+binder 2796:2797 <> v1:60
+binder 2799:2800 <> v2:61
+binder 2802:2803 <> t1:62
+binder 2805:2806 <> t2:63
+binder 2808:2814 <> el_type:64
+R2846:2872 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2840:2842 impl2_MC.values <> WFV:44 ind
+R2844:2845 impl2_MC.values <> v1:60 var
+R2879:2905 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2873:2875 impl2_MC.values <> WFV:44 ind
+R2877:2878 impl2_MC.values <> v2:61 var
+R2918:2944 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2906:2911 impl2_MC.values <> Typeof ind
+R2916:2917 impl2_MC.values <> t1:62 var
+R2913:2914 impl2_MC.values <> v1:60 var
+R2957:2983 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2945:2950 impl2_MC.values <> Typeof ind
+R2955:2956 impl2_MC.values <> t2:63 var
+R2952:2953 impl2_MC.values <> v2:61 var
+R3005:3030 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2984:2993 impl2_MC.type_theory <> Consistent ind
+R2998:3004 impl2_MC.values <> el_type:64 var
+R2995:2996 impl2_MC.values <> t1:62 var
+R3061:3087 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3031:3040 impl2_MC.type_theory <> Consistent ind
+R3046:3051 impl2_MC.kernel_syntax <> KTList constr
+R3053:3059 impl2_MC.values <> el_type:64 var
+R3042:3043 impl2_MC.values <> t2:63 var
+R3088:3090 impl2_MC.values <> WFV:44 ind
+R3093:3097 impl2_MC.values <> VCons constr
+R3105:3111 impl2_MC.values <> el_type:64 var
+R3102:3103 impl2_MC.values <> v2:61 var
+R3099:3100 impl2_MC.values <> v1:60 var
+binder 3142:3142 <> v:65
+binder 3144:3145 <> tv:66
+binder 3147:3147 <> t:67
+binder 3149:3149 <> c:68
+binder 3151:3151 <> i:69
+R3182:3208 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3177:3179 impl2_MC.values <> WFV:44 ind
+R3181:3181 impl2_MC.values <> v:65 var
+R3220:3246 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3209:3214 impl2_MC.values <> Typeof ind
+R3218:3219 impl2_MC.values <> tv:66 var
+R3216:3216 impl2_MC.values <> v:65 var
+R3262:3287 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3247:3256 impl2_MC.type_theory <> Consistent ind
+R3261:3261 impl2_MC.values <> t:67 var
+R3258:3259 impl2_MC.values <> tv:66 var
+R3288:3290 impl2_MC.values <> WFV:44 ind
+R3293:3300 impl2_MC.values <> VVariant constr
+R3311:3311 impl2_MC.values <> v:65 var
+R3304:3304 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3306:3307 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3309:3309 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R3305:3305 impl2_MC.values <> i:69 var
+R3308:3308 impl2_MC.values <> t:67 var
+R3302:3302 impl2_MC.values <> c:68 var
+binder 3342:3342 <> m:70
+R3345:3347 impl2_MC.values <> WFV:44 ind
+R3350:3355 impl2_MC.values <> VError constr
+R3357:3357 impl2_MC.values <> m:70 var
+R3417:3420 impl2_MC.values <> WFEV:45 ind
+R3424:3432 impl2_MC.env <> empty_env def
+R3434:3436 impl2_MC.values Values :::'Ide' not
+R3438:3440 impl2_MC.values <> Val ind
+binder 3469:3469 <> i:71
+binder 3471:3471 <> v:72
+binder 3473:3473 <> s:73
+R3502:3526 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3497:3499 impl2_MC.values <> WFV:44 ind
+R3501:3501 impl2_MC.values <> v:72 var
+R3533:3557 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3527:3530 impl2_MC.values <> WFEV:45 ind
+R3532:3532 impl2_MC.values <> s:73 var
+R3558:3561 impl2_MC.values <> WFEV:45 ind
+R3564:3567 impl2_MC.env <> bind def
+R3576:3581 impl2_MC.values Values :::'id_eqb' not
+R3573:3573 impl2_MC.values <> v:72 var
+R3571:3571 impl2_MC.values <> i:71 var
+R3569:3569 impl2_MC.values <> s:73 var
+scheme 2117:2119 <> WFV_ind
+scheme 2117:2119 <> WFV_sind
+scheme 3371:3374 <> WFEV_ind
+scheme 3371:3374 <> WFEV_sind
+ind 3619:3623 <> Match
+constr 3657:3666 <> Match_PVar
+constr 3710:3719 <> Match_PLit
+constr 3847:3855 <> Match_PAs
+constr 3964:3973 <> Match_PAny
+constr 4012:4022 <> Match_PUnit
+constr 4055:4064 <> Match_PNil
+constr 4097:4107 <> Match_PPair
+constr 4294:4304 <> Match_PCons
+constr 4494:4507 <> Match_PVariant
+R3631:3634 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3627:3630 impl2_MC.values Values :::'KPat' not
+R3638:3641 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3635:3637 impl2_MC.values <> Val ind
+binder 3681:3681 <> i:76
+binder 3683:3683 <> v:77
+R3686:3690 impl2_MC.values <> Match:74 ind
+R3702:3702 impl2_MC.values <> v:77 var
+R3693:3697 impl2_MC.kernel_syntax <> KPVar constr
+R3699:3699 impl2_MC.values <> i:76 var
+binder 3734:3734 <> p:78
+binder 3736:3736 <> v:79
 R3787:3814 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3778:3782 impl2_MC.values <> Match:74 ind
-R3786:3786 impl2_MC.values <> v:81 var
-R3784:3784 impl2_MC.values <> p:80 var
+R3780:3782 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3764:3773 impl2_MC.primitives <> eqb_BaseVl proj
+R3775:3775 impl2_MC.values <> Values.P var
+R3777:3777 impl2_MC.values <> p:78 var
+R3779:3779 impl2_MC.values <> v:79 var
+R3783:3786 Coq.Init.Datatypes <> true constr
 R3815:3819 impl2_MC.values <> Match:74 ind
-R3832:3832 impl2_MC.values <> v:81 var
-R3822:3825 impl2_MC.kernel_syntax <> KPAs constr
-R3829:3829 impl2_MC.values <> i:82 var
-R3827:3827 impl2_MC.values <> p:80 var
-binder 3864:3864 <> v:83
-R3867:3871 impl2_MC.values <> Match:74 ind
-R3879:3879 impl2_MC.values <> v:83 var
-R3873:3877 impl2_MC.kernel_syntax <> KPAny constr
-R3905:3909 impl2_MC.values <> Match:74 ind
-R3918:3922 impl2_MC.values <> VUnit constr
-R3911:3916 impl2_MC.kernel_syntax <> KPUnit constr
-R3947:3951 impl2_MC.values <> Match:74 ind
-R3959:3962 impl2_MC.values <> VNil constr
-R3953:3957 impl2_MC.kernel_syntax <> KPNil constr
-binder 3995:3996 <> p1:84
-binder 3998:3999 <> p2:85
-binder 4001:4002 <> v1:86
-binder 4004:4005 <> v2:87
-R4051:4079 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4034:4038 impl2_MC.values <> Match:74 ind
-R4044:4046 Coq.Init.Datatypes <> fst def
-R4048:4049 impl2_MC.values <> v1:86 var
-R4040:4041 impl2_MC.values <> p1:84 var
-R4097:4125 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4080:4084 impl2_MC.values <> Match:74 ind
-R4090:4092 Coq.Init.Datatypes <> fst def
-R4094:4095 impl2_MC.values <> v2:87 var
-R4086:4087 impl2_MC.values <> p2:85 var
-R4126:4130 impl2_MC.values <> Match:74 ind
-R4148:4152 impl2_MC.values <> VPair constr
-R4157:4158 impl2_MC.values <> v2:87 var
-R4154:4155 impl2_MC.values <> v1:86 var
-R4133:4138 impl2_MC.kernel_syntax <> KPPair constr
-R4143:4144 impl2_MC.values <> p2:85 var
-R4140:4141 impl2_MC.values <> p1:84 var
-binder 4192:4193 <> p1:88
-binder 4195:4196 <> p2:89
-binder 4198:4199 <> v1:90
-binder 4201:4202 <> v2:91
-binder 4204:4210 <> el_type:92
-R4250:4278 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4239:4243 impl2_MC.values <> Match:74 ind
-R4248:4249 impl2_MC.values <> v1:90 var
-R4245:4246 impl2_MC.values <> p1:88 var
-R4290:4318 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4279:4283 impl2_MC.values <> Match:74 ind
-R4288:4289 impl2_MC.values <> v2:91 var
-R4285:4286 impl2_MC.values <> p2:89 var
-R4319:4323 impl2_MC.values <> Match:74 ind
-R4341:4345 impl2_MC.values <> VCons constr
-R4353:4359 impl2_MC.values <> el_type:92 var
-R4350:4351 impl2_MC.values <> v2:91 var
-R4347:4348 impl2_MC.values <> v1:90 var
-R4326:4331 impl2_MC.kernel_syntax <> KPCons constr
-R4336:4337 impl2_MC.values <> p2:89 var
-R4333:4334 impl2_MC.values <> p1:88 var
-binder 4392:4392 <> c:93
-binder 4394:4395 <> c':94
-binder 4397:4397 <> p:95
-binder 4399:4399 <> v:96
-binder 4401:4403 <> inf:97
-R4438:4466 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4433:4435 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R4432:4432 impl2_MC.values <> c:93 var
-R4436:4437 impl2_MC.values <> c':94 var
-R4476:4504 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4467:4471 impl2_MC.values <> Match:74 ind
-R4475:4475 impl2_MC.values <> v:96 var
-R4473:4473 impl2_MC.values <> p:95 var
-R4505:4509 impl2_MC.values <> Match:74 ind
-R4528:4535 impl2_MC.values <> VVariant constr
-R4544:4544 impl2_MC.values <> v:96 var
-R4540:4542 impl2_MC.values <> inf:97 var
-R4537:4538 impl2_MC.values <> c':94 var
-R4512:4520 impl2_MC.kernel_syntax <> KPVariant constr
-R4524:4524 impl2_MC.values <> p:95 var
-R4522:4522 impl2_MC.values <> c:93 var
-scheme 3495:3499 <> Match_ind
-scheme 3495:3499 <> Match_sind
-ind 4590:4597 <> MatchEnv
-constr 4649:4657 <> MEnv_PVar
-constr 4756:4764 <> MEnv_PLit
-constr 4855:4862 <> MEnv_PAs
-constr 5018:5026 <> MEnv_PAny
-constr 5102:5111 <> MEnv_PUnit
-constr 5190:5198 <> MEnv_PNil
-constr 5276:5285 <> MEnv_PPair
-constr 5518:5527 <> MEnv_PCons
-constr 5761:5773 <> MEnv_PVariant
-R4605:4608 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4601:4604 impl2_MC.values Values :::'KPat' not
-R4612:4615 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4609:4611 impl2_MC.values <> Val ind
-R4621:4624 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4616:4620 impl2_MC.values <> v_env def
-R4630:4633 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4625:4629 impl2_MC.values <> v_env def
-binder 4672:4672 <> i:100
-binder 4674:4674 <> v:101
-binder 4676:4676 <> s:102
-R4707:4714 impl2_MC.values <> MatchEnv:98 ind
-R4731:4734 impl2_MC.env <> bind def
-R4742:4747 impl2_MC.values Values :::'id_eqb' not
-R4740:4740 impl2_MC.values <> v:101 var
-R4738:4738 impl2_MC.values <> i:100 var
-R4736:4736 impl2_MC.values <> s:102 var
-R4728:4728 impl2_MC.values <> s:102 var
-R4726:4726 impl2_MC.values <> v:101 var
-R4717:4721 impl2_MC.kernel_syntax <> KPVar constr
-R4723:4723 impl2_MC.values <> i:100 var
-binder 4779:4779 <> p:103
-binder 4781:4781 <> v:104
-binder 4783:4783 <> s:105
-R4816:4823 impl2_MC.values <> MatchEnv:98 ind
-R4846:4846 impl2_MC.values <> s:105 var
-R4844:4844 impl2_MC.values <> s:105 var
-R4836:4839 impl2_MC.values <> VLit constr
-R4841:4841 impl2_MC.values <> v:104 var
-R4826:4830 impl2_MC.kernel_syntax <> KPLit constr
-R4832:4832 impl2_MC.values <> p:103 var
-binder 4878:4878 <> p:106
-binder 4880:4880 <> i:107
-binder 4882:4882 <> v:108
-binder 4884:4884 <> s:109
-binder 4886:4887 <> s':110
-R4936:4966 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4919:4926 impl2_MC.values <> MatchEnv:98 ind
-R4934:4935 impl2_MC.values <> s':110 var
-R4932:4932 impl2_MC.values <> s:109 var
-R4930:4930 impl2_MC.values <> v:108 var
-R4928:4928 impl2_MC.values <> p:106 var
-R4967:4974 impl2_MC.values <> MatchEnv:98 ind
-R4992:4995 impl2_MC.env <> bind def
-R5004:5009 impl2_MC.values Values :::'id_eqb' not
-R5002:5002 impl2_MC.values <> v:108 var
-R5000:5000 impl2_MC.values <> i:107 var
-R4997:4998 impl2_MC.values <> s':110 var
-R4989:4989 impl2_MC.values <> s:109 var
-R4987:4987 impl2_MC.values <> v:108 var
-R4977:4980 impl2_MC.kernel_syntax <> KPAs constr
-R4984:4984 impl2_MC.values <> i:107 var
-R4982:4982 impl2_MC.values <> p:106 var
-binder 5041:5041 <> v:111
-binder 5043:5043 <> s:112
-R5074:5081 impl2_MC.values <> MatchEnv:98 ind
-R5093:5093 impl2_MC.values <> s:112 var
-R5091:5091 impl2_MC.values <> s:112 var
-R5089:5089 impl2_MC.values <> v:111 var
-R5083:5087 impl2_MC.kernel_syntax <> KPAny constr
-binder 5125:5125 <> s:113
-R5157:5164 impl2_MC.values <> MatchEnv:98 ind
-R5181:5181 impl2_MC.values <> s:113 var
-R5179:5179 impl2_MC.values <> s:113 var
-R5173:5177 impl2_MC.values <> VUnit constr
-R5166:5171 impl2_MC.kernel_syntax <> KPUnit constr
-binder 5213:5213 <> s:114
-R5245:5252 impl2_MC.values <> MatchEnv:98 ind
-R5267:5267 impl2_MC.values <> s:114 var
-R5265:5265 impl2_MC.values <> s:114 var
-R5260:5263 impl2_MC.values <> VNil constr
-R5254:5258 impl2_MC.kernel_syntax <> KPNil constr
-binder 5299:5300 <> p1:115
-binder 5302:5303 <> p2:116
-binder 5305:5306 <> v1:117
-binder 5308:5309 <> v2:118
-binder 5311:5311 <> s:119
-binder 5313:5314 <> s':120
-binder 5316:5318 <> s'':121
-R5376:5407 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5351:5358 impl2_MC.values <> MatchEnv:98 ind
-R5374:5375 impl2_MC.values <> s':120 var
-R5372:5372 impl2_MC.values <> s:119 var
-R5364:5366 Coq.Init.Datatypes <> fst def
-R5368:5369 impl2_MC.values <> v1:117 var
-R5360:5361 impl2_MC.values <> p1:115 var
-R5435:5466 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5408:5415 impl2_MC.values <> MatchEnv:98 ind
-R5432:5434 impl2_MC.values <> s'':121 var
-R5429:5430 impl2_MC.values <> s':120 var
-R5421:5423 Coq.Init.Datatypes <> fst def
-R5425:5426 impl2_MC.values <> v2:118 var
-R5417:5418 impl2_MC.values <> p2:116 var
-R5467:5474 impl2_MC.values <> MatchEnv:98 ind
-R5507:5509 impl2_MC.values <> s'':121 var
-R5505:5505 impl2_MC.values <> s:119 var
-R5492:5496 impl2_MC.values <> VPair constr
-R5501:5502 impl2_MC.values <> v2:118 var
-R5498:5499 impl2_MC.values <> v1:117 var
-R5477:5482 impl2_MC.kernel_syntax <> KPPair constr
-R5487:5488 impl2_MC.values <> p2:116 var
-R5484:5485 impl2_MC.values <> p1:115 var
-binder 5541:5542 <> p1:122
-binder 5544:5545 <> p2:123
-binder 5547:5548 <> v1:124
-binder 5550:5551 <> v2:125
-binder 5553:5559 <> el_type:126
-binder 5561:5561 <> s:127
-binder 5563:5564 <> s':128
-binder 5566:5568 <> s'':129
-R5617:5648 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5598:5605 impl2_MC.values <> MatchEnv:98 ind
-R5615:5616 impl2_MC.values <> s':128 var
-R5613:5613 impl2_MC.values <> s:127 var
-R5610:5611 impl2_MC.values <> v1:124 var
-R5607:5608 impl2_MC.values <> p1:122 var
-R5670:5701 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5649:5656 impl2_MC.values <> MatchEnv:98 ind
-R5667:5669 impl2_MC.values <> s'':129 var
-R5664:5665 impl2_MC.values <> s':128 var
-R5661:5662 impl2_MC.values <> v2:125 var
-R5658:5659 impl2_MC.values <> p2:123 var
-R5702:5709 impl2_MC.values <> MatchEnv:98 ind
-R5750:5752 impl2_MC.values <> s'':129 var
-R5748:5748 impl2_MC.values <> s:127 var
-R5727:5731 impl2_MC.values <> VCons constr
-R5739:5745 impl2_MC.values <> el_type:126 var
-R5736:5737 impl2_MC.values <> v2:125 var
-R5733:5734 impl2_MC.values <> v1:124 var
-R5712:5717 impl2_MC.kernel_syntax <> KPCons constr
-R5722:5723 impl2_MC.values <> p2:123 var
-R5719:5720 impl2_MC.values <> p1:122 var
-binder 5784:5784 <> c:130
-binder 5786:5787 <> c':131
-binder 5789:5789 <> p:132
-binder 5791:5793 <> inf:133
-binder 5795:5795 <> v:134
-binder 5797:5797 <> s:135
-binder 5799:5800 <> s':136
-R5848:5879 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5831:5838 impl2_MC.values <> MatchEnv:98 ind
-R5846:5847 impl2_MC.values <> s':136 var
-R5844:5844 impl2_MC.values <> s:135 var
-R5842:5842 impl2_MC.values <> v:134 var
-R5840:5840 impl2_MC.values <> p:132 var
-R5880:5887 impl2_MC.values <> MatchEnv:98 ind
-R5927:5928 impl2_MC.values <> s':136 var
-R5925:5925 impl2_MC.values <> s:135 var
-R5906:5913 impl2_MC.values <> VVariant constr
-R5922:5922 impl2_MC.values <> v:134 var
-R5918:5920 impl2_MC.values <> inf:133 var
-R5915:5916 impl2_MC.values <> c':131 var
-R5890:5898 impl2_MC.kernel_syntax <> KPVariant constr
-R5902:5902 impl2_MC.values <> p:132 var
-R5900:5900 impl2_MC.values <> c:130 var
-scheme 4590:4597 <> MatchEnv_ind
-scheme 4590:4597 <> MatchEnv_sind
-def 5959:5964 <> typeof
-R5970:5972 impl2_MC.values <> Val ind
-binder 5967:5967 <> v:137
-R5977:5979 impl2_MC.values Values :::'KTp' not
-R5998:5998 impl2_MC.values <> v:137 var
-R6014:6017 impl2_MC.values <> VCls constr
-R6039:6048 impl2_MC.kernel_syntax <> KTFunction constr
-R6058:6064 impl2_MC.values <> VRecCls constr
-R6083:6092 impl2_MC.kernel_syntax <> KTFunction constr
-R6103:6106 impl2_MC.values <> VLit constr
-R6128:6133 impl2_MC.kernel_syntax <> KTBase constr
-R6136:6154 impl2_MC.values Values :::'base_tp_of_base_vl'_x not
-R6167:6171 impl2_MC.values <> VUnit constr
-R6192:6197 impl2_MC.kernel_syntax <> KTUnit constr
-R6208:6211 impl2_MC.values <> VNil constr
-R6233:6238 impl2_MC.kernel_syntax <> KTList constr
-R6241:6247 impl2_MC.kernel_syntax <> KTEmpty constr
-R6258:6262 impl2_MC.values <> VPair constr
-R6272:6272 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6274:6275 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6278:6278 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6264:6264 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6266:6267 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6270:6270 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6283:6288 impl2_MC.kernel_syntax <> KTProd constr
-R6304:6308 impl2_MC.values <> VCons constr
-R6329:6334 impl2_MC.kernel_syntax <> KTList constr
-R6347:6354 impl2_MC.values <> VVariant constr
-R6358:6358 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6360:6361 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6363:6363 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R6372:6376 impl2_MC.kernel_syntax <> KTRef constr
-R6388:6393 impl2_MC.values <> VError constr
-R6413:6419 impl2_MC.kernel_syntax <> KTError constr
-def 6464:6472 <> has_match
-R6478:6481 impl2_MC.values Values :::'KPat' not
-binder 6475:6475 <> p:139
-R6488:6490 impl2_MC.values <> Val ind
-binder 6485:6485 <> v:140
-R6495:6498 Coq.Init.Datatypes <> bool ind
-R6518:6518 impl2_MC.values <> v:140 var
-R6515:6515 impl2_MC.values <> p:139 var
-R6533:6537 impl2_MC.kernel_syntax <> KPVar constr
-R6567:6570 Coq.Init.Datatypes <> true constr
-R6580:6584 impl2_MC.kernel_syntax <> KPLit constr
-R6589:6592 impl2_MC.values <> VLit constr
-R6614:6623 impl2_MC.primitives <> eqb_BaseVl proj
-R6625:6625 impl2_MC.values <> Values.P var
-R6640:6643 impl2_MC.kernel_syntax <> KPAs constr
-R6674:6682 impl2_MC.values <> has_match:141 def
-R6686:6686 impl2_MC.values <> v:140 var
-R6684:6684 impl2_MC.values <> p:139 var
-R6697:6701 impl2_MC.kernel_syntax <> KPAny constr
-R6731:6734 Coq.Init.Datatypes <> true constr
-R6744:6749 impl2_MC.kernel_syntax <> KPUnit constr
-R6752:6756 impl2_MC.values <> VUnit constr
-R6778:6781 Coq.Init.Datatypes <> true constr
-R6791:6795 impl2_MC.kernel_syntax <> KPNil constr
-R6798:6801 impl2_MC.values <> VNil constr
-R6825:6828 Coq.Init.Datatypes <> true constr
-R6838:6843 impl2_MC.kernel_syntax <> KPPair constr
-R6852:6856 impl2_MC.values <> VPair constr
-R6893:6896 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
-R6872:6880 impl2_MC.values <> has_match:141 def
-R6886:6888 Coq.Init.Datatypes <> fst def
-R6897:6905 impl2_MC.values <> has_match:141 def
-R6911:6913 Coq.Init.Datatypes <> fst def
-R6927:6932 impl2_MC.kernel_syntax <> KPCons constr
-R6941:6945 impl2_MC.values <> VCons constr
-R6976:6979 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
-R6961:6969 impl2_MC.values <> has_match:141 def
-R6980:6988 impl2_MC.values <> has_match:141 def
-R7004:7012 impl2_MC.kernel_syntax <> KPVariant constr
-R7019:7026 impl2_MC.values <> VVariant constr
-R7055:7058 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
-R7038:7047 impl2_MC.ids <> constr_eqb proj
-R7049:7049 impl2_MC.values <> Values.I var
-R7059:7067 impl2_MC.values <> has_match:141 def
-R7071:7071 impl2_MC.values <> v:140 var
-R7069:7069 impl2_MC.values <> p:139 var
-R7117:7121 Coq.Init.Datatypes <> false constr
-def 7150:7158 <> match_env
-R7164:7167 impl2_MC.values Values :::'KPat' not
-binder 7161:7161 <> p:144
-R7174:7176 impl2_MC.values <> Val ind
-binder 7171:7171 <> v:145
-R7183:7187 impl2_MC.values <> v_env def
-binder 7180:7180 <> s:146
-R7192:7197 Coq.Init.Datatypes <> option ind
-R7199:7203 impl2_MC.values <> v_env def
-R7224:7224 impl2_MC.values <> v:145 var
-R7221:7221 impl2_MC.values <> p:144 var
-R7239:7243 impl2_MC.kernel_syntax <> KPVar constr
-R7273:7276 Coq.Init.Datatypes <> Some constr
-R7279:7282 impl2_MC.env <> bind def
-R7290:7295 impl2_MC.values Values :::'id_eqb' not
-R7288:7288 impl2_MC.values <> v:145 var
-R7284:7284 impl2_MC.values <> s:146 var
-R7306:7310 impl2_MC.kernel_syntax <> KPLit constr
-R7315:7318 impl2_MC.values <> VLit constr
-R7340:7343 Coq.Init.Datatypes <> Some constr
-R7345:7345 impl2_MC.values <> s:146 var
-R7356:7359 impl2_MC.kernel_syntax <> KPAs constr
-R7396:7404 impl2_MC.values <> match_env:147 def
-R7410:7410 impl2_MC.values <> s:146 var
-R7408:7408 impl2_MC.values <> v:145 var
-R7406:7406 impl2_MC.values <> p:144 var
-R7461:7464 Coq.Init.Datatypes <> Some constr
-R7472:7475 Coq.Init.Datatypes <> Some constr
-R7478:7481 impl2_MC.env <> bind def
-R7490:7495 impl2_MC.values Values :::'id_eqb' not
-R7488:7488 impl2_MC.values <> v:145 var
-R7541:7544 Coq.Init.Datatypes <> None constr
-R7552:7555 Coq.Init.Datatypes <> None constr
-R7610:7614 impl2_MC.kernel_syntax <> KPAny constr
-R7644:7647 Coq.Init.Datatypes <> Some constr
-R7649:7649 impl2_MC.values <> s:146 var
-R7659:7664 impl2_MC.kernel_syntax <> KPUnit constr
-R7667:7671 impl2_MC.values <> VUnit constr
-R7693:7696 Coq.Init.Datatypes <> Some constr
-R7698:7698 impl2_MC.values <> s:146 var
-R7707:7711 impl2_MC.kernel_syntax <> KPNil constr
-R7714:7717 impl2_MC.values <> VNil constr
-R7741:7744 Coq.Init.Datatypes <> Some constr
-R7746:7746 impl2_MC.values <> s:146 var
-R7756:7761 impl2_MC.kernel_syntax <> KPPair constr
-R7770:7774 impl2_MC.values <> VPair constr
-R7796:7804 impl2_MC.values <> match_env:147 def
-R7818:7818 impl2_MC.values <> s:146 var
-R7810:7812 Coq.Init.Datatypes <> fst def
-R7868:7871 Coq.Init.Datatypes <> Some constr
-R7879:7887 impl2_MC.values <> match_env:147 def
-R7893:7895 Coq.Init.Datatypes <> fst def
-R7947:7950 Coq.Init.Datatypes <> None constr
-R7958:7961 Coq.Init.Datatypes <> None constr
-R8017:8022 impl2_MC.kernel_syntax <> KPCons constr
-R8031:8035 impl2_MC.values <> VCons constr
-R8057:8065 impl2_MC.values <> match_env:147 def
-R8073:8073 impl2_MC.values <> s:146 var
-R8123:8126 Coq.Init.Datatypes <> Some constr
-R8134:8142 impl2_MC.values <> match_env:147 def
-R8196:8199 Coq.Init.Datatypes <> None constr
-R8207:8210 Coq.Init.Datatypes <> None constr
-R8265:8273 impl2_MC.kernel_syntax <> KPVariant constr
-R8280:8287 impl2_MC.values <> VVariant constr
-R8299:8307 impl2_MC.values <> match_env:147 def
-R8313:8313 impl2_MC.values <> s:146 var
-R8311:8311 impl2_MC.values <> v:145 var
-R8309:8309 impl2_MC.values <> p:144 var
-R8359:8362 Coq.Init.Datatypes <> None constr
-prf 8397:8410 <> typeof_correct
-binder 8420:8420 <> v:150
-binder 8422:8422 <> t:151
-R8443:8446 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8439:8441 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R8431:8436 impl2_MC.values <> typeof def
-R8438:8438 impl2_MC.values <> v:150 var
-R8442:8442 impl2_MC.values <> t:151 var
-R8447:8452 impl2_MC.values <> Typeof ind
-R8456:8456 impl2_MC.values <> t:151 var
-R8454:8454 impl2_MC.values <> v:150 var
-R8612:8620 impl2_MC.values <> TOf_VPair constr
-R8612:8620 impl2_MC.values <> TOf_VPair constr
-R8651:8662 impl2_MC.values <> TOf_VVariant constr
-R8651:8662 impl2_MC.values <> TOf_VVariant constr
-prf 8696:8710 <> typeof_complete
-binder 8720:8720 <> v:152
-binder 8722:8722 <> t:153
-R8742:8745 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8732:8737 impl2_MC.values <> Typeof ind
-R8741:8741 impl2_MC.values <> t:153 var
-R8739:8739 impl2_MC.values <> v:152 var
-R8754:8756 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R8746:8751 impl2_MC.values <> typeof def
-R8753:8753 impl2_MC.values <> v:152 var
-R8757:8757 impl2_MC.values <> t:153 var
-prf 8856:8872 <> has_match_correct
-binder 8882:8882 <> p:154
-binder 8884:8884 <> v:155
-R8914:8917 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8907:8909 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R8894:8902 impl2_MC.values <> has_match def
-R8906:8906 impl2_MC.values <> v:155 var
-R8904:8904 impl2_MC.values <> p:154 var
-R8910:8913 Coq.Init.Datatypes <> true constr
-R8918:8922 impl2_MC.values <> Match ind
-R8926:8926 impl2_MC.values <> v:155 var
-R8924:8924 impl2_MC.values <> p:154 var
-R9119:9127 Coq.Init.Datatypes <> andb_prop thm
-R9119:9127 Coq.Init.Datatypes <> andb_prop thm
-R9119:9127 Coq.Init.Datatypes <> andb_prop thm
-R9119:9127 Coq.Init.Datatypes <> andb_prop thm
-R9119:9127 Coq.Init.Datatypes <> andb_prop thm
-R9119:9127 Coq.Init.Datatypes <> andb_prop thm
-R9119:9127 Coq.Init.Datatypes <> andb_prop thm
-R9173:9185 impl2_MC.ids <> constr_eqb_eq proj
-R9173:9185 impl2_MC.ids <> constr_eqb_eq proj
-R9173:9185 impl2_MC.ids <> constr_eqb_eq proj
-prf 9232:9249 <> has_match_complete
-binder 9259:9259 <> p:156
-binder 9261:9261 <> v:157
-R9280:9283 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R9271:9275 impl2_MC.values <> Match ind
-R9279:9279 impl2_MC.values <> v:157 var
-R9277:9277 impl2_MC.values <> p:156 var
-R9297:9299 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R9284:9292 impl2_MC.values <> has_match def
-R9296:9296 impl2_MC.values <> v:157 var
-R9294:9294 impl2_MC.values <> p:156 var
-R9300:9303 Coq.Init.Datatypes <> true constr
-R9386:9400 Coq.Init.Datatypes <> andb_true_intro thm
-R9418:9430 impl2_MC.ids <> constr_eqb_eq proj
-R9386:9400 Coq.Init.Datatypes <> andb_true_intro thm
-R9386:9400 Coq.Init.Datatypes <> andb_true_intro thm
-R9386:9400 Coq.Init.Datatypes <> andb_true_intro thm
-R9418:9430 impl2_MC.ids <> constr_eqb_eq proj
-R9418:9430 impl2_MC.ids <> constr_eqb_eq proj
-R9418:9430 impl2_MC.ids <> constr_eqb_eq proj
-R9418:9430 impl2_MC.ids <> constr_eqb_eq proj
-prf 9481:9502 <> MatchEnv_preservs_wfev
-binder 9512:9512 <> s:158
-binder 9514:9514 <> p:159
-binder 9516:9516 <> v:160
-binder 9518:9519 <> s':161
-R9533:9541 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R9528:9530 impl2_MC.values <> WFV ind
-R9532:9532 impl2_MC.values <> v:160 var
-R9548:9558 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R9542:9545 impl2_MC.values <> WFEV ind
-R9547:9547 impl2_MC.values <> s:158 var
-R9576:9584 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R9559:9566 impl2_MC.values <> MatchEnv ind
-R9574:9575 impl2_MC.values <> s':161 var
-R9572:9572 impl2_MC.values <> s:158 var
-R9570:9570 impl2_MC.values <> v:160 var
-R9568:9568 impl2_MC.values <> p:159 var
-R9585:9588 impl2_MC.values <> WFEV ind
-R9590:9591 impl2_MC.values <> s':161 var
-R9684:9692 impl2_MC.values <> WFEV_some constr
-R9684:9692 impl2_MC.values <> WFEV_some constr
-R9684:9692 impl2_MC.values <> WFEV_some constr
-R9684:9692 impl2_MC.values <> WFEV_some constr
-R9684:9692 impl2_MC.values <> WFEV_some constr
-R9684:9692 impl2_MC.values <> WFEV_some constr
-prf 9810:9826 <> match_env_correct
-binder 9836:9836 <> p:162
-binder 9838:9838 <> v:163
-binder 9840:9840 <> s:164
-binder 9842:9843 <> s':165
-R9878:9888 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R9868:9870 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R9853:9861 impl2_MC.values <> match_env def
-R9867:9867 impl2_MC.values <> s:164 var
-R9865:9865 impl2_MC.values <> v:163 var
-R9863:9863 impl2_MC.values <> p:162 var
-R9871:9874 Coq.Init.Datatypes <> Some constr
-R9876:9877 impl2_MC.values <> s':165 var
-R9889:9896 impl2_MC.values <> MatchEnv ind
-R9904:9905 impl2_MC.values <> s':165 var
-R9902:9902 impl2_MC.values <> s:164 var
-R9900:9900 impl2_MC.values <> v:163 var
-R9898:9898 impl2_MC.values <> p:162 var
-R10106:10114 impl2_MC.values <> MEnv_PVar constr
-R10106:10114 impl2_MC.values <> MEnv_PVar constr
-R10199:10207 impl2_MC.values <> MEnv_PLit constr
-R10199:10207 impl2_MC.values <> MEnv_PLit constr
-R10235:10243 impl2_MC.values <> match_env def
-R10235:10243 impl2_MC.values <> match_env def
-R10312:10319 impl2_MC.values <> MEnv_PAs constr
-R10312:10319 impl2_MC.values <> MEnv_PAs constr
-R10364:10372 impl2_MC.values <> MEnv_PAny constr
-R10364:10372 impl2_MC.values <> MEnv_PAny constr
-R10456:10465 impl2_MC.values <> MEnv_PUnit constr
-R10456:10465 impl2_MC.values <> MEnv_PUnit constr
-R10551:10559 impl2_MC.values <> MEnv_PNil constr
-R10551:10559 impl2_MC.values <> MEnv_PNil constr
-R10620:10628 impl2_MC.values <> match_env def
-R10620:10628 impl2_MC.values <> match_env def
-R10696:10705 impl2_MC.values <> MEnv_PPair constr
-R10696:10705 impl2_MC.values <> MEnv_PPair constr
-R10839:10847 impl2_MC.values <> match_env def
-R10839:10847 impl2_MC.values <> match_env def
-R10894:10903 impl2_MC.values <> MEnv_PCons constr
-R10894:10903 impl2_MC.values <> MEnv_PCons constr
-R11013:11025 impl2_MC.values <> MEnv_PVariant constr
-R11013:11025 impl2_MC.values <> MEnv_PVariant constr
-prf 11086:11103 <> match_env_complete
-binder 11113:11113 <> p:166
-binder 11115:11115 <> v:167
-binder 11117:11117 <> s:168
-binder 11119:11120 <> s':169
-R11147:11157 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R11130:11137 impl2_MC.values <> MatchEnv ind
-R11145:11146 impl2_MC.values <> s':169 var
-R11143:11143 impl2_MC.values <> s:168 var
-R11141:11141 impl2_MC.values <> v:167 var
-R11139:11139 impl2_MC.values <> p:166 var
-R11173:11175 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R11158:11166 impl2_MC.values <> match_env def
-R11172:11172 impl2_MC.values <> s:168 var
-R11170:11170 impl2_MC.values <> v:167 var
-R11168:11168 impl2_MC.values <> p:166 var
-R11176:11179 Coq.Init.Datatypes <> Some constr
-R11181:11182 impl2_MC.values <> s':169 var
-R11281:11289 impl2_MC.values <> match_env def
-R11281:11289 impl2_MC.values <> match_env def
-R11281:11289 impl2_MC.values <> match_env def
-R11281:11289 impl2_MC.values <> match_env def
-prf 11452:11473 <> Match_implies_MatchEnv
-binder 11483:11483 <> p:170
-binder 11485:11485 <> v:171
-binder 11487:11487 <> s:172
-R11506:11517 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R11497:11501 impl2_MC.values <> Match ind
-R11505:11505 impl2_MC.values <> v:171 var
-R11503:11503 impl2_MC.values <> p:170 var
-R11518:11524 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
-R11527:11528 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
-binder 11525:11526 <> s':173
-R11529:11536 impl2_MC.values <> MatchEnv ind
-R11544:11545 impl2_MC.values <> s':173 var
-R11542:11542 impl2_MC.values <> s:172 var
-R11540:11540 impl2_MC.values <> v:171 var
-R11538:11538 impl2_MC.values <> p:170 var
-R11658:11661 impl2_MC.env <> bind def
-R11669:11674 impl2_MC.values Values :::'id_eqb' not
-R11658:11661 impl2_MC.env <> bind def
-R11669:11674 impl2_MC.values Values :::'id_eqb' not
-R11798:11801 impl2_MC.env <> bind def
-R11810:11815 impl2_MC.values Values :::'id_eqb' not
-R11798:11801 impl2_MC.env <> bind def
-R11810:11815 impl2_MC.values Values :::'id_eqb' not
-R12089:12098 impl2_MC.values <> MEnv_PPair constr
-R12089:12098 impl2_MC.values <> MEnv_PPair constr
-R12271:12280 impl2_MC.values <> MEnv_PCons constr
-R12271:12280 impl2_MC.values <> MEnv_PCons constr
-prf 12438:12450 <> Typeof_eq_err
-binder 12460:12460 <> v:174
-R12485:12489 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R12469:12474 impl2_MC.values <> Typeof ind
-R12478:12484 impl2_MC.kernel_syntax <> KTError constr
-R12476:12476 impl2_MC.values <> v:174 var
-R12490:12496 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
-R12498:12499 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
-binder 12497:12497 <> m:175
-R12501:12503 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R12500:12500 impl2_MC.values <> v:174 var
-R12504:12509 impl2_MC.values <> VError constr
-R12511:12511 impl2_MC.values <> m:175 var
-prf 12672:12684 <> Typeof_eq_lit
-binder 12694:12694 <> v:176
-binder 12696:12696 <> t:177
-R12724:12734 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R12705:12710 impl2_MC.values <> Typeof ind
-R12715:12720 impl2_MC.kernel_syntax <> KTBase constr
-R12722:12722 impl2_MC.values <> t:177 var
-R12712:12712 impl2_MC.values <> v:176 var
-R12735:12741 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
-R12743:12744 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
-binder 12742:12742 <> x:178
-R12755:12758 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R12746:12748 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R12745:12745 impl2_MC.values <> v:176 var
-R12749:12752 impl2_MC.values <> VLit constr
-R12754:12754 impl2_MC.values <> x:178 var
-R12779:12781 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R12759:12777 impl2_MC.values Values :::'base_tp_of_base_vl'_x not
-R12778:12778 impl2_MC.values <> x:178 var
-R12782:12782 impl2_MC.values <> t:177 var
-prf 12965:12979 <> tempty_is_empty
-R12982:12982 Coq.Init.Logic <> ::type_scope:'~'_x not
-R12983:12989 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
-R12991:12992 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
-binder 12990:12990 <> v:179
-R12993:12998 impl2_MC.values <> Typeof ind
-R13002:13008 impl2_MC.kernel_syntax <> KTEmpty constr
-R13000:13000 impl2_MC.values <> v:179 var
-R13036:13038 Coq.Init.Logic <> not def
-prf 13148:13166 <> Typeof_eq_listempty
-binder 13176:13176 <> v:180
-R13191:13200 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R13186:13188 impl2_MC.values <> WFV ind
-R13190:13190 impl2_MC.values <> v:180 var
-R13226:13230 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R13201:13206 impl2_MC.values <> Typeof ind
-R13211:13216 impl2_MC.kernel_syntax <> KTList constr
-R13218:13224 impl2_MC.kernel_syntax <> KTEmpty constr
-R13208:13208 impl2_MC.values <> v:180 var
-R13232:13234 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R13231:13231 impl2_MC.values <> v:180 var
-R13235:13238 impl2_MC.values <> VNil constr
-R13437:13444 Coq.Init.Logic <> ex_intro constr
-R13437:13444 Coq.Init.Logic <> ex_intro constr
-R13482:13496 impl2_MC.values <> tempty_is_empty thm
-R13482:13496 impl2_MC.values <> tempty_is_empty thm
-prf 13579:13597 <> Typeof_neq_tvariant
-binder 13607:13607 <> v:181
-binder 13609:13609 <> t:182
-binder 13611:13611 <> l:183
-R13631:13640 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R13621:13626 impl2_MC.values <> Typeof ind
-R13630:13630 impl2_MC.values <> t:182 var
-R13628:13628 impl2_MC.values <> v:181 var
-R13642:13645 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
-R13641:13641 impl2_MC.values <> t:182 var
-R13646:13654 impl2_MC.kernel_syntax <> KTVariant constr
-R13656:13656 impl2_MC.values <> l:183 var
-R13729:13731 Coq.Init.Logic <> not def
-prf 13784:13796 <> Typeof_is_FOT
-binder 13806:13806 <> v:184
-binder 13808:13808 <> t:185
-R13822:13832 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R13817:13819 impl2_MC.values <> WFV ind
-R13821:13821 impl2_MC.values <> v:184 var
-R13843:13853 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R13833:13838 impl2_MC.values <> Typeof ind
-R13842:13842 impl2_MC.values <> t:185 var
-R13840:13840 impl2_MC.values <> v:184 var
-R13862:13864 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R13854:13859 impl2_MC.type_theory <> is_FOT def
-R13861:13861 impl2_MC.values <> t:185 var
-R13865:13868 Coq.Init.Datatypes <> true constr
-R14054:14071 Coq.Bool.Bool <> andb_true_iff thm
-R14054:14071 Coq.Bool.Bool <> andb_true_iff thm
-R14054:14071 Coq.Bool.Bool <> andb_true_iff thm
-R14261:14277 impl2_MC.type_theory <> consistent_is_FOT thm
-R14261:14277 impl2_MC.type_theory <> consistent_is_FOT thm
-R14320:14338 impl2_MC.values <> Typeof_neq_tvariant thm
-R14320:14338 impl2_MC.values <> Typeof_neq_tvariant thm
-R14413:14418 impl2_MC.values Values <> sec
+R3832:3835 impl2_MC.values <> VLit constr
+R3837:3837 impl2_MC.values <> v:79 var
+R3822:3826 impl2_MC.kernel_syntax <> KPLit constr
+R3828:3828 impl2_MC.values <> p:78 var
+binder 3871:3871 <> p:80
+binder 3873:3873 <> v:81
+binder 3875:3875 <> i:82
+R3911:3938 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3902:3906 impl2_MC.values <> Match:74 ind
+R3910:3910 impl2_MC.values <> v:81 var
+R3908:3908 impl2_MC.values <> p:80 var
+R3939:3943 impl2_MC.values <> Match:74 ind
+R3956:3956 impl2_MC.values <> v:81 var
+R3946:3949 impl2_MC.kernel_syntax <> KPAs constr
+R3953:3953 impl2_MC.values <> i:82 var
+R3951:3951 impl2_MC.values <> p:80 var
+binder 3988:3988 <> v:83
+R3991:3995 impl2_MC.values <> Match:74 ind
+R4003:4003 impl2_MC.values <> v:83 var
+R3997:4001 impl2_MC.kernel_syntax <> KPAny constr
+R4030:4034 impl2_MC.values <> Match:74 ind
+R4043:4047 impl2_MC.values <> VUnit constr
+R4036:4041 impl2_MC.kernel_syntax <> KPUnit constr
+R4073:4077 impl2_MC.values <> Match:74 ind
+R4085:4088 impl2_MC.values <> VNil constr
+R4079:4083 impl2_MC.kernel_syntax <> KPNil constr
+binder 4121:4122 <> p1:84
+binder 4124:4125 <> p2:85
+binder 4127:4128 <> v1:86
+binder 4130:4131 <> v2:87
+R4177:4205 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4160:4164 impl2_MC.values <> Match:74 ind
+R4170:4172 Coq.Init.Datatypes <> fst def
+R4174:4175 impl2_MC.values <> v1:86 var
+R4166:4167 impl2_MC.values <> p1:84 var
+R4223:4251 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4206:4210 impl2_MC.values <> Match:74 ind
+R4216:4218 Coq.Init.Datatypes <> fst def
+R4220:4221 impl2_MC.values <> v2:87 var
+R4212:4213 impl2_MC.values <> p2:85 var
+R4252:4256 impl2_MC.values <> Match:74 ind
+R4274:4278 impl2_MC.values <> VPair constr
+R4283:4284 impl2_MC.values <> v2:87 var
+R4280:4281 impl2_MC.values <> v1:86 var
+R4259:4264 impl2_MC.kernel_syntax <> KPPair constr
+R4269:4270 impl2_MC.values <> p2:85 var
+R4266:4267 impl2_MC.values <> p1:84 var
+binder 4318:4319 <> p1:88
+binder 4321:4322 <> p2:89
+binder 4324:4325 <> v1:90
+binder 4327:4328 <> v2:91
+binder 4330:4336 <> el_type:92
+R4376:4404 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4365:4369 impl2_MC.values <> Match:74 ind
+R4374:4375 impl2_MC.values <> v1:90 var
+R4371:4372 impl2_MC.values <> p1:88 var
+R4416:4444 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4405:4409 impl2_MC.values <> Match:74 ind
+R4414:4415 impl2_MC.values <> v2:91 var
+R4411:4412 impl2_MC.values <> p2:89 var
+R4445:4449 impl2_MC.values <> Match:74 ind
+R4467:4471 impl2_MC.values <> VCons constr
+R4479:4485 impl2_MC.values <> el_type:92 var
+R4476:4477 impl2_MC.values <> v2:91 var
+R4473:4474 impl2_MC.values <> v1:90 var
+R4452:4457 impl2_MC.kernel_syntax <> KPCons constr
+R4462:4463 impl2_MC.values <> p2:89 var
+R4459:4460 impl2_MC.values <> p1:88 var
+binder 4518:4518 <> c:93
+binder 4520:4521 <> c':94
+binder 4523:4523 <> p:95
+binder 4525:4525 <> v:96
+binder 4527:4529 <> inf:97
+R4564:4592 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4559:4561 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4558:4558 impl2_MC.values <> c:93 var
+R4562:4563 impl2_MC.values <> c':94 var
+R4602:4630 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4593:4597 impl2_MC.values <> Match:74 ind
+R4601:4601 impl2_MC.values <> v:96 var
+R4599:4599 impl2_MC.values <> p:95 var
+R4631:4635 impl2_MC.values <> Match:74 ind
+R4654:4661 impl2_MC.values <> VVariant constr
+R4670:4670 impl2_MC.values <> v:96 var
+R4666:4668 impl2_MC.values <> inf:97 var
+R4663:4664 impl2_MC.values <> c':94 var
+R4638:4646 impl2_MC.kernel_syntax <> KPVariant constr
+R4650:4650 impl2_MC.values <> p:95 var
+R4648:4648 impl2_MC.values <> c:93 var
+scheme 3619:3623 <> Match_ind
+scheme 3619:3623 <> Match_sind
+ind 4716:4723 <> MatchEnv
+constr 4779:4791 <> MatchEnv_PVar
+constr 4889:4901 <> MatchEnv_PLit
+constr 4991:5002 <> MatchEnv_PAs
+constr 5157:5169 <> MatchEnv_PAny
+constr 5244:5257 <> MatchEnv_PUnit
+constr 5335:5347 <> MatchEnv_PNil
+constr 5424:5437 <> MatchEnv_PPair
+constr 5669:5682 <> MatchEnv_PCons
+constr 5915:5931 <> MatchEnv_PVariant
+R4731:4734 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4727:4730 impl2_MC.values Values :::'KPat' not
+R4738:4741 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4735:4737 impl2_MC.values <> Val ind
+R4749:4752 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4742:4748 impl2_MC.values <> val_env def
+R4760:4763 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4753:4759 impl2_MC.values <> val_env def
+binder 4805:4805 <> i:100
+binder 4807:4807 <> v:101
+binder 4809:4809 <> s:102
+R4840:4847 impl2_MC.values <> MatchEnv:98 ind
+R4864:4867 impl2_MC.env <> bind def
+R4875:4880 impl2_MC.values Values :::'id_eqb' not
+R4873:4873 impl2_MC.values <> v:101 var
+R4871:4871 impl2_MC.values <> i:100 var
+R4869:4869 impl2_MC.values <> s:102 var
+R4861:4861 impl2_MC.values <> s:102 var
+R4859:4859 impl2_MC.values <> v:101 var
+R4850:4854 impl2_MC.kernel_syntax <> KPVar constr
+R4856:4856 impl2_MC.values <> i:100 var
+binder 4915:4915 <> p:103
+binder 4917:4917 <> v:104
+binder 4919:4919 <> s:105
+R4952:4959 impl2_MC.values <> MatchEnv:98 ind
+R4982:4982 impl2_MC.values <> s:105 var
+R4980:4980 impl2_MC.values <> s:105 var
+R4972:4975 impl2_MC.values <> VLit constr
+R4977:4977 impl2_MC.values <> v:104 var
+R4962:4966 impl2_MC.kernel_syntax <> KPLit constr
+R4968:4968 impl2_MC.values <> p:103 var
+binder 5017:5017 <> p:106
+binder 5019:5019 <> i:107
+binder 5021:5021 <> v:108
+binder 5023:5023 <> s:109
+binder 5025:5026 <> s':110
+R5075:5105 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5058:5065 impl2_MC.values <> MatchEnv:98 ind
+R5073:5074 impl2_MC.values <> s':110 var
+R5071:5071 impl2_MC.values <> s:109 var
+R5069:5069 impl2_MC.values <> v:108 var
+R5067:5067 impl2_MC.values <> p:106 var
+R5106:5113 impl2_MC.values <> MatchEnv:98 ind
+R5131:5134 impl2_MC.env <> bind def
+R5143:5148 impl2_MC.values Values :::'id_eqb' not
+R5141:5141 impl2_MC.values <> v:108 var
+R5139:5139 impl2_MC.values <> i:107 var
+R5136:5137 impl2_MC.values <> s':110 var
+R5128:5128 impl2_MC.values <> s:109 var
+R5126:5126 impl2_MC.values <> v:108 var
+R5116:5119 impl2_MC.kernel_syntax <> KPAs constr
+R5123:5123 impl2_MC.values <> i:107 var
+R5121:5121 impl2_MC.values <> p:106 var
+binder 5183:5183 <> v:111
+binder 5185:5185 <> s:112
+R5216:5223 impl2_MC.values <> MatchEnv:98 ind
+R5235:5235 impl2_MC.values <> s:112 var
+R5233:5233 impl2_MC.values <> s:112 var
+R5231:5231 impl2_MC.values <> v:111 var
+R5225:5229 impl2_MC.kernel_syntax <> KPAny constr
+binder 5270:5270 <> s:113
+R5302:5309 impl2_MC.values <> MatchEnv:98 ind
+R5326:5326 impl2_MC.values <> s:113 var
+R5324:5324 impl2_MC.values <> s:113 var
+R5318:5322 impl2_MC.values <> VUnit constr
+R5311:5316 impl2_MC.kernel_syntax <> KPUnit constr
+binder 5361:5361 <> s:114
+R5393:5400 impl2_MC.values <> MatchEnv:98 ind
+R5415:5415 impl2_MC.values <> s:114 var
+R5413:5413 impl2_MC.values <> s:114 var
+R5408:5411 impl2_MC.values <> VNil constr
+R5402:5406 impl2_MC.kernel_syntax <> KPNil constr
+binder 5450:5451 <> p1:115
+binder 5453:5454 <> p2:116
+binder 5456:5457 <> v1:117
+binder 5459:5460 <> v2:118
+binder 5462:5462 <> s:119
+binder 5464:5465 <> s':120
+binder 5467:5469 <> s'':121
+R5527:5558 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5502:5509 impl2_MC.values <> MatchEnv:98 ind
+R5525:5526 impl2_MC.values <> s':120 var
+R5523:5523 impl2_MC.values <> s:119 var
+R5515:5517 Coq.Init.Datatypes <> fst def
+R5519:5520 impl2_MC.values <> v1:117 var
+R5511:5512 impl2_MC.values <> p1:115 var
+R5586:5617 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5559:5566 impl2_MC.values <> MatchEnv:98 ind
+R5583:5585 impl2_MC.values <> s'':121 var
+R5580:5581 impl2_MC.values <> s':120 var
+R5572:5574 Coq.Init.Datatypes <> fst def
+R5576:5577 impl2_MC.values <> v2:118 var
+R5568:5569 impl2_MC.values <> p2:116 var
+R5618:5625 impl2_MC.values <> MatchEnv:98 ind
+R5658:5660 impl2_MC.values <> s'':121 var
+R5656:5656 impl2_MC.values <> s:119 var
+R5643:5647 impl2_MC.values <> VPair constr
+R5652:5653 impl2_MC.values <> v2:118 var
+R5649:5650 impl2_MC.values <> v1:117 var
+R5628:5633 impl2_MC.kernel_syntax <> KPPair constr
+R5638:5639 impl2_MC.values <> p2:116 var
+R5635:5636 impl2_MC.values <> p1:115 var
+binder 5695:5696 <> p1:122
+binder 5698:5699 <> p2:123
+binder 5701:5702 <> v1:124
+binder 5704:5705 <> v2:125
+binder 5707:5713 <> el_type:126
+binder 5715:5715 <> s:127
+binder 5717:5718 <> s':128
+binder 5720:5722 <> s'':129
+R5771:5802 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5752:5759 impl2_MC.values <> MatchEnv:98 ind
+R5769:5770 impl2_MC.values <> s':128 var
+R5767:5767 impl2_MC.values <> s:127 var
+R5764:5765 impl2_MC.values <> v1:124 var
+R5761:5762 impl2_MC.values <> p1:122 var
+R5824:5855 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5803:5810 impl2_MC.values <> MatchEnv:98 ind
+R5821:5823 impl2_MC.values <> s'':129 var
+R5818:5819 impl2_MC.values <> s':128 var
+R5815:5816 impl2_MC.values <> v2:125 var
+R5812:5813 impl2_MC.values <> p2:123 var
+R5856:5863 impl2_MC.values <> MatchEnv:98 ind
+R5904:5906 impl2_MC.values <> s'':129 var
+R5902:5902 impl2_MC.values <> s:127 var
+R5881:5885 impl2_MC.values <> VCons constr
+R5893:5899 impl2_MC.values <> el_type:126 var
+R5890:5891 impl2_MC.values <> v2:125 var
+R5887:5888 impl2_MC.values <> v1:124 var
+R5866:5871 impl2_MC.kernel_syntax <> KPCons constr
+R5876:5877 impl2_MC.values <> p2:123 var
+R5873:5874 impl2_MC.values <> p1:122 var
+binder 5941:5941 <> c:130
+binder 5943:5944 <> c':131
+binder 5946:5946 <> p:132
+binder 5948:5950 <> inf:133
+binder 5952:5952 <> v:134
+binder 5954:5954 <> s:135
+binder 5956:5957 <> s':136
+R6005:6036 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5988:5995 impl2_MC.values <> MatchEnv:98 ind
+R6003:6004 impl2_MC.values <> s':136 var
+R6001:6001 impl2_MC.values <> s:135 var
+R5999:5999 impl2_MC.values <> v:134 var
+R5997:5997 impl2_MC.values <> p:132 var
+R6037:6044 impl2_MC.values <> MatchEnv:98 ind
+R6084:6085 impl2_MC.values <> s':136 var
+R6082:6082 impl2_MC.values <> s:135 var
+R6063:6070 impl2_MC.values <> VVariant constr
+R6079:6079 impl2_MC.values <> v:134 var
+R6075:6077 impl2_MC.values <> inf:133 var
+R6072:6073 impl2_MC.values <> c':131 var
+R6047:6055 impl2_MC.kernel_syntax <> KPVariant constr
+R6059:6059 impl2_MC.values <> p:132 var
+R6057:6057 impl2_MC.values <> c:130 var
+scheme 4716:4723 <> MatchEnv_ind
+scheme 4716:4723 <> MatchEnv_sind
+def 6113:6118 <> branch
+R6134:6136 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R6130:6133 impl2_MC.values Values :::'KPat' not
+R6137:6141 impl2_MC.values Values :::'LExpr' not
+def 6161:6165 <> cases
+R6170:6173 Coq.Init.Datatypes <> list ind
+R6180:6182 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R6176:6179 impl2_MC.values Values :::'KPat' not
+R6183:6187 impl2_MC.values Values :::'LExpr' not
+ind 6206:6215 <> FirstMatch
+constr 6266:6279 <> FirstMatch_Nil
+constr 6321:6335 <> FirstMatch_Head
+constr 6475:6489 <> FirstMatch_Tail
+R6222:6225 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6219:6221 impl2_MC.values <> Val ind
+R6231:6234 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6226:6230 impl2_MC.values <> cases def
+R6248:6251 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6235:6240 Coq.Init.Datatypes <> option ind
+R6242:6247 impl2_MC.values <> branch def
+binder 6291:6291 <> v:139
+R6294:6303 impl2_MC.values <> FirstMatch:137 ind
+R6310:6313 Coq.Init.Datatypes <> None constr
+R6307:6308 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R6305:6305 impl2_MC.values <> v:139 var
+binder 6346:6349 <> head:140
+binder 6351:6351 <> v:141
+binder 6353:6356 <> tail:142
+R6402:6431 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6384:6388 impl2_MC.values <> Match ind
+R6401:6401 impl2_MC.values <> v:141 var
+R6391:6393 Coq.Init.Datatypes <> fst def
+R6395:6398 impl2_MC.values <> head:140 var
+R6432:6441 impl2_MC.values <> FirstMatch:137 ind
+R6459:6462 Coq.Init.Datatypes <> Some constr
+R6464:6467 impl2_MC.values <> head:140 var
+R6450:6451 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6446:6449 impl2_MC.values <> head:140 var
+R6452:6455 impl2_MC.values <> tail:142 var
+R6443:6443 impl2_MC.values <> v:141 var
+binder 6500:6503 <> head:143
+binder 6505:6505 <> v:144
+binder 6507:6510 <> tail:145
+binder 6512:6517 <> result:146
+R6563:6593 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6544:6544 Coq.Init.Logic <> ::type_scope:'~'_x not
+R6545:6549 impl2_MC.values <> Match ind
+R6562:6562 impl2_MC.values <> v:144 var
+R6552:6554 Coq.Init.Datatypes <> fst def
+R6556:6559 impl2_MC.values <> head:143 var
+R6618:6646 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6594:6603 impl2_MC.values <> FirstMatch:137 ind
+R6612:6617 impl2_MC.values <> result:146 var
+R6607:6610 impl2_MC.values <> tail:145 var
+R6605:6605 impl2_MC.values <> v:144 var
+R6647:6656 impl2_MC.values <> FirstMatch:137 ind
+R6673:6678 impl2_MC.values <> result:146 var
+R6665:6666 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R6661:6664 impl2_MC.values <> head:143 var
+R6667:6670 impl2_MC.values <> tail:145 var
+R6658:6658 impl2_MC.values <> v:144 var
+scheme 6206:6215 <> FirstMatch_ind
+scheme 6206:6215 <> FirstMatch_sind
+prf 6776:6795 <> Typeof_deterministic
+binder 6812:6812 <> v:147
+binder 6814:6814 <> t:148
+binder 6816:6817 <> t':149
+R6837:6847 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6827:6832 impl2_MC.values <> Typeof ind
+R6836:6836 impl2_MC.values <> t:148 var
+R6834:6834 impl2_MC.values <> v:147 var
+R6859:6869 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6848:6853 impl2_MC.values <> Typeof ind
+R6857:6858 impl2_MC.values <> t':149 var
+R6855:6855 impl2_MC.values <> v:147 var
+R6871:6873 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6870:6870 impl2_MC.values <> t:148 var
+R6874:6875 impl2_MC.values <> t':149 var
+prf 7002:7013 <> Typeof_total
+binder 7030:7030 <> v:150
+R7033:7039 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R7041:7042 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 7040:7040 <> t:151
+R7043:7048 impl2_MC.values <> Typeof ind
+R7052:7052 impl2_MC.values <> t:151 var
+R7050:7050 impl2_MC.values <> v:150 var
+R7109:7118 impl2_MC.kernel_syntax <> KTFunction constr
+R7109:7118 impl2_MC.kernel_syntax <> KTFunction constr
+R7150:7159 impl2_MC.kernel_syntax <> KTFunction constr
+R7150:7159 impl2_MC.kernel_syntax <> KTFunction constr
+R7191:7196 impl2_MC.kernel_syntax <> KTBase constr
+R7199:7217 impl2_MC.values Values :::'base_tp_of_base_vl'_x not
+R7191:7196 impl2_MC.kernel_syntax <> KTBase constr
+R7199:7217 impl2_MC.values Values :::'base_tp_of_base_vl'_x not
+R7259:7264 impl2_MC.kernel_syntax <> KTUnit constr
+R7259:7264 impl2_MC.kernel_syntax <> KTUnit constr
+R7297:7302 impl2_MC.kernel_syntax <> KTList constr
+R7304:7310 impl2_MC.kernel_syntax <> KTEmpty constr
+R7297:7302 impl2_MC.kernel_syntax <> KTList constr
+R7304:7310 impl2_MC.kernel_syntax <> KTEmpty constr
+R7394:7399 impl2_MC.kernel_syntax <> KTProd constr
+R7394:7399 impl2_MC.kernel_syntax <> KTProd constr
+R7438:7443 impl2_MC.kernel_syntax <> KTList constr
+R7438:7443 impl2_MC.kernel_syntax <> KTList constr
+R7508:7512 impl2_MC.kernel_syntax <> KTRef constr
+R7508:7512 impl2_MC.kernel_syntax <> KTRef constr
+R7555:7561 impl2_MC.kernel_syntax <> KTError constr
+R7555:7561 impl2_MC.kernel_syntax <> KTError constr
+prf 7614:7626 <> Typeof_eq_err
+binder 7636:7636 <> v:152
+R7661:7665 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R7645:7650 impl2_MC.values <> Typeof ind
+R7654:7660 impl2_MC.kernel_syntax <> KTError constr
+R7652:7652 impl2_MC.values <> v:152 var
+R7666:7672 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R7674:7675 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 7673:7673 <> m:153
+R7677:7679 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7676:7676 impl2_MC.values <> v:152 var
+R7680:7685 impl2_MC.values <> VError constr
+R7687:7687 impl2_MC.values <> m:153 var
+prf 7848:7860 <> Typeof_eq_lit
+binder 7870:7870 <> v:154
+binder 7872:7872 <> t:155
+R7900:7910 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R7881:7886 impl2_MC.values <> Typeof ind
+R7891:7896 impl2_MC.kernel_syntax <> KTBase constr
+R7898:7898 impl2_MC.values <> t:155 var
+R7888:7888 impl2_MC.values <> v:154 var
+R7911:7917 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R7919:7920 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 7918:7918 <> x:156
+R7931:7934 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R7922:7924 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7921:7921 impl2_MC.values <> v:154 var
+R7925:7928 impl2_MC.values <> VLit constr
+R7930:7930 impl2_MC.values <> x:156 var
+R7955:7957 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7935:7953 impl2_MC.values Values :::'base_tp_of_base_vl'_x not
+R7954:7954 impl2_MC.values <> x:156 var
+R7958:7958 impl2_MC.values <> t:155 var
+prf 8141:8155 <> tempty_is_empty
+R8158:8158 Coq.Init.Logic <> ::type_scope:'~'_x not
+R8159:8165 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R8167:8168 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 8166:8166 <> v:157
+R8169:8174 impl2_MC.values <> Typeof ind
+R8178:8184 impl2_MC.kernel_syntax <> KTEmpty constr
+R8176:8176 impl2_MC.values <> v:157 var
+R8212:8214 Coq.Init.Logic <> not def
+prf 8324:8342 <> Typeof_eq_listempty
+binder 8352:8352 <> v:158
+R8367:8376 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8362:8364 impl2_MC.values <> WFV ind
+R8366:8366 impl2_MC.values <> v:158 var
+R8402:8406 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R8377:8382 impl2_MC.values <> Typeof ind
+R8387:8392 impl2_MC.kernel_syntax <> KTList constr
+R8394:8400 impl2_MC.kernel_syntax <> KTEmpty constr
+R8384:8384 impl2_MC.values <> v:158 var
+R8408:8410 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8407:8407 impl2_MC.values <> v:158 var
+R8411:8414 impl2_MC.values <> VNil constr
+R8613:8620 Coq.Init.Logic <> ex_intro constr
+R8613:8620 Coq.Init.Logic <> ex_intro constr
+R8658:8672 impl2_MC.values <> tempty_is_empty thm
+R8658:8672 impl2_MC.values <> tempty_is_empty thm
+prf 8754:8772 <> Typeof_neq_tvariant
+binder 8782:8782 <> v:159
+binder 8784:8784 <> t:160
+binder 8786:8786 <> l:161
+R8806:8815 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8796:8801 impl2_MC.values <> Typeof ind
+R8805:8805 impl2_MC.values <> t:160 var
+R8803:8803 impl2_MC.values <> v:159 var
+R8817:8820 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R8816:8816 impl2_MC.values <> t:160 var
+R8821:8829 impl2_MC.kernel_syntax <> KTVariant constr
+R8831:8831 impl2_MC.values <> l:161 var
+R8904:8906 Coq.Init.Logic <> not def
+prf 8959:8971 <> Typeof_is_FOT
+binder 8981:8981 <> v:162
+binder 8983:8983 <> t:163
+R8997:9007 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8992:8994 impl2_MC.values <> WFV ind
+R8996:8996 impl2_MC.values <> v:162 var
+R9018:9028 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9008:9013 impl2_MC.values <> Typeof ind
+R9017:9017 impl2_MC.values <> t:163 var
+R9015:9015 impl2_MC.values <> v:162 var
+R9037:9039 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9029:9034 impl2_MC.type_theory <> is_FOT def
+R9036:9036 impl2_MC.values <> t:163 var
+R9040:9043 Coq.Init.Datatypes <> true constr
+R9229:9246 Coq.Bool.Bool <> andb_true_iff thm
+R9229:9246 Coq.Bool.Bool <> andb_true_iff thm
+R9229:9246 Coq.Bool.Bool <> andb_true_iff thm
+R9436:9452 impl2_MC.type_theory <> consistent_is_FOT thm
+R9436:9452 impl2_MC.type_theory <> consistent_is_FOT thm
+R9495:9513 impl2_MC.values <> Typeof_neq_tvariant thm
+R9495:9513 impl2_MC.values <> Typeof_neq_tvariant thm
+prf 9696:9712 <> Match_ex_MatchEnv
+binder 9722:9722 <> p:164
+binder 9724:9724 <> v:165
+binder 9726:9726 <> s:166
+R9745:9756 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9736:9740 impl2_MC.values <> Match ind
+R9744:9744 impl2_MC.values <> v:165 var
+R9742:9742 impl2_MC.values <> p:164 var
+R9757:9763 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R9766:9767 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 9764:9765 <> s':167
+R9768:9775 impl2_MC.values <> MatchEnv ind
+R9783:9784 impl2_MC.values <> s':167 var
+R9781:9781 impl2_MC.values <> s:166 var
+R9779:9779 impl2_MC.values <> v:165 var
+R9777:9777 impl2_MC.values <> p:164 var
+R9897:9900 impl2_MC.env <> bind def
+R9908:9913 impl2_MC.values Values :::'id_eqb' not
+R9897:9900 impl2_MC.env <> bind def
+R9908:9913 impl2_MC.values Values :::'id_eqb' not
+R10037:10040 impl2_MC.env <> bind def
+R10049:10054 impl2_MC.values Values :::'id_eqb' not
+R10037:10040 impl2_MC.env <> bind def
+R10049:10054 impl2_MC.values Values :::'id_eqb' not
+R10328:10341 impl2_MC.values <> MatchEnv_PPair constr
+R10328:10341 impl2_MC.values <> MatchEnv_PPair constr
+R10514:10527 impl2_MC.values <> MatchEnv_PCons constr
+R10514:10527 impl2_MC.values <> MatchEnv_PCons constr
+prf 10672:10693 <> MatchEnv_preservs_wfev
+binder 10703:10703 <> s:168
+binder 10705:10705 <> p:169
+binder 10707:10707 <> v:170
+binder 10709:10710 <> s':171
+R10727:10738 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R10722:10724 impl2_MC.values <> WFV ind
+R10726:10726 impl2_MC.values <> v:170 var
+R10745:10758 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R10739:10742 impl2_MC.values <> WFEV ind
+R10744:10744 impl2_MC.values <> s:168 var
+R10776:10787 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R10759:10766 impl2_MC.values <> MatchEnv ind
+R10774:10775 impl2_MC.values <> s':171 var
+R10772:10772 impl2_MC.values <> s:168 var
+R10770:10770 impl2_MC.values <> v:170 var
+R10768:10768 impl2_MC.values <> p:169 var
+R10788:10791 impl2_MC.values <> WFEV ind
+R10793:10794 impl2_MC.values <> s':171 var
+R10887:10895 impl2_MC.values <> WFEV_some constr
+R10887:10895 impl2_MC.values <> WFEV_some constr
+R10887:10895 impl2_MC.values <> WFEV_some constr
+R10887:10895 impl2_MC.values <> WFEV_some constr
+R10887:10895 impl2_MC.values <> WFEV_some constr
+R10887:10895 impl2_MC.values <> WFEV_some constr
+prf 11016:11037 <> MatchEnv_deterministic
+binder 11047:11047 <> p:172
+binder 11049:11049 <> v:173
+binder 11051:11051 <> s:174
+binder 11053:11054 <> s':175
+binder 11056:11058 <> s'':176
+R11085:11095 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11068:11075 impl2_MC.values <> MatchEnv ind
+R11083:11084 impl2_MC.values <> s':175 var
+R11081:11081 impl2_MC.values <> s:174 var
+R11079:11079 impl2_MC.values <> v:173 var
+R11077:11077 impl2_MC.values <> p:172 var
+R11114:11124 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11096:11103 impl2_MC.values <> MatchEnv ind
+R11111:11113 impl2_MC.values <> s'':176 var
+R11109:11109 impl2_MC.values <> s:174 var
+R11107:11107 impl2_MC.values <> v:173 var
+R11105:11105 impl2_MC.values <> p:172 var
+R11127:11129 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11125:11126 impl2_MC.values <> s':175 var
+R11130:11132 impl2_MC.values <> s'':176 var
+prf 11559:11582 <> FirstMatch_deterministic
+binder 11600:11600 <> v:177
+binder 11602:11602 <> l:178
+binder 11604:11606 <> res:179
+binder 11608:11611 <> res':180
+R11641:11653 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11623:11632 impl2_MC.values <> FirstMatch ind
+R11638:11640 impl2_MC.values <> res:179 var
+R11636:11636 impl2_MC.values <> l:178 var
+R11634:11634 impl2_MC.values <> v:177 var
+R11673:11684 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11654:11663 impl2_MC.values <> FirstMatch ind
+R11669:11672 impl2_MC.values <> res':180 var
+R11667:11667 impl2_MC.values <> l:178 var
+R11665:11665 impl2_MC.values <> v:177 var
+R11688:11690 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11685:11687 impl2_MC.values <> res:179 var
+R11691:11694 impl2_MC.values <> res':180 var
+def 11857:11862 <> typeof
+R11868:11870 impl2_MC.values <> Val ind
+binder 11865:11865 <> v:181
+R11875:11877 impl2_MC.values Values :::'KTp' not
+R11896:11896 impl2_MC.values <> v:181 var
+R11912:11915 impl2_MC.values <> VCls constr
+R11937:11946 impl2_MC.kernel_syntax <> KTFunction constr
+R11956:11962 impl2_MC.values <> VRecCls constr
+R11981:11990 impl2_MC.kernel_syntax <> KTFunction constr
+R12001:12004 impl2_MC.values <> VLit constr
+R12026:12031 impl2_MC.kernel_syntax <> KTBase constr
+R12034:12052 impl2_MC.values Values :::'base_tp_of_base_vl'_x not
+R12065:12069 impl2_MC.values <> VUnit constr
+R12090:12095 impl2_MC.kernel_syntax <> KTUnit constr
+R12106:12109 impl2_MC.values <> VNil constr
+R12131:12136 impl2_MC.kernel_syntax <> KTList constr
+R12139:12145 impl2_MC.kernel_syntax <> KTEmpty constr
+R12156:12160 impl2_MC.values <> VPair constr
+R12170:12170 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12172:12173 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12176:12176 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12162:12162 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12164:12165 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12168:12168 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12181:12186 impl2_MC.kernel_syntax <> KTProd constr
+R12202:12206 impl2_MC.values <> VCons constr
+R12227:12232 impl2_MC.kernel_syntax <> KTList constr
+R12245:12252 impl2_MC.values <> VVariant constr
+R12256:12256 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12258:12259 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12261:12261 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12270:12274 impl2_MC.kernel_syntax <> KTRef constr
+R12286:12291 impl2_MC.values <> VError constr
+R12311:12317 impl2_MC.kernel_syntax <> KTError constr
+def 12362:12370 <> has_match
+R12376:12379 impl2_MC.values Values :::'KPat' not
+binder 12373:12373 <> p:183
+R12386:12388 impl2_MC.values <> Val ind
+binder 12383:12383 <> v:184
+R12393:12396 Coq.Init.Datatypes <> bool ind
+R12416:12416 impl2_MC.values <> v:184 var
+R12413:12413 impl2_MC.values <> p:183 var
+R12431:12435 impl2_MC.kernel_syntax <> KPVar constr
+R12465:12468 Coq.Init.Datatypes <> true constr
+R12478:12482 impl2_MC.kernel_syntax <> KPLit constr
+R12487:12490 impl2_MC.values <> VLit constr
+R12512:12521 impl2_MC.primitives <> eqb_BaseVl proj
+R12523:12523 impl2_MC.values <> Values.P var
+R12538:12541 impl2_MC.kernel_syntax <> KPAs constr
+R12572:12580 impl2_MC.values <> has_match:185 def
+R12584:12584 impl2_MC.values <> v:184 var
+R12582:12582 impl2_MC.values <> p:183 var
+R12595:12599 impl2_MC.kernel_syntax <> KPAny constr
+R12629:12632 Coq.Init.Datatypes <> true constr
+R12642:12647 impl2_MC.kernel_syntax <> KPUnit constr
+R12650:12654 impl2_MC.values <> VUnit constr
+R12676:12679 Coq.Init.Datatypes <> true constr
+R12689:12693 impl2_MC.kernel_syntax <> KPNil constr
+R12696:12699 impl2_MC.values <> VNil constr
+R12723:12726 Coq.Init.Datatypes <> true constr
+R12736:12741 impl2_MC.kernel_syntax <> KPPair constr
+R12750:12754 impl2_MC.values <> VPair constr
+R12791:12836 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R12770:12778 impl2_MC.values <> has_match:185 def
+R12784:12786 Coq.Init.Datatypes <> fst def
+R12837:12845 impl2_MC.values <> has_match:185 def
+R12851:12853 Coq.Init.Datatypes <> fst def
+R12867:12872 impl2_MC.kernel_syntax <> KPCons constr
+R12881:12885 impl2_MC.values <> VCons constr
+R12916:12919 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R12901:12909 impl2_MC.values <> has_match:185 def
+R12920:12928 impl2_MC.values <> has_match:185 def
+R12944:12952 impl2_MC.kernel_syntax <> KPVariant constr
+R12959:12966 impl2_MC.values <> VVariant constr
+R12995:12998 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R12978:12987 impl2_MC.ids <> constr_eqb proj
+R12989:12989 impl2_MC.values <> Values.I var
+R12999:13007 impl2_MC.values <> has_match:185 def
+R13011:13011 impl2_MC.values <> v:184 var
+R13009:13009 impl2_MC.values <> p:183 var
+R13057:13061 Coq.Init.Datatypes <> false constr
+def 13090:13098 <> match_env
+R13104:13107 impl2_MC.values Values :::'KPat' not
+binder 13101:13101 <> p:188
+R13114:13116 impl2_MC.values <> Val ind
+binder 13111:13111 <> v:189
+R13123:13129 impl2_MC.values <> val_env def
+binder 13120:13120 <> s:190
+R13134:13139 Coq.Init.Datatypes <> option ind
+R13141:13147 impl2_MC.values <> val_env def
+R13168:13168 impl2_MC.values <> v:189 var
+R13165:13165 impl2_MC.values <> p:188 var
+R13183:13187 impl2_MC.kernel_syntax <> KPVar constr
+R13217:13220 Coq.Init.Datatypes <> Some constr
+R13223:13226 impl2_MC.env <> bind def
+R13234:13239 impl2_MC.values Values :::'id_eqb' not
+R13232:13232 impl2_MC.values <> v:189 var
+R13228:13228 impl2_MC.values <> s:190 var
+R13250:13254 impl2_MC.kernel_syntax <> KPLit constr
+R13259:13262 impl2_MC.values <> VLit constr
+R13284:13287 Coq.Init.Datatypes <> Some constr
+R13289:13289 impl2_MC.values <> s:190 var
+R13300:13303 impl2_MC.kernel_syntax <> KPAs constr
+R13340:13348 impl2_MC.values <> match_env:191 def
+R13354:13354 impl2_MC.values <> s:190 var
+R13352:13352 impl2_MC.values <> v:189 var
+R13350:13350 impl2_MC.values <> p:188 var
+R13405:13408 Coq.Init.Datatypes <> Some constr
+R13416:13419 Coq.Init.Datatypes <> Some constr
+R13422:13425 impl2_MC.env <> bind def
+R13434:13439 impl2_MC.values Values :::'id_eqb' not
+R13432:13432 impl2_MC.values <> v:189 var
+R13485:13488 Coq.Init.Datatypes <> None constr
+R13496:13499 Coq.Init.Datatypes <> None constr
+R13554:13558 impl2_MC.kernel_syntax <> KPAny constr
+R13588:13591 Coq.Init.Datatypes <> Some constr
+R13593:13593 impl2_MC.values <> s:190 var
+R13603:13608 impl2_MC.kernel_syntax <> KPUnit constr
+R13611:13615 impl2_MC.values <> VUnit constr
+R13637:13640 Coq.Init.Datatypes <> Some constr
+R13642:13642 impl2_MC.values <> s:190 var
+R13651:13655 impl2_MC.kernel_syntax <> KPNil constr
+R13658:13661 impl2_MC.values <> VNil constr
+R13685:13688 Coq.Init.Datatypes <> Some constr
+R13690:13690 impl2_MC.values <> s:190 var
+R13700:13705 impl2_MC.kernel_syntax <> KPPair constr
+R13714:13718 impl2_MC.values <> VPair constr
+R13740:13748 impl2_MC.values <> match_env:191 def
+R13762:13762 impl2_MC.values <> s:190 var
+R13754:13756 Coq.Init.Datatypes <> fst def
+R13812:13815 Coq.Init.Datatypes <> Some constr
+R13823:13831 impl2_MC.values <> match_env:191 def
+R13837:13839 Coq.Init.Datatypes <> fst def
+R13891:13894 Coq.Init.Datatypes <> None constr
+R13902:13905 Coq.Init.Datatypes <> None constr
+R13961:13966 impl2_MC.kernel_syntax <> KPCons constr
+R13975:13979 impl2_MC.values <> VCons constr
+R14001:14009 impl2_MC.values <> match_env:191 def
+R14017:14017 impl2_MC.values <> s:190 var
+R14067:14070 Coq.Init.Datatypes <> Some constr
+R14078:14086 impl2_MC.values <> match_env:191 def
+R14140:14143 Coq.Init.Datatypes <> None constr
+R14151:14154 Coq.Init.Datatypes <> None constr
+R14209:14217 impl2_MC.kernel_syntax <> KPVariant constr
+R14224:14231 impl2_MC.values <> VVariant constr
+R14243:14251 impl2_MC.values <> match_env:191 def
+R14257:14257 impl2_MC.values <> s:190 var
+R14255:14255 impl2_MC.values <> v:189 var
+R14253:14253 impl2_MC.values <> p:188 var
+R14303:14306 Coq.Init.Datatypes <> None constr
+prf 14341:14354 <> typeof_correct
+binder 14364:14364 <> v:194
+binder 14366:14366 <> t:195
+R14387:14390 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R14383:14385 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R14375:14380 impl2_MC.values <> typeof def
+R14382:14382 impl2_MC.values <> v:194 var
+R14386:14386 impl2_MC.values <> t:195 var
+R14391:14396 impl2_MC.values <> Typeof ind
+R14400:14400 impl2_MC.values <> t:195 var
+R14398:14398 impl2_MC.values <> v:194 var
+R14556:14567 impl2_MC.values <> Typeof_VPair constr
+R14556:14567 impl2_MC.values <> Typeof_VPair constr
+R14598:14612 impl2_MC.values <> Typeof_VVariant constr
+R14598:14612 impl2_MC.values <> Typeof_VVariant constr
+prf 14646:14660 <> typeof_complete
+binder 14670:14670 <> v:196
+binder 14672:14672 <> t:197
+R14692:14695 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R14682:14687 impl2_MC.values <> Typeof ind
+R14691:14691 impl2_MC.values <> t:197 var
+R14689:14689 impl2_MC.values <> v:196 var
+R14704:14706 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R14696:14701 impl2_MC.values <> typeof def
+R14703:14703 impl2_MC.values <> v:196 var
+R14707:14707 impl2_MC.values <> t:197 var
+prf 14798:14813 <> typeof_eq_Typeof
+binder 14823:14823 <> v:198
+binder 14825:14825 <> t:199
+R14847:14851 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R14843:14845 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R14835:14840 impl2_MC.values <> typeof def
+R14842:14842 impl2_MC.values <> v:198 var
+R14846:14846 impl2_MC.values <> t:199 var
+R14852:14857 impl2_MC.values <> Typeof ind
+R14861:14861 impl2_MC.values <> t:199 var
+R14859:14859 impl2_MC.values <> v:198 var
+R14902:14915 impl2_MC.values <> typeof_correct thm
+R14902:14915 impl2_MC.values <> typeof_correct thm
+R14930:14944 impl2_MC.values <> typeof_complete thm
+R14930:14944 impl2_MC.values <> typeof_complete thm
+prf 14973:14989 <> has_match_correct
+binder 14999:14999 <> p:200
+binder 15001:15001 <> v:201
+R15031:15034 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R15024:15026 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15011:15019 impl2_MC.values <> has_match def
+R15023:15023 impl2_MC.values <> v:201 var
+R15021:15021 impl2_MC.values <> p:200 var
+R15027:15030 Coq.Init.Datatypes <> true constr
+R15035:15039 impl2_MC.values <> Match ind
+R15043:15043 impl2_MC.values <> v:201 var
+R15041:15041 impl2_MC.values <> p:200 var
+R15245:15253 Coq.Init.Datatypes <> andb_prop thm
+R15245:15253 Coq.Init.Datatypes <> andb_prop thm
+R15245:15253 Coq.Init.Datatypes <> andb_prop thm
+R15245:15253 Coq.Init.Datatypes <> andb_prop thm
+R15245:15253 Coq.Init.Datatypes <> andb_prop thm
+R15245:15253 Coq.Init.Datatypes <> andb_prop thm
+R15245:15253 Coq.Init.Datatypes <> andb_prop thm
+R15299:15311 impl2_MC.ids <> constr_eqb_eq proj
+R15299:15311 impl2_MC.ids <> constr_eqb_eq proj
+R15299:15311 impl2_MC.ids <> constr_eqb_eq proj
+prf 15358:15375 <> has_match_complete
+binder 15385:15385 <> p:202
+binder 15387:15387 <> v:203
+R15406:15409 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R15397:15401 impl2_MC.values <> Match ind
+R15405:15405 impl2_MC.values <> v:203 var
+R15403:15403 impl2_MC.values <> p:202 var
+R15423:15425 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15410:15418 impl2_MC.values <> has_match def
+R15422:15422 impl2_MC.values <> v:203 var
+R15420:15420 impl2_MC.values <> p:202 var
+R15426:15429 Coq.Init.Datatypes <> true constr
+R15512:15526 Coq.Init.Datatypes <> andb_true_intro thm
+R15544:15556 impl2_MC.ids <> constr_eqb_eq proj
+R15512:15526 Coq.Init.Datatypes <> andb_true_intro thm
+R15512:15526 Coq.Init.Datatypes <> andb_true_intro thm
+R15512:15526 Coq.Init.Datatypes <> andb_true_intro thm
+R15544:15556 impl2_MC.ids <> constr_eqb_eq proj
+R15544:15556 impl2_MC.ids <> constr_eqb_eq proj
+R15544:15556 impl2_MC.ids <> constr_eqb_eq proj
+R15544:15556 impl2_MC.ids <> constr_eqb_eq proj
+prf 15604:15621 <> has_match_eq_Match
+binder 15631:15631 <> p:204
+binder 15633:15633 <> v:205
+R15663:15667 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R15656:15658 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15643:15651 impl2_MC.values <> has_match def
+R15655:15655 impl2_MC.values <> v:205 var
+R15653:15653 impl2_MC.values <> p:204 var
+R15659:15662 Coq.Init.Datatypes <> true constr
+R15668:15672 impl2_MC.values <> Match ind
+R15676:15676 impl2_MC.values <> v:205 var
+R15674:15674 impl2_MC.values <> p:204 var
+R15717:15733 impl2_MC.values <> has_match_correct thm
+R15717:15733 impl2_MC.values <> has_match_correct thm
+R15748:15765 impl2_MC.values <> has_match_complete thm
+R15748:15765 impl2_MC.values <> has_match_complete thm
+prf 15793:15817 <> has_match_eq_Match_contra
+binder 15827:15827 <> p:206
+binder 15829:15829 <> v:207
+R15860:15864 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R15852:15854 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15839:15847 impl2_MC.values <> has_match def
+R15851:15851 impl2_MC.values <> v:207 var
+R15849:15849 impl2_MC.values <> p:206 var
+R15855:15859 Coq.Init.Datatypes <> false constr
+R15865:15865 Coq.Init.Logic <> ::type_scope:'~'_x not
+R15866:15870 impl2_MC.values <> Match ind
+R15874:15874 impl2_MC.values <> v:207 var
+R15872:15872 impl2_MC.values <> p:206 var
+R15914:15931 Coq.Bool.Bool <> not_true_iff_false thm
+R15914:15931 Coq.Bool.Bool <> not_true_iff_false thm
+R15914:15931 Coq.Bool.Bool <> not_true_iff_false thm
+R15946:15959 Coq.Init.Logic <> not_iff_compat thm
+R15946:15959 Coq.Init.Logic <> not_iff_compat thm
+R15968:15985 impl2_MC.values <> has_match_eq_Match thm
+R15968:15985 impl2_MC.values <> has_match_eq_Match thm
+prf 16019:16035 <> match_env_correct
+binder 16045:16045 <> p:208
+binder 16047:16047 <> v:209
+binder 16049:16049 <> s:210
+binder 16051:16052 <> s':211
+R16087:16097 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16077:16079 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16062:16070 impl2_MC.values <> match_env def
+R16076:16076 impl2_MC.values <> s:210 var
+R16074:16074 impl2_MC.values <> v:209 var
+R16072:16072 impl2_MC.values <> p:208 var
+R16080:16083 Coq.Init.Datatypes <> Some constr
+R16085:16086 impl2_MC.values <> s':211 var
+R16098:16105 impl2_MC.values <> MatchEnv ind
+R16113:16114 impl2_MC.values <> s':211 var
+R16111:16111 impl2_MC.values <> s:210 var
+R16109:16109 impl2_MC.values <> v:209 var
+R16107:16107 impl2_MC.values <> p:208 var
+R16315:16327 impl2_MC.values <> MatchEnv_PVar constr
+R16315:16327 impl2_MC.values <> MatchEnv_PVar constr
+R16412:16424 impl2_MC.values <> MatchEnv_PLit constr
+R16412:16424 impl2_MC.values <> MatchEnv_PLit constr
+R16452:16460 impl2_MC.values <> match_env def
+R16452:16460 impl2_MC.values <> match_env def
+R16529:16540 impl2_MC.values <> MatchEnv_PAs constr
+R16529:16540 impl2_MC.values <> MatchEnv_PAs constr
+R16585:16597 impl2_MC.values <> MatchEnv_PAny constr
+R16585:16597 impl2_MC.values <> MatchEnv_PAny constr
+R16681:16694 impl2_MC.values <> MatchEnv_PUnit constr
+R16681:16694 impl2_MC.values <> MatchEnv_PUnit constr
+R16780:16792 impl2_MC.values <> MatchEnv_PNil constr
+R16780:16792 impl2_MC.values <> MatchEnv_PNil constr
+R16853:16861 impl2_MC.values <> match_env def
+R16853:16861 impl2_MC.values <> match_env def
+R16929:16942 impl2_MC.values <> MatchEnv_PPair constr
+R16929:16942 impl2_MC.values <> MatchEnv_PPair constr
+R17076:17084 impl2_MC.values <> match_env def
+R17076:17084 impl2_MC.values <> match_env def
+R17131:17144 impl2_MC.values <> MatchEnv_PCons constr
+R17131:17144 impl2_MC.values <> MatchEnv_PCons constr
+R17254:17270 impl2_MC.values <> MatchEnv_PVariant constr
+R17254:17270 impl2_MC.values <> MatchEnv_PVariant constr
+prf 17331:17348 <> match_env_complete
+binder 17358:17358 <> p:212
+binder 17360:17360 <> v:213
+binder 17362:17362 <> s:214
+binder 17364:17365 <> s':215
+R17392:17402 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17375:17382 impl2_MC.values <> MatchEnv ind
+R17390:17391 impl2_MC.values <> s':215 var
+R17388:17388 impl2_MC.values <> s:214 var
+R17386:17386 impl2_MC.values <> v:213 var
+R17384:17384 impl2_MC.values <> p:212 var
+R17418:17420 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17403:17411 impl2_MC.values <> match_env def
+R17417:17417 impl2_MC.values <> s:214 var
+R17415:17415 impl2_MC.values <> v:213 var
+R17413:17413 impl2_MC.values <> p:212 var
+R17421:17424 Coq.Init.Datatypes <> Some constr
+R17426:17427 impl2_MC.values <> s':215 var
+R17526:17534 impl2_MC.values <> match_env def
+R17526:17534 impl2_MC.values <> match_env def
+R17526:17534 impl2_MC.values <> match_env def
+R17526:17534 impl2_MC.values <> match_env def
+prf 17690:17710 <> match_env_eq_MatchEnv
+binder 17720:17720 <> p:216
+binder 17722:17722 <> v:217
+binder 17724:17724 <> s:218
+binder 17726:17727 <> s':219
+R17762:17766 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R17752:17754 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17737:17745 impl2_MC.values <> match_env def
+R17751:17751 impl2_MC.values <> s:218 var
+R17749:17749 impl2_MC.values <> v:217 var
+R17747:17747 impl2_MC.values <> p:216 var
+R17755:17758 Coq.Init.Datatypes <> Some constr
+R17760:17761 impl2_MC.values <> s':219 var
+R17767:17774 impl2_MC.values <> MatchEnv ind
+R17782:17783 impl2_MC.values <> s':219 var
+R17780:17780 impl2_MC.values <> s:218 var
+R17778:17778 impl2_MC.values <> v:217 var
+R17776:17776 impl2_MC.values <> p:216 var
+R17824:17840 impl2_MC.values <> match_env_correct thm
+R17824:17840 impl2_MC.values <> match_env_correct thm
+R17856:17873 impl2_MC.values <> match_env_complete thm
+R17856:17873 impl2_MC.values <> match_env_complete thm
+prf 17898:17921 <> FirstMatch_eq_find_match
+binder 17939:17939 <> v:220
+binder 17941:17941 <> l:221
+binder 17943:17948 <> result:222
+R18007:18019 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R17998:18000 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17961:17964 Coq.Lists.List <> find def
+R17997:17997 impl2_MC.values <> l:221 var
+binder 17971:17971 <> x:223
+R17976:17984 impl2_MC.values <> has_match def
+R17994:17994 impl2_MC.values <> v:220 var
+R17987:17989 Coq.Init.Datatypes <> fst def
+R17991:17991 impl2_MC.values <> x:223 var
+R18001:18006 impl2_MC.values <> result:222 var
+R18020:18029 impl2_MC.values <> FirstMatch ind
+R18035:18040 impl2_MC.values <> result:222 var
+R18033:18033 impl2_MC.values <> l:221 var
+R18031:18031 impl2_MC.values <> v:220 var
+R18209:18217 impl2_MC.values <> has_match def
+R18209:18217 impl2_MC.values <> has_match def
+R18249:18265 impl2_MC.values <> has_match_correct thm
+R18249:18265 impl2_MC.values <> has_match_correct thm
+R18298:18312 impl2_MC.values <> FirstMatch_Head constr
+R18298:18312 impl2_MC.values <> FirstMatch_Head constr
+R18338:18362 impl2_MC.values <> has_match_eq_Match_contra thm
+R18338:18362 impl2_MC.values <> has_match_eq_Match_contra thm
+R18408:18422 impl2_MC.values <> FirstMatch_Tail constr
+R18408:18422 impl2_MC.values <> FirstMatch_Tail constr
+R18490:18507 impl2_MC.values <> has_match_complete thm
+R18490:18507 impl2_MC.values <> has_match_complete thm
+R18567:18591 impl2_MC.values <> has_match_eq_Match_contra thm
+R18567:18591 impl2_MC.values <> has_match_eq_Match_contra thm
+R18652:18657 impl2_MC.values Values <> sec
