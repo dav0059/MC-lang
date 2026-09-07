@@ -840,14 +840,147 @@ Section EVALUATION.
 
 
     Lemma eval_cons_correct: 
-      forall n e1 s v1 e2 v2 v, 
-        eval n e1 s = Ok v1 -> 
-        is_error v1 = false ->
-        eval n e2 s = Ok v2 -> 
-        is_error v2 = false -> 
+      forall n e1 s e2 v,
+        (forall s e v, 
+          WFEV s -> 
+          eval n e s = Ok v -> 
+          EVal e s v) -> 
+        WFEV s ->    
         eval (S n) (LCons e1 e2) s = Ok v -> 
         EVal (LCons e1 e2) s v.
-    Proof.         
+    Proof.    
+      intros * HInd Hwfev Hev. simpl in Hev. 
+      destruct (eval _ ) eqn : eqev1; try discriminate. 
+      destruct (eval n e2 s) eqn: eqev2; 
+      destruct v0; try discriminate. 
+      + destruct (is_error v1) eqn: eqerr1. 
+        * (* v1 := VError m *) 
+          destruct v1; simpl in eqerr1; try discriminate. 
+          inversion Hev; subst; eapply EVal_LConsErr_tail; 
+          eauto. unfold not. intro contra. inversion contra. 
+        * destruct v1; simpl in eqerr1; try discriminate.
+          (* v1 := VNil *)
+          {inversion Hev; subst; clear Hev; 
+           eapply EVal_LCons; eauto. constructor. 
+           unfold not; intro; discriminate. }
+          (* v1 := VCons v1_1 v1_2 el_type *)
+          {destruct el_type; try discriminate. simpl in *. 
+           inversion Hev; subst; clear Hev; eapply EVal_LCons_nestf; 
+           eauto; try constructor. unfold not; intro; discriminate. }
+      + destruct (is_error v1) eqn: eqerr1. 
+        * (* v1 := VError m *) 
+          destruct v1; simpl in eqerr1; try discriminate. 
+          inversion Hev; subst; eapply EVal_LConsErr_tail; 
+          eauto. unfold not. intro contra. inversion contra.
+        * destruct v1; simpl in eqerr1; try discriminate.
+          (* v1 := VNil *)
+          {inversion Hev; subst; clear Hev; 
+           eapply EVal_LCons; eauto. constructor. 
+           unfold not; intro; discriminate. }
+          (* v1 := VCons v1_1 v1_2 el_type *)
+          {destruct el_type; try discriminate. simpl in *.
+           destruct (eqb_BaseTp _) eqn: eqb; try discriminate.  
+           inversion Hev; subst; clear Hev; eapply EVal_LCons_nestf; 
+           eauto; try constructor. unfold not; intro; discriminate.
+           assert (H: base_tp_of_base_vl x = t <-> 
+                   eqb_BaseTp P (base_tp_of_base_vl x) t = true) by 
+            (apply reflect_iff; apply eqb_eq_BaseTp); apply H; eauto.
+            }
+      + destruct (is_error v1) eqn: eqerr1. 
+        * (* v1 := VError m *) 
+          destruct v1; simpl in eqerr1; try discriminate. 
+          inversion Hev; subst; eapply EVal_LConsErr_tail; 
+          eauto. unfold not. intro contra. inversion contra.
+        * destruct v1; simpl in eqerr1; try discriminate.
+          (* v1 := VNil *)
+          {inversion Hev; subst; clear Hev; 
+           eapply EVal_LCons; eauto. constructor. 
+           unfold not; intro; discriminate. }
+          (* v1 := VCons v1_1 v1_2 el_type *)
+          {destruct el_type; try discriminate. simpl in *.
+           inversion Hev; subst; clear Hev; eapply EVal_LCons_nestf; 
+           eauto; try constructor. unfold not; intro; discriminate. }
+      + destruct (is_error v1) eqn: eqerr1. 
+        * (* v1 := VError m *) 
+          destruct v1; simpl in eqerr1; try discriminate. 
+          inversion Hev; subst; eapply EVal_LConsErr_tail; 
+          eauto. unfold not. intro contra. inversion contra.
+        * destruct v1; simpl in eqerr1; try discriminate.
+          (* v1 := VNil *)
+          {inversion Hev; subst; clear Hev; 
+           eapply EVal_LCons; eauto. constructor. 
+           unfold not; intro; discriminate. }
+          (* v1 := VCons v1_1 v1_2 el_type *)
+          {destruct (nested_empty el_type) eqn: eqnest; simpl in *;
+           destruct el_type; try discriminate; 
+           destruct (is_FOT _) eqn: eqfot; try discriminate; 
+           inversion Hev; subst; clear Hev.
+           + apply EVal_LCons_nestt with (t := KTList el_type); 
+             try apply c_TListNil1; eauto; constructor.
+           + apply EVal_LCons_nestf with (t1 := KTList KTEmpty); 
+             try apply c_TListNil1; eauto; try constructor. 
+             unfold not; intro; discriminate. }
+      + destruct (is_error v1) eqn: eqerr1. 
+        * (* v1 := VError m *) 
+          destruct v1; simpl in eqerr1; try discriminate. 
+          inversion Hev; subst; eapply EVal_LConsErr_tail; 
+          eauto. unfold not. intro contra. inversion contra.
+        * destruct v1; simpl in eqerr1; try discriminate.
+          (* v1 := VNil *)
+          {inversion Hev; subst; clear Hev; 
+           eapply EVal_LCons; eauto; destruct v0, v2; try constructor. 
+           unfold not; intro; discriminate. }
+          (* v1 := VCons v1_1 v1_2 el_type *)
+          {simpl in *. destruct v0, v2. destruct el_type; 
+           try discriminate; simpl in *. 
+           destruct (is_consistent _ _ && _) eqn: eqc; try discriminate.
+           inversion Hev; subst; clear Hev; eapply EVal_LCons_nestf; 
+           eauto. constructor. unfold not; intro; discriminate.
+           constructor. apply is_consistent_correct; simpl; eauto. }
+      +  destruct (is_error v1) eqn: eqerr1. 
+        * (* v1 := VError m *) 
+          destruct v1; simpl in eqerr1; try discriminate. 
+          inversion Hev; subst; eapply EVal_LConsErr_tail; 
+          eauto. unfold not. intro contra. inversion contra.
+        * destruct v1; simpl in eqerr1; try discriminate.
+          (* v1 := VNil *)
+          {inversion Hev; subst; clear Hev; 
+           eapply EVal_LCons; eauto. constructor. 
+           unfold not; intro; discriminate. }
+          (* v1 := VCons v1_1 v1_2 el_type *)
+          {destruct (is_consistent _ ) eqn: eqc; try discriminate.
+           destruct (nested_empty el_type0) eqn: eqnest; simpl in Hev; 
+           inversion Hev; subst; clear Hev.
+           + apply EVal_LCons_nestt with (t := el_type0); eauto; 
+             try constructor. apply is_consistent_correct. eauto.
+           + apply EVal_LCons_nestf with (t1 := KTList el_type); eauto; 
+             try constructor. unfold not; intro; discriminate.
+             apply is_consistent_correct; eauto. }
+      +  destruct (is_error v1) eqn: eqerr1. 
+        * (* v1 := VError m *) 
+          destruct v1; simpl in eqerr1; try discriminate. 
+          inversion Hev; subst; eapply EVal_LConsErr_tail; 
+          eauto. unfold not. intro contra. inversion contra.
+        * destruct v1; simpl in eqerr1; try discriminate.
+          (* v1 := VNil *)
+          {inversion Hev; subst; clear Hev; 
+           eapply EVal_LCons; eauto; destruct inf; try constructor. 
+           unfold not; intro; discriminate. }
+          (* v1 := VCons v1_1 v1_2 el_type *)
+          {destruct (is_consistent) eqn: eqc; try discriminate.
+           destruct (nested_empty _) eqn: eqnest; simpl in *; 
+           inversion Hev; subst; clear Hev. 
+           + apply EVal_LCons_nestt with (t := el_type); eauto;
+             destruct inf; try constructor. destruct el_type; 
+             try discriminate.
+           + destruct inf; apply EVal_LCons_nestf with (t1 := KTRef i); 
+             eauto; try constructor. unfold not; intro; discriminate.
+             apply is_consistent_correct; eauto. }
+      + inversion Hev; subst; constructor; eauto.
+      + inversion Hev; subst; constructor; eauto.
+    Qed.
+
+    Check eval_cons_correct.
         
     Theorem eval_evalop_correct : 
       forall n, 
