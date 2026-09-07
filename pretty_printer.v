@@ -12,8 +12,7 @@ Section PRINTER.
 
     Fixpoint val_to_string (v : Val I P) : string := 
       match v with 
-      |VCls _ _ _               => "<fun>" 
-      |VRecCls _ _ _ _          => "<fun>"
+      |VCls _ _ _ _             => "<fun>" 
       |VLit x                   => BaseVl_to_string P x  
       |VUnit                    => "()"
       |VNil                     => "[]"

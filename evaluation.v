@@ -20,6 +20,7 @@ Section EVALUATION.
     Context (I : IDS).
     Context (P: PRIM_DATA). 
     
+    Local Notation " 'Ide' " := (Ide I).
     Local Notation " 'LExpr' " := (LExpr I P).
     Local Notation " 'Val' " := (Val I P).
     Local Notation " 'val_env' " := (val_env I P). 
@@ -28,7 +29,10 @@ Section EVALUATION.
     Local Notation " 'BaseVl' " := (BaseVl P).
     Local Notation " 'id_eqb' " := (id_eqb I). 
     Local Notation " 'base_tp_of_base_vl' " := (base_tp_of_base_vl P).
+   
     
+   
+   (* auxiliary functions, lemmas and definitions *)
     Fixpoint getBaseVl (l: list Val) : list BaseVl :=
       match l with 
       |(VLit x)::t => x::getBaseVl t 
@@ -48,6 +52,11 @@ Section EVALUATION.
       apply Herr. exists mssg; eauto.
     Qed. 
         
+    Lemma not_one_error_empty: ~one_error [].
+    Proof. 
+      unfold not, one_error. intro contra. 
+      destruct contra. discriminate. 
+    Qed.
     
     Inductive EVal : LExpr -> val_env -> Val -> Prop := 
     |EVal_Var      : forall i s v, 
@@ -57,12 +66,11 @@ Section EVALUATION.
     |EVal_Lit      : forall x s , 
                      WFEV s -> 
                      EVal (LLit x) s (VLit x)  
-    |EVal_LOp      : forall s le lv lbv op v,       
+    |EVal_LOp      : forall s le lv op v,       
                      WFEV s -> 
                      EValOp (rev le) s lv ->
-                     ~one_error lv -> 
-                     getBaseVl (rev lv) = lbv -> 
-                     interp_op op lbv = Some v ->
+                     ~one_error lv ->  
+                     interp_op op (getBaseVl (rev lv)) = Some v ->
                      EVal (LOp op le) s (VLit v) 
     |EVal_LOpErr   : forall s le op mssg, 
                      WFEV s -> 
@@ -70,11 +78,11 @@ Section EVALUATION.
                      EVal (LOp op le) s (VError mssg)
     |EVal_LLam     : forall s arg body, 
                      WFEV s -> 
-                     EVal (LLam arg body) s (VCls arg body s)
+                     EVal (LLam arg body) s (VCls NotRecursive arg body s)
     |EVal_LApp     : forall s e1 arg body cls_env 
                           e2 v cls_env' v', 
                      WFEV s -> 
-                     EVal e1 s (VCls arg body cls_env) -> 
+                     EVal e1 s (VCls NotRecursive arg body cls_env) -> 
                      EVal e2 s v -> 
                      ~Typeof v KTError ->     
                      Match arg v -> 
@@ -84,13 +92,13 @@ Section EVALUATION.
     |EVal_LAppRec  : forall s e1 name arg body cls_env 
                           e2 v cls_env' v', 
                      WFEV s ->  
-                     EVal e1 s (VRecCls name arg body cls_env) ->
+                     EVal e1 s (VCls (Recursive name) arg body cls_env) ->
                      EVal e2 s v -> 
                      ~Typeof v KTError ->
                      Match arg v -> 
                      MatchEnv arg v cls_env cls_env' -> 
                      EVal body (bind cls_env' name 
-                       (VRecCls name arg body cls_env) id_eqb) v' -> 
+                      (VCls (Recursive name) arg body cls_env) id_eqb) v' -> 
                      EVal (LApp e1 e2) s v'
     |EVal_LAppErr_fun  : forall s e1 e2 mssg, 
                      WFEV s -> 
@@ -178,9 +186,9 @@ Section EVALUATION.
                        EVal (LVariant c inf e) s (VError mssg)
     |EVal_LFix        : forall s e arg body cls_env name,
                        WFEV s -> 
-                       EVal e s (VCls arg body cls_env) ->  
+                       EVal e s (VCls NotRecursive arg body cls_env) ->  
                        EVal (LFix name e) s 
-                            (VRecCls name arg body cls_env)
+                            (VCls (Recursive name) arg body cls_env)
     |EVal_LFixErr     : forall e s mssg name, 
                        WFEV s -> 
                        EVal e s (VError mssg) -> 
@@ -434,7 +442,7 @@ Section EVALUATION.
       + inversion HEv2; subst; eauto. 
       + inversion HEv2; subst; clear HEv2.
         * assert (lv = lv0) by (apply IHHEv1; eauto); subst.
-          rewrite H7 in e1. inversion e1; eauto.
+          rewrite H6 in e0. inversion e0; eauto.
         * assert (lv = [VError mssg]) by (apply IHHEv1; eauto).
           subst. apply one_error_contra in n. contradiction.
       + inversion HEv2; subst; clear HEv2.
@@ -444,8 +452,8 @@ Section EVALUATION.
           (apply IHHEv1; eauto); inversion Heq; subst; reflexivity.  
       + inversion HEv2; subst; reflexivity.  
       + inversion HEv2; subst; clear HEv2. 
-        * assert (Hp1: VCls arg body cls_env =
-                        VCls arg0 body0 cls_env0) 
+        * assert (Hp1: VCls NotRecursive arg body cls_env =
+                        VCls NotRecursive arg0 body0 cls_env0) 
           by (apply IHHEv1_1; eauto).
           assert (Hp2: v = v0) by (apply IHHEv1_2; eauto). 
           inversion Hp1; subst; clear Hp1.
@@ -456,40 +464,42 @@ Section EVALUATION.
           inversion HEv1_1;  
           apply MatchEnv_preservs_wfev with (s := cls_env0)
             (p := arg0) (v := v0); eauto.  
-        * assert (VCls arg body cls_env = 
-                       VRecCls name arg0 body0 cls_env0) 
+        * assert (VCls NotRecursive arg body cls_env = 
+                  VCls (Recursive name) arg0 body0 cls_env0) 
           by (apply IHHEv1_1; eauto). 
           discriminate. 
-        * assert (VCls arg body cls_env = VError mssg) 
+        * assert (VCls NotRecursive arg body cls_env = VError mssg) 
           by (apply IHHEv1_1; eauto). 
           discriminate .
         * assert (v = VError mssg) by (apply IHHEv1_2; eauto); 
           subst. apply Typeof_err_contra in n. contradiction.
       + inversion HEv2; subst; clear HEv2. 
-        * assert (VRecCls name arg body cls_env = 
-                  VCls arg0 body0 cls_env0)  
+        * assert (VCls (Recursive name) arg body cls_env = 
+                  VCls (NotRecursive) arg0 body0 cls_env0)  
           by (apply IHHEv1_1; eauto). 
           discriminate.
-        * assert (Hp1: VRecCls name arg body cls_env = 
-                  VRecCls name0 arg0 body0 cls_env0) 
+        * assert (Hp1: VCls (Recursive name) arg body cls_env = 
+                       VCls (Recursive name0) arg0 body0 cls_env0) 
           by (apply IHHEv1_1; eauto); 
           inversion Hp1; subst; clear Hp1. 
           assert (v = v0) by (apply IHHEv1_2; eauto); subst.
-          assert (cls_env' = cls_env'0) by (apply MatchEnv_deterministic
-            with (p := arg0) (v := v0) (s := cls_env0); eauto); subst. 
+          assert (cls_env' = cls_env'0) by 
+           (apply MatchEnv_deterministic 
+             with (p := arg0) (v := v0) (s := cls_env0); eauto); subst. 
           apply IHHEv1_3; eauto.
           apply EVal_wfv in HEv1_1, H3; inversion HEv1_1; subst.
           apply MatchEnv_preservs_wfev in H6; eauto. 
           constructor; eauto.
-        * assert (VRecCls name arg body cls_env = VError mssg) 
+        * assert (VCls (Recursive name) arg body cls_env = VError mssg) 
           by (apply IHHEv1_1; eauto). 
           discriminate.
         * assert (v = VError mssg) by (apply IHHEv1_2; eauto); 
           subst; apply Typeof_err_contra in n; contradiction.
       + inversion HEv2; subst; clear HEv2; eauto.
-        * apply IHHEv1 with (v' := VCls arg body cls_env) in H2. 
+        * apply IHHEv1 with 
+           (v' := VCls NotRecursive arg body cls_env) in H2. 
           discriminate. eauto.
-        * apply IHHEv1 with (v' := VRecCls name arg body cls_env)
+        * apply IHHEv1 with (v' := VCls (Recursive name) arg body cls_env)
           in H2. discriminate. eauto. 
         * apply IHHEv1 with (v' := v) in H2; subst. inversion H3. 
           eauto.
@@ -643,156 +653,359 @@ Section EVALUATION.
         
     Qed.   
         
-
+    
     Definition eval_result := result Val string.  
     Definition evalop_result := result (list Val) string.       
-
-    Fixpoint eval (n: nat) (e: LExpr) (s: v_env) : eval_result := 
-      match n with 
-      |O    => Error("stack overflow"%string)
+    
+  
+    Fixpoint eval (fuel: nat) (e: LExpr) (s: val_env) : eval_result := 
+      match fuel with 
+      |O    => Error("stack overflow")
       |S n' => match e with 
               |LVar i     => match lookup s i with 
                              |Some v => Ok v 
-                             |None   => Error("unbound variable"%string)
+                             |None   => Error("unbound variable")
                              end
               |LLit x     => Ok(VLit x) 
-              |LOp op []  => match interp_op op [] with 
-                             |Some v => Ok(VLit v) 
-                             |None   => Error("primitive operation failure"%string)
-                             end 
               |LOp op l   => let lv := evalop n' (rev l) s in
                              match lv with 
-                             |Error m          => Error m 
-                             |Ok []            => Error("impossible"%string)
-                             |Ok (VError m::_) => Ok (VError m) 
-                             |Ok ((_::_) as lv)  => match interp_op op (getBaseVl (rev lv)) with 
-                                                  |Some v => Ok(VLit v) 
-                                                  |None   => Error("primitive operation failure"%string)
-                                                  end 
+                             |Error mssg       => Error mssg 
+                             |Ok [VError mssg] => Ok (VError mssg) 
+                             |Ok (_ as lv)  => 
+                               match interp_op op (getBaseVl (rev lv)) with 
+                               |Some v => Ok(VLit v) 
+                               |None   => Error("primitive operation failure"%string)
+                               end 
                              end 
-              |LLam p e   => Ok (VCls None p e s)
-              |LApp e1 e2 => match eval n' e1 s with 
-                             |Error m                  => Error m 
-                             |Ok(VError m)             => Ok(VError m)  
-                             |Ok(VCls None p e s_cls)  => 
-                                let v := eval n' e2 s in 
-                                match v with 
-                                |Error m      => Error m 
-                                |Ok(VError m) => Ok(VError m)
-                                |Ok v         =>
-                                    if has_match p v then 
-                                      match match_env p v s_cls with 
-                                      |None       => Error("impossible"%string)
-                                      |Some s_ext => eval n' e s_ext 
-                                      end 
-                                    else Error("pattern matching failure"%string)       
-                                end 
-                             |Ok((VCls (Some i) p e s_rcls) as fclosure) =>
-                                let v := eval n' e2 s in 
-                                match v with 
-                                |Error m      => Error m 
-                                |Ok(VError m) => Ok(VError m)  
-                                |Ok v         => if has_match p v then 
-                                                   match match_env p v s_rcls with 
-                                                   |None       => Error("impossible"%string)
-                                                   |Some s_ext => eval n' e (bind s_ext i fclosure (id_eqb))
-                                                   end 
-                                                 else Error("pattern matching failure"%string)
-                                end
-                             |_                            => Error("Illegal application"%string)
-                             end 
-              |LUnit       => Ok(VUnit)
-              |LNil        => Ok(VNil None)
-              |LPair e1 e2 => match eval n' e1 s with 
-                              |Error m      => Error m 
-                              |Ok(VError m) => Ok(VError m)
-                              |Ok v1        => match eval n' e2 s with 
-                                               |Error m      => Error m 
-                                               |Ok(VError m) => Ok(VError m)
-                                               |Ok v2        => 
-                                                  match typeof v1, typeof v2 with
-                                                  |Some t1, Some t2 => Ok (VPair (v1, t1) (v2, t2))
-                                                  |_, _             => Error ("impossibile"%string)
-                                                  end 
-                                              end 
-                              end
-              |LCons e1 e2 => match eval n' e1 s with 
-                              |Error m      => Error m 
-                              |Ok(VError m) => Ok(VError m)
-                              |Ok v1        => match eval n' e2 s with 
-                                               |Error m         => Error m 
-                                               |Ok(VError m)    => Ok(VError m)
-                                               |Ok(VNil None)   => 
-                                                 match typeof v1 with 
-                                                 |Some t1  => Ok(VCons v1 (VNil None) (Some t1)) 
-                                                 |None     => Error("impossibile"%string)
-                                                 end 
-                                               |Ok v2            => 
-                                                 match typeof v1, typeof v2 with 
-                                                 |Some t1, Some (KTList t2) => 
-                                                   if is_consistent t1 t2 then 
-                                                     if nested_empty t2 then Ok(VCons v1 v2 (Some t1)) 
-                                                     else Ok(VCons v1 v2 (Some t2))
-                                                   else Error("typechecking failure"%string) 
-                                                 |Some t1, Some _     => Error("typechecking failure"%string)   
-                                                 |None, _  | _, None  => Error("impossibile"%string)
-                                                 end 
-                                              end 
-                              end  
-              |LVariant c (i, t) e => match eval n' e s with 
-                                      |Error m      => Error m 
-                                      |Ok(VError m) => Ok(VError m)
-                                      |Ok v         => match typeof v with 
-                                                       |Some tv  => 
-                                                         if is_consistent t tv then
-                                                           Ok(VVariant c (i, t) v)
-                                                         else Error("typechecking failure"%string)
-                                                       |None     => Error("impossibile"%string)
-                                                       end 
-                                      end 
-              |LFix i e            => match eval n' e s with 
-                                      |Error m                                => Error m 
-                                      |Ok(VError m)                           => Ok(VError m)
-                                      |Ok((VCls None p e' s_cls) as fclosure) => 
-                                        Ok(VCls (Some i) p e' (bind s_cls i fclosure id_eqb))   
-                                      |_                                      => 
-                                        Error ("Illegal recursive construction"%string)
-                                      end 
-              |LMatch e l          => match eval n' e s with 
-                                      |Error m      => Error m 
-                                      |Ok(VError m) => Ok(VError m)
-                                      |Ok v         => match find (fun '(p, _) => has_match p v) l with 
-                                                       |Some (p', e') => match match_env p' v s with 
-                                                                         |Some s'  => eval n' e' s' 
-                                                                         |None     => Error("impossibile"%string)
-                                                                         end 
-                                                       |None          => Error("pattern matching failure"%string)
-                                                       end 
-                                      end 
+              |LLam arg body => Ok (VCls NotRecursive arg body s)
+              |LApp e1 e2 => 
+                match eval n' e1 s with 
+                |Error mssg                     => Error mssg 
+                |Ok(VError mssg)                => Ok(VError mssg) 
+                |Ok ((VCls typ arg body cls_env) as vcls) =>
+                    match eval n' e2 s with 
+                    |Error mssg      => Error mssg 
+                    |Ok(VError mssg) => Ok(VError mssg)
+                    |Ok v2           =>   
+                      if (has_match arg v2) then 
+                        match typ with 
+                        |NotRecursive   => 
+                          eval n' body (match_env arg v2 cls_env)  
+                        |Recursive name => 
+                          eval n' body (bind 
+                            (match_env arg v2 cls_env) name vcls id_eqb) 
+                        end  
+                      else Error("pattern matching failure"%string)
+                    end   
+                |_  => Error ("Illegal application"%string) 
+                end 
+              |LUnit       => Ok VUnit
+              |LNil        => Ok VNil 
+              |LPair e1 e2 => 
+                match eval n' e1 s with 
+                |Error mssg      => Error mssg 
+                |Ok(VError mssg) => Ok(VError mssg)
+                |Ok v1           => 
+                    match eval n' e2 s with 
+                    |Error m      => Error m 
+                    |Ok(VError m) => Ok(VError m)
+                    |Ok v2        => 
+                      Ok (VPair (v1, typeof v1) (v2, typeof v2))
+                    end 
+                end
+              |LCons e1 e2 => 
+                match eval n' e1 s with 
+                |Error mssg      => Error mssg 
+                |Ok(VError mssg) => Ok(VError mssg)
+                |Ok v1           => 
+                  match eval n' e2 s with 
+                  |Error mssg        => Error mssg 
+                  |Ok(VError mssg)   => Ok(VError mssg)
+                  |Ok VNil           => Ok (VCons v1 VNil (typeof v1))
+                  |Ok((VCons _ _ t) as v2) =>  
+                      if is_consistent (typeof v1) t then 
+                        if nested_empty t then Ok(VCons v1 v2 (typeof v1)) 
+                        else Ok(VCons v1 v2 t)
+                      else Error("typechecking failure"%string) 
+                  |_  => Error("typechecking failure"%string)
+                  end 
+                end  
+              |LVariant c (i, t) e =>
+                match eval n' e s with 
+                |Error mssg      => Error mssg 
+                |Ok(VError mssg) => Ok(VError mssg)
+                |Ok v         =>  
+                    if is_consistent t (typeof v) then
+                      Ok(VVariant c (i, t) v)
+                    else Error("typechecking failure"%string) 
+                end 
+              |LFix name e  => 
+                match eval n' e s with 
+                |Error mssg       => Error mssg 
+                |Ok(VError mssg)  => Ok(VError mssg)
+                |Ok(VCls NotRecursive arg body cls_env) => 
+                  Ok(VCls (Recursive name) arg body cls_env)   
+                |_                                      => 
+                  Error ("Illegal recursive construction"%string)
+                end 
+              |LMatch e l   => 
+                match eval n' e s with 
+                |Error mssg      => Error mssg 
+                |Ok(VError mssg) => Ok(VError mssg)
+                |Ok v            => 
+                    match find (fun '(p, _) => has_match p v) l with 
+                    |Some (p', e') => eval n' e' (match_env p' v s)   
+                    |None          => Error("pattern matching failure"%string)
+                    end 
+                end 
               |LError m            => Ok(VError m)                         
               end 
       end
   
-    with evalop (n: nat) (l: list LExpr) (s:v_env) : evalop_result := 
-      match n with 
+    with evalop (fuel: nat) (l: list LExpr) (s:val_env) : evalop_result := 
+      match fuel with 
       |O    => Error("stack overflow"%string)
-      |S n' =>
-          match l with 
-          |[]   => Ok []
-          |h::t => let tv := evalop n' t s in 
-                    match tv with 
-                    |Error m           => Error m 
-                    |Ok (VError m::_ ) => tv
-                    |Ok l              => match eval n' h s with 
-                                          |Error m       => Error m 
-                                          |Ok(VError m)  => Ok(VError m::l)
-                                          |Ok(VLit x)    => Ok(VLit x::l)
-                                          |_             => 
-                                            Error("Illegal primitive operation construction"%string)
-                                          end 
-                    end
-          end
-      end.        
+      |S n' => match l with 
+               |[]   => Ok []
+               |h::t => 
+                  match evalop n' t s with 
+                  |Error mssg       => Error mssg 
+                  |Ok [VError mssg] => Ok [VError mssg]
+                  |Ok lv            => 
+                    match eval n' h s with 
+                    |Error mssg      => Error mssg 
+                    |Ok(VError mssg) => Ok [VError mssg]
+                    |Ok(VLit x)      => Ok(VLit x::lv)
+                    |_               => 
+                      Error("Illegal primitive operation construction"%string)
+                    end 
+                  end
+               end
+      end.
+
+
+
+    
+    Definition is_error (v: Val) := 
+      match v with VError _ => true | _ => false end.
+
+    Lemma is_error_false_not_typeof_terr: forall v ,
+      is_error v = false <-> ~Typeof v KTError.
+    Proof. 
+      intros; split. 
+      + intro Herr. destruct v; simpl in Herr; try discriminate;
+        unfold not; intro contra; inversion contra.
+      + intro Htof. destruct v; eauto; simpl. 
+        assert (@Typeof I P (VError m) KTError) by (constructor); 
+        contradiction.
+    Qed.      
+
+    Lemma not_Typeof_terr: forall (v: Val) t, 
+      Typeof v t -> 
+      ~Typeof v KTError -> 
+      t <> KTError . 
+    Proof. 
+      intros * Htof Hntof. 
+      unfold not. intro. subst. contradiction.
+    Qed.
+          
+    Lemma wfev_cls_env_extension: 
+      forall e1 s typ arg body cls_env e2 v,
+        EVal e1 s (VCls typ arg body cls_env) ->  
+        EVal e2 s v ->  
+        Match arg v -> 
+        WFEV (match_env arg v cls_env) . 
+    Proof.
+      intros * HEv1 HEv2 Hm. 
+      apply MatchEnv_preservs_wfev with (s := cls_env)
+       (p := arg) (v := v);
+      apply EVal_wfv in HEv1, HEv2; 
+      inversion HEv1; eauto; subst; clear HEv1.   
+      apply match_env_safe; eauto.
+    Qed.
+    
+    Corollary wfev_cls_env_rec_extension: 
+      forall e1 s name arg body cls_env e2 v,
+        EVal e1 s (VCls (Recursive name) arg body cls_env) ->  
+        EVal e2 s v ->  
+        Match arg v -> 
+        WFEV (bind (match_env arg v cls_env) name 
+          (VCls (Recursive name) arg body cls_env) id_eqb) .
+    Proof. 
+      intros * HEv1 HEv2 Hm. constructor. 
+      apply EVal_wfv with (e := e1) (s := s); eauto.
+      apply wfev_cls_env_extension with (e1 := e1) (s:=s) 
+      (typ := Recursive name) (body := body) (e2 := e2); eauto.
+    Qed.  
+
+
+    Lemma eval_cons_correct: 
+      forall n e1 s v1 e2 v2 v, 
+        eval n e1 s = Ok v1 -> 
+        is_error v1 = false ->
+        eval n e2 s = Ok v2 -> 
+        is_error v2 = false -> 
+        eval (S n) (LCons e1 e2) s = Ok v -> 
+        EVal (LCons e1 e2) s v.
+    Proof.         
+        
+    Theorem eval_evalop_correct : 
+      forall n, 
+        (forall e s v, 
+          WFEV s -> 
+          eval n e s = Ok v -> 
+          EVal e s v)  /\ 
+        (forall l s lv, 
+          WFEV s -> 
+          evalop n l s = Ok lv  ->
+          EValOp l s lv) .
+    Proof.
+      induction n; 
+      split; intros * Hwfev Hev. 
+      simpl in Hev. discriminate.
+      simpl in Hev. discriminate.
+      + generalize dependent s. 
+        induction e; intros.
+        * simpl in Hev. destruct (lookup _) eqn: eqlkp; 
+          inversion Hev; subst. constructor; eauto.
+        * simpl in Hev. inversion Hev; subst; constructor; eauto.
+        * simpl in *. destruct (evalop _) eqn: evop; try discriminate.
+          destruct l; destruct (interp_op _) eqn: eqintop; 
+          try discriminate.
+          - inversion Hev; subst; clear Hev. 
+            apply EVal_LOp with (lv := []); destruct IHn; eauto.
+            apply not_one_error_empty.
+          - destruct IHn as [HEv HEvop]. apply HEvop in evop; 
+            eauto. pose proof evop as evop'. 
+            apply canonical_EValOp_result in evop.
+            destruct evop as [Hall | Herr]. 
+            -- unfold all_lit in Hall. 
+               inversion Hall; subst; clear Hall.
+               destruct H1 as [t Htof]. 
+               apply tbase_Typeof_lit in Htof.
+               destruct Htof as [x [*]]; subst.
+               inversion Hev; subst; clear Hev.
+               apply EVal_LOp with (lv := VLit x::l); eauto.
+               unfold not, one_error; intro contra; 
+               destruct contra; discriminate.
+            -- unfold one_error in Herr. 
+               destruct Herr as [m Heq]. 
+               inversion Heq; subst; clear Heq.
+               inversion Hev; subst; clear Hev. 
+               constructor; eauto.
+          - destruct IHn as [HEv HEvop]. apply HEvop in evop; 
+            eauto. pose proof evop as evop'.
+            apply canonical_EValOp_result in evop. 
+            destruct evop as [Hall | Herr].
+            -- unfold all_lit in Hall. 
+               inversion Hall; subst; clear Hall.
+               destruct H1 as [t Htof]. 
+               apply tbase_Typeof_lit in Htof.
+               destruct Htof as [x [*]]; subst.
+               inversion Hev; subst; clear Hev.
+            -- unfold one_error in Herr. 
+               destruct Herr as [m Heq]. 
+               inversion Heq; subst; clear Heq.
+               inversion Hev; subst; clear Hev.
+               constructor; eauto.
+        * inversion Hev; subst; constructor; eauto.
+        * destruct IHn as [HEv HEvop]; 
+          simpl in Hev; destruct (eval _) eqn: eqev; 
+          try discriminate.
+          destruct v0; try discriminate.
+          - destruct (eval n e2 s) eqn: eqev2. 
+            -- destruct (is_error v0) eqn: eqerr. 
+               destruct v0; try discriminate. 
+               ** inversion Hev; subst; clear Hev.
+                  apply EVal_LAppErr_arg with (v := 
+                    VCls typ arg body cls_env); 
+                  try constructor; eauto.
+               ** destruct (has_match _) eqn: eqm.
+                  apply has_match_correct in eqm.
+                  destruct typ. 
+                  {apply EVal_LAppRec with (name := name) (arg := arg) 
+                   (body := body) (cls_env := cls_env)
+                   (v := v0) (cls_env' := match_env arg v0 cls_env); 
+                   eauto. unfold not; intro contra; inversion contra; 
+                   subst; simpl in eqerr; discriminate. 
+                   apply match_env_safe; eauto. 
+                   apply HEv; eauto. apply wfev_cls_env_rec_extension
+                   with (e1 := e1) (s := s) (e2 := e2); eauto.
+                   destruct v0; simpl in eqerr; try discriminate; 
+                   eauto. }
+                  {apply EVal_LApp with (arg := arg) (body := body) 
+                    (cls_env := cls_env) (v := v0) (cls_env' := 
+                     match_env arg v0 cls_env); eauto. unfold not; 
+                     intro contra; inversion contra; subst; simpl in eqerr; 
+                     discriminate. apply match_env_safe; eauto. 
+                     apply HEv; eauto. apply wfev_cls_env_extension with 
+                     (e1 := e1) (typ := NotRecursive) (body := body)
+                     (s := s) (e2 := e2); eauto. destruct v0; 
+                     simpl in eqerr; try discriminate; eauto. }
+                  destruct v0; simpl in eqerr; try discriminate.
+            -- discriminate.
+          - inversion Hev; subst; constructor; eauto.
+        * inversion Hev; constructor; eauto.
+        * inversion Hev; constructor; eauto.
+        * destruct IHn; inversion Hev; subst; clear Hev. 
+          destruct (eval _) eqn : eqev1; try discriminate.
+          destruct (eval n e2 s) eqn: eqev2. 
+          destruct (is_error v0) eqn: eqerr.
+          - destruct v0; simpl in eqerr; try discriminate.
+            inversion H2; subst. constructor; eauto.
+          - destruct (is_error v1) eqn: eqerr1.
+            -- destruct v1; simpl in eqerr1; try discriminate.
+               destruct v0; simpl in eqerr; try discriminate;
+               inversion H2; subst; clear H2; 
+               eapply lpair_propagates_right_verror; eauto; 
+               unfold not; intro contra; inversion contra.
+            -- apply is_error_false_not_typeof_terr in eqerr, eqerr1.
+               assert (Htof1 : exists t0, Typeof v0 t0) by 
+               (apply Typeof_total).
+               assert (Htof2: exists t1, Typeof v1 t1) by 
+               (apply Typeof_total). destruct Htof1 as [t0 Htof1].
+               destruct Htof2 as [t1 Htof2].
+               apply not_Typeof_terr with (t := t0) in eqerr; eauto.
+               apply not_Typeof_terr with (t := t1) in eqerr1; eauto. 
+               destruct v0; simpl in eqerr; try discriminate ;
+               destruct v1; simpl in eqerr1; try discriminate; 
+               inversion H2; inversion Htof1; inversion Htof2;  
+               subst; try apply EVal_LPair; eauto; contradiction.
+          - destruct v0; try discriminate. inversion H2; subst; 
+            constructor; eauto.
+        * destruct IHn; inversion Hev; clear Hev. 
+          destruct (eval _) eqn: eqv1; try discriminate.
+          destruct (eval n e2 s) eqn: eqev2.
+          destruct (is_error v0) eqn: eqerr0.
+          - destruct v0; simpl in eqerr0; try discriminate.
+            inversion H2; subst; constructor; eauto.
+          - destruct (is_error v1)eqn: eqerr1.
+            -- destruct v1; simpl in eqerr1; try discriminate.
+               destruct v0; simpl in eqerr0; try discriminate; 
+               inversion H2; subst; eapply EVal_LConsErr_tail; 
+               eauto; unfold not; intro contra; inversion contra.
+            -- destruct v0; simpl in eqerr0; try discriminate;
+               simpl in H2;
+               destruct v1; simpl in eqerr1; try discriminate; 
+               (* con questo mi occupo dei casi in cui v2 := VNil *)
+               inversion H2; subst; clear H2; try eapply 
+               EVal_LCons; eauto; try destruct v0, v2; 
+               try destruct inf; try constructor; try (
+                unfold not; intro contra; discriminate
+               );
+               (*  *)
+               destruct el_type; try discriminate; simpl in H3; 
+               inversion H3; subst; clear H3. 
+               {apply EVal_LCons_nestf with (t1 := KTFunction); 
+                eauto; try constructor. unfold not; intro; discriminate. }
+               {destruct (eqb_BaseTp _) eqn: eqb;
+                 try discriminate; inversion H2; 
+                subst; clear H2; apply EVal_LCons_nestf with 
+                (t1 := KTBase (base_tp_of_base_vl x)); eauto; 
+                try constructor. unfold not. intro; discriminate. }
+               inversion H2; subst. try eapply EVal_LCons; eauto   
+             
+
 
 
 

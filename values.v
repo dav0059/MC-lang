@@ -23,10 +23,12 @@ Section Values.
       (@base_tp_of_base_vl P x) (at level 50) .
     Local Notation " 'id_eqb' " := (@id_eqb I).
     
+    
+    Variant TypeOfClsoure := Recursive (name : Ide) | NotRecursive .
 
     Inductive Val : Type := 
-    |VCls (arg: KPat ) (body: LExpr) (cls_env: env Ide Val)
-    |VRecCls (name : Ide) (arg: KPat) (body: LExpr) (cls_env: env Ide Val)
+    |VCls (typ: TypeOfClsoure) (arg: KPat ) (body: LExpr) 
+          (cls_env: env Ide Val)
     |VLit (x: BaseVl)
     |VUnit 
     |VNil 
@@ -34,15 +36,12 @@ Section Values.
     |VCons (v1 v2: Val) (el_type: KTp)
     |VVariant (c: Constr) (inf: Ide * KTp) (v: Val)
     |VError (m: Message). 
-
-
+    
     Definition val_env := env Ide Val.
-                      
+
     Inductive Typeof : Val -> KTp -> Prop := 
-     |Typeof_Cls      : forall arg body cls_env, 
-                         Typeof (VCls arg body cls_env) KTFunction
-     |Typeof_RCls     : forall name arg body cls_env, 
-                         Typeof (VRecCls name arg body cls_env) KTFunction  
+     |Typeof_Cls      : forall typ arg body cls_env, 
+                         Typeof (VCls typ arg body cls_env) KTFunction  
      |Typeof_VLit     : forall x, Typeof (VLit x) (KTBase (base_tp_of_base_vl x)) 
      |Typeof_VUnit    :  Typeof VUnit KTUnit 
      |Typeof_VNil     : Typeof VNil (KTList KTEmpty) 
@@ -56,12 +55,9 @@ Section Values.
      
  
     Inductive WFV : Val -> Prop :=
-     |WFV_Cls      : forall arg body cls_env,
+     |WFV_Cls      : forall typ arg body cls_env,
                       WFEV cls_env -> 
-                      WFV (VCls arg body cls_env)
-     |WFV_RCls     : forall name arg body cls_env, 
-                      WFEV cls_env -> 
-                      WFV (VRecCls name arg body cls_env)
+                      WFV (VCls typ arg body cls_env)
      |WFV_VLit     : forall x, WFV (VLit x)
      |WFV_VUnit    :  WFV VUnit 
      |WFV_VNil     :  WFV VNil  
@@ -180,7 +176,6 @@ Section Values.
     Proof. 
       intros. destruct v. 
       + exists KTFunction. constructor. 
-      + exists KTFunction. constructor.
       + exists (KTBase (base_tp_of_base_vl x)).
         constructor.
       + exists KTUnit. constructor. 
@@ -212,7 +207,7 @@ Section Values.
       constructor. 
     Qed. 
  
-    Theorem Typeof_eq_lit: forall v t, 
+    Theorem tbase_Typeof_lit: forall v t, 
      Typeof v (KTBase t) <-> 
      exists x, v = VLit x /\ base_tp_of_base_vl x = t. 
     Proof. 
@@ -230,7 +225,7 @@ Section Values.
     Qed.  
   
        
-    Theorem Typeof_eq_listempty: forall v , 
+    Theorem listempty_Typeof_nil: forall v , 
      WFV v -> 
      Typeof v (KTList KTEmpty) <-> v = VNil. 
     Proof. 
@@ -242,6 +237,20 @@ Section Values.
         apply tempty_is_empty in H4; contradiction.
       + intro. subst; constructor.
     Qed. 
+    
+
+    Theorem tlist_Typeof_nelist: forall t v,
+      t <> KTEmpty ->  
+      Typeof v (KTList t) <-> 
+      exists v1 v2, v = VCons v1 v2 t .
+    Proof. 
+      intros * Hneq; split. 
+      + intro Htof. inversion Htof; subst. contradiction.
+        exists v1 ,v2. reflexivity.
+      + intro Hex. destruct Hex as [v1 [v2]]; subst. 
+        constructor.
+    Qed.  
+         
 
     Theorem Typeof_neq_tvariant: forall v t l, 
       Typeof v t ->
@@ -350,8 +359,7 @@ Section Values.
 
     Definition typeof (v: Val) : KTp := 
        match v with 
-       |VCls _ _ _            => KTFunction
-       |VRecCls _ _ _ _       => KTFunction 
+       |VCls _ _ _ _          => KTFunction
        |VLit x                => KTBase (base_tp_of_base_vl x) 
        |VUnit                 => KTUnit 
        |VNil                  => KTList (KTEmpty)
@@ -378,26 +386,26 @@ Section Values.
       end.
 
 
-    Fixpoint match_env (p: KPat) (v: Val) (s: val_env) : option val_env := 
+    Fixpoint match_env_opt (p: KPat) (v: Val) (s: val_env) : option val_env := 
       match p, v with 
       |KPVar i, _                     => Some (bind s i v id_eqb) 
       |KPLit _, VLit _                => Some s  
-      |KPAs p i, v                    => match match_env p v s with  
+      |KPAs p i, v                    => match match_env_opt p v s with  
                                          |Some s' => Some (bind s' i v id_eqb) 
                                          |None    => None 
                                          end
       |KPAny, _                       => Some s 
       |KPUnit, VUnit                  => Some s
       |KPNil, VNil                    => Some s 
-      |KPPair p1 p2, VPair v1 v2      => match match_env p1 (fst v1) s with 
-                                         |Some s' => match_env p2 (fst v2) s' 
+      |KPPair p1 p2, VPair v1 v2      => match match_env_opt p1 (fst v1) s with 
+                                         |Some s' => match_env_opt p2 (fst v2) s' 
                                          |None    => None 
                                          end 
-      |KPCons p1 p2, VCons v1 v2 _    => match match_env p1 v1 s with 
-                                         |Some s' => match_env p2 v2 s' 
+      |KPCons p1 p2, VCons v1 v2 _    => match match_env_opt p1 v1 s with 
+                                         |Some s' => match_env_opt p2 v2 s' 
                                          |None    => None 
                                          end
-      |KPVariant _ p, VVariant _ _ v  => match_env p v s   
+      |KPVariant _ p, VVariant _ _ v  => match_env_opt p v s   
       |_, _                           => None
       end.   
      
@@ -466,8 +474,8 @@ Section Values.
     Qed.    
     
 
-    Theorem match_env_correct: forall p v s s', 
-      match_env p v s = Some s' -> 
+    Theorem match_env_opt_correct: forall p v s s', 
+      match_env_opt p v s = Some s' -> 
       MatchEnv p v s s'.
     Proof. 
       intros * Hm.
@@ -478,7 +486,7 @@ Section Values.
       + inversion Hm; subst; apply MatchEnv_PVar; eauto. 
       + destruct v; try discriminate; inversion Hm; 
         subst; apply MatchEnv_PLit; eauto.
-      + destruct (match_env _) eqn: eqm; try discriminate; 
+      + destruct (match_env_opt _) eqn: eqm; try discriminate; 
         inversion Hm. subst; apply MatchEnv_PAs; eauto.
       + inversion Hm; subst; apply MatchEnv_PAny; eauto. 
       + destruct v; try discriminate;
@@ -486,11 +494,11 @@ Section Values.
       + destruct v; try discriminate;
         inversion Hm; subst; apply MatchEnv_PNil.  
       + destruct v; try discriminate.
-        destruct (match_env p1 _) eqn: eqm; try discriminate. 
+        destruct (match_env_opt p1 _) eqn: eqm; try discriminate. 
         destruct v1, v2; apply MatchEnv_PPair with (s' := v);
         simpl in *; try apply IHp1; try apply IHp2; eauto.
       + destruct v; try discriminate. 
-        destruct (match_env _) eqn: eqm; try discriminate.
+        destruct (match_env_opt _) eqn: eqm; try discriminate.
         apply MatchEnv_PCons with (s' := v); 
         try apply IHp1; try apply IHp2; eauto.
       + destruct v; try discriminate; apply MatchEnv_PVariant; 
@@ -498,25 +506,67 @@ Section Values.
     Qed.
     
     
-    Theorem match_env_complete: forall p v s s', 
+    Theorem match_env_opt_complete: forall p v s s', 
       MatchEnv p v s s' -> 
-      match_env p v s = Some s'. 
+      match_env_opt p v s = Some s'. 
     Proof. 
       intros * HME.     
       induction HME; subst; eauto; simpl;
-      destruct (match_env _) eqn: eqm; try discriminate;
+      destruct (match_env_opt _) eqn: eqm; try discriminate;
       try inversion IHHME; 
       try inversion IHHME1; 
       try inversion IHHME2; subst; eauto.
     Qed.
 
-    Corollary match_env_eq_MatchEnv: forall p v s s', 
-      match_env p v s = Some s' <-> MatchEnv p v s s'.
+    Corollary match_env_opt_eq_MatchEnv: forall p v s s', 
+      match_env_opt p v s = Some s' <-> MatchEnv p v s s'.
     Proof. 
       split. 
-      apply match_env_correct. 
-      apply match_env_complete.
+      apply match_env_opt_correct. 
+      apply match_env_opt_complete.
     Qed.
+
+    (* a function for constructing the pattern matching environment 
+       returning as a default value the input environment. *)
+    Fixpoint match_env (p: KPat) (v: Val) (s: val_env) : val_env := 
+      match p, v with 
+      |KPVar i, _                     => bind s i v id_eqb 
+      |KPAs p i, v                    => 
+         bind (match_env p v s) i v id_eqb  
+      |KPPair p1 p2, VPair v1 v2      => 
+         match_env p2 (fst v2) (match_env p1 (fst v1) s)  
+      |KPCons p1 p2, VCons v1 v2 _    => 
+         match_env p2 v2 (match_env p1 v1 s)
+                                         
+      |KPVariant _ p, VVariant _ _ v  => match_env p v s   
+      |_, _                           => s
+      end.   
+
+
+    (* we can prove that under the assumption of a successful match 
+       the match_env function is equivalent to match_env_opt. *)
+    Theorem match_env_safe: forall p v s s', 
+      Match p v -> 
+      match_env p v s = s' <-> MatchEnv p v s s'. 
+    Proof.
+      intros * Hm. split. 
+      + intro Hme.
+        generalize dependent s'.
+        generalize dependent s.  
+        induction Hm; intros; 
+        simpl in *; subst; try constructor; eauto. 
+        * apply MatchEnv_PPair with (s' := 
+          match_env p1 (fst v1) s); eauto.
+        * apply MatchEnv_PCons with (s' := 
+          match_env p1 v1 s); eauto.
+      + intro HME. induction HME; 
+        inversion Hm; subst; simpl; try f_equal; eauto.
+        * apply IHHME1 in H2 ; subst.
+          apply IHHME2 in H4; subst. reflexivity.
+        * apply IHHME1 in H2; subst. 
+          apply IHHME2 in H5; subst; reflexivity.
+    Qed. 
+          
 
     Theorem FirstMatch_eq_find_match : 
       forall v l result,  
