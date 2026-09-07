@@ -570,23 +570,23 @@ Section Values.
 
     Theorem FirstMatch_eq_find_match : 
       forall v l result,  
-        find (fun x => has_match (fst x) v) l = result <->
+        find (fun '(p, _) => has_match p v) l = result <->
         FirstMatch v l result.
     Proof. 
       intros. split. 
       + intro Hfind.
         induction l; intros.
         * simpl in Hfind; subst. constructor.
-        * simpl in Hfind. destruct (has_match _) eqn: eqm. 
+        * simpl in Hfind. destruct a, (has_match _) eqn: eqm. 
           apply has_match_correct in eqm; subst.
           apply FirstMatch_Head. eauto.
           apply has_match_eq_Match_contra in eqm.
           apply IHl in Hfind. apply FirstMatch_Tail; eauto.
-      + intro HFm. induction HFm; eauto. 
-        * apply has_match_complete in H. 
-          simpl. rewrite H. eauto.
-        * apply has_match_eq_Match_contra in H. 
-          simpl. rewrite H. eauto.
+      + intro HFm. induction HFm; eauto; 
+        try apply has_match_complete in H;  
+        try apply has_match_eq_Match_contra in H; 
+        simpl; destruct head; simpl in *; 
+        rewrite H; eauto.
     Qed.  
 
 

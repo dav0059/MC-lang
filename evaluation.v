@@ -839,6 +839,42 @@ Section EVALUATION.
     Qed.  
 
 
+    Lemma eval_pair_correct: 
+      forall n e1 s e2 v, 
+       (forall s e v, 
+          WFEV s -> 
+          eval n e s = Ok v -> 
+          EVal e s v) -> 
+       WFEV s ->  
+       eval (S n) (LPair e1 e2) s = Ok v -> 
+       EVal (LPair e1 e2) s v.
+    Proof. 
+      intros * HInd Hwfev Hev. simpl in Hev. 
+      destruct (eval _) eqn: eqv1; try discriminate. 
+      destruct (eval n e2 s) eqn: eqev2.
+      destruct (is_error v0) eqn: eqerr0. 
+      + destruct v0; try discriminate; inversion Hev; 
+        subst; constructor; eauto.
+      + destruct (is_error v1) eqn: eqerr1.
+        * destruct v1; try discriminate.
+          destruct v0; inversion Hev; subst;  
+          eapply EVal_LPairErr_snd; eauto;  
+          try (unfold not; intro contra; inversion contra);
+          simpl in *; discriminate.
+        * destruct v0; try discriminate; 
+          destruct v1; try discriminate; 
+          inversion Hev; subst; clear Hev; 
+          eapply EVal_LPair; eauto;
+          try destruct v1, v2; try destruct inf; 
+          try destruct v0, v2; try destruct v1, v3;  
+          try destruct v0; try destruct inf0; 
+          try constructor; 
+          try (unfold not; intro; discriminate).
+      + destruct v0; try discriminate. inversion Hev; subst.
+        constructor; eauto.
+    Qed.
+
+
     Lemma eval_cons_correct: 
       forall n e1 s e2 v,
         (forall s e v, 
@@ -855,10 +891,10 @@ Section EVALUATION.
       destruct v0; try discriminate. 
       + destruct (is_error v1) eqn: eqerr1. 
         * (* v1 := VError m *) 
-          destruct v1; simpl in eqerr1; try discriminate. 
+          destruct v1; try discriminate. 
           inversion Hev; subst; eapply EVal_LConsErr_tail; 
           eauto. unfold not. intro contra. inversion contra. 
-        * destruct v1; simpl in eqerr1; try discriminate.
+        * destruct v1; try discriminate.
           (* v1 := VNil *)
           {inversion Hev; subst; clear Hev; 
            eapply EVal_LCons; eauto. constructor. 
@@ -869,10 +905,10 @@ Section EVALUATION.
            eauto; try constructor. unfold not; intro; discriminate. }
       + destruct (is_error v1) eqn: eqerr1. 
         * (* v1 := VError m *) 
-          destruct v1; simpl in eqerr1; try discriminate. 
+          destruct v1; try discriminate. 
           inversion Hev; subst; eapply EVal_LConsErr_tail; 
           eauto. unfold not. intro contra. inversion contra.
-        * destruct v1; simpl in eqerr1; try discriminate.
+        * destruct v1; try discriminate.
           (* v1 := VNil *)
           {inversion Hev; subst; clear Hev; 
            eapply EVal_LCons; eauto. constructor. 
@@ -888,10 +924,10 @@ Section EVALUATION.
             }
       + destruct (is_error v1) eqn: eqerr1. 
         * (* v1 := VError m *) 
-          destruct v1; simpl in eqerr1; try discriminate. 
+          destruct v1; try discriminate. 
           inversion Hev; subst; eapply EVal_LConsErr_tail; 
           eauto. unfold not. intro contra. inversion contra.
-        * destruct v1; simpl in eqerr1; try discriminate.
+        * destruct v1; try discriminate.
           (* v1 := VNil *)
           {inversion Hev; subst; clear Hev; 
            eapply EVal_LCons; eauto. constructor. 
@@ -902,10 +938,10 @@ Section EVALUATION.
            eauto; try constructor. unfold not; intro; discriminate. }
       + destruct (is_error v1) eqn: eqerr1. 
         * (* v1 := VError m *) 
-          destruct v1; simpl in eqerr1; try discriminate. 
+          destruct v1; try discriminate. 
           inversion Hev; subst; eapply EVal_LConsErr_tail; 
           eauto. unfold not. intro contra. inversion contra.
-        * destruct v1; simpl in eqerr1; try discriminate.
+        * destruct v1; try discriminate.
           (* v1 := VNil *)
           {inversion Hev; subst; clear Hev; 
            eapply EVal_LCons; eauto. constructor. 
@@ -922,10 +958,10 @@ Section EVALUATION.
              unfold not; intro; discriminate. }
       + destruct (is_error v1) eqn: eqerr1. 
         * (* v1 := VError m *) 
-          destruct v1; simpl in eqerr1; try discriminate. 
+          destruct v1; try discriminate. 
           inversion Hev; subst; eapply EVal_LConsErr_tail; 
           eauto. unfold not. intro contra. inversion contra.
-        * destruct v1; simpl in eqerr1; try discriminate.
+        * destruct v1; try discriminate.
           (* v1 := VNil *)
           {inversion Hev; subst; clear Hev; 
            eapply EVal_LCons; eauto; destruct v0, v2; try constructor. 
@@ -939,10 +975,10 @@ Section EVALUATION.
            constructor. apply is_consistent_correct; simpl; eauto. }
       +  destruct (is_error v1) eqn: eqerr1. 
         * (* v1 := VError m *) 
-          destruct v1; simpl in eqerr1; try discriminate. 
+          destruct v1; try discriminate. 
           inversion Hev; subst; eapply EVal_LConsErr_tail; 
           eauto. unfold not. intro contra. inversion contra.
-        * destruct v1; simpl in eqerr1; try discriminate.
+        * destruct v1; try discriminate.
           (* v1 := VNil *)
           {inversion Hev; subst; clear Hev; 
            eapply EVal_LCons; eauto. constructor. 
@@ -958,14 +994,14 @@ Section EVALUATION.
              apply is_consistent_correct; eauto. }
       +  destruct (is_error v1) eqn: eqerr1. 
         * (* v1 := VError m *) 
-          destruct v1; simpl in eqerr1; try discriminate. 
+          destruct v1; try discriminate. 
           inversion Hev; subst; eapply EVal_LConsErr_tail; 
           eauto. unfold not. intro contra. inversion contra.
-        * destruct v1; simpl in eqerr1; try discriminate.
+        * destruct v1; try discriminate.
           (* v1 := VNil *)
           {inversion Hev; subst; clear Hev; 
-           eapply EVal_LCons; eauto; destruct inf; try constructor. 
-           unfold not; intro; discriminate. }
+           eapply EVal_LCons; eauto; destruct inf;
+           try constructor. unfold not; intro; discriminate. }
           (* v1 := VCons v1_1 v1_2 el_type *)
           {destruct (is_consistent) eqn: eqc; try discriminate.
            destruct (nested_empty _) eqn: eqnest; simpl in *; 
@@ -974,13 +1010,91 @@ Section EVALUATION.
              destruct inf; try constructor. destruct el_type; 
              try discriminate.
            + destruct inf; apply EVal_LCons_nestf with (t1 := KTRef i); 
-             eauto; try constructor. unfold not; intro; discriminate.
-             apply is_consistent_correct; eauto. }
+             eauto; try constructor. unfold not; intro; 
+             discriminate. apply is_consistent_correct; eauto. }
       + inversion Hev; subst; constructor; eauto.
       + inversion Hev; subst; constructor; eauto.
     Qed.
 
-    Check eval_cons_correct.
+    
+    Lemma eval_variant_correct: 
+     forall n s c inf e v,
+        (forall s e v, 
+          WFEV s -> 
+          eval n e s = Ok v -> 
+          EVal e s v) -> 
+        WFEV s ->    
+        eval (S n) (LVariant c inf e) s = Ok v -> 
+        EVal (LVariant c inf e) s v.
+    Proof. 
+      intros * Hind Hwfev Hev .
+      simpl in Hev. destruct inf. 
+      destruct (eval n e s) eqn: eqev; 
+      try discriminate.
+      destruct (is_error v0) eqn: eqerr. 
+      + destruct v0; try discriminate. inversion Hev; 
+        subst; constructor; eauto.
+      + destruct (is_consistent _) eqn: eqc.
+        * destruct v0; try discriminate; inversion Hev; 
+          subst; clear Hev; eapply EVal_LVariant; eauto;
+          try constructor; try apply is_consistent_correct; 
+          eauto; simpl; try destruct v1, v2; try destruct inf; 
+          try constructor; try (unfold not; intro; discriminate).
+        * destruct v0; discriminate.
+    Qed.
+        
+
+    Lemma eval_match_correct: 
+     forall n s e cases v,
+        (forall s e v, 
+          WFEV s -> 
+          eval n e s = Ok v -> 
+          EVal e s v) -> 
+        WFEV s ->    
+        eval (S n) (LMatch e cases) s = Ok v -> 
+        EVal (LMatch e cases) s v.
+    Proof. 
+      intros * Hind Hwfev Hev. 
+      simpl in Hev. destruct (eval _) eqn: eqev; 
+      try discriminate. 
+      destruct (is_error v0) eqn: eqerr. 
+      + destruct v0; try discriminate; inversion Hev; 
+        subst; constructor; eauto.
+      + destruct (find _) eqn: eqfind; try discriminate. 
+        * eapply FirstMatch_eq_find_match in eqfind; 
+          inversion eqfind; subst; clear eqfind.
+          - destruct v0; try discriminate; destruct p; 
+            eapply EVal_LMatch;try (eapply match_env_safe); eauto; 
+            try constructor; simpl; eauto;
+            try (unfold not; intro contra; inversion contra); 
+            eapply Hind; eauto; simpl in *; 
+            eapply MatchEnv_preservs_wfev; eauto; 
+            try (apply match_env_safe); eauto; 
+            eapply EVal_wfv; eauto.
+          - destruct v0; try discriminate; destruct p. 
+            eapply EVal_LMatch; try apply match_env_safe; eauto; 
+            try constructor. s; eauto; 
+            try (unfold not; intro contra; inversion contra).
+            apply H0.
+
+    Lemma eval_fix_correct : 
+      forall n s name e v,
+        (forall s e v, 
+          WFEV s -> 
+          eval n e s = Ok v -> 
+          EVal e s v) -> 
+        WFEV s ->    
+        eval (S n) (LFix name e) s = Ok v -> 
+        EVal (LFix name e) s v.
+    Proof. 
+      intros * Hind Hwfev Hev. 
+      simpl in Hev. destruct (eval _) eqn: eqev; try discriminate.
+      destruct v0; try discriminate.
+      + destruct typ; try discriminate. inversion Hev; 
+        subst; constructor; eauto.
+      + inversion Hev; constructor; eauto.
+    Qed. 
+
         
     Theorem eval_evalop_correct : 
       forall n, 
@@ -998,10 +1112,10 @@ Section EVALUATION.
       simpl in Hev. discriminate.
       simpl in Hev. discriminate.
       + generalize dependent s. 
-        induction e; intros.
+        induction e; intros;
+        try (inversion Hev; subst; constructor; eauto).
         * simpl in Hev. destruct (lookup _) eqn: eqlkp; 
           inversion Hev; subst. constructor; eauto.
-        * simpl in Hev. inversion Hev; subst; constructor; eauto.
         * simpl in *. destruct (evalop _) eqn: evop; try discriminate.
           destruct l; destruct (interp_op _) eqn: eqintop; 
           try discriminate.
@@ -1041,7 +1155,6 @@ Section EVALUATION.
                inversion Heq; subst; clear Heq.
                inversion Hev; subst; clear Hev.
                constructor; eauto.
-        * inversion Hev; subst; constructor; eauto.
         * destruct IHn as [HEv HEvop]; 
           simpl in Hev; destruct (eval _) eqn: eqev; 
           try discriminate.
@@ -1078,67 +1191,11 @@ Section EVALUATION.
                   destruct v0; simpl in eqerr; try discriminate.
             -- discriminate.
           - inversion Hev; subst; constructor; eauto.
-        * inversion Hev; constructor; eauto.
-        * inversion Hev; constructor; eauto.
-        * destruct IHn; inversion Hev; subst; clear Hev. 
-          destruct (eval _) eqn : eqev1; try discriminate.
-          destruct (eval n e2 s) eqn: eqev2. 
-          destruct (is_error v0) eqn: eqerr.
-          - destruct v0; simpl in eqerr; try discriminate.
-            inversion H2; subst. constructor; eauto.
-          - destruct (is_error v1) eqn: eqerr1.
-            -- destruct v1; simpl in eqerr1; try discriminate.
-               destruct v0; simpl in eqerr; try discriminate;
-               inversion H2; subst; clear H2; 
-               eapply lpair_propagates_right_verror; eauto; 
-               unfold not; intro contra; inversion contra.
-            -- apply is_error_false_not_typeof_terr in eqerr, eqerr1.
-               assert (Htof1 : exists t0, Typeof v0 t0) by 
-               (apply Typeof_total).
-               assert (Htof2: exists t1, Typeof v1 t1) by 
-               (apply Typeof_total). destruct Htof1 as [t0 Htof1].
-               destruct Htof2 as [t1 Htof2].
-               apply not_Typeof_terr with (t := t0) in eqerr; eauto.
-               apply not_Typeof_terr with (t := t1) in eqerr1; eauto. 
-               destruct v0; simpl in eqerr; try discriminate ;
-               destruct v1; simpl in eqerr1; try discriminate; 
-               inversion H2; inversion Htof1; inversion Htof2;  
-               subst; try apply EVal_LPair; eauto; contradiction.
-          - destruct v0; try discriminate. inversion H2; subst; 
-            constructor; eauto.
-        * destruct IHn; inversion Hev; clear Hev. 
-          destruct (eval _) eqn: eqv1; try discriminate.
-          destruct (eval n e2 s) eqn: eqev2.
-          destruct (is_error v0) eqn: eqerr0.
-          - destruct v0; simpl in eqerr0; try discriminate.
-            inversion H2; subst; constructor; eauto.
-          - destruct (is_error v1)eqn: eqerr1.
-            -- destruct v1; simpl in eqerr1; try discriminate.
-               destruct v0; simpl in eqerr0; try discriminate; 
-               inversion H2; subst; eapply EVal_LConsErr_tail; 
-               eauto; unfold not; intro contra; inversion contra.
-            -- destruct v0; simpl in eqerr0; try discriminate;
-               simpl in H2;
-               destruct v1; simpl in eqerr1; try discriminate; 
-               (* con questo mi occupo dei casi in cui v2 := VNil *)
-               inversion H2; subst; clear H2; try eapply 
-               EVal_LCons; eauto; try destruct v0, v2; 
-               try destruct inf; try constructor; try (
-                unfold not; intro contra; discriminate
-               );
-               (*  *)
-               destruct el_type; try discriminate; simpl in H3; 
-               inversion H3; subst; clear H3. 
-               {apply EVal_LCons_nestf with (t1 := KTFunction); 
-                eauto; try constructor. unfold not; intro; discriminate. }
-               {destruct (eqb_BaseTp _) eqn: eqb;
-                 try discriminate; inversion H2; 
-                subst; clear H2; apply EVal_LCons_nestf with 
-                (t1 := KTBase (base_tp_of_base_vl x)); eauto; 
-                try constructor. unfold not. intro; discriminate. }
-               inversion H2; subst. try eapply EVal_LCons; eauto   
-             
-
+        * destruct IHn; eapply eval_pair_correct; eauto.
+        * destruct IHn; eapply eval_cons_correct; eauto.
+        * destruct IHn; eapply eval_variant_correct; eauto.
+        * destruct IHn; eapply eval_fix_correct; eauto.
+        *  
 
 
 
