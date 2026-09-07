@@ -254,14 +254,23 @@ Section EVALUATION.
         exists (base_tp_of_base_vl x). constructor.
     Qed. 
 
+
     Corollary EvalOp_result_noerror: forall l s l', 
       EValOp l s l' -> 
-      ~one_error l' -> 
-      all_lit l'.
+      all_lit l' -> 
+      ~one_error l'.
     Proof. 
-      intros * Hevop Hnerr. 
+      intros * Hevop Hall. 
       apply canonical_EValOp_result in Hevop. 
-      destruct Hevop. eauto. contradiction.
+      destruct Hevop. 
+      + inversion Hall; try apply not_one_error_empty.
+        intro contra. unfold one_error in contra.
+        destruct H0 as [t Htof]. apply tbase_Typeof_lit 
+        in Htof. destruct Htof as [* [*]]; subst.
+        destruct contra as [m contra]. inversion contra.
+      + inversion Hall; try apply not_one_error_empty.
+        inversion H. inversion H3; subst. 
+        inversion H4; subst. destruct H0. inversion H0.
     Qed.
 
     Lemma getBaseVl_safe: forall l s l', 
@@ -1044,6 +1053,25 @@ Section EVALUATION.
     Qed.
         
 
+    Lemma eval_fix_correct : 
+      forall n s name e v,
+        (forall s e v, 
+          WFEV s -> 
+          eval n e s = Ok v -> 
+          EVal e s v) -> 
+        WFEV s ->    
+        eval (S n) (LFix name e) s = Ok v -> 
+        EVal (LFix name e) s v.
+    Proof. 
+      intros * Hind Hwfev Hev. 
+      simpl in Hev. destruct (eval _) eqn: eqev; try discriminate.
+      destruct v0; try discriminate.
+      + destruct typ; try discriminate. inversion Hev; 
+        subst; constructor; eauto.
+      + inversion Hev; constructor; eauto.
+    Qed. 
+
+    
     Lemma eval_match_correct: 
      forall n s e cases v,
         (forall s e v, 
@@ -1069,32 +1097,18 @@ Section EVALUATION.
             try (unfold not; intro contra; inversion contra); 
             eapply Hind; eauto; simpl in *; 
             eapply MatchEnv_preservs_wfev; eauto; 
-            try (apply match_env_safe); eauto; 
+            try apply match_env_safe; eauto; 
             eapply EVal_wfv; eauto.
-          - destruct v0; try discriminate; destruct p. 
-            eapply EVal_LMatch; try apply match_env_safe; eauto; 
-            try constructor. s; eauto; 
-            try (unfold not; intro contra; inversion contra).
-            apply H0.
-
-    Lemma eval_fix_correct : 
-      forall n s name e v,
-        (forall s e v, 
-          WFEV s -> 
-          eval n e s = Ok v -> 
-          EVal e s v) -> 
-        WFEV s ->    
-        eval (S n) (LFix name e) s = Ok v -> 
-        EVal (LFix name e) s v.
-    Proof. 
-      intros * Hind Hwfev Hev. 
-      simpl in Hev. destruct (eval _) eqn: eqev; try discriminate.
-      destruct v0; try discriminate.
-      + destruct typ; try discriminate. inversion Hev; 
-        subst; constructor; eauto.
-      + inversion Hev; constructor; eauto.
-    Qed. 
-
+          - destruct v0; try discriminate; destruct p; 
+            eapply EVal_LMatch; eauto; 
+            try (unfold not; intro contra; inversion contra); 
+            try eapply FirstMatch_Tail; eauto;
+            apply Hind in Hev;  
+            try eapply MatchEnv_preservs_wfev; eauto; 
+            try eapply EVal_wfv; try apply match_env_safe; eauto; 
+            eapply FirstMatch_Match; eauto.
+        * destruct v0; try discriminate.
+    Qed.
         
     Theorem eval_evalop_correct : 
       forall n, 
@@ -1195,7 +1209,37 @@ Section EVALUATION.
         * destruct IHn; eapply eval_cons_correct; eauto.
         * destruct IHn; eapply eval_variant_correct; eauto.
         * destruct IHn; eapply eval_fix_correct; eauto.
-        *  
+        * destruct IHn; eapply eval_match_correct; eauto.
+      + simpl in Hev; destruct IHn as [HinEv HinEvop]; destruct l.  
+        * inversion Hev; subst; constructor; eauto.
+        * destruct (evalop _) eqn: eqevop; try discriminate.
+          pose proof eqevop as eqvop'; 
+          apply HinEvop, canonical_EValOp_result in eqevop; eauto.
+          destruct eqevop as [Hall | Herr]. 
+          - inversion Hall; subst. 
+            {destruct (eval _) eqn: eqev; try discriminate.
+             apply HinEvop in eqvop'; inversion eqvop'; subst; 
+             clear eqvop'; eauto. destruct v; try discriminate; 
+             inversion Hev; subst.
+             * eapply EValOp_cons; try constructor;  
+               eauto; apply not_one_error_empty.
+             * eapply EValOpErr_head; try constructor;  
+               eauto; apply not_one_error_empty. }  
+            {destruct H as [t Htof].
+             apply tbase_Typeof_lit in Htof. 
+             destruct Htof as [* [*]]; subst.   
+             destruct (eval _) eqn: eqv; try discriminate. 
+             destruct v; try discriminate; inversion Hev; subst;
+             try eapply EValOp_cons; 
+             try eapply EValOpErr_head;
+             try eapply EvalOp_result_noerror; eauto. }
+          - destruct l1; unfold one_error in Herr; 
+            destruct Herr; try discriminate; 
+            inversion H; subst; inversion Hev; subst. 
+            eapply EValOpErr_tail; eauto.
+    Qed.   
+
+                     
 
 
 

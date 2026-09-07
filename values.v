@@ -354,8 +354,21 @@ Section Values.
       inversion Hfm2; subst; eauto; try contradiction.
     Qed. 
       
- 
-     
+
+    Lemma FirstMatch_Match : 
+      forall v l p e, 
+        FirstMatch v l (Some (p, e)) -> 
+        Match p v.
+    Proof. 
+      intros * Hfm.
+      generalize dependent e.
+      generalize dependent p. 
+      generalize dependent v. 
+      induction l; intros. 
+      + inversion Hfm.
+      + inversion Hfm; subst; clear Hfm; eauto.
+    Qed.
+
 
     Definition typeof (v: Val) : KTp := 
        match v with 
