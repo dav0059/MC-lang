@@ -12,6 +12,7 @@ Require Import Bool.
 Import ListNotations.
 Open Scope string_scope.
 
+
 Set Implicit Arguments.  
 Set Contextual Implicit. 
 
@@ -31,8 +32,23 @@ Section EVALUATION.
     Local Notation " 'base_tp_of_base_vl' " := (base_tp_of_base_vl P).
    
     
+    Ltac destruct_pairs := 
+      repeat match goal with 
+      | x: ?A * ?B |- _  => destruct x 
+      end . 
+    
+    Ltac inversion_subst H := 
+      inversion H; subst; clear H.
+
+
+    Ltac destruct_elim e := 
+      destruct e; try discriminate.
+(* 
+    Ltac solve_base_case H :=  *)
+       
+      
+
    
-   (* auxiliary functions, lemmas and definitions *)
     Fixpoint getBaseVl (l: list Val) : list BaseVl :=
       match l with 
       |(VLit x)::t => x::getBaseVl t 
@@ -57,6 +73,15 @@ Section EVALUATION.
       unfold not, one_error. intro contra. 
       destruct contra. discriminate. 
     Qed.
+
+    Lemma not_one_error_lit: forall x l, 
+      ~one_error (VLit x::l).
+    Proof. 
+      unfold not, one_error; intros * contra.
+      destruct contra. discriminate. 
+    Qed.
+
+
     
     Inductive EVal : LExpr -> val_env -> Val -> Prop := 
     |EVal_Var      : forall i s v, 
@@ -792,31 +817,6 @@ Section EVALUATION.
                end
       end.
 
-
-
-    
-    Definition is_error (v: Val) := 
-      match v with VError _ => true | _ => false end.
-
-    Lemma is_error_false_not_typeof_terr: forall v ,
-      is_error v = false <-> ~Typeof v KTError.
-    Proof. 
-      intros; split. 
-      + intro Herr. destruct v; simpl in Herr; try discriminate;
-        unfold not; intro contra; inversion contra.
-      + intro Htof. destruct v; eauto; simpl. 
-        assert (@Typeof I P (VError m) KTError) by (constructor); 
-        contradiction.
-    Qed.      
-
-    Lemma not_Typeof_terr: forall (v: Val) t, 
-      Typeof v t -> 
-      ~Typeof v KTError -> 
-      t <> KTError . 
-    Proof. 
-      intros * Htof Hntof. 
-      unfold not. intro. subst. contradiction.
-    Qed.
           
     Lemma wfev_cls_env_extension: 
       forall e1 s typ arg body cls_env e2 v,
@@ -826,11 +826,12 @@ Section EVALUATION.
         WFEV (match_env arg v cls_env) . 
     Proof.
       intros * HEv1 HEv2 Hm. 
-      apply MatchEnv_preservs_wfev with (s := cls_env)
-       (p := arg) (v := v);
-      apply EVal_wfv in HEv1, HEv2; 
-      inversion HEv1; eauto; subst; clear HEv1.   
-      apply match_env_safe; eauto.
+      apply MatchEnv_preservs_wfev with (p := arg)
+      (v := v) (s := cls_env).
+      + apply EVal_wfv in HEv2; eauto.
+      + apply EVal_wfv in HEv1. 
+        inversion HEv1; subst; eauto.
+      + apply match_env_safe; eauto.
     Qed.
     
     Corollary wfev_cls_env_rec_extension: 
@@ -843,13 +844,109 @@ Section EVALUATION.
     Proof. 
       intros * HEv1 HEv2 Hm. constructor. 
       apply EVal_wfv with (e := e1) (s := s); eauto.
-      apply wfev_cls_env_extension with (e1 := e1) (s:=s) 
-      (typ := Recursive name) (body := body) (e2 := e2); eauto.
+      eapply wfev_cls_env_extension; eauto.
     Qed.  
 
 
+    Lemma eval_op_correct: 
+      forall s n op l v, 
+       (forall s e v, 
+         WFEV s -> 
+         eval n e s = Ok v -> 
+         EVal e s v) /\ 
+       (forall s l lv, 
+         WFEV s -> 
+         evalop n l s = Ok lv -> 
+         EValOp l s lv) -> 
+       WFEV s -> 
+       eval (S n) (LOp op l) s = Ok v ->
+       EVal (LOp op l) s v.
+    Proof. 
+      intros * Hind Hwfev Hev. 
+      destruct Hind as [HindEv HindEvop]; simpl in Hev.
+      destruct (evalop _) as [| l0] eqn: evop;
+      try discriminate.
+      destruct l0 as [| v0 l0'].
+      (* l0 := [] *)
+      + simpl in *. destruct (interp_op _) eqn: eqintop; 
+        try discriminate. inversion_subst Hev; 
+        eapply EVal_LOp; eauto. apply not_one_error_empty.
+      (* l0 := v0::l0 *)
+      + apply HindEvop in evop; eauto. 
+        pose proof evop as evop'. 
+        apply canonical_EValOp_result in evop.
+        destruct evop as [Hall | Herr].
+        (* v0 := VLit _ /\ all_lit l0 *)
+        * inversion_subst Hall.
+          destruct H1 as [t Htof]. 
+          apply tbase_Typeof_lit in Htof.
+          destruct Htof as [x [*]]; subst.
+          destruct (interp_op _) eqn: eqintop; 
+          try discriminate. inversion_subst Hev;
+          eapply EVal_LOp; eauto.
+          apply not_one_error_lit.
+        (* v0 := VError _ /\ l0 = []*)
+        * unfold one_error in Herr; 
+          destruct Herr as [m Heq];
+          inversion_subst Heq; 
+          inversion_subst Hev.   
+          constructor; eauto.
+    Qed.
+
+    Lemma eval_app_correct: 
+      forall s n e1 e2 v, 
+       (forall s e v, 
+         WFEV s -> 
+         eval n e s = Ok v -> 
+         EVal e s v) -> 
+       WFEV s -> 
+       eval (S n) (LApp e1 e2) s = Ok v ->
+       EVal (LApp e1 e2) s v.
+    Proof. 
+      intros * Hind Hwfev Hev; simpl in *.
+      destruct (eval _) as [ v0 |] eqn: eqev; 
+      try discriminate.
+      destruct_elim v0.
+      (* v0 := VCls _  *)
+      + destruct (eval n e2 s) as [v1 | ] eqn: eqev2. 
+        * destruct (is_verror v1) eqn: eqerr.
+          (* v1 := VError _ *)
+          - destruct_elim v1; inversion_subst Hev; 
+            eapply EVal_LAppErr_arg; eauto. 
+            constructor.
+          (* v1 <> VError _ *)
+          - destruct (has_match _) eqn: eqm.
+            (* has_match := true *)
+            -- apply has_match_correct in eqm.
+               destruct typ.
+              (* recursive application *)
+               {eapply EVal_LAppRec; eauto.
+                + apply is_verror_false_not_typeof_terr; 
+                  eauto.
+                + apply match_env_safe; eauto.
+                + apply Hind; destruct_elim v1; eauto;
+                  eapply wfev_cls_env_rec_extension; 
+                  eauto. }
+              (* normal application *)
+               {eapply EVal_LApp; eauto.
+                + apply is_verror_false_not_typeof_terr; 
+                  eauto.
+                + apply match_env_safe; eauto.
+                + apply Hind; destruct_elim v1; eauto;
+                  eapply wfev_cls_env_extension; 
+                  eauto. }
+            (* has_match := false *)
+            -- destruct_elim v1. 
+        (* eval n e2 s := Error _ *)
+        * discriminate.
+      (* v0 := VError _ *)
+      + inversion Hev; constructor ; eauto.
+    Qed.
+
+
+     
     Lemma eval_pair_correct: 
-      forall n e1 s e2 v, 
+      forall s n e1 e2 v, 
        (forall s e v, 
           WFEV s -> 
           eval n e s = Ok v -> 
@@ -860,29 +957,45 @@ Section EVALUATION.
     Proof. 
       intros * HInd Hwfev Hev. simpl in Hev. 
       destruct (eval _) eqn: eqv1; try discriminate. 
-      destruct (eval n e2 s) eqn: eqev2.
-      destruct (is_error v0) eqn: eqerr0. 
-      + destruct v0; try discriminate; inversion Hev; 
-        subst; constructor; eauto.
-      + destruct (is_error v1) eqn: eqerr1.
-        * destruct v1; try discriminate.
-          destruct v0; inversion Hev; subst;  
-          eapply EVal_LPairErr_snd; eauto;  
-          try (unfold not; intro contra; inversion contra);
-          simpl in *; discriminate.
-        * destruct v0; try discriminate; 
-          destruct v1; try discriminate; 
-          inversion Hev; subst; clear Hev; 
-          eapply EVal_LPair; eauto;
-          try destruct v1, v2; try destruct inf; 
-          try destruct v0, v2; try destruct v1, v3;  
-          try destruct v0; try destruct inf0; 
-          try constructor; 
-          try (unfold not; intro; discriminate).
-      + destruct v0; try discriminate. inversion Hev; subst.
-        constructor; eauto.
+      destruct (is_verror v0) eqn: eqerr0. 
+    (* v0 := VError _ *)
+      + destruct_elim v0; inversion_subst Hev; 
+        constructor; eauto. 
+     (* v0 <> VError _ *)
+      + destruct (eval n e2 s) eqn: eqev2.
+       (* eval n e2 s := Ok v1 *)
+        * destruct (is_verror v1) eqn: eqerr1.
+          (* v1 := VError _ *)
+          - destruct_elim v0; destruct_elim v1; 
+            inversion_subst Hev;  
+            eapply EVal_LPairErr_snd; eauto; 
+            eapply Typeof_neq_terr; discriminate.
+          (* v1 <> VError _ *)
+          -  destruct_elim v0; destruct_elim v1;
+             inversion_subst Hev.  
+             all: eapply EVal_LPair; eauto; 
+                 destruct_pairs; try discriminate; 
+                 constructor.
+        (* eval n e2 s := Error _ *)
+        * destruct_elim v0; inversion_subst Hev.
     Qed.
 
+
+    Lemma eval_cons_result_tail: 
+      forall n e1 e2 s v v1 v2, 
+       eval (S n) (LCons e1 e2) s = Ok v -> 
+       eval n e1 s = Ok v1 ->  
+       eval n e2 s = Ok v2 ->
+       is_verror v1 = false -> 
+       is_verror v2 = false ->
+       v2 = VNil \/ (exists v v' t, v2 = VCons v v' t).
+    Proof. 
+       intros * Hev Hev1 Hev2 Herr1 Herr2.
+       simpl in *; rewrite Hev1, Hev2 in Hev.
+       destruct_elim v1; destruct_elim v2; 
+       eauto.
+    Qed. 
+         
 
     Lemma eval_cons_correct: 
       forall n e1 s e2 v,
@@ -894,135 +1007,57 @@ Section EVALUATION.
         eval (S n) (LCons e1 e2) s = Ok v -> 
         EVal (LCons e1 e2) s v.
     Proof.    
-      intros * HInd Hwfev Hev. simpl in Hev. 
-      destruct (eval _ ) eqn : eqev1; try discriminate. 
-      destruct (eval n e2 s) eqn: eqev2; 
-      destruct v0; try discriminate. 
-      + destruct (is_error v1) eqn: eqerr1. 
-        * (* v1 := VError m *) 
-          destruct v1; try discriminate. 
-          inversion Hev; subst; eapply EVal_LConsErr_tail; 
-          eauto. unfold not. intro contra. inversion contra. 
-        * destruct v1; try discriminate.
-          (* v1 := VNil *)
-          {inversion Hev; subst; clear Hev; 
-           eapply EVal_LCons; eauto. constructor. 
-           unfold not; intro; discriminate. }
-          (* v1 := VCons v1_1 v1_2 el_type *)
-          {destruct el_type; try discriminate. simpl in *. 
-           inversion Hev; subst; clear Hev; eapply EVal_LCons_nestf; 
-           eauto; try constructor. unfold not; intro; discriminate. }
-      + destruct (is_error v1) eqn: eqerr1. 
-        * (* v1 := VError m *) 
-          destruct v1; try discriminate. 
-          inversion Hev; subst; eapply EVal_LConsErr_tail; 
-          eauto. unfold not. intro contra. inversion contra.
-        * destruct v1; try discriminate.
-          (* v1 := VNil *)
-          {inversion Hev; subst; clear Hev; 
-           eapply EVal_LCons; eauto. constructor. 
-           unfold not; intro; discriminate. }
-          (* v1 := VCons v1_1 v1_2 el_type *)
-          {destruct el_type; try discriminate. simpl in *.
-           destruct (eqb_BaseTp _) eqn: eqb; try discriminate.  
-           inversion Hev; subst; clear Hev; eapply EVal_LCons_nestf; 
-           eauto; try constructor. unfold not; intro; discriminate.
-           assert (H: base_tp_of_base_vl x = t <-> 
-                   eqb_BaseTp P (base_tp_of_base_vl x) t = true) by 
-            (apply reflect_iff; apply eqb_eq_BaseTp); apply H; eauto.
-            }
-      + destruct (is_error v1) eqn: eqerr1. 
-        * (* v1 := VError m *) 
-          destruct v1; try discriminate. 
-          inversion Hev; subst; eapply EVal_LConsErr_tail; 
-          eauto. unfold not. intro contra. inversion contra.
-        * destruct v1; try discriminate.
-          (* v1 := VNil *)
-          {inversion Hev; subst; clear Hev; 
-           eapply EVal_LCons; eauto. constructor. 
-           unfold not; intro; discriminate. }
-          (* v1 := VCons v1_1 v1_2 el_type *)
-          {destruct el_type; try discriminate. simpl in *.
-           inversion Hev; subst; clear Hev; eapply EVal_LCons_nestf; 
-           eauto; try constructor. unfold not; intro; discriminate. }
-      + destruct (is_error v1) eqn: eqerr1. 
-        * (* v1 := VError m *) 
-          destruct v1; try discriminate. 
-          inversion Hev; subst; eapply EVal_LConsErr_tail; 
-          eauto. unfold not. intro contra. inversion contra.
-        * destruct v1; try discriminate.
-          (* v1 := VNil *)
-          {inversion Hev; subst; clear Hev; 
-           eapply EVal_LCons; eauto. constructor. 
-           unfold not; intro; discriminate. }
-          (* v1 := VCons v1_1 v1_2 el_type *)
-          {destruct (nested_empty el_type) eqn: eqnest; simpl in *;
-           destruct el_type; try discriminate; 
-           destruct (is_FOT _) eqn: eqfot; try discriminate; 
-           inversion Hev; subst; clear Hev.
-           + apply EVal_LCons_nestt with (t := KTList el_type); 
-             try apply c_TListNil1; eauto; constructor.
-           + apply EVal_LCons_nestf with (t1 := KTList KTEmpty); 
-             try apply c_TListNil1; eauto; try constructor. 
-             unfold not; intro; discriminate. }
-      + destruct (is_error v1) eqn: eqerr1. 
-        * (* v1 := VError m *) 
-          destruct v1; try discriminate. 
-          inversion Hev; subst; eapply EVal_LConsErr_tail; 
-          eauto. unfold not. intro contra. inversion contra.
-        * destruct v1; try discriminate.
-          (* v1 := VNil *)
-          {inversion Hev; subst; clear Hev; 
-           eapply EVal_LCons; eauto; destruct v0, v2; try constructor. 
-           unfold not; intro; discriminate. }
-          (* v1 := VCons v1_1 v1_2 el_type *)
-          {simpl in *. destruct v0, v2. destruct el_type; 
-           try discriminate; simpl in *. 
-           destruct (is_consistent _ _ && _) eqn: eqc; try discriminate.
-           inversion Hev; subst; clear Hev; eapply EVal_LCons_nestf; 
-           eauto. constructor. unfold not; intro; discriminate.
-           constructor. apply is_consistent_correct; simpl; eauto. }
-      +  destruct (is_error v1) eqn: eqerr1. 
-        * (* v1 := VError m *) 
-          destruct v1; try discriminate. 
-          inversion Hev; subst; eapply EVal_LConsErr_tail; 
-          eauto. unfold not. intro contra. inversion contra.
-        * destruct v1; try discriminate.
-          (* v1 := VNil *)
-          {inversion Hev; subst; clear Hev; 
-           eapply EVal_LCons; eauto. constructor. 
-           unfold not; intro; discriminate. }
-          (* v1 := VCons v1_1 v1_2 el_type *)
-          {destruct (is_consistent _ ) eqn: eqc; try discriminate.
-           destruct (nested_empty el_type0) eqn: eqnest; simpl in Hev; 
-           inversion Hev; subst; clear Hev.
-           + apply EVal_LCons_nestt with (t := el_type0); eauto; 
-             try constructor. apply is_consistent_correct. eauto.
-           + apply EVal_LCons_nestf with (t1 := KTList el_type); eauto; 
-             try constructor. unfold not; intro; discriminate.
-             apply is_consistent_correct; eauto. }
-      +  destruct (is_error v1) eqn: eqerr1. 
-        * (* v1 := VError m *) 
-          destruct v1; try discriminate. 
-          inversion Hev; subst; eapply EVal_LConsErr_tail; 
-          eauto. unfold not. intro contra. inversion contra.
-        * destruct v1; try discriminate.
-          (* v1 := VNil *)
-          {inversion Hev; subst; clear Hev; 
-           eapply EVal_LCons; eauto; destruct inf;
-           try constructor. unfold not; intro; discriminate. }
-          (* v1 := VCons v1_1 v1_2 el_type *)
-          {destruct (is_consistent) eqn: eqc; try discriminate.
-           destruct (nested_empty _) eqn: eqnest; simpl in *; 
-           inversion Hev; subst; clear Hev. 
-           + apply EVal_LCons_nestt with (t := el_type); eauto;
-             destruct inf; try constructor. destruct el_type; 
-             try discriminate.
-           + destruct inf; apply EVal_LCons_nestf with (t1 := KTRef i); 
-             eauto; try constructor. unfold not; intro; 
-             discriminate. apply is_consistent_correct; eauto. }
-      + inversion Hev; subst; constructor; eauto.
-      + inversion Hev; subst; constructor; eauto.
+      intros * HInd Hwfev Hev. 
+      pose proof Hev as Hev'. simpl in Hev. 
+      destruct (eval _ ) as [v0 |] eqn : eqev1; try discriminate. 
+      destruct (eval n e2 s) as [v1 |] eqn: eqev2.
+      (* eval n e2 s := Ok v1   *) 
+      + destruct (is_verror v0) eqn: eqerr0. 
+        (* v0 := VError _ *)
+        * destruct_elim v0.  
+          inversion_subst Hev.
+          constructor; eauto. 
+        (* v0 <> VError _ *)
+        * destruct (is_verror v1) eqn: eqerr1.
+          (* v1 := VError _ *)
+          - destruct_elim v0; destruct_elim v1; 
+            inversion_subst Hev;
+            eapply EVal_LConsErr_tail ; 
+            apply is_verror_false_not_typeof_terr in eqerr0; 
+            eauto.
+          (* v1 <> VError _ *)
+          - assert (H: v1 = VNil \/ 
+             (exists v v' t, v1 = VCons v v' t)) 
+            by (eapply eval_cons_result_tail; eauto).
+            destruct H as [HNil | HCons]. 
+            (* v1 := VNil *)
+            -- subst; destruct_elim v0; 
+               inversion_subst Hev.
+               all: eapply EVal_LCons; eauto; 
+                    destruct_pairs; 
+                    try discriminate;
+                    constructor.
+            (* v1 := VCons _ *)
+            -- destruct HCons as [vh [vt [t HCons]]]. 
+               subst; destruct (is_consistent _) eqn: eqc. 
+               (* is_consistent = true *)
+               ** destruct (nested_empty _) eqn: eqnest.
+                  (* nested_empty = true *)
+                  {destruct_elim v0; inversion_subst Hev;
+                   apply is_consistent_correct in eqc. 
+                   all : eapply EVal_LCons_nestt; eauto;
+                         destruct_pairs; constructor. }
+                  (* nested_empty = false *)
+                  {destruct_elim v0; inversion_subst Hev; 
+                   apply is_consistent_correct in eqc. 
+                   all : eapply EVal_LCons_nestf; eauto; simpl;
+                         destruct_pairs; try discriminate; 
+                         constructor.  }
+              (* is_consistent = false *)
+              ** destruct_elim v0; inversion_subst Hev.
+      (* v1 := Error _ *)
+      + destruct_elim v0; inversion_subst Hev; 
+        constructor; eauto.
     Qed.
 
     
@@ -1040,16 +1075,17 @@ Section EVALUATION.
       simpl in Hev. destruct inf. 
       destruct (eval n e s) eqn: eqev; 
       try discriminate.
-      destruct (is_error v0) eqn: eqerr. 
-      + destruct v0; try discriminate. inversion Hev; 
-        subst; constructor; eauto.
-      + destruct (is_consistent _) eqn: eqc.
-        * destruct v0; try discriminate; inversion Hev; 
-          subst; clear Hev; eapply EVal_LVariant; eauto;
-          try constructor; try apply is_consistent_correct; 
-          eauto; simpl; try destruct v1, v2; try destruct inf; 
-          try constructor; try (unfold not; intro; discriminate).
-        * destruct v0; discriminate.
+      destruct (is_verror v0) eqn: eqerr.
+       (* v0 := VError _ *)
+      + destruct_elim v0; inversion_subst Hev;  
+        constructor; eauto.
+      (* v0 <> VError _ *)
+      + destruct (is_consistent _) eqn: eqc; 
+        destruct_elim v0; inversion_subst Hev; 
+        apply is_consistent_correct in eqc.
+        all: eapply EVal_LVariant; eauto; simpl; 
+             destruct_pairs; try discriminate; 
+             constructor.
     Qed.
         
 
@@ -1063,12 +1099,14 @@ Section EVALUATION.
         eval (S n) (LFix name e) s = Ok v -> 
         EVal (LFix name e) s v.
     Proof. 
-      intros * Hind Hwfev Hev. 
-      simpl in Hev. destruct (eval _) eqn: eqev; try discriminate.
-      destruct v0; try discriminate.
-      + destruct typ; try discriminate. inversion Hev; 
-        subst; constructor; eauto.
-      + inversion Hev; constructor; eauto.
+      intros * Hind Hwfev Hev. simpl in Hev.
+      destruct (eval _) eqn: eqev; try discriminate.
+      destruct_elim v0.
+      (* v0 := VCls typ *)
+      + destruct_elim typ; inversion_subst Hev; 
+        constructor; eauto.
+      (* v0 := VError *)
+      + inversion_subst Hev; constructor; eauto.
     Qed. 
 
     
@@ -1082,162 +1120,216 @@ Section EVALUATION.
         eval (S n) (LMatch e cases) s = Ok v -> 
         EVal (LMatch e cases) s v.
     Proof. 
-      intros * Hind Hwfev Hev. 
-      simpl in Hev. destruct (eval _) eqn: eqev; 
-      try discriminate. 
-      destruct (is_error v0) eqn: eqerr. 
-      + destruct v0; try discriminate; inversion Hev; 
-        subst; constructor; eauto.
-      + destruct (find _) eqn: eqfind; try discriminate. 
-        * eapply FirstMatch_eq_find_match in eqfind; 
-          inversion eqfind; subst; clear eqfind.
-          - destruct v0; try discriminate; destruct p; 
-            eapply EVal_LMatch;try (eapply match_env_safe); eauto; 
-            try constructor; simpl; eauto;
-            try (unfold not; intro contra; inversion contra); 
-            eapply Hind; eauto; simpl in *; 
-            eapply MatchEnv_preservs_wfev; eauto; 
-            try apply match_env_safe; eauto; 
-            eapply EVal_wfv; eauto.
-          - destruct v0; try discriminate; destruct p; 
-            eapply EVal_LMatch; eauto; 
-            try (unfold not; intro contra; inversion contra); 
-            try eapply FirstMatch_Tail; eauto;
-            apply Hind in Hev;  
-            try eapply MatchEnv_preservs_wfev; eauto; 
-            try eapply EVal_wfv; try apply match_env_safe; eauto; 
-            eapply FirstMatch_Match; eauto.
-        * destruct v0; try discriminate.
+      intros * Hind Hwfev Hev. simpl in Hev.
+      destruct (eval _) eqn: eqev; 
+      try discriminate.  
+      destruct (is_verror v0) eqn: eqerr.
+      (* v0 := VError _ *)
+      + destruct_elim v0; inversion_subst Hev; 
+        constructor; eauto.
+      (* v0 <> VError _  *)
+      + destruct (find _) eqn: eqfind.
+        (* find = Some p *)
+        * pose proof eqfind as eqfind'; 
+          eapply FirstMatch_eq_find_match in eqfind; 
+          inversion_subst eqfind; 
+          destruct_elim v0; destruct p; 
+          apply is_verror_false_not_typeof_terr in eqerr; 
+          apply FirstMatch_eq_find_match in eqfind';
+          eapply EVal_LMatch; eauto; 
+          eapply Hind in Hev; eauto;
+          try eapply MatchEnv_preservs_wfev; eauto; 
+          try eapply match_env_safe; eauto; 
+          try eapply EVal_wfv; eauto; 
+               eapply FirstMatch_Match; eauto.
+        (* find = None *)
+        * destruct_elim v0.
     Qed.
-        
+
+
+    Lemma evalop_correct: 
+      forall s n l lv, 
+      (forall s e v, 
+        WFEV s -> 
+        eval n e s = Ok v -> 
+        EVal e s v) /\
+      (forall s l lv, 
+        WFEV s -> 
+        evalop n l s = Ok lv -> 
+        EValOp l s lv) ->
+      WFEV s -> 
+      evalop (S n) l s = Ok lv -> 
+      EValOp l s lv.
+    Proof.
+      intros * Hind Hwfev Hev. 
+      destruct Hind as [HinEv HinEvop]; simpl in*; 
+      destruct l as [| head tail].
+      (* l := []  *)
+      * inversion_subst Hev; constructor; eauto.
+      (* l := head::tail *)
+      * destruct (evalop _) as [l' |] eqn: eqevop;
+        try discriminate.
+        pose proof eqevop as eqvop'; 
+        apply HinEvop, canonical_EValOp_result in eqevop;
+        eauto. destruct eqevop as [Hall | Herr].
+        (* Hall : all_lit l' *)
+        - inversion Hall; subst.
+          (* l' := [] *)
+          {destruct (eval _) eqn: eqev; try discriminate.
+            apply HinEvop in eqvop'; 
+            inversion_subst eqvop'; eauto.
+            destruct_elim v; inversion_subst Hev. 
+            (* v := VLit _ *)
+            * eapply EValOp_cons; try constructor;  
+              eauto; apply not_one_error_empty.
+            (* v := VError _ *)
+            * eapply EValOpErr_head; try constructor;  
+              eauto; apply not_one_error_empty. }
+          (* l' := x::l *)
+          {destruct H as [t Htof].
+            apply tbase_Typeof_lit in Htof. 
+            destruct Htof as [* [*]]; subst.   
+            destruct (eval _) eqn: eqv; try discriminate. 
+            destruct_elim v; inversion_subst Hev.
+            (* v := VLit _ *)
+            * eapply EValOp_cons; eauto. apply not_one_error_lit. 
+            * eapply EValOpErr_head; eauto. apply not_one_error_lit. }
+        (* Herr : one_error l' *)
+        - unfold one_error in Herr. 
+          destruct Herr; subst. 
+          inversion_subst Hev; constructor; eauto.
+    Qed. 
+      
+
+
     Theorem eval_evalop_correct : 
       forall n, 
-        (forall e s v, 
+        (forall s e v, 
           WFEV s -> 
           eval n e s = Ok v -> 
           EVal e s v)  /\ 
-        (forall l s lv, 
+        (forall s l lv, 
           WFEV s -> 
           evalop n l s = Ok lv  ->
           EValOp l s lv) .
     Proof.
       induction n; 
-      split; intros * Hwfev Hev. 
-      simpl in Hev. discriminate.
-      simpl in Hev. discriminate.
+      split; intros * Hwfev Hev; try discriminate. 
       + generalize dependent s. 
-        induction e; intros;
-        try (inversion Hev; subst; constructor; eauto).
-        * simpl in Hev. destruct (lookup _) eqn: eqlkp; 
-          inversion Hev; subst. constructor; eauto.
-        * simpl in *. destruct (evalop _) eqn: evop; try discriminate.
-          destruct l; destruct (interp_op _) eqn: eqintop; 
+        induction e; intros; destruct IHn; 
+        try (inversion_subst Hev; constructor; eauto).
+        * simpl in H2. destruct (lookup _) eqn: eqlkp; 
+          inversion_subst H2; constructor; eauto.
+        * eapply eval_op_correct; eauto.
+        * eapply eval_app_correct; eauto.
+        * eapply eval_pair_correct; eauto.
+        * eapply eval_cons_correct; eauto.
+        * eapply eval_variant_correct; eauto.
+        * eapply eval_fix_correct; eauto.
+        * eapply eval_match_correct; eauto.
+      + eapply evalop_correct; eauto.
+    Qed. 
+
+ 
+    Fixpoint depth (e: LExpr) : nat := 
+      match e with 
+      |LVar _          => 1  
+      |LLit _          => 1
+      |LOp _ l         => 1 + list_max (map depth l) 
+      |LLam _ _        => 1   
+      |LApp e1 e2      => 1 + max (depth e1) (depth e1)
+      |LUnit           => 1 
+      |LNil            => 1 
+      |LPair e1 e2     => 1 + max (depth e1) (depth e1)
+      |LCons e1 e2     => 1 + max (depth e1) (depth e2)
+      |LFix _ e        => 1 + (depth e)
+      |LVariant _ _ e  => 1 + (depth e) 
+      |LMatch e l      => max (depth e) (list_max (
+                            map (fun '(_, e) => depth e) l)) 
+      |LError _        => 1
+      end.
+        
+
+    Theorem eval_evalop_monotone_fuel :  
+        forall n, 
+          (forall e s v, 
+             eval n e s = Ok v -> 
+             forall m, n <= m -> eval m e s = Ok v) /\ 
+         (forall l s lv, 
+             evalop n l s = Ok lv -> 
+             forall m, n <= m -> evalop m l s = Ok lv ).
+    Proof.  
+      intro. induction n; split; try discriminate.
+      + intros * Hev * Hleq.
+        destruct m; inversion_subst Hleq; eauto.
+        (* S n <= m *)
+        apply Le.le_Sn_le_stt in H0. 
+        destruct IHn as [IHnEv IHnEvop].
+        simpl in *. destruct e; eauto.  
+        * destruct (evalop n _) eqn: eqevop;  
           try discriminate.
-          - inversion Hev; subst; clear Hev. 
-            apply EVal_LOp with (lv := []); destruct IHn; eauto.
-            apply not_one_error_empty.
-          - destruct IHn as [HEv HEvop]. apply HEvop in evop; 
-            eauto. pose proof evop as evop'. 
-            apply canonical_EValOp_result in evop.
-            destruct evop as [Hall | Herr]. 
-            -- unfold all_lit in Hall. 
-               inversion Hall; subst; clear Hall.
-               destruct H1 as [t Htof]. 
-               apply tbase_Typeof_lit in Htof.
-               destruct Htof as [x [*]]; subst.
-               inversion Hev; subst; clear Hev.
-               apply EVal_LOp with (lv := VLit x::l); eauto.
-               unfold not, one_error; intro contra; 
-               destruct contra; discriminate.
-            -- unfold one_error in Herr. 
-               destruct Herr as [m Heq]. 
-               inversion Heq; subst; clear Heq.
-               inversion Hev; subst; clear Hev. 
-               constructor; eauto.
-          - destruct IHn as [HEv HEvop]. apply HEvop in evop; 
-            eauto. pose proof evop as evop'.
-            apply canonical_EValOp_result in evop. 
-            destruct evop as [Hall | Herr].
-            -- unfold all_lit in Hall. 
-               inversion Hall; subst; clear Hall.
-               destruct H1 as [t Htof]. 
-               apply tbase_Typeof_lit in Htof.
-               destruct Htof as [x [*]]; subst.
-               inversion Hev; subst; clear Hev.
-            -- unfold one_error in Herr. 
-               destruct Herr as [m Heq]. 
-               inversion Heq; subst; clear Heq.
-               inversion Hev; subst; clear Hev.
-               constructor; eauto.
-        * destruct IHn as [HEv HEvop]; 
-          simpl in Hev; destruct (eval _) eqn: eqev; 
-          try discriminate.
-          destruct v0; try discriminate.
-          - destruct (eval n e2 s) eqn: eqev2. 
-            -- destruct (is_error v0) eqn: eqerr. 
-               destruct v0; try discriminate. 
-               ** inversion Hev; subst; clear Hev.
-                  apply EVal_LAppErr_arg with (v := 
-                    VCls typ arg body cls_env); 
-                  try constructor; eauto.
-               ** destruct (has_match _) eqn: eqm.
-                  apply has_match_correct in eqm.
-                  destruct typ. 
-                  {apply EVal_LAppRec with (name := name) (arg := arg) 
-                   (body := body) (cls_env := cls_env)
-                   (v := v0) (cls_env' := match_env arg v0 cls_env); 
-                   eauto. unfold not; intro contra; inversion contra; 
-                   subst; simpl in eqerr; discriminate. 
-                   apply match_env_safe; eauto. 
-                   apply HEv; eauto. apply wfev_cls_env_rec_extension
-                   with (e1 := e1) (s := s) (e2 := e2); eauto.
-                   destruct v0; simpl in eqerr; try discriminate; 
-                   eauto. }
-                  {apply EVal_LApp with (arg := arg) (body := body) 
-                    (cls_env := cls_env) (v := v0) (cls_env' := 
-                     match_env arg v0 cls_env); eauto. unfold not; 
-                     intro contra; inversion contra; subst; simpl in eqerr; 
-                     discriminate. apply match_env_safe; eauto. 
-                     apply HEv; eauto. apply wfev_cls_env_extension with 
-                     (e1 := e1) (typ := NotRecursive) (body := body)
-                     (s := s) (e2 := e2); eauto. destruct v0; 
-                     simpl in eqerr; try discriminate; eauto. }
-                  destruct v0; simpl in eqerr; try discriminate.
-            -- discriminate.
-          - inversion Hev; subst; constructor; eauto.
-        * destruct IHn; eapply eval_pair_correct; eauto.
-        * destruct IHn; eapply eval_cons_correct; eauto.
-        * destruct IHn; eapply eval_variant_correct; eauto.
-        * destruct IHn; eapply eval_fix_correct; eauto.
-        * destruct IHn; eapply eval_match_correct; eauto.
-      + simpl in Hev; destruct IHn as [HinEv HinEvop]; destruct l.  
-        * inversion Hev; subst; constructor; eauto.
-        * destruct (evalop _) eqn: eqevop; try discriminate.
-          pose proof eqevop as eqvop'; 
-          apply HinEvop, canonical_EValOp_result in eqevop; eauto.
-          destruct eqevop as [Hall | Herr]. 
-          - inversion Hall; subst. 
-            {destruct (eval _) eqn: eqev; try discriminate.
-             apply HinEvop in eqvop'; inversion eqvop'; subst; 
-             clear eqvop'; eauto. destruct v; try discriminate; 
-             inversion Hev; subst.
-             * eapply EValOp_cons; try constructor;  
-               eauto; apply not_one_error_empty.
-             * eapply EValOpErr_head; try constructor;  
-               eauto; apply not_one_error_empty. }  
-            {destruct H as [t Htof].
-             apply tbase_Typeof_lit in Htof. 
-             destruct Htof as [* [*]]; subst.   
-             destruct (eval _) eqn: eqv; try discriminate. 
-             destruct v; try discriminate; inversion Hev; subst;
-             try eapply EValOp_cons; 
-             try eapply EValOpErr_head;
-             try eapply EvalOp_result_noerror; eauto. }
-          - destruct l1; unfold one_error in Herr; 
-            destruct Herr; try discriminate; 
-            inversion H; subst; inversion Hev; subst. 
-            eapply EValOpErr_tail; eauto.
-    Qed.   
+          eapply IHnEvop in eqevop; eauto.
+          rewrite eqevop; eauto.
+        * destruct (eval n e1 s) eqn: eqev1; try discriminate. 
+          eapply IHnEv in eqev1; eauto; rewrite eqev1. 
+          destruct_elim v0.
+          (* v0 := VCls _ *)
+          - destruct (eval n e2 s) as [v1 |] eqn: eqev2.
+            (* eqev2 := Ok v1 *)
+            ** eapply IHnEv in eqev2; eauto. rewrite eqev2.  
+               destruct (is_verror v1) eqn: eqerr. 
+              (* v1 := VError _  *)
+              -- destruct_elim v1. inversion_subst Hev.
+                 reflexivity.
+              (* v1 <> VError _ *)
+              -- destruct (has_match _) eqn: eqm.
+                (* has_match = true *)
+                 --- destruct typ eqn: eqt; 
+                     destruct_elim v1; eapply IHnEv; eauto.
+                (* has_match = false *)
+                 --- destruct_elim v1. 
+           (* eqev2 := Error _ *)
+            ** discriminate.
+         (* v0 := VError _ *)
+          - inversion_subst Hev. constructor.
+        *       
+
+            
+          (* eqev2 := Ok _ *)
+          - eapply IHnEv in eqev2; eauto. rewrite eqev2.
+            destruct_elim v0.
+
+          eauto.
+        *  
+           
+      simpl in *; destruct e. 
+
+
+      
+    Theorem eval_evalop_complete: 
+      forall e s v, 
+        EVal e s v -> 
+        exists n, eval n e s = Ok v. 
+    Proof. 
+      intros * HEv. induction HEv using EVal_mut 
+       with (P0 := fun l s lv _ => 
+         EValOp l s lv -> 
+         exists n, evalop n l s = Ok lv). 
+      + exists 1. simpl. rewrite e. reflexivity. 
+      + exists 1. eauto. 
+      + apply IHHEv in e. destruct e as [n' e]. 
+        exists (S n'). simpl. rewrite e, e0.
+        destruct_elim lv; eauto .
+        destruct_elim v0; eauto.
+        destruct_elim lv ;eauto.
+        apply one_error_contra in n. contradiction.
+      + apply IHHEv in e. destruct e as [n' e]. 
+        exists (S n'). simpl. rewrite e. reflexivity.
+      + exists 1. eauto.
+      + destruct IHHEv1 as [n1 Heq1].
+        exists (S n1). simpl. rewrite Heq1.  
+
+
 
                      
 
@@ -1278,24 +1370,6 @@ Section EVALUATION.
 
 
 
-    (* la dimostrazione di questa proprietà richiede
-       la previa dimostrazione del fatto che ogni 
-       estensione dell'ambiente s durante la valutazione 
-       di una qualsiasi espressione e non aggiunge mai 
-       un VError, perchè le regole lo propagano subito.
-       Ma la formalizzazione big step della EVal non consente 
-       di ragionare sugli stati intermedi e su come l'ambiente 
-       di valutazione evolve, oltre al fatto di rimanere ben
-       formato.  
-       Allo stato attuale in cui la proprietà sotto è 
-       formulata essa è semplicemente falsa, infatti un ambiente
-       ben formato s di partenza può ben contenere un Verror
-       associato ad una qualche nome i. *)
-    Lemma verror_not_in_venv: forall s i v, 
-      EVal (LVar i) s v -> 
-      typeof v <> Some KTError. 
-    Proof. 
-    Abort. 
     
            
            

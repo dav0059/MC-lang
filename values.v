@@ -189,8 +189,34 @@ Section Values.
     Qed. 
 
       
+    (* this boolean function turns out useful in 
+       organizing the proof structure on case analysis 
+       performed by the interpreter (see evaluation.v)*)
+    Definition is_verror (v: Val) := 
+      match v with VError _ => true | _ => false end.
+
+    Lemma is_verror_false_not_typeof_terr: forall v ,
+      is_verror v = false <-> ~Typeof v KTError.
+    Proof. 
+      intros; split. 
+      + intro Herr. destruct v; simpl in Herr; try discriminate;
+        unfold not; intro contra; inversion contra.
+      + intro Htof. destruct v; eauto; simpl. 
+        assert (Typeof (VError m) KTError) by constructor; 
+        contradiction.
+    Qed.      
+
+    Lemma not_Typeof_terr: forall (v: Val) t, 
+      Typeof v t -> 
+      ~Typeof v KTError -> 
+      t <> KTError . 
+    Proof. 
+      intros * Htof Hntof. 
+      unfold not. intro. subst. contradiction.
+    Qed.
       
-    Theorem Typeof_eq_err: forall v, 
+
+    Theorem Typeof_err_eq_terr: forall v, 
      Typeof v KTError <-> exists m, v = VError m.
     Proof. 
       split; intros H. 
@@ -199,6 +225,18 @@ Section Values.
       + destruct H; subst; constructor.
     Qed. 
 
+    Corollary Typeof_neq_terr: forall v ,
+     (forall m, v <> VError m) <-> ~Typeof v KTError.
+    Proof. 
+      intros *; split.
+      + unfold not; intros H contra. 
+        apply Typeof_err_eq_terr in contra. 
+        destruct contra; eauto.
+      + unfold not; intros H * contra; subst. 
+        apply H; constructor.
+    Qed.     
+
+         
     Lemma Typeof_err_contra: forall mssg, 
       ~Typeof (VError mssg) KTError -> False.
     Proof. 
