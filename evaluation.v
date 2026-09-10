@@ -294,9 +294,21 @@ Section EVALUATION.
         in Htof. destruct Htof as [* [*]]; subst.
         destruct contra as [m contra]. inversion contra.
       + inversion Hall; try apply not_one_error_empty.
-        inversion H. inversion H3; subst. 
-        inversion H4; subst. destruct H0. inversion H0.
+        inversion_subst H. inversion_subst H3.
+        inversion_subst H0. inversion H. 
     Qed.
+
+
+    Corollary EValOp_result_all_lit: forall l s l', 
+      EValOp l s l' -> 
+      ~one_error l' -> 
+      all_lit l'.
+    Proof.
+      intros * Hevop Hnerr. 
+      apply canonical_EValOp_result in Hevop. 
+      destruct Hevop; eauto. contradiction.
+    Qed.
+
 
     Lemma getBaseVl_safe: forall l s l', 
       EValOp l s l' ->
@@ -456,7 +468,7 @@ Section EVALUATION.
       + apply WFV_VError.
     Qed. 
          
-        
+    
 
     (* the evaluation semantic is deterministic *)
     Theorem EVal_deterministic : forall e s v v',
@@ -687,6 +699,37 @@ Section EVALUATION.
         
     Qed.   
         
+    Theorem EValOp_deterministic: forall l s lv lv', 
+      WFEV s -> 
+      EValOp l s lv -> 
+      EValOp l s lv' -> 
+      lv = lv'.
+    Proof. 
+      intros * Hwfev HEv1 HEv2.
+      generalize dependent lv'.
+      induction HEv1 using EValOp_mut with 
+       (P := fun e s v _ => forall v',  
+          WFEV s -> 
+          EVal e s v -> 
+          EVal e s v' -> 
+          v = v'); try eapply EVal_deterministic; eauto.
+      + intros; inversion_subst HEv2. reflexivity. 
+      + intros. inversion_subst HEv2.
+        * f_equal; eauto.
+        * assert (VLit x = VError mssg) by (apply IHHEv0; eauto).
+          discriminate.
+        * assert (tail' = [VError mssg]) by (apply IHHEv1; eauto); 
+          subst. apply one_error_contra in n. contradiction.
+      + intros. inversion_subst HEv2. 
+        * assert (VError mssg = VLit x) by (apply IHHEv0; eauto).
+          discriminate.
+        * f_equal. eauto.
+        * assert (tail' = [VError mssg0]) by (apply IHHEv1; eauto); 
+          subst. apply one_error_contra in n. contradiction.
+      + intros. inversion_subst HEv2; eauto;
+        assert ([VError mssg] = tail') by (apply IHHEv1; eauto); 
+        subst; apply one_error_contra in H3; contradiction.
+    Qed.      
     
     Definition eval_result := result Val string.  
     Definition evalop_result := result (list Val) string.       
@@ -1230,25 +1273,457 @@ Section EVALUATION.
       + eapply evalop_correct; eauto.
     Qed. 
 
- 
-    Fixpoint depth (e: LExpr) : nat := 
-      match e with 
-      |LVar _          => 1  
-      |LLit _          => 1
-      |LOp _ l         => 1 + list_max (map depth l) 
-      |LLam _ _        => 1   
-      |LApp e1 e2      => 1 + max (depth e1) (depth e1)
-      |LUnit           => 1 
-      |LNil            => 1 
-      |LPair e1 e2     => 1 + max (depth e1) (depth e1)
-      |LCons e1 e2     => 1 + max (depth e1) (depth e2)
-      |LFix _ e        => 1 + (depth e)
-      |LVariant _ _ e  => 1 + (depth e) 
-      |LMatch e l      => max (depth e) (list_max (
-                            map (fun '(_, e) => depth e) l)) 
-      |LError _        => 1
-      end.
-        
+
+
+    Inductive MeasureEVal : forall e s v, 
+       EVal e s v -> nat -> Prop :=
+    |Measure_EVal_Var : 
+       forall i s v n (Hwfev : WFEV s)
+                    (Hlookup : lookup s i = Some v),
+          1 <= n -> 
+          MeasureEVal (@EVal_Var i s v Hwfev Hlookup) n
+    |Measure_EVal_Lit : 
+       forall x s n (Hwfev : WFEV s),
+          1 <= n ->
+          MeasureEVal (@EVal_Lit x s Hwfev) n 
+    |Measure_EVal_LOp :
+        forall s le lv op v n
+              (Hwfev : WFEV s)
+              (Hop : EValOp (rev le) s lv)
+              (Herr : ~ one_error lv)
+              (HInt : interp_op op (getBaseVl (rev lv)) = Some v),
+          MeasureEValOp Hop n ->
+          MeasureEVal
+            (@EVal_LOp s le lv op v Hwfev Hop Herr HInt)
+            (S n)
+    |Measure_EVal_LOpErr :
+        forall s le op mssg n
+              (Hwfev : WFEV s)
+              (Hop : EValOp (rev le) s [VError mssg]),
+          MeasureEValOp Hop n ->
+          MeasureEVal
+            (@EVal_LOpErr s le op mssg Hwfev Hop)
+            (S n)
+
+    |Measure_EVal_LLam :
+        forall s arg body n (Hwfev : WFEV s),
+          1 <= n -> 
+          MeasureEVal (@EVal_LLam s arg body Hwfev) n
+
+    |Measure_EVal_LApp :
+        forall s e1 arg body cls_env
+              e2 v cls_env' v' n
+              (Hwfev : WFEV s)
+              (Hfun : EVal e1 s
+                       (VCls NotRecursive arg body cls_env))
+              (Harg : EVal e2 s v)
+              (Hnoterr : ~ Typeof v KTError)
+              (Hmatch : Match arg v)
+              (Henv : MatchEnv arg v cls_env cls_env')
+              (Hbody : EVal body cls_env' v'),
+          MeasureEVal Hfun n ->
+          MeasureEVal Harg n ->
+          MeasureEVal Hbody n ->
+          MeasureEVal
+            (@EVal_LApp s e1 arg body cls_env
+              e2 v cls_env' v'
+              Hwfev Hfun Harg Hnoterr Hmatch Henv Hbody)
+            (S n)
+
+    |Measure_EVal_LAppRec :
+        forall s e1 name arg body cls_env
+              e2 v cls_env' v' n 
+              (Hwfev : WFEV s)
+              (Hfun :
+                  EVal e1 s
+                    (VCls (Recursive name) arg body cls_env))
+              (Harg : EVal e2 s v)
+              (Hnoterr : ~ Typeof v KTError)
+              (Hmatch : Match arg v)
+              (Henv : MatchEnv arg v cls_env cls_env')
+              (Hbody :
+                  EVal body
+                    (bind cls_env' name
+                      (VCls (Recursive name) arg body cls_env)
+                      id_eqb)
+                    v'),
+          MeasureEVal Hfun n ->
+          MeasureEVal Harg n ->
+          MeasureEVal Hbody n ->
+          MeasureEVal
+            (@EVal_LAppRec s e1 name arg body cls_env
+              e2 v cls_env' v'
+              Hwfev Hfun Harg Hnoterr Hmatch Henv Hbody)
+            (S n) 
+
+    |Measure_EVal_LAppErr_fun :
+        forall s e1 e2 mssg n
+              (Hwfev : WFEV s)
+              (Hfun : EVal e1 s (VError mssg)),
+          MeasureEVal Hfun n ->
+          MeasureEVal
+            (@EVal_LAppErr_fun s e1 e2 mssg Hwfev Hfun)
+            (S n)
+
+    |Measure_EVal_LAppErr_arg :
+        forall s e1 v e2 mssg n
+              (Hwfev : WFEV s)
+              (Hfun : EVal e1 s v)
+              (Htype : Typeof v KTFunction)
+              (Harg : EVal e2 s (VError mssg)),
+          MeasureEVal Hfun n ->
+          MeasureEVal Harg n ->
+          MeasureEVal
+            (@EVal_LAppErr_arg s e1 v e2 mssg
+              Hwfev Hfun Htype Harg)
+            (S n)
+
+    |Measure_EVal_LUnit :
+        forall s n
+              (Hwfev : WFEV s),
+          1 <= n -> 
+          MeasureEVal (@EVal_LUnit s Hwfev) n
+
+    |Measure_EVal_LNil :
+        forall s n 
+              (Hwfev : WFEV s),
+          1 <= n -> 
+          MeasureEVal (@EVal_LNil s Hwfev) 1
+
+    |Measure_EVal_LPair :
+        forall s e1 e2 v1 t1 v2 t2 n
+              (Hwfev : WFEV s)
+              (Hfst : EVal e1 s v1)
+              (Htype1 : Typeof v1 t1)
+              (Hnoterr1 : t1 <> KTError)
+              (Hsnd : EVal e2 s v2)
+              (Htype2 : Typeof v2 t2)
+              (Hnoterr2 : t2 <> KTError),
+          MeasureEVal Hfst n ->
+          MeasureEVal Hsnd n ->
+          MeasureEVal
+            (@EVal_LPair s e1 e2 v1 t1 v2 t2
+              Hwfev Hfst Htype1 Hnoterr1
+              Hsnd Htype2 Hnoterr2)
+            (S n)
+
+    |Measure_EVal_LPairErr_fst :
+        forall e1 s mssg e2 n
+              (Hwfev : WFEV s)
+              (Hfst : EVal e1 s (VError mssg)),
+          MeasureEVal Hfst n ->
+          MeasureEVal
+            (@EVal_LPairErr_fst e1 s mssg e2 Hwfev Hfst)
+            (S n)
+
+    |Measure_EVal_LPairErr_snd :
+        forall s e1 v e2 mssg n
+              (Hwfev : WFEV s)
+              (Hfst : EVal e1 s v)
+              (Hnoterr : ~ Typeof v KTError)
+              (Hsnd : EVal e2 s (VError mssg)),
+          MeasureEVal Hfst n ->
+          MeasureEVal Hsnd n ->
+          MeasureEVal
+            (@EVal_LPairErr_snd s e1 v e2 mssg
+              Hwfev Hfst Hnoterr Hsnd)
+            (S n)
+
+    |Measure_EVal_LCons :
+        forall s e1 v1 t1 e2 n
+              (Hwfev : WFEV s)
+              (Hhead : EVal e1 s v1)
+              (Htype : Typeof v1 t1)
+              (Hnoterr : t1 <> KTError)
+              (Htail : EVal e2 s VNil),
+          MeasureEVal Hhead n ->
+          MeasureEVal Htail n ->
+          MeasureEVal
+            (@EVal_LCons s e1 v1 t1 e2
+              Hwfev Hhead Htype Hnoterr Htail)
+            (S n)
+
+    |Measure_EVal_LCons_nestt :
+        forall s e1 v1 t1 e2 v2 t n
+              (Hwfev : WFEV s)
+              (Hhead : EVal e1 s v1)
+              (Htype1 : Typeof v1 t1)
+              (Htail : EVal e2 s v2)
+              (Htype2 : Typeof v2 (KTList t))
+              (Hconsistent : Consistent t1 t)
+              (Hnested : nested_empty t = true),
+          MeasureEVal Hhead n ->
+          MeasureEVal Htail n ->
+          MeasureEVal
+            (@EVal_LCons_nestt s e1 v1 t1 e2 v2 t
+              Hwfev Hhead Htype1 Htail Htype2
+              Hconsistent Hnested)
+            (S n)
+
+    |Measure_EVal_LCons_nestf :
+        forall s e1 v1 t1 e2 v2 t n
+              (Hwfev : WFEV s)
+              (Hhead : EVal e1 s v1)
+              (Htype1 : Typeof v1 t1)
+              (Hnoterr : t1 <> KTError)
+              (Htail : EVal e2 s v2)
+              (Htype2 : Typeof v2 (KTList t))
+              (Hconsistent : Consistent t1 t)
+              (Hnested : nested_empty t = false),
+          MeasureEVal Hhead n ->
+          MeasureEVal Htail n ->
+          MeasureEVal
+            (@EVal_LCons_nestf s e1 v1 t1 e2 v2 t
+              Hwfev Hhead Htype1 Hnoterr Htail Htype2
+              Hconsistent Hnested)
+            (S n)
+
+    |Measure_EVal_LConsErr_head :
+        forall s e1 mssg e2 n
+              (Hwfev : WFEV s)
+              (Hhead : EVal e1 s (VError mssg)),
+          MeasureEVal Hhead n ->
+          MeasureEVal
+            (@EVal_LConsErr_head s e1 mssg e2 Hwfev Hhead)
+            (S n)
+
+    |Measure_EVal_LConsErr_tail :
+        forall e1 s v1 e2 mssg n
+              (Hwfev : WFEV s)
+              (Hhead : EVal e1 s v1)
+              (Hnoterr : ~ Typeof v1 KTError)
+              (Htail : EVal e2 s (VError mssg)),
+          MeasureEVal Hhead n ->
+          MeasureEVal Htail n ->
+          MeasureEVal
+            (@EVal_LConsErr_tail e1 s v1 e2 mssg
+              Hwfev Hhead Hnoterr Htail)
+            (S n)
+
+    |Measure_EVal_LVariant :
+        forall s e v t' t c i n
+              (Hwfev : WFEV s)
+              (He : EVal e s v)
+              (Htype : Typeof v t')
+              (Hnoterr : t' <> KTError)
+              (Hconsistent : Consistent t t'),
+          MeasureEVal He n ->
+          MeasureEVal
+            (@EVal_LVariant s e v t' t c i
+              Hwfev He Htype Hnoterr Hconsistent)
+            (S n)
+
+    |Measure_EVal_LVariantErr :
+        forall e s mssg c inf n
+              (Hwfev : WFEV s)
+              (He : EVal e s (VError mssg)),
+          MeasureEVal He n ->
+          MeasureEVal
+            (@EVal_LVariantErr e s mssg c inf Hwfev He)
+            (S n)
+
+    |Depth_EVal_LFix :
+        forall s e arg body cls_env name n
+              (Hwfev : WFEV s)
+              (He :
+                  EVal e s
+                    (VCls NotRecursive arg body cls_env)),
+          MeasureEVal He n ->
+          MeasureEVal
+            (@EVal_LFix s e arg body cls_env name Hwfev He)
+            (S n)
+
+    |Measure_EVal_LFixErr :
+        forall e s mssg name n
+              (Hwfev : WFEV s)
+              (He : EVal e s (VError mssg)),
+          MeasureEVal He n ->
+          MeasureEVal
+            (@EVal_LFixErr e s mssg name Hwfev He)
+            (S n)
+
+    |Measure_EVal_LMatch :
+        forall s e v p' e' s' v' l n
+              (Hwfev : WFEV s)
+              (He : EVal e s v)
+              (Hnoterr : ~ Typeof v KTError)
+              (Hfirst : FirstMatch v l (Some (p', e')))
+              (Henv : MatchEnv p' v s s')
+              (Hbranch : EVal e' s' v'),
+          MeasureEVal He n ->
+          MeasureEVal Hbranch n ->
+          MeasureEVal
+            (@EVal_LMatch s e v p' e' s' v' l
+              Hwfev He Hnoterr Hfirst Henv Hbranch)
+            (S n) 
+
+    |Measure_EVal_LMatchErr :
+        forall e s m l n
+              (Hwfev : WFEV s)
+              (He : EVal e s (VError m)),
+          MeasureEVal He n ->
+          MeasureEVal
+            (@EVal_LMatchErr e s m l Hwfev He)
+            (S n)
+
+    |Measure_EVal_Error :
+        forall s m n
+              (Hwfev : WFEV s),
+          1 <= n -> 
+          MeasureEVal (@EVal_LError s m Hwfev) n 
+
+    with MeasureEValOp :
+      forall l s lv, EValOp l s lv -> nat -> Prop :=
+
+    |Measure_EValOp_Nil :
+        forall s n 
+              (Hwfev : WFEV s),
+          1 <= n ->   
+          MeasureEValOp (@EValOp_nil s Hwfev) n 
+
+    |Measure_EValOp_cons :
+        forall s tail tail' head x n
+              (Hwfev : WFEV s)
+              (Htail : EValOp tail s tail')
+              (Hnoterr : ~ one_error tail')
+              (Hhead : EVal head s (VLit x)),
+          MeasureEValOp Htail n ->
+          MeasureEVal Hhead n ->
+          MeasureEValOp
+            (@EValOp_cons s tail tail' head x
+              Hwfev Htail Hnoterr Hhead)
+            (S n)
+
+    |Measure_EValOpErr_head :
+        forall s tail tail' head mssg n
+              (Hwfev : WFEV s)
+              (Htail : EValOp tail s tail')
+              (Hnoterr : ~ one_error tail')
+              (Hhead : EVal head s (VError mssg)),
+          MeasureEValOp Htail n ->
+          MeasureEVal Hhead n ->
+          MeasureEValOp
+            (@EValOpErr_head s tail tail' head mssg
+              Hwfev Htail Hnoterr Hhead)
+            (S n)
+
+    |Measure_EValOpErr_tail :
+        forall s head tail mssg n
+              (Hwfev : WFEV s)
+              (Htail : EValOp tail s [VError mssg]),
+          MeasureEValOp Htail n ->
+          MeasureEValOp
+            (@EValOpErr_tail s head tail mssg
+              Hwfev Htail)
+            (S n).
+
+     
+    Scheme MeasureEVal_mut := Induction for MeasureEVal Sort Prop
+    with MeasureEValOp_mut := Induction for MeasureEValOp Sort Prop.
+
+
+    Theorem eval_evalop_completeness: 
+       forall e s v (H: EVal e s v) n,  
+          MeasureEVal H n -> 
+          eval n e s = Ok v .
+    Proof.
+      intros * HMEv.
+      induction HMEv using MeasureEVal_mut with ( 
+         P0 := fun l s lv H n _ =>     
+            evalop n l s = Ok lv); intros.
+      (* EVal_LVar *)
+      + destruct n. inversion l.
+        simpl. rewrite Hlookup. reflexivity.
+      (* EVal_Lit *)
+      + destruct n. inversion l. eauto. 
+      (* EVal_LOp *)
+      + simpl. rewrite IHHMEv. 
+        destruct lv as [| hv tv] . 
+        (* lv := [] *)
+        - simpl in *. rewrite HInt. reflexivity.
+        (* lv := hv::tv *)
+        - pose proof Hop as Hop'. 
+          apply canonical_EValOp_result in Hop'.
+          destruct Hop' as [Hall | *]; try contradiction.
+          inversion_subst Hall. destruct H1 as [t H1]; 
+          apply tbase_Typeof_lit in H1; 
+          destruct H1 as [x []]; subst. 
+          destruct (interp_op _) eqn: eqint; try discriminate.
+          inversion_subst HInt; eauto.
+      (* EVal_LOpErr *)
+      + simpl. rewrite IHHMEv. reflexivity.
+      (* EVal_LLam *)
+      + destruct n. inversion l. eauto.
+      (* EVal_LApp *)
+      + simpl. rewrite IHHMEv1, IHHMEv2.
+        destruct (is_verror v) eqn: eqerr.
+        (* v := VError _ *)
+        * destruct_elim v. 
+          apply is_verror_false_not_typeof_terr in Hnoterr.
+          rewrite eqerr in Hnoterr; discriminate.
+        (* v <> VError _ *)
+        * assert (H: MatchEnv arg v cls_env 
+                     (match_env arg v cls_env)) by 
+          (apply match_env_safe; eauto).
+          assert (cls_env' = match_env arg v cls_env) by 
+          (eapply MatchEnv_deterministic; eauto); subst.
+          rewrite IHHMEv3. apply has_match_complete in Hmatch.
+          rewrite Hmatch; destruct_elim v; reflexivity.
+      (* EVal_LAppRec *)
+      + simpl. rewrite IHHMEv1, IHHMEv2.
+        destruct (is_verror v) eqn: eqerr.
+        (* v := VError _ *)
+        * destruct_elim v. 
+          apply is_verror_false_not_typeof_terr in Hnoterr.
+          rewrite eqerr in Hnoterr; discriminate.
+        (* v <> VError _ *)
+        * assert (H: MatchEnv arg v cls_env 
+                     (match_env arg v cls_env)) by 
+          (apply match_env_safe; eauto).
+          assert (cls_env' = match_env arg v cls_env) by 
+          (eapply MatchEnv_deterministic; eauto); subst.
+          rewrite IHHMEv3. apply has_match_complete in Hmatch.
+          rewrite Hmatch; destruct_elim v; reflexivity.
+      (* EVal_LAppErr_fun *)
+      + simpl. rewrite IHHMEv. reflexivity. 
+      (* EVal_LAppErr_arg *)
+      + simpl. rewrite IHHMEv1. 
+        destruct v; try inversion_subst Htype.
+        rewrite IHHMEv2. reflexivity.
+      (* EVal_LUnit *)
+      + destruct n. inversion l. simpl. reflexivity.
+      (* EVal_LNil *)
+      + destruct n. inversion l. simpl. reflexivity.
+      (* EVal_LPair *)
+      + simpl. rewrite IHHMEv1, IHHMEv2.
+        destruct (is_verror v1) eqn: eqerr.
+        (* v1 := VError _ *)
+        * destruct_elim v1. inversion_subst Htype1; 
+          contradiction.
+        (* v1 <> VError _ *)
+        * destruct_elim v1;  
+          eapply typeof_complete in Htype1, Htype2; 
+          subst; simpl; destruct_elim v2; try reflexivity; 
+          contradiction.
+      (* EVal_LPairErr_fst *)
+      + simpl. rewrite IHHMEv. reflexivity. 
+      (* EVal_LPairErr_snd *)
+      + simpl. rewrite IHHMEv1, IHHMEv2. 
+        destruct_elim v; try reflexivity.
+        rewrite <- Typeof_neq_terr in Hnoterr.
+        specialize Hnoterr with m; contradiction.
+      (* EVal_LCons *)
+      + simpl. rewrite IHHMEv1, IHHMEv2.
+        destruct (is_verror v1) eqn: eqerr1. 
+        * destruct_elim v1. inversion_subst Htype.
+          contradiction.
+        * apply typeof_complete in Htype; subst.
+          destruct_elim v1; reflexivity.
+      (* EVal_LCons *)
+      + 
+
+                  
+
 
     Theorem eval_evalop_monotone_fuel :  
         forall n, 
