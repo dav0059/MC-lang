@@ -1715,12 +1715,108 @@ Section EVALUATION.
       (* EVal_LCons *)
       + simpl. rewrite IHHMEv1, IHHMEv2.
         destruct (is_verror v1) eqn: eqerr1. 
+        (* v1 := VError _ *)
         * destruct_elim v1. inversion_subst Htype.
           contradiction.
+        (* v1 <> VError _ *)
         * apply typeof_complete in Htype; subst.
           destruct_elim v1; reflexivity.
-      (* EVal_LCons *)
-      + 
+      (* EVal_LCons_nestt *)
+      + simpl. rewrite IHHMEv1, IHHMEv2.
+        destruct (is_verror v1) eqn: eqerr1.
+        (* v1 := VError _ *)
+        * destruct_elim v1. inversion_subst Htype1.
+          inversion_subst Hconsistent. discriminate.
+        (* v1 <> VError _ *)
+        * destruct_elim v1; destruct (is_verror v2) eqn:eqerr2;
+          (* v2 := VError _ *)
+          try (destruct_elim v2; inversion_subst Htype2); 
+          (* v2 := VNil *)
+          try discriminate; 
+          (* v2 := VCons *)
+          apply typeof_complete in Htype1; subst;
+          apply is_consistent_complete in Hconsistent; 
+          rewrite Hconsistent, Hnested; reflexivity.
+      (* EVal_LCons_nestf *)
+      + simpl. rewrite IHHMEv1, IHHMEv2.
+        destruct (is_verror v1) eqn: eqerr1.
+        (* v1 := VError _ *)
+        * destruct_elim v1. inversion_subst Htype1.
+          inversion_subst Hconsistent. contradiction. 
+        (* v1 <> VError _ *)
+        * destruct_elim v1; destruct (is_verror v2) eqn:eqerr2;
+          (* v2 := VError _ *)
+          try (destruct_elim v2; inversion_subst Htype2); 
+          (* v2 := VNil *)
+          pose proof Htype1 as Htype1';
+          pose proof Hconsistent as Hconsistent';
+          try (inversion_subst Htype1; inversion_subst Hconsistent); 
+          (* v2 := VCons *)
+          apply typeof_complete in Htype1'; subst;
+          apply is_consistent_complete in Hconsistent'; 
+          eauto; simpl in *; rewrite Hconsistent'; eauto; 
+          try discriminate; rewrite Hnested; eauto.
+      (* EVal_LConsErr_head *)
+      + simpl. rewrite IHHMEv. reflexivity.
+      (* EVal_LConsErr_tail *)
+      + simpl. rewrite IHHMEv1, IHHMEv2. 
+        destruct_elim v1; eauto. 
+        rewrite <- Typeof_neq_terr in Hnoterr.
+        specialize Hnoterr with m. contradiction.
+      (* EVal_LVariant *)
+      + simpl. rewrite IHHMEv. destruct (is_verror v) eqn: eqerr.
+        (* v := VError _ *)
+        * destruct_elim v. inversion_subst Htype.
+          contradiction.
+        (* v <> VError _ *)
+        * apply is_consistent_complete in Hconsistent. 
+          apply typeof_complete in Htype; subst.
+          rewrite Hconsistent. 
+          destruct_elim v; reflexivity.
+      (* EVal_LVariantErr *)
+      + simpl. destruct inf. rewrite IHHMEv. reflexivity.
+      (* EVal_LFix *)
+      + simpl. rewrite IHHMEv. reflexivity.
+      (* EVal_LFixErr *)
+      + simpl. rewrite IHHMEv. reflexivity.
+      (* EVal_LMatch *)
+      + simpl. rewrite IHHMEv1. pose proof Hfirst as Hfirst'. 
+        apply FirstMatch_eq_find_match in Hfirst. 
+        rewrite Hfirst. apply FirstMatch_Match in Hfirst'. 
+        rewrite <- match_env_safe in Henv; eauto; subst.
+        rewrite IHHMEv2; destruct_elim v; try reflexivity.
+        (* v := VError _ *)
+        rewrite <- Typeof_neq_terr in Hnoterr.
+        specialize Hnoterr with m. contradiction.
+      (* EVal_LMatchErr *)
+      + simpl. rewrite IHHMEv. reflexivity. 
+      (* EVal_LError *)
+      + destruct n. inversion l. eauto.
+      (* EValOp_Nil *)
+      + destruct n. inversion l. eauto.
+      (* EValOp_cons *)
+      + simpl. rewrite IHHMEv, IHHMEv0.
+        destruct tail' as [| h t]; eauto. 
+        destruct (is_verror h) eqn: eqerr.
+        (* h := VError _ *)
+        * destruct_elim h. destruct t; eauto.
+          apply one_error_contra in Hnoterr. 
+          contradiction.
+        (* h <> VError *)
+        * destruct_elim h; reflexivity.
+      (* EValOpErr_head *)
+      + simpl. rewrite IHHMEv, IHHMEv0.   
+        destruct tail' as [| h t]; eauto. 
+        destruct (is_verror h) eqn: eqerr.
+        (* h := VError _ *)
+        * destruct_elim h. destruct t; eauto.
+          apply one_error_contra in Hnoterr. 
+          contradiction.
+        (* h <> VError *)
+        * destruct_elim h; reflexivity.
+      (* EValOpErr_tail *)
+      + simpl. rewrite IHHMEv. reflexivity.
+  Qed.
 
                   
 
