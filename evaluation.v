@@ -1388,7 +1388,7 @@ Section EVALUATION.
         forall s n 
               (Hwfev : WFEV s),
           1 <= n -> 
-          MeasureEVal (@EVal_LNil s Hwfev) 1
+          MeasureEVal (@EVal_LNil s Hwfev) n
 
     |Measure_EVal_LPair :
         forall s e1 e2 v1 t1 v2 t2 n
@@ -1622,7 +1622,7 @@ Section EVALUATION.
     with MeasureEValOp_mut := Induction for MeasureEValOp Sort Prop.
 
 
-    Theorem eval_evalop_completeness: 
+    Theorem eval_evalop_complete: 
        forall e s v (H: EVal e s v) n,  
           MeasureEVal H n -> 
           eval n e s = Ok v .
@@ -1818,87 +1818,7 @@ Section EVALUATION.
       + simpl. rewrite IHHMEv. reflexivity.
   Qed.
 
-                  
-
-
-    Theorem eval_evalop_monotone_fuel :  
-        forall n, 
-          (forall e s v, 
-             eval n e s = Ok v -> 
-             forall m, n <= m -> eval m e s = Ok v) /\ 
-         (forall l s lv, 
-             evalop n l s = Ok lv -> 
-             forall m, n <= m -> evalop m l s = Ok lv ).
-    Proof.  
-      intro. induction n; split; try discriminate.
-      + intros * Hev * Hleq.
-        destruct m; inversion_subst Hleq; eauto.
-        (* S n <= m *)
-        apply Le.le_Sn_le_stt in H0. 
-        destruct IHn as [IHnEv IHnEvop].
-        simpl in *. destruct e; eauto.  
-        * destruct (evalop n _) eqn: eqevop;  
-          try discriminate.
-          eapply IHnEvop in eqevop; eauto.
-          rewrite eqevop; eauto.
-        * destruct (eval n e1 s) eqn: eqev1; try discriminate. 
-          eapply IHnEv in eqev1; eauto; rewrite eqev1. 
-          destruct_elim v0.
-          (* v0 := VCls _ *)
-          - destruct (eval n e2 s) as [v1 |] eqn: eqev2.
-            (* eqev2 := Ok v1 *)
-            ** eapply IHnEv in eqev2; eauto. rewrite eqev2.  
-               destruct (is_verror v1) eqn: eqerr. 
-              (* v1 := VError _  *)
-              -- destruct_elim v1. inversion_subst Hev.
-                 reflexivity.
-              (* v1 <> VError _ *)
-              -- destruct (has_match _) eqn: eqm.
-                (* has_match = true *)
-                 --- destruct typ eqn: eqt; 
-                     destruct_elim v1; eapply IHnEv; eauto.
-                (* has_match = false *)
-                 --- destruct_elim v1. 
-           (* eqev2 := Error _ *)
-            ** discriminate.
-         (* v0 := VError _ *)
-          - inversion_subst Hev. constructor.
-        *       
-
-            
-          (* eqev2 := Ok _ *)
-          - eapply IHnEv in eqev2; eauto. rewrite eqev2.
-            destruct_elim v0.
-
-          eauto.
-        *  
-           
-      simpl in *; destruct e. 
-
-
-      
-    Theorem eval_evalop_complete: 
-      forall e s v, 
-        EVal e s v -> 
-        exists n, eval n e s = Ok v. 
-    Proof. 
-      intros * HEv. induction HEv using EVal_mut 
-       with (P0 := fun l s lv _ => 
-         EValOp l s lv -> 
-         exists n, evalop n l s = Ok lv). 
-      + exists 1. simpl. rewrite e. reflexivity. 
-      + exists 1. eauto. 
-      + apply IHHEv in e. destruct e as [n' e]. 
-        exists (S n'). simpl. rewrite e, e0.
-        destruct_elim lv; eauto .
-        destruct_elim v0; eauto.
-        destruct_elim lv ;eauto.
-        apply one_error_contra in n. contradiction.
-      + apply IHHEv in e. destruct e as [n' e]. 
-        exists (S n'). simpl. rewrite e. reflexivity.
-      + exists 1. eauto.
-      + destruct IHHEv1 as [n1 Heq1].
-        exists (S n1). simpl. rewrite Heq1.  
+       
 
 
 
