@@ -2,17 +2,12 @@ Require Import Lists.List ids primitives kernel_syntax.
 Import ListNotations.
 
 Set Implicit Arguments.
+Set Contextual Implicit.
 
 Section TEnv. 
 
     Context (I: IDS). 
     Context (P: PRIM_DATA). 
- 
-    Fixpoint assoc_opt {X Y: Type} (e: list (X * Y)) (i: X) (eq: X -> X -> bool) : option Y := 
-      match e with 
-      |(i', t)::l => if eq i i' then Some t else assoc_opt l i eq 
-      |_          => None 
-      end.
 
 
     Local Notation " 'Ide' " := (@Ide I).
@@ -21,6 +16,15 @@ Section TEnv.
     Local Notation " 'id_eqb' " := (@id_eqb I) .
     Local Notation " 'constr_eqb' " := (@constr_eqb I).
 
+    Fixpoint assoc_opt {X Y: Type} l i 
+                       (eq: X -> X -> bool) : option Y := 
+      match l with 
+      |(i', typ)::tail => if eq i i' then Some typ 
+                          else assoc_opt tail i eq 
+      |_               => None 
+      end.
+
+
     Definition tenv := list (Ide * KTp). 
     Definition empty_tenv : tenv := [].
     Definition tlookup (e: tenv) (i: Ide) : option KTp := assoc_opt e i id_eqb.   
@@ -28,28 +32,18 @@ Section TEnv.
     Definition timm (e: tenv) (y: KTp) : Prop := exists i, tlookup e i = Some y.   
     Definition tincludes (e: tenv) (i:Ide) : bool := 
         match tlookup e i with None => false | _ => true end. 
+    
+    (* extension of the type environment consists of pushing a new 
+       binding at the head of the list. Then, scanning from left to 
+       right this list means scanning the environment from newest 
+       to oldest binding*)
     Definition tbind (e: tenv) (i: Ide) (t: KTp) : tenv := (i, t)::e.    
     
+
     
-    (* given a well-formed tenv `e` and a constructor `c` returns the option
-       pair Some (i, t), if it exists, where `i` is the name of the most recent 
-       declared type in `e` declaring `c` with type `t`. If `l` contains a type 
-       being not a variant the input environment will be considered automatically 
-       ill-formed and rejected returning None. *)
-    Fixpoint last_constr_def (e: tenv) (c: Constr) :=  
-      match e with  
-      |(i, KTVariant l)::e'  => match assoc_opt l c constr_eqb with 
-                                |Some t => Some (i, t)
-                                |None   => last_constr_def e' c 
-                                end                            
-      |_                      => None 
-      end.
-    
-    (* given a well-formed tenv `e` and a constructor `c` returns the option
-       pair Some (i, t), if it exists, where `i` is the name of `t` and `t` is
-       the most recent declared type in `l` having `c` among its constructors .
-       If `l` contains a type being not a variant the input environment will be 
-       considered automatically ill-formed and rejected returning None. *)
+    (* returns the last declared type in `e` having `c`
+       among its declared constructors. 'Last' here means 
+       the newest.  *)
     Fixpoint last_type_def (e: tenv) (c: Constr) := 
       match e with 
       |(i, KTVariant l)::e' => if existsb (fun p => constr_eqb (fst p) c) l 
@@ -57,9 +51,6 @@ Section TEnv.
                                else last_type_def e' c 
       |_                    => None 
       end. 
-
-    
-   
 
     
     Lemma tlookup_empty: forall i, 

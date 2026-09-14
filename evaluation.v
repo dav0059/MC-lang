@@ -43,11 +43,8 @@ Section EVALUATION.
 
     Ltac destruct_elim e := 
       destruct e; try discriminate.
-(* 
-    Ltac solve_base_case H :=  *)
-       
-      
 
+       
    
     Fixpoint getBaseVl (l: list Val) : list BaseVl :=
       match l with 
@@ -445,27 +442,31 @@ Section EVALUATION.
       intros * HEv. 
       induction HEv using EVal_mut with 
        (P0 := fun l s l' _ => EValOp l s l' -> 
-         Forall (fun v => WFV v) l'); 
-      try constructor; eauto. 
+         Forall (fun v => WFV v) l');      
+      eauto; try constructor; eauto. 
+      (* EVal_LVar *)
       + induction w; subst; unfold lookup, empty_env in e. 
         discriminate. unfold bind in e.
         destruct (id_eqb i i0) eqn: eqid; 
-        inversion e; subst; eauto. 
-      + apply WFV_VCons with (t1 := t1) (t2 := KTList KTEmpty); 
-        eauto. constructor.
+        inversion_subst e; eauto.
+      (* EVal_LCons *)
+      + eapply WFV_VCons; eauto. constructor.
         * apply consistent_refl; eauto.
           apply Typeof_is_FOT with (v := v1); eauto.
         * apply c_TListNil1, Typeof_is_FOT with (v := v1); eauto.
-      + apply WFV_VCons with (t1 := t1) (t2 := KTList t); eauto.
+      (* EVal_LCons_nestt *)
+      + eapply WFV_VCons; eauto.
         * apply consistent_refl, Typeof_is_FOT with (v := v1); eauto.
         * apply c_TList, consistent_sym; eauto.
-      + apply WFV_VCons with (t1 := t1) (t2 := KTList t); eauto.
+      (* EVal_LCons_nestf *)
+      + eapply WFV_VCons; eauto.
         apply c_TList, consistent_refl. 
         apply consistent_is_FOT in c; destruct c; eauto.
-      + apply WFV_VVariant with (t := t) (tv := t'); eauto.
+      (* EVal_LVariant *)
+      + eapply WFV_VVariant; eauto.
         apply consistent_sym; eauto.
+      (* EVal_LFix *)
       + inversion IHHEv; eauto.
-      + apply WFV_VError.
     Qed. 
          
     
@@ -699,38 +700,8 @@ Section EVALUATION.
         
     Qed.   
         
-    Theorem EValOp_deterministic: forall l s lv lv', 
-      WFEV s -> 
-      EValOp l s lv -> 
-      EValOp l s lv' -> 
-      lv = lv'.
-    Proof. 
-      intros * Hwfev HEv1 HEv2.
-      generalize dependent lv'.
-      induction HEv1 using EValOp_mut with 
-       (P := fun e s v _ => forall v',  
-          WFEV s -> 
-          EVal e s v -> 
-          EVal e s v' -> 
-          v = v'); try eapply EVal_deterministic; eauto.
-      + intros; inversion_subst HEv2. reflexivity. 
-      + intros. inversion_subst HEv2.
-        * f_equal; eauto.
-        * assert (VLit x = VError mssg) by (apply IHHEv0; eauto).
-          discriminate.
-        * assert (tail' = [VError mssg]) by (apply IHHEv1; eauto); 
-          subst. apply one_error_contra in n. contradiction.
-      + intros. inversion_subst HEv2. 
-        * assert (VError mssg = VLit x) by (apply IHHEv0; eauto).
-          discriminate.
-        * f_equal. eauto.
-        * assert (tail' = [VError mssg0]) by (apply IHHEv1; eauto); 
-          subst. apply one_error_contra in n. contradiction.
-      + intros. inversion_subst HEv2; eauto;
-        assert ([VError mssg] = tail') by (apply IHHEv1; eauto); 
-        subst; apply one_error_contra in H3; contradiction.
-    Qed.      
     
+
     Definition eval_result := result Val string.  
     Definition evalop_result := result (list Val) string.       
     
@@ -1244,7 +1215,7 @@ Section EVALUATION.
     Qed. 
       
 
-
+    (* the fueled interpreter is correct w.r.t evaluation semantics *)
     Theorem eval_evalop_correct : 
       forall n, 
         (forall s e v, 
@@ -1274,9 +1245,9 @@ Section EVALUATION.
     Qed. 
 
 
-
-    Inductive MeasureEVal : forall e s v, 
-       EVal e s v -> nat -> Prop :=
+    (* MeasureEVal H n means that n is a uniform fuel bound 
+       for the recursive subderivations of the EVal derivation H. *)
+    Inductive MeasureEVal : forall e s v, EVal e s v -> nat -> Prop :=
     |Measure_EVal_Var : 
        forall i s v n (Hwfev : WFEV s)
                     (Hlookup : lookup s i = Some v),
@@ -1622,6 +1593,8 @@ Section EVALUATION.
     with MeasureEValOp_mut := Induction for MeasureEValOp Sort Prop.
 
 
+    (* the fueled interpreter evaluates every finite Eval 
+       derivation H whenever its fuel satisfies MeasureEval H. *)
     Theorem eval_evalop_complete: 
        forall e s v (H: EVal e s v) n,  
           MeasureEVal H n -> 
@@ -1817,59 +1790,6 @@ Section EVALUATION.
       (* EValOpErr_tail *)
       + simpl. rewrite IHHMEv. reflexivity.
   Qed.
-
-       
-
-
-
-                     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-           
-           
-          
-      
-      
-                    
-
-                        
 
 
 End EVALUATION.

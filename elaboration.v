@@ -1,4 +1,11 @@
-Require Import result_type ids primitives kernel_syntax type_env env type_theory pattern_theory. 
+Require Import result_type.
+Require Import ids.
+Require Import primitives. 
+Require Import kernel_syntax.
+Require Import type_env.
+Require Import env. 
+Require Import type_theory.
+Require Import pattern_theory. 
 Require Import Strings.String. 
 Require Import Lists.List. 
 Import ListNotations.
