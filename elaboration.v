@@ -30,6 +30,8 @@ Section ELABORATION.
     Local Notation " 'tenv' " := (@tenv I P). 
     Local Notation " 'register' " := (@register I ).
     Local Notation " 'constr_env' " := (@constr_env I P).
+    Local Notation " 'constr_eqb' " := (@constr_eqb I).
+    Local Notation " 'id_eqb' " := (@id_eqb I).
 
 
     Ltac inversion_subst H := inversion H; subst; clear H.
@@ -76,7 +78,7 @@ Section ELABORATION.
     (* given a register `R` and a tdblock `B` 
        extends temporarily `R` with names in `B`.  *)
     Definition early_binding (R: register) (B: tdblock) := 
-      fold_right (fun '(i, _) e => bind e i tt (id_eqb I)) R B.
+      fold_right (fun '(i, _) e => bind e i tt id_eqb) R B.
 
     (* given a type_env `r` extends it with types in `B`, 
        assuming they are already be validated. *)
@@ -137,10 +139,10 @@ Section ELABORATION.
     Inductive TBlockElab: tbe_state -> tbe_state -> Prop := 
     |TBElab : forall r R B l, 
                 WFET r R -> 
-                nodupb (id_eqb I) (fst (split B)) = true -> 
+                nodupb id_eqb (fst (split B)) = true -> 
                 Forall (DT (early_binding R B)) (snd (split B)) ->  
                 dblock_constr B = Some l -> 
-                nodupb (constr_eqb I) l = true ->  
+                nodupb (constr_eqb) l = true ->  
                 TBlockElab 
                 (r, R, B) 
                 (type_env_ext r B, early_binding R B, B) . 
@@ -157,14 +159,14 @@ Section ELABORATION.
         - simpl in Htdom. destruct a as (i', t).
           unfold tdom, tlookup, tbind in Htdom.
           destruct Htdom as [x Htdom]. simpl in Htdom. 
-          destruct (id_eqb I i i') eqn: eqid. 
+          destruct (id_eqb i i') eqn: eqid. 
           (* id_eqb I i i' = true *)
           * unfold dom, lookup. exists tt. simpl.
             unfold bind. rewrite eqid; eauto.
           (* id_eqb I i i' = false *)
           * unfold tdom, tlookup, tbind in IHB. 
             assert (Hp: exists y, 
-             assoc_opt (type_env_ext r B) i (id_eqb I) = Some y) by 
+             assoc_opt (type_env_ext r B) i id_eqb = Some y) by 
             (exists x; eauto).  
             apply IHB in Hp. simpl. unfold dom, lookup, bind in *.
             destruct Hp. exists x0. rewrite eqid. eauto.
@@ -174,7 +176,7 @@ Section ELABORATION.
         - simpl in HDom. destruct a as (i', t);
           unfold dom, lookup, bind in HDom;
           destruct HDom as [x HDom];  
-          destruct (id_eqb I i i') eqn: eqid.
+          destruct (id_eqb i i') eqn: eqid.
            (*id_eqb I i i'  = true *)
           * unfold tdom, tlookup. exists t. simpl.
             rewrite eqid; eauto.
@@ -201,7 +203,7 @@ Section ELABORATION.
       induction B; intros; solve_base.
       simpl. destruct a as (i', _). 
       unfold includes, lookup, bind.
-      destruct (id_eqb I i i') eqn: eqid; eauto.
+      destruct (id_eqb i i') eqn: eqid; eauto.
     Qed. 
     
     
@@ -215,7 +217,7 @@ Section ELABORATION.
     Qed.      
 
    
-    Lemma timm_type_env_ext_cases : 
+    Lemma timm_type_env_elab_cases : 
       forall (r: tenv) (B: tdblock) t, 
         timm (type_env_ext r B) t -> 
         timm r t \/ In t (snd (split B)).
@@ -225,13 +227,13 @@ Section ELABORATION.
       + simpl in *. destruct a as (i, t').
         unfold timm, tlookup, tbind in *.
         destruct Htext as [i' Htext]; simpl in *.
-        destruct (id_eqb I i' i) eqn: eqid.
+        destruct (id_eqb i' i) eqn: eqid.
         (* id_eqb I i' i = true *)
         * right. destruct (split B). simpl.
           left. inversion_subst Htext; eauto.
         (* id_eqb I i' i = false *)
         * assert (Hp: exists i,  
-           assoc_opt (type_env_ext r B) i (id_eqb I) = Some t) by 
+           assoc_opt (type_env_ext r B) i id_eqb = Some t) by 
            (exists i'; eauto). apply IHB in Hp. 
           destruct Hp as [[i'' Hp] | HIn ].
           - left; eauto. 
@@ -252,7 +254,7 @@ Section ELABORATION.
       unfold WFET. split. 
       + intro. apply extension_preserves_eq_dom; eauto.  
       + intros * Himm. 
-        apply timm_type_env_ext_cases in Himm.
+        apply timm_type_env_elab_cases in Himm.
         destruct Himm as [Htimm | HIn]. 
         * apply H0 in Htimm. 
           apply early_bind_preserves_DT; eauto.
@@ -262,21 +264,23 @@ Section ELABORATION.
 
 
     (* computational version of BlockExtends predicate *)
-    Definition tblock_extends r R B : tdblock_ext_result := 
-      if nodupb (id_eqb I) (fst (split B)) then 
+    Definition tblock_elab r R B : tdblock_ext_result := 
+      if nodupb id_eqb (fst (split B)) then 
         let R' := early_binding R B in 
-        if forallb (fun p => is_DT R' (snd p)) B then 
-          let r' := type_env_ext r B in 
+        if forallb (fun p => is_DT R' (snd p)) B then
           match dblock_constr B with 
-          |Some l  => if nodupb (constr_eqb I) l then Ok (r', R') 
-                      else Error ("duplicated constructor is declared in the same block"%string)
+          |Some l  => if nodupb constr_eqb l then 
+                        Ok (type_env_ext r B, R') 
+                      else 
+                        Error ("duplicated constructor is declared in the same block"%string)
           |None    => Error ("implementation error: invalid type has been declared"%string)
           end 
         else Error ("declaration of invalid type"%string)
       else Error ("duplicated name is declared in the same block"%string). 
       
     
-    Theorem Forall_split_conv : forall {X Y} P (l: list (X * Y)), 
+
+    Lemma Forall_split_conv : forall {X Y} P (l: list (X * Y)), 
      Forall P (snd (split l)) <-> Forall (fun p => P (snd p)) l.
     Proof. 
       split; intros; induction l; 
@@ -285,94 +289,88 @@ Section ELABORATION.
       apply Forall_cons; inversion H; subst;  
       try discriminate; eauto. 
     Qed.        
+
     
-    Theorem tbl_ext_correct: forall r r' R R' B,
+    
+    Theorem tbl_elab_correct: forall r r' R R' B,
       WFET r R ->  
-      tblock_extends r R B = Ok (r', R') -> 
-      TBlockExtends (r, R, B) (r', R', B).
+      tblock_elab r R B = Ok (r', R') -> 
+      TBlockElab (r, R, B) (r', R', B).
     Proof. 
       intros * HWfet Hb_ext. 
-      unfold tblock_extends in Hb_ext. 
-      destruct (nodupb _) eqn: eqnodup. 
-      + destruct (forallb _) eqn: eqforall. 
-        * destruct (dblock_constr _) eqn: eqconstr. 
-          - destruct (nodupb (constr_eqb I) l) eqn: eqnodupb; 
-            inversion Hb_ext; subst. 
-            apply TBext with l; eauto.
-            apply Forall_split_conv.
-            apply Forall_impl_forallb_DT; eauto.
-            intros; symmetry; apply is_DT_eq_DT .        
-          - discriminate.
-        * discriminate. 
-      + discriminate. 
+      unfold tblock_elab in Hb_ext. 
+      destruct (nodupb _) eqn: eqnodup; discard_case. 
+      destruct (forallb _) eqn: eqforall; discard_case. 
+      destruct (dblock_constr _) eqn: eqconstr; discard_case. 
+      destruct (nodupb constr_eqb l) eqn: eqnodupb; discard_case. 
+      inversion_subst Hb_ext. eapply TBElab; eauto.
+      apply Forall_split_conv. apply Forall_DT_forall_is_DT. eauto.
     Qed.
     
-    Theorem tbl_ext_complete: forall r r' R R' B,   
-      TBlockExtends (r, R, B) (r', R', B) -> 
-      tblock_extends r R B = Ok (r', R'). 
+    Theorem tbl_elab_complete: forall r r' R R' B,   
+      TBlockElab (r, R, B) (r', R', B) -> 
+      tblock_elab r R B = Ok (r', R'). 
     Proof. 
       intros * HBext. 
       inversion HBext as [r0 R0 B' l HWfet Hnodup1
                           HForall Hconstr Hnodup2]; subst. 
-      unfold tblock_extends. 
+      unfold tblock_elab. 
       rewrite Hnodup1.
       apply Forall_split_conv in HForall.
-      rewrite Forall_impl_forallb_DT in HForall.
-      rewrite HForall.
-      rewrite <- Hconstr.
-      rewrite Hnodup2.
-      reflexivity.
-      symmetry; apply is_DT_eq_DT. 
+      rewrite <- Forall_DT_forall_is_DT in HForall .
+      rewrite HForall. rewrite Hconstr.
+      rewrite Hnodup2. reflexivity.
     Qed.
     
 
-    Theorem tbl_ext_correct_Err: forall r R B mssg, 
-      tblock_extends r R B = Error mssg ->
-      (forall r' R', ~TBlockExtends (r, R, B) (r', R', B)).
+    Theorem tbl_elab_fail_correct: forall r R B mssg, 
+      tblock_elab r R B = Error mssg ->
+      (forall r' R', ~TBlockElab (r, R, B) (r', R', B)).
     Proof. 
       intros * Hbe. unfold not. 
       intros * HBext. 
       inversion HBext as [r0 R0 B' l HWfet Hnodup1
                           HForall Hconstr Hnodup2]; subst. 
-      unfold tblock_extends in Hbe.
+      unfold tblock_elab in Hbe.
       rewrite Hnodup1 in Hbe. 
       apply Forall_split_conv in HForall.
-      rewrite Forall_impl_forallb_DT in HForall.
+      rewrite <- Forall_DT_forall_is_DT in HForall.
       rewrite HForall in Hbe. 
-      rewrite <- Hconstr in Hbe.
+      rewrite Hconstr in Hbe.
       rewrite Hnodup2 in Hbe.
       discriminate.
-      symmetry. apply is_DT_eq_DT.
     Qed.   
 
 
-    Theorem tbl_ext_complete_Err: forall r R B, 
+    Theorem tbl_elab_fail_complete : forall r R B, 
        WFET r R -> 
-       (forall r' R', ~TBlockExtends (r, R, B) (r', R', B)) -> 
-       (exists mssg, tblock_extends r R B = Error mssg).
+       (forall r' R', ~TBlockElab (r, R, B) (r', R', B)) -> 
+       (exists mssg, tblock_elab r R B = Error mssg).
     Proof. 
       intros * HWfet HBext. 
-      unfold tblock_extends.   
+      unfold tblock_elab.   
       destruct (nodupb _) eqn: eqnodup1.
       + destruct (forallb _) eqn: eqforall. 
         * destruct (dblock_constr _) eqn: eqconstr. 
-          - destruct (nodupb (constr_eqb I) l) eqn: eqnodupb. 
-            -- exists ""%string. 
-               assert (contra: 
-                TBlockExtends (r, R, B) (type_env_ext r B, early_binding R B, B)). 
-               {apply TBext with l; eauto. 
-                apply Forall_split_conv; 
-                apply Forall_impl_forallb_DT; eauto.
-                symmetry. apply is_DT_eq_DT. } 
-              unfold not in HBext; apply HBext in contra.
-              contradiction. 
-            -- exists "duplicated constructor is declared in the same block"%string.
+          - destruct (nodupb constr_eqb l) eqn: eqnodupb. 
+            -- assert (contra: 
+                TBlockElab (r, R, B)
+                (type_env_ext r B, early_binding R B, B)). 
+               {eapply TBElab; eauto; apply Forall_split_conv; 
+                apply Forall_DT_forall_is_DT; eauto. }
+                specialize HBext with 
+                (r' := type_env_ext r B) (R' := early_binding R B).
+                contradiction.
+            -- exists 
+              "duplicated constructor is declared in the same block"%string.
                reflexivity.
-          - exists "implementation error: invalid type has been declared"%string.
+          - exists 
+            "implementation error: invalid type has been declared"%string.
             reflexivity.
         * exists "declaration of invalid type"%string. 
           reflexivity. 
-      + exists "duplicated name is declared in the same block"%string.
+      + exists 
+        "duplicated name is declared in the same block"%string.
         reflexivity.
     Qed.                   
                 
@@ -381,65 +379,82 @@ Section ELABORATION.
 
     Definition cdblock := list (Constr * KTp). 
 
-    (* given a well-formed constr_env `d`, a name `i` of a declarable type 
-       and its block of declared constructors `l`, it extends `d` binding 
-       each constructor `c` declared in `l` carrying type `t` with `(i, t)`. *)
-    Fixpoint cblock_extends (d: constr_env) (i: Ide) (l: cdblock) : constr_env :=
-      match l with 
-      |[]        => d 
-      |(c, t)::l => bind (cblock_extends d i l) c (i, t) (constr_eqb I)  
-      end. 
+    (* given a constructor env `d`, a name `i` of a declared type   
+       and a block of declared constructors `l`, it extends `d` binding 
+       each constructor `c` with `(i, t)`, where `t` is the definition 
+       of `c` in the block . *)
+    Definition cblock_extends (d: constr_env) (i: Ide) (l: cdblock) 
+                             : constr_env := 
+      fold_right (fun '(c, t) acc => bind acc c (i, t) constr_eqb) d l.
       
            
        
-    Lemma bind_old_or_new : forall d c i j l t,
+    Lemma lookup_constr_env_ext_cases : forall d c i j l t,
       lookup (cblock_extends d i l) c = Some (j, t) -> 
       lookup d c = Some (j, t) \/ (j = i /\ In (c, t) l).
     Proof. 
       intros * Hlkp.
       generalize dependent d. 
-      induction l; intros. 
+      induction l as [| (c', t') tail]; intros. 
       + simpl in *. left. eauto.
-      + simpl in Hlkp. destruct a.
-        pose proof Hlkp as Hlkp'.  
+      + simpl in Hlkp. pose proof Hlkp as Hlkp'.  
         unfold lookup, bind in Hlkp.
-        destruct (constr_eqb I c c0) eqn: eqc .
-        - rewrite <- constr_eqb_eq in eqc; rewrite eqc in *.
+        destruct (constr_eqb c c') eqn: eqc .
+        (* constr_eqb c c' = true *)
+        - rewrite <- constr_eqb_eq in eqc;subst. 
           inversion Hlkp; subst.
-          right. split; try (simpl; left); eauto.
-        - apply IHl in Hlkp; eauto. 
-          destruct Hlkp. 
-          left; eauto. 
-          right. split; destruct H; eauto.
-          simpl. right; eauto.
+          right. split; simpl; eauto.
+        (* constr_eqb c c' = false *)
+        - apply IHtail in Hlkp; eauto. 
+          destruct Hlkp as [* | HIn]. 
+          * left; eauto.
+          * right. split; simpl; destruct HIn; eauto.
     Qed.  
 
+(* 
+    Lemma In_exists_constr_eqb: 
+      forall c t (l: list (Constr * KTp)),  
+       In (c, t) l -> 
+       existsb (fun p => constr_eqb (fst p) c) l = true.
+    Proof. 
+      intros * HIn. 
+      induction l as [| (c', t') tail]; discard_case.
+      simpl in HIn. destruct HIn as [HEq | HIn].
+      + inversion_subst HEq. simpl. apply Bool.orb_true_iff.
+        left. apply constr_eqb_eq. reflexivity.
+      + simpl. apply Bool.orb_true_iff. right. eauto.
+    Qed. 
+ *)
 
-    Theorem cbl_ext_correct : forall d r R i l, 
+       
+      
+
+    Theorem cblock_extends_preserves_WFEC : forall d r R i l, 
       WFEC d r R ->
-      In (i, KTVariant l) r -> 
-      (forall c t, In (c, t) l -> last_type_def r c = Some (i, KTVariant l)) ->
+      (forall c t, 
+        In (c, t) l -> 
+        last_type_def r c = Some (i, KTVariant l)) ->
       WFEC (cblock_extends d i l) r R. 
     Proof.
-      intros * HWfec _.
+      intros * HWfec Hlkp.
       unfold WFEC; split; 
       inversion HWfec as [H0 H1]; eauto.
-      intros * Hlkp. 
-      apply bind_old_or_new in Hlkp.
-      destruct Hlkp as [Hlkp | Heqin].
+      intros * Hlkp'. 
+      apply lookup_constr_env_ext_cases in Hlkp'.
+      destruct Hlkp' as [Hlkp' | Heqin].
       + apply H1; eauto.
-      + destruct Heqin as [Heq Hin]; subst. 
+      + destruct Heqin as [Heq Hin]; subst.
+        unfold tlookup in Hlkp.  
         pose proof Hin as Hin'. 
-        apply H in Hin. exists l; eauto.
+        apply Hlkp in Hin. exists l; eauto.
     Qed.
  
         
                 
-    (* given a well-formed constr_env `d` and a tblock `l` 
-       it extends `d` binding every variant constructor in `l` to 
-       `(i, t)`, where `i` is the name of the declared type and 
-       `t` is the type carried by the current constructor. 
-       If 'l' contains a non declarable type, it returns None. *)
+    (* given a constructor env `d` and a type declaration block `B` 
+       it extends `d` binding every constructor in B through 
+       cblock_extends. If 'B' includes a non declarable type, 
+       it returns None. *)
     Fixpoint bind_constr_tblock (d: constr_env) (B: tdblock) := 
       match B with 
       |[]                    => Some d 
@@ -448,46 +463,42 @@ Section ELABORATION.
       end.
   
           
-    Lemma bind_old_or_new_ex : forall d d' B c j t,
-      Some d' = bind_constr_tblock d B -> 
+    Lemma lookup_bind_constr_dblock_cases : forall d d' B c j t,
+      bind_constr_tblock d B = Some d' -> 
       lookup d' c = Some (j, t) -> 
       lookup d c = Some (j, t) \/ 
       (exists i l, j = i /\ In (i, KTVariant l) B /\ In (c, t) l).
     Proof.
-      intros.  
-      generalize dependent d.
-      induction B; intros. 
-      + simpl in H; inversion H; subst; left; eauto.
-      + pose proof H as H'. 
-        simpl in H; destruct a; destruct k; try discriminate.
-        apply IHB in H. destruct H. 
-        * apply bind_old_or_new in H. 
-          destruct H. 
+      intros * Hbind Hlkp. generalize dependent d.
+      induction B as [| (c', t') tail]; intros. 
+      + simpl in Hbind; inversion_subst Hbind; left; eauto.
+      + pose proof Hbind as Hbind'. 
+        simpl in Hbind; destruct t'; discard_case. 
+        apply IHtail in Hbind. destruct Hbind as [Hl | Hr]. 
+        * apply lookup_constr_env_ext_cases in Hl. 
+          destruct Hl as [* | HEqIn]. 
           ** left; eauto.
-          ** right. exists i. exists tags.
-             destruct H; repeat split; simpl; eauto.
-        * right. destruct H as [i0 [l [H1 [H2 H3]]]].
-          exists i0. exists l. repeat split; eauto. 
+          ** right. exists c'. exists tags.
+             destruct HEqIn. repeat split; simpl; eauto.
+        * right. destruct Hr as [i' [l [H1 [H2 H3]]]].
+          exists i'. exists l. repeat split; eauto. 
           simpl. right . eauto.
     Qed.     
              
 
     
-    Lemma exb_cblock : forall (cb : list (Constr * KTp)) c, 
-      existsb (fun p => constr_eqb I (fst p) c) cb = true -> 
-      exists t, In (c, t) cb.
+    Lemma existsb_In_cblock : 
+      forall (l : list (Constr * KTp)) c, 
+        existsb (fun p => constr_eqb (fst p) c) l = true -> 
+        exists t, In (c, t) l.
     Proof.
-      intros * Hexb. 
-      induction cb. 
-      + simpl in *. discriminate. 
-      + simpl in Hexb. destruct (constr_eqb I (fst a) c) eqn: eqid. 
-        - destruct a. 
-          exists k. simpl. left. rewrite <- constr_eqb_eq in eqid; 
-          simpl in *; subst; eauto. 
-        - rewrite Bool.orb_false_l in Hexb. 
-          apply IHcb in Hexb. 
-          destruct Hexb as [t Hin]. 
-          exists t. simpl. right. eauto.
+      intros * Hexb. induction l as [| (c', t') tail]; discard_case. 
+      simpl in Hexb. destruct (constr_eqb c' c) eqn: eqc. 
+      + rewrite <- constr_eqb_eq in eqc; subst. 
+        exists t'. simpl; eauto. 
+      + rewrite Bool.orb_false_l in Hexb. 
+        apply IHtail in Hexb. destruct Hexb as [t *]. 
+        exists t. simpl. right. eauto.
     Qed. 
 
 

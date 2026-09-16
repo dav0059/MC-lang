@@ -210,7 +210,6 @@ Section TYPE_THEORY.
                     
     
 
-
     (* Induction principle for AF. *)
     Section AF_ind'. 
 
@@ -588,7 +587,23 @@ Section TYPE_THEORY.
       apply is_DT_complete.
     Qed.
 
-
+    Corollary Forall_DT_forall_is_DT : 
+      forall R (B: list (Ide * KTp)), 
+        forallb (fun p => is_DT R (snd p)) B = true <-> 
+        Forall (fun p => DT R (snd p)) B.
+    Proof. 
+      split.
+      (* -> *)
+      + intro Hforall. induction B.
+        * apply Forall_nil. 
+        * simpl in *. rewrite andb_true_iff in Hforall.
+          destruct Hforall. apply Forall_cons; eauto. 
+          apply is_DT_correct. eauto. 
+      (* <- *)
+      + intro HForall. induction HForall; eauto. 
+        simpl. rewrite andb_true_iff. split; eauto.
+        apply is_DT_complete; eauto.
+    Qed.    
 
     Lemma is_consistent_list: forall t t', 
       is_consistent (KTList t) (KTList t') = true -> 
