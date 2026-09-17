@@ -40,6 +40,88 @@ Section ELABORATION.
       try contradiction; 
       try (simpl in *; discriminate).
 
+
+    (* useful lemmas *)
+    Lemma existsb_true_In_cblock : 
+      forall (l : list (Constr * KTp)) c, 
+        existsb (fun p => constr_eqb (fst p) c) l = true -> 
+        exists t, In (c, t) l.
+    Proof.
+      intros * Hexb. induction l as [| (c', t') tail]; discard_case. 
+      simpl in Hexb. destruct (constr_eqb c' c) eqn: eqc. 
+      + rewrite <- constr_eqb_eq in eqc; subst. 
+        exists t'. simpl; eauto. 
+      + rewrite Bool.orb_false_l in Hexb. 
+        apply IHtail in Hexb. destruct Hexb as [t *]. 
+        exists t. simpl. right. eauto.
+    Qed. 
+
+
+    Lemma existsb_false_not_In_cblock : 
+      forall (l: list (Constr * KTp)) c , 
+        existsb (fun p => constr_eqb (fst p) c) l = false -> 
+        forall t, ~In (c, t) l.
+    Proof. 
+      intros * Hexb. induction l as [| (c', t') tail]. 
+      + unfold not; intros; contradiction.
+      + intro t. simpl in Hexb. rewrite Bool.orb_false_iff in *.
+        destruct Hexb as [Heq Hexb]. 
+        destruct (constr_eqb _) eqn: eqc; discard_case.
+        unfold not; intro contra. simpl in contra.
+        destruct contra as [Hneq | HIn].
+        * inversion_subst Hneq. rewrite <- constr_eqb_neq in eqc.
+          contradiction.
+        * apply IHtail in HIn; eauto.
+    Qed.  
+            
+
+    Lemma In_split_cblock : 
+      forall c t (l: list (Constr * KTp)), 
+        In (c, t) l -> 
+        In c (fst (split l)).
+    Proof. 
+      intros * HIn. 
+      induction l as [| (c', t') tail]; discard_case .
+      simpl in *. destruct (split _).
+      simpl. destruct HIn as [HEq | HIn].
+      + inversion_subst HEq; left; reflexivity.
+      + right; eauto. 
+    Qed.
+    
+
+    Lemma split_In_cblock : 
+      forall c (l : list (Constr * KTp)), 
+        In c (fst (split l)) -> 
+        exists t, In (c, t) l.
+    Proof. 
+      intros * HIn. 
+      induction l as [| (c', t') tail]; discard_case. 
+      simpl in *. destruct (split _). 
+      simpl in *. destruct HIn as [HEq | HIn]. 
+      + subst. exists t'. left. reflexivity.
+      + apply IHtail in HIn. destruct HIn as [t *].
+        exists t. right. eauto.
+    Qed.
+
+
+    Lemma not_In_app : forall {X: Type} (x: X) l l', 
+      ~In x (l ++ l') -> 
+      ~In x l /\ ~In x l'.
+    Proof. 
+      intros * HInapp. 
+      generalize dependent l'. 
+      induction l; intros.
+      + simpl in *; unfold not; split; 
+        eauto.
+      + simpl in *. apply Decidable.not_or in HInapp. 
+        unfold not; split; intros; destruct HInapp. 
+        * destruct H. contradiction.
+          apply IHl in H1. destruct H1. 
+          contradiction.
+        * apply IHl in H1. destruct H1.  
+          contradiction. 
+    Qed.      
+
     (* the AST resulting from the static elaboration is a labelled AST (LExpr). 
       The node `EVariant c e` carries the pair (i: Id, t: Tp), where `i` is 
       the name of the last defined variant type having `c` among its 
@@ -105,10 +187,10 @@ Section ELABORATION.
 
 
 
-    Lemma dblock_constr_correct : forall i l B c l', 
+    Lemma dblock_constr_correct1 : forall i l B c l', 
       In (i, KTVariant l) B -> 
       In c (fst (split l)) -> 
-      Some l' = (dblock_constr B) -> 
+      dblock_constr B = Some l' -> 
       In c l'. 
     Proof. 
       intros * HInB HInl Hl'.
@@ -133,6 +215,28 @@ Section ELABORATION.
       * simpl in Hl'. rewrite HDB' in Hl'. discriminate.   
     Qed.
  
+
+    
+    Lemma dblock_constr_correct2 : forall B l c, 
+      dblock_constr B = Some l -> 
+      In c l -> 
+      exists i cb t, In (i, KTVariant cb) B /\ In (c, t) cb.
+    Proof. 
+      intros * Hdb HIn. 
+      generalize dependent l.
+      induction B as [| (i', t') tail]; intros. 
+      + simpl in *; inversion Hdb; subst; contradiction.
+      + simpl in *. destruct t'; discard_case. 
+        destruct (dblock_constr tail) eqn: eqtail; discard_case.
+        inversion_subst Hdb. apply in_app_or in HIn.
+        destruct HIn as [HInl | HInr]. 
+        - apply split_In_cblock in HInl. destruct HInl as [t Hinl].
+          exists i', tags, t. split; eauto. 
+        - apply IHtail in HInr; eauto. 
+          destruct HInr as [i [cb [t [HIn1 HIn2 ]]]]. 
+          exists i, cb, t. split; try right; eauto.
+    Qed.
+
 
     (* TBlockElab formalizes the elaboration 
        of a type declaration block . *)
@@ -411,7 +515,7 @@ Section ELABORATION.
           * right. split; simpl; destruct HIn; eauto.
     Qed.  
 
-(* 
+
     Lemma In_exists_constr_eqb: 
       forall c t (l: list (Constr * KTp)),  
        In (c, t) l -> 
@@ -424,10 +528,7 @@ Section ELABORATION.
         left. apply constr_eqb_eq. reflexivity.
       + simpl. apply Bool.orb_true_iff. right. eauto.
     Qed. 
- *)
-
-       
-      
+             
 
     Theorem cblock_extends_preserves_WFEC : forall d r R i l, 
       WFEC d r R ->
@@ -463,11 +564,12 @@ Section ELABORATION.
       end.
   
           
-    Lemma lookup_bind_constr_dblock_cases : forall d d' B c j t,
-      bind_constr_tblock d B = Some d' -> 
-      lookup d' c = Some (j, t) -> 
-      lookup d c = Some (j, t) \/ 
-      (exists i l, j = i /\ In (i, KTVariant l) B /\ In (c, t) l).
+    Lemma lookup_bind_constr_dblock_cases : 
+      forall d d' B c j t,
+        bind_constr_tblock d B = Some d' -> 
+        lookup d' c = Some (j, t) -> 
+        lookup d c = Some (j, t) \/ 
+        (exists i l, j = i /\ In (i, KTVariant l) B /\ In (c, t) l).
     Proof.
       intros * Hbind Hlkp. generalize dependent d.
       induction B as [| (c', t') tail]; intros. 
@@ -486,120 +588,58 @@ Section ELABORATION.
     Qed.     
              
 
-    
-    Lemma existsb_In_cblock : 
-      forall (l : list (Constr * KTp)) c, 
-        existsb (fun p => constr_eqb (fst p) c) l = true -> 
-        exists t, In (c, t) l.
-    Proof.
-      intros * Hexb. induction l as [| (c', t') tail]; discard_case. 
-      simpl in Hexb. destruct (constr_eqb c' c) eqn: eqc. 
-      + rewrite <- constr_eqb_eq in eqc; subst. 
-        exists t'. simpl; eauto. 
-      + rewrite Bool.orb_false_l in Hexb. 
-        apply IHtail in Hexb. destruct Hexb as [t *]. 
-        exists t. simpl. right. eauto.
-    Qed. 
 
 
-
-    Lemma nexb_cblock : forall (cb: list (Constr * KTp)) c , 
-      existsb (fun p => constr_eqb I (fst p) c) cb = false -> 
-      forall t, ~In (c, t) cb.
+    Lemma last_type_def_correct: 
+      forall i cb B c t l r,  
+        In (i, KTVariant cb) B -> 
+        In (c, t) cb -> 
+        nodupb id_eqb (fst (split B)) = true -> 
+        dblock_constr B = Some l -> 
+        nodupb constr_eqb l = true ->
+        last_type_def (type_env_ext r B) c = Some (i, KTVariant cb).
     Proof. 
-      intros. 
-      induction cb. 
-      + unfold not; intros; contradiction.
-      + simpl in H. destruct (constr_eqb I (fst a) c) eqn: eqid.
-        - rewrite <- constr_eqb_eq in eqid;
-          destruct a; simpl in *; subst; discriminate.
-        - rewrite Bool.orb_false_l in H. 
-          apply IHcb in H. unfold not;
-          intros contra. simpl in contra; 
-          destruct contra; subst; simpl in *; 
-          rewrite <- constr_eqb_neq in eqid; 
-          contradiction.
-    Qed.       
-            
-
-    Lemma In_split_cblock : forall c t (cb: list (Constr * KTp)), 
-      In (c, t) cb -> In c (fst (split cb)).
-    Proof. 
-      intros. induction cb; try contradiction .
-      simpl in *. 
-      destruct a. destruct (split cb).
-      simpl. destruct H. inversion H; subst. 
-      left; reflexivity. 
-      right; eauto.
-    Qed.
-    
-    Lemma split_In_cblock : forall c (cb : list (Constr * KTp)), 
-      In c (fst (split cb)) -> exists t, In (c, t) cb.
-    Proof. 
-      intros. induction cb; try contradiction. 
-      simpl in *. destruct a. destruct (split cb). 
-      simpl in *. destruct H; subst.
-      exists k. left. eauto.
-      apply IHcb in H. destruct H. 
-      exists x.  right. eauto. 
-    Qed. 
-
-  
-
-    Lemma ltd_correct: forall i cb B c t l r,  
-      In (i, KTVariant cb) B -> 
-      In (c, t) cb -> 
-      nodupb (id_eqb I) (fst (split B)) = true -> 
-      Some l = dblock_constr B -> 
-      nodupb (constr_eqb I) l = true ->
-      last_type_def (type_env_ext r B) c = Some (i, KTVariant cb).
-    Proof. 
-      intros * HInB HInCB HnodupId Hsome HnodupC .
+      intros * HInB HIncb HnodupId Hdblock HnodupC .
       generalize dependent r.
       generalize dependent l.
-      induction B; try contradiction; intros.
-      simpl. simpl in HnodupId. destruct a. 
-      destruct (split B). simpl in HnodupId. 
-      destruct (find _) eqn: eqfind; try discriminate.
-      unfold tbind; simpl;
-      simpl in HInB; destruct HInB.
-      + inversion H; subst. destruct (existsb _) eqn: eqex.
-        eauto. 
-        apply nexb_cblock with (t := t) in eqex . contradiction.
-      + destruct k; simpl in Hsome; try discriminate;
-        destruct (existsb _) eqn: eqex.
-        * rewrite existsb_exists in eqex.
-           destruct (dblock_constr B) eqn: eqB; try discriminate. 
-           inversion Hsome; subst.
-           destruct eqex as [(c0, k) [HIn Heqc]].
+      induction B as [| (i', t') tail]; discard_case; intros.
+      simpl in HnodupId |-*. destruct (split tail). 
+      simpl in HnodupId. destruct (find _) eqn: eqfind; discard_case. 
+      simpl in HInB; destruct HInB as [HEq | HIntail].
+      + inversion_subst HEq. apply In_exists_constr_eqb in HIncb.
+        rewrite HIncb. reflexivity.
+      + destruct t'; discard_case. destruct (existsb _) eqn: eqex.
+        * simpl in Hdblock. rewrite existsb_exists in eqex. 
+          destruct (dblock_constr tail) eqn: eqtail; discard_case.
+          inversion_subst Hdblock. destruct eqex as [(c0, k) [HIn Heqc]].
            rewrite <- constr_eqb_eq in Heqc; simpl in Heqc; subst. 
-            (* devo giungere ad una contraddizione dall'avere 
-               c in fst (split tags) e in fst (split cb). 
-               Sfruttiamo il lemma di correttezza per dblock_constr. *)
+            (* we reach a contradiction by the assumptions 
+               `In (c, k) tags` and `In (c, t) cb`.
+               We can use the correctness lemma for `dblock_constr`
+               function. *)
             assert (Hp: In c l2). {
-              apply (dblock_constr_correct i cb B c); eauto. 
-              apply In_split_cblock with (t := t); eauto. 
+              apply (dblock_constr_correct1 i cb tail c); eauto. 
+              eapply In_split_cblock; eauto. 
               } 
             assert (Hp': In c (fst (split tags))) by 
-              (apply In_split_cblock with (t := k); eauto).
-            assert (Hnodupbf: nodupb (constr_eqb I) (fst (split tags) ++ l2) = false). 
-            {apply In_false_nodupb with (x := c); eauto. 
+              (eapply In_split_cblock; eauto).
+            assert (contra: 
+              nodupb constr_eqb (fst (split tags) ++ l2) = false). 
+            {eapply In_false_nodupb; eauto. 
              intros. apply Bool.iff_reflect. apply constr_eqb_eq.  }
-            rewrite HnodupC in Hnodupbf. discriminate.
-        * destruct (dblock_constr B) eqn: eqB; try discriminate. 
-          apply IHB with (l := l2); eauto. 
-          inversion Hsome. subst. 
+            rewrite HnodupC in contra. discriminate.
+        * simpl in Hdblock. destruct (dblock_constr tail) eqn: eqtail; 
+          discard_case. eapply IHtail; eauto.  
+          inversion_subst Hdblock; 
           rewrite <- nodupb_eq_NoDup in HnodupC |- *; 
-          try (intros; apply Bool.iff_reflect; apply constr_eqb_eq) .
-          apply NoDup_app_remove_l with (l := fst (split tags)); 
-          eauto.
-
+          try (intros; apply Bool.iff_reflect; apply constr_eqb_eq);
+          eapply NoDup_app_remove_l; eauto.
     Qed.
                   
       
 
-    Theorem tbl_ext_with_constr_correct: forall r r' R R' B d d', 
-      TBlockExtends (r, R, B) (r', R', B) -> 
+    (* Theorem tbl_ext_with_constr_correct: forall r r' R R' B d d', 
+      TBlockElab (r, R, B) (r', R', B) -> 
       WFEC d r' R' ->
       Some d' = bind_constr_tblock d B -> 
       WFEC d' r' R'. 
@@ -618,236 +658,193 @@ Section ELABORATION.
         exists x0; split; eauto. 
         apply ltd_correct with (t := t) (l := l); 
         eauto.
-    Qed.    
+    Qed.     *)
 
 
-    Lemma aux1: forall c t l d i, 
+    Lemma cblock_extends_lkp_correct: forall c t l d i, 
       In (c, t) l -> 
-      nodupb (constr_eqb I) (fst (split l)) = true  ->
+      nodupb constr_eqb (fst (split l)) = true  ->
       lookup (cblock_extends d i l) c = Some (i, t).
     Proof. 
       intros * HIn Hnodupb. 
-      induction l; try contradiction. 
-      simpl. destruct a. unfold lookup, bind. 
-      destruct (constr_eqb I c c0) eqn: eqc. 
+      induction l as [| (c', t') tail]; discard_case.  
+      simpl. unfold lookup, bind. 
+      destruct (constr_eqb c c') eqn: eqc. 
       + simpl in HIn. destruct HIn as [Heq | HIn].
-        inversion Heq; eauto.  
-        simpl in Hnodupb. destruct (split l) eqn: eqsplit.
-        simpl in *.
-        destruct (find _) eqn: eqfind. discriminate. 
+        inversion_subst Heq; eauto.  
+        simpl in Hnodupb. destruct (split tail) eqn: eqsplit.
+        simpl in Hnodupb. destruct (find _) eqn: eqfind; discard_case.  
         apply find_none with (x := c) in eqfind. 
         rewrite eqc in eqfind. discriminate. 
-        apply In_split_cblock in HIn. 
-        rewrite eqsplit in HIn. simpl in *. eauto.
+        apply In_split_cblock in HIn. rewrite eqsplit in HIn. eauto. 
       + simpl in HIn. destruct HIn as [Heq | HIn].  
-        inversion Heq; subst. rewrite <- constr_eqb_neq in eqc.
+        inversion_subst Heq. rewrite <- constr_eqb_neq in eqc.
         contradiction. 
-        simpl in Hnodupb. destruct (split l) eqn: eqsplit.
-        simpl in *.
-        destruct (find _) eqn: eqfind. discriminate. 
+        simpl in Hnodupb. destruct (split tail) eqn: eqsplit.
+        simpl in *. destruct (find _) eqn: eqfind. discard_case.
         eauto.
     Qed.
 
          
-    Lemma not_In_app : forall {X: Type} (x: X) l l', 
-      ~In x (l ++ l') -> 
-      ~In x l /\ ~In x l'.
-    Proof. 
-      intros * HInapp. 
-      generalize dependent l'. 
-      induction l; intros. 
-      + simpl in *; unfold not; split; 
-        eauto.
-      + simpl in *;  
-        apply Decidable.not_or in HInapp; 
-        unfold not; split; 
-        intros; destruct HInapp. 
-        * destruct H. contradiction.
-          apply IHl in H1. destruct H1. 
-          contradiction.
-        * apply IHl in H1. destruct H1.  
-          contradiction. 
-    Qed.      
-
-
-    Lemma aux3: forall d c i t l i' , 
-      lookup d c  = Some (i, t) -> 
-      ~In c (fst (split l)) -> 
-      lookup (cblock_extends d i' l) c = Some (i, t).
+    Lemma cblock_extends_preserves_bindings : 
+      forall d c i t l i' , 
+        lookup d c  = Some (i, t) -> 
+        ~In c (fst (split l)) -> 
+        lookup (cblock_extends d i' l) c = Some (i, t).
     Proof. 
       intros * Hlkp HIn. 
-      induction l. 
-      + eauto. 
-      + simpl. destruct a. unfold lookup, bind. 
-        simpl in HIn. destruct (split l) eqn: eqsplit. 
-        simpl in HIn. apply Decidable.not_or in HIn. 
-        destruct HIn. 
-        destruct (constr_eqb I c c0) eqn: eqc.
-        * rewrite <- constr_eqb_eq in eqc. 
-          symmetry in eqc. contradiction.
-        * eauto.
+      induction l as [| (c', t') tail]; solve_base. 
+      simpl in *. unfold lookup, bind. 
+      destruct (split _) eqn: eqsplit. 
+      simpl in *. apply Decidable.not_or in HIn. 
+      destruct HIn as [HNeq *]. 
+      destruct (constr_eqb c c') eqn: eqc; solve_base.
+      rewrite <- constr_eqb_eq in eqc. 
+      symmetry in eqc. contradiction.
     Qed.    
 
-    Lemma aux2: forall d d' i l c t B, 
-      lookup d c = Some (i, t) ->
-      dblock_constr B = Some l ->
-      ~In c l -> 
-      bind_constr_tblock d B = Some d' ->
-      lookup d' c = Some (i, t). 
+    
+    Lemma cblock_extends_preserves_bindings_inv : 
+      forall d i' l c i t, 
+        lookup (cblock_extends d i' l) c = Some (i, t) -> 
+        ~In c (fst (split l)) -> 
+        lookup d c = Some (i, t).
+    Proof. 
+      intros * Hlkp HnIn. 
+      generalize dependent d. 
+      induction l as [| (c', t') tail]; intros; solve_base. 
+      simpl in *. destruct (split tail). 
+      unfold lookup, bind in Hlkp.
+      simpl in HnIn. apply Decidable.not_or in HnIn.
+      destruct HnIn as [HnInl HnInr].
+      destruct (constr_eqb c c') eqn: eqc. 
+      * rewrite <- constr_eqb_eq in eqc; subst.  
+        contradiction.
+      * apply IHtail; eauto.
+    Qed. 
+
+
+    Lemma bind_constr_tblock_preserves_bindings: 
+      forall d d' i l c t B, 
+        lookup d c = Some (i, t) ->
+        dblock_constr B = Some l ->
+        ~In c l -> 
+        bind_constr_tblock d B = Some d' ->
+        lookup d' c = Some (i, t). 
     Proof.   
       intros * Hlkp Hdb HnIn Hbct.
       generalize dependent l. 
       generalize dependent d'.
       generalize dependent d.
-      induction B; intros. 
-      + inversion Hbct; subst; eauto.
-      + simpl in Hdb. destruct a. 
-        destruct k; try discriminate. 
-        destruct (dblock_constr B) eqn: eqdb.
-        * inversion Hdb; subst. apply not_In_app in HnIn.
-          simpl in Hbct. apply IHB with (d := cblock_extends d i0 tags)
-          (l := l0); 
-          destruct HnIn; eauto. 
-          apply aux3; eauto.
-        * discriminate.
+      induction B as [| (i', t') tail]; intros. 
+      + inversion_subst Hbct; eauto.
+      + simpl in Hdb. destruct t'; discard_case. 
+        destruct (dblock_constr tail) eqn: eqtail; discard_case.
+        inversion_subst Hdb. apply not_In_app in HnIn.
+        simpl in Hbct. eapply IHtail with 
+         (d := cblock_extends d i' tags); eauto; 
+        destruct HnIn; eauto.  
+        apply cblock_extends_preserves_bindings; eauto.
     Qed.  
         
 
-    Lemma aux4 : forall B l c, 
-      dblock_constr B = Some l -> 
-      In c l -> 
-      exists i cb t, In (i, KTVariant cb) B /\ In (c, t) cb.
-    Proof. 
-      intros * Hdb HIn. 
-      generalize dependent l.
-      induction B; intros. 
-      + simpl in *; inversion Hdb; subst; contradiction.
-      + simpl in *. destruct a. destruct k; try discriminate. 
-        destruct (dblock_constr B) eqn: eqdb; try discriminate.
-        inversion Hdb; subst.
-        apply in_app_or in HIn.
-        destruct HIn as [HInl | HInr]. 
-        - apply split_In_cblock in HInl. destruct HInl as [t Hinl].
-          exists i, tags, t. split; try left; eauto. 
-        - assert (Hp: exists i cb t, In (i, KTVariant cb) B /\ In (c, t) cb). 
-          {apply IHB with (l := l0); eauto. }
-          destruct Hp as [i' [cb [t [HIn1 HIn2 ]]]]. 
-          exists i', cb, t. split; try right; eauto.
+    Lemma bind_constr_tblock_preserves_bindings_inv: 
+      forall d' d c i t B l,  
+        bind_constr_tblock d B = Some d' -> 
+        dblock_constr B = Some l -> 
+        ~In c l -> 
+        lookup d' c = Some (i, t) ->
+        lookup d c = Some (i, t).
+    Proof.
+      intros * Hbd Hdb HnIn Hlkp. 
+      generalize dependent l. 
+      generalize dependent d. 
+      induction B as [| (i', t') tail]; intros. 
+      + simpl in *. inversion_subst Hbd; eauto. 
+      + simpl in *. destruct t'; discard_case. 
+        destruct (dblock_constr tail) eqn: eqtail; 
+        discard_case; inversion_subst Hdb. 
+        apply not_In_app in HnIn. 
+        destruct HnIn as [HnIn1 HnIn2]. 
+        assert (H: lookup (cblock_extends d i' tags) c = Some (i, t))
+         by (eapply IHtail ; eauto).
+        eapply cblock_extends_preserves_bindings_inv; eauto.
     Qed.
 
 
-    Lemma aux5 : forall d' d B l c i t, 
-      bind_constr_tblock d B = Some d' ->
-      dblock_constr B = Some l -> 
-      nodupb (constr_eqb I) l = true -> 
-      In c l -> 
-      lookup d' c = Some (i, t) -> 
-      exists l', In (i, KTVariant l') B /\ In (c, t) l'.
+    Lemma exists_cdblock_In_tdblock : 
+      forall d' d B l c i t, 
+        bind_constr_tblock d B = Some d' ->
+        dblock_constr B = Some l -> 
+        nodupb constr_eqb l = true -> 
+        In c l -> 
+        lookup d' c = Some (i, t) -> 
+        exists l', In (i, KTVariant l') B /\ In (c, t) l'.
     Proof. 
-      intros * Hbtb Hdb Hndpb HIn Hlkp. 
+      intros * Hbctb Hdb Hndpb HIn Hlkp. 
       generalize dependent l. 
       generalize dependent d.
-      induction B; intros. 
+      induction B as [| (i', t') tail]; intros. 
       + simpl in *; inversion Hdb; subst; contradiction.
-      + simpl in *. destruct a. destruct k; try discriminate. 
-        destruct (dblock_constr B) eqn: eqdb; try discriminate.
-        inversion Hdb; subst.
-        apply in_app_or in HIn. 
-        destruct HIn as [HIn1 | HIn2].
-        * apply split_In_cblock in HIn1. destruct HIn1 as [t' HIn1].  
-          pose proof HIn1 as HIn1'.
-          apply In_split_cblock in HIn1;
-          assert (Haux1: lookup (cblock_extends d i0 tags) c = Some (i0, t')). 
+      + simpl in *. destruct t'; discard_case. 
+        destruct (dblock_constr tail) eqn: eqtail; discard_case.
+        inversion_subst Hdb. apply in_app_or in HIn. 
+        destruct HIn as [HInl | HInr].
+        * apply split_In_cblock in HInl. destruct HInl as [t' HInl].  
+          pose proof HInl as HInl'. apply In_split_cblock in HInl.
+          assert (Haux1: 
+           lookup (cblock_extends d i' tags) c = Some (i', t')). 
           {   
-              rewrite <- nodupb_eq_NoDup in Hndpb.
+              rewrite <- nodupb_eq_NoDup in Hndpb; 
+              intros; intros; try eapply constr_refl.
               apply NoDup_app_remove_r in Hndpb. 
-              apply nodupb_eq_NoDup with (eqb := constr_eqb I) in Hndpb.
-              apply aux1; eauto. apply constr_refl. apply constr_refl. 
+              eapply nodupb_eq_NoDup in Hndpb; 
+              intros; try eapply constr_refl.
+              apply cblock_extends_lkp_correct; eauto. 
           }
           assert (HnIn : ~In c l0) by (
-            apply nodupb_In_false with 
-            (eqb := constr_eqb I) (l := (fst (split tags))); 
+            eapply nodupb_In_false; 
             eauto; apply constr_refl
           ).
-          assert (Hlkpc: lookup d' c = Some (i0, t')) by (
-              apply aux2 with (d := cblock_extends d i0 tags)
-              (l:= l0) (B := B); eauto
+          assert (Hlkpc: lookup d' c = Some (i', t')) by (
+              eapply bind_constr_tblock_preserves_bindings; eauto
           ).  
-          rewrite Hlkpc in Hlkp.
-          inversion Hlkp ;subst. exists tags; split; eauto.
-        * assert (H: exists l', In (i, KTVariant l') B /\ In (c, t) l'). 
-          {apply IHB with (d := cblock_extends d i0 tags) (l := l0); eauto. 
+          rewrite Hlkpc in Hlkp. inversion_subst Hlkp.
+          exists tags; split; eauto.
+        * assert (HIn: 
+           exists l', In (i, KTVariant l') tail /\ In (c, t) l'). 
+          {eapply IHtail; eauto. 
            rewrite <- nodupb_eq_NoDup in Hndpb. 
            apply NoDup_app_remove_l in Hndpb.
            rewrite <- nodupb_eq_NoDup; eauto; apply constr_refl.
            apply constr_refl. } 
-           repeat destruct H. exists x. split; try right; eauto.
+           destruct HIn as [l' [*]]. 
+           exists l'. split; try right; eauto.
     Qed.
 
 
-    Lemma aux6 : forall d i' l c i t, 
-      lookup (cblock_extends d i' l) c = Some (i, t) -> 
-      ~In c (fst (split l)) -> 
-      lookup d c = Some (i, t).
-    Proof. 
-      intros * Hlkp HnIn. 
-      generalize dependent d. 
-      induction l; intros. 
-      + simpl in *. eauto.
-      + simpl in *. destruct a. destruct (split l). 
-        unfold lookup, bind in Hlkp.
-        simpl in HnIn. apply Decidable.not_or in HnIn.
-        destruct HnIn as [HnInl HnInr].
-        destruct (constr_eqb I c c0) eqn: eqc. 
-        * rewrite <- constr_eqb_eq in eqc; subst.  
-          contradiction.
-        * apply IHl; simpl; eauto.
-    Qed. 
-
-
-    Lemma aux7 : forall d' d c i t B l, 
-      lookup d' c = Some (i, t) -> 
-      bind_constr_tblock d B = Some d' -> 
-      dblock_constr B = Some l -> 
-      ~In c l -> 
-      lookup d c = Some (i, t).
-    Proof.
-      intros * Hlkp Hbd Hdb HnIn. 
-      generalize dependent l. 
-      generalize dependent d. 
-      induction B; intros. 
-      + simpl in *. inversion Hbd; subst; eauto. 
-      + simpl in *. destruct a. destruct k; try discriminate. 
-        destruct (dblock_constr _) eqn: eqdb; try discriminate. 
-        inversion Hdb; subst.
-        apply not_In_app in HnIn. destruct HnIn as [HnIn1 HnIn2]. 
-        assert (H: lookup (cblock_extends d i0 tags) c = Some (i, t)).
-        {apply IHB with (d := cblock_extends d i0 tags) (l := l0); eauto. }
-        apply aux6 in H; eauto.
-    Qed. 
     
-    
-    Lemma aux8 : forall r c i l B l', 
-      dblock_constr B = Some l -> 
-      ~In c l -> 
-      last_type_def r c = Some (i, KTVariant l') ->
-      last_type_def (type_env_ext r B) c = Some (i, KTVariant l').
+    Lemma type_env_ext_preserves_ltd : 
+      forall r c i l B l', 
+        dblock_constr B = Some l -> 
+        ~In c l -> 
+        last_type_def r c = Some (i, KTVariant l') ->
+        last_type_def (type_env_ext r B) c = Some (i, KTVariant l').
     Proof.
       intros * Hdb HnIn Hltd. 
       generalize dependent l.
       generalize dependent r. 
-      induction B; intros. 
-      + eauto. 
-      + simpl in *. destruct a. destruct k; try discriminate.
-        destruct (dblock_constr _) eqn: eqdb; try discriminate.
-        inversion Hdb; subst. 
-        apply not_In_app in HnIn. destruct HnIn as [HnIn1 HnIn2]. 
-        unfold tbind. simpl. destruct (existsb _) eqn: eqx.
-        * apply existsb_exists in eqx. 
-          destruct eqx as [(c', t) [HIn Heq]]. 
-          rewrite <- constr_eqb_eq in Heq. simpl in *. 
-          subst. apply In_split_cblock in HIn. contradiction.
-        * apply IHB with (l := l0); eauto.
+      induction B as [| (i', t') tail]; intros; solve_base. 
+      simpl in *. destruct t'; discard_case. 
+      destruct (dblock_constr tail) eqn: eqdb; discard_case. 
+      inversion_subst Hdb. apply not_In_app in HnIn. 
+      destruct HnIn as [HnIn1 HnIn2]. 
+      destruct (existsb _) eqn: eqx. 
+      * apply existsb_exists in eqx. 
+        destruct eqx as [(c', t) [HIn Heq]]. 
+        rewrite <- constr_eqb_eq in Heq; subst. 
+        apply In_split_cblock in HIn. contradiction.
+      * eapply IHtail; eauto.
     Qed.   
 
              
