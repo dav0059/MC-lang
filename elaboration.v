@@ -140,7 +140,7 @@ Section ELABORATION.
     |LPair (e1 : LExpr) (e2: LExpr) 
     |LCons (e1: LExpr) (e2: LExpr) 
     |LVariant (c: Constr) (inf: Ide * KTp) (e: LExpr) 
-    |LFix (name: Ide) (cls: LExpr)  
+    |LFix (name: Ide) (e: LExpr)  
     |LMatch (e: LExpr) (cases: list (KPat * LExpr)) 
     |LError (m: Message) . 
 
@@ -321,7 +321,7 @@ Section ELABORATION.
     Qed.      
 
    
-    Lemma timm_type_env_elab_cases : 
+    Lemma timm_type_env_ext_cases : 
       forall (r: tenv) (B: tdblock) t, 
         timm (type_env_ext r B) t -> 
         timm r t \/ In t (snd (split B)).
@@ -347,7 +347,7 @@ Section ELABORATION.
 
 
     (* TBlockElab extends (r, R) preserving well-formedness *)
-    Theorem TBlockElab_correct : forall r R r' R' B, 
+    Theorem TBlockElab_preserves_wfet : forall r R r' R' B, 
      TBlockElab (r, R, B) (r', R', B) -> WFET r' R'.
     Proof. 
       intros * HBext. 
@@ -358,7 +358,7 @@ Section ELABORATION.
       unfold WFET. split. 
       + intro. apply extension_preserves_eq_dom; eauto.  
       + intros * Himm. 
-        apply timm_type_env_elab_cases in Himm.
+        apply timm_type_env_ext_cases in Himm.
         destruct Himm as [Htimm | HIn]. 
         * apply H0 in Htimm. 
           apply early_bind_preserves_DT; eauto.
@@ -530,7 +530,7 @@ Section ELABORATION.
     Qed. 
              
 
-    Theorem cblock_extends_preserves_WFEC : forall d r R i l, 
+    Theorem cblock_extends_preserves_wfec : forall d r R i l, 
       WFEC d r R ->
       (forall c t, 
         In (c, t) l -> 
@@ -795,12 +795,9 @@ Section ELABORATION.
           assert (Haux1: 
            lookup (cblock_extends d i' tags) c = Some (i', t')). 
           {   
-              rewrite <- nodupb_eq_NoDup in Hndpb; 
-              intros; intros; try eapply constr_refl.
-              apply NoDup_app_remove_r in Hndpb. 
-              eapply nodupb_eq_NoDup in Hndpb; 
-              intros; try eapply constr_refl.
-              apply cblock_extends_lkp_correct; eauto. 
+              apply cblock_extends_lkp_correct; eauto.
+              eapply nodupb_remove_r; eauto.
+              eapply constr_refl. 
           }
           assert (HnIn : ~In c l0) by (
             eapply nodupb_In_false; 
@@ -814,10 +811,8 @@ Section ELABORATION.
         * assert (HIn: 
            exists l', In (i, KTVariant l') tail /\ In (c, t) l'). 
           {eapply IHtail; eauto. 
-           rewrite <- nodupb_eq_NoDup in Hndpb. 
-           apply NoDup_app_remove_l in Hndpb.
-           rewrite <- nodupb_eq_NoDup; eauto; apply constr_refl.
-           apply constr_refl. } 
+           eapply nodupb_remove_l; eauto. 
+           eapply constr_refl. } 
            destruct HIn as [l' [*]]. 
            exists l'. split; try right; eauto.
     Qed.
@@ -848,101 +843,86 @@ Section ELABORATION.
     Qed.   
 
              
-    
-    Theorem tbl_ext_with_constr_correct2: forall r r' R R' B d d', 
-      TBlockExtends (r, R, B) (r', R', B) -> 
-      WFEC d r R ->
-      Some d' = bind_constr_tblock d B -> 
-      WFEC d' r' R'. 
+    Theorem bind_constr_tblock_preserves_wfec: 
+      forall r r' R R' B d d', 
+        TBlockElab (r, R, B) (r', R', B) -> 
+        WFEC d r R ->
+        bind_constr_tblock d B = Some d' -> 
+        WFEC d' r' R'. 
     Proof. 
-      intros * HBext HWfec Hsome. 
+      intros * HBEl HWfec Hbct. 
       unfold WFEC; split; 
-      inversion HBext as [r0 R0 B' l HWfet Hnodup1
+      inversion HBEl as [r0 R0 B' l HWfet Hnodup1
                           HForall Hconstr Hnodup2]; subst; eauto;
       inversion HWfec as [HWfet' Hlkp].
-      + apply TBlockExtends_correct with (r := r) ( R:=R) (B := B).
-        eauto. 
-      + intros * Hlkp'.  
-        destruct B. 
-        * simpl in *; inversion Hsome; subst. eauto.
-        * simpl in Hsome. simpl. destruct p. unfold tbind. simpl. 
-          destruct k; try discriminate.
-          simpl in Hconstr. destruct (dblock_constr _) eqn: Hdb; 
-          try discriminate.
-          destruct (existsb _) eqn: eqfind.
-          - apply exb_cblock in eqfind. destruct eqfind as [t' HIn].  
-            inversion Hconstr. subst.   
+      + eapply TBlockElab_preserves_wfet; eauto. 
+      + intros i t c Hlkp'. destruct B as [| (i', t') tail]. 
+        * simpl in *; inversion_subst Hbct; eauto.
+        * simpl in Hbct. destruct t'; discard_case; simpl in *. 
+          destruct (dblock_constr _) eqn: Hdb; discard_case.
+          destruct (existsb _) eqn: eqfind. 
+          - apply existsb_true_In_cblock in eqfind. 
+            destruct eqfind as [t' HIn]. inversion_subst Hconstr.    
             pose proof HIn as HInt'.
-            apply In_split_cblock in HIn;
-            assert (Haux1: lookup (cblock_extends d i0 tags) c = Some (i0, t')). 
+            apply In_split_cblock in HIn.
+            assert (Haux1: 
+             lookup (cblock_extends d i' tags) c = Some (i', t')). 
             {   
-            rewrite <- nodupb_eq_NoDup in Hnodup2.
-            apply NoDup_app_remove_r in Hnodup2. 
-            apply nodupb_eq_NoDup with (eqb := constr_eqb I) in Hnodup2.
-            apply aux1; eauto. apply constr_refl. apply constr_refl. 
+              rewrite <- nodupb_eq_NoDup in Hnodup2;
+              intros; try eapply constr_refl; 
+              apply NoDup_app_remove_r in Hnodup2;
+              eapply nodupb_eq_NoDup in Hnodup2;
+              intros; try eapply constr_refl;
+              apply cblock_extends_lkp_correct; eauto.
             }
-            assert (HnIn : ~In c l0) by (apply nodupb_In_false with 
-              (eqb := constr_eqb I) (l := (fst (split tags))); 
-              eauto; apply constr_refl).
-            assert (Hlkpc: lookup d' c = Some (i0, t')). 
-            {apply aux2 with (d := cblock_extends d i0 tags)
-              (l:= l0) (B := B); eauto. } 
+            assert (HnIn : ~In c l0) 
+             by (eapply nodupb_In_false; 
+                 eauto; apply constr_refl).
+            assert (Hlkpc: lookup d' c = Some (i', t')) by
+            (eapply bind_constr_tblock_preserves_bindings; eauto). 
             rewrite Hlkpc in Hlkp'.
-            inversion Hlkp' ;subst. exists tags; split; eauto.
+            inversion_subst Hlkp' . exists tags; split; eauto.
           
-          - simpl in Hnodup1. destruct (split B) eqn: eqsplitB.
-            simpl in Hnodup1. destruct (find _) eqn: eqfnd. discriminate.
-            inversion Hconstr; subst. 
-            rewrite <- nodupb_eq_NoDup in Hnodup2;
-            pose proof Hnodup2 as HNoDup2;
-            try apply NoDup_app_remove_l in Hnodup2; 
-            try rewrite nodupb_eq_NoDup with (eqb := constr_eqb I) in Hnodup2;  
-            destruct (find (fun x => constr_eqb I x c) l0) eqn: eqfind'; 
-            try apply constr_refl.
-            -- apply find_some in eqfind'. destruct eqfind' as [HInl0 Heqc].
+          - destruct (split tail) eqn: eqtail.
+            simpl in Hnodup1. destruct (find _) eqn: eqfnd; 
+            discard_case. inversion_subst Hconstr.
+
+            assert(Hnodupb_l0: nodupb constr_eqb l0 = true ) by 
+             (eapply nodupb_remove_l; eauto; 
+              eapply constr_refl ).
+
+            destruct (find (fun x => constr_eqb x c) l0) 
+            eqn: eqfind'.
+            -- apply find_some in eqfind'. 
+               destruct eqfind' as [HInl0 Heqc].
                rewrite <- constr_eqb_eq in Heqc; subst.
-              assert (H: exists l', In (i, KTVariant l') B /\ In (c, t) l'). 
-              {apply aux5 with (d' := d') (d := cblock_extends d i0 tags) (l := l0); 
-              eauto. } 
-              destruct H as [l' [HIn1 HIn2]]. exists l'. 
-              split; try eauto. apply ltd_correct with (t := t) (l := l0); 
-              try rewrite eqsplitB; eauto.
-            -- apply find_none_not_In in eqfind'.  
-               assert (Hp1: lookup (cblock_extends d i0 tags) c = Some (i, t)). 
-               {apply aux7 with (d' := d') (B := B) (l := l0); 
-                eauto. }
+               assert (H: exists l', 
+                 In (i, KTVariant l') tail /\ In (c, t) l') by 
+               (eapply exists_cdblock_In_tdblock; eauto). 
+              destruct H as [l' [*]]. exists l'. 
+              split; eauto. eapply last_type_def_correct; 
+              try rewrite eqtail; eauto.
+            -- apply find_none_not_In in eqfind'; 
+               try eapply constr_refl.  
+               assert (Hp1: 
+                lookup (cblock_extends d i' tags) c = Some (i, t)) 
+                by(eapply 
+                 bind_constr_tblock_preserves_bindings_inv; eauto).
                assert (Hp2: lookup d c = Some (i, t)). 
-               {apply aux6 with (i' := i0) (l := tags); eauto.
-                unfold not. intro contra . 
+               {eapply cblock_extends_preserves_bindings_inv; 
+                eauto. unfold not. intro contra . 
                 apply split_In_cblock in contra. 
                 destruct contra as [t']. 
-                apply nexb_cblock with (t := t') in eqfind.
-                contradiction. }
+                apply existsb_false_not_In_cblock with (t := t') 
+                in eqfind. contradiction. }
                apply Hlkp in Hp2. destruct Hp2 as [l' [Hltd HIn]].
-               exists l'. split; try apply aux8 with (l := l0); eauto.
-               apply constr_refl.
+               exists l'. split; eauto. 
+               eapply type_env_ext_preserves_ltd; eauto.
     Qed.         
                
 
                
-              
-            
-            (* assert (Hp: lookup (cblock_extends d i0 tags) c = Some (i, t) \/ 
-                   exists j l, i = j /\ In (j, KTVariant l) B /\ In (c, t) l).
-            {apply bind_old_or_new_ex with (d' := d'); eauto. }
-            destruct (find (fun x => constr_eqb I x c) l0) eqn: eqfind'.
-            -- apply find_some in eqfind'. destruct eqfind' as [HInl0 Heqc].
-               rewrite <- constr_eqb_eq in Heqc; subst.
-               assert (Hex: exists i cb t, 
-                  In (i, KTVariant cb) B /\ In (c, t) cb). 
-               {apply aux4 with (l:= l0); eauto. }
-               destruct Hex as [i' [cb [t' [HInB HIncb]]]].
-               exists cb. split. 
-               apply ltd_correct with (t := t') (l := l0); 
-               try rewrite eqsplitB; eauto. simpl.   *)
-
-
-
+(*         
     Lemma fooo: forall c t t' (l: list (Constr * KTp)),  
       NoDup (fst (split l)) ->
       In (c, t) l -> 
@@ -967,38 +947,31 @@ Section ELABORATION.
           rewrite l' in HIn2; simpl in *. contradiction.
         - apply IHl; eauto. 
     Qed.         
-           
+            *)
     
     
-
-          
-                
-
-
-
-    
-    (* spec of static elaboration *)
+    (* specification of static elaboration *)
     Inductive Elab : KExpr -> tenv -> register -> constr_env -> LExpr -> Prop :=   
-     |Elab_Var      : forall i r R d, 
+     |Elab_Var      : forall r R d i, 
                        WFET r R -> 
                        WFEC d r R -> 
                        Elab (KVar i) r R d (LVar i) 
-     |Elab_Lit      : forall x r R d, 
+     |Elab_Lit      : forall r R d x, 
                        WFET r R -> 
                        WFEC d r R -> 
                        Elab (KLit x) r R d (LLit x)
-     |Elab_Op       : forall op l l' r R d,  
+     |Elab_Op       : forall r R d l l' op,  
                        WFET r R -> 
                        WFEC d r R -> 
                        Forall2 (fun e le => Elab e r R d le) l l' -> 
                        Elab (KOp op l) r R d (LOp op l')
-     |Elab_Lam      : forall p e e' r R d, 
+     |Elab_Lam      : forall r R d p e e', 
                        WFET r R -> 
                        WFEC d r R -> 
-                       is_WFP d p = true -> 
+                       WFP d r R p  -> 
                        Elab e r R d e' -> 
                        Elab (KLam p e) r R d (LLam p e')  
-     |Elab_App      : forall e1 e1' e2 e2' r R d, 
+     |Elab_App      : forall r R d e1 e1' e2 e2', 
                        WFET r R -> 
                        WFEC d r R -> 
                        Elab e1 r R d e1' ->
@@ -1012,52 +985,223 @@ Section ELABORATION.
                        WFET r R -> 
                        WFEC d r R ->
                        Elab KNil r R d LNil 
-     |Elab_Pair     : forall e1 e1' e2 e2' r R d, 
+     |Elab_Pair     : forall r R d e1 e1' e2 e2', 
                        WFET r R -> 
                        WFEC d r R -> 
                        Elab e1 r R d e1' -> 
                        Elab e2 r R d e2' -> 
                        Elab (KPair e1 e2) r R d (LPair e1' e2') 
-     |Elab_Cons     : forall e1 e1' e2 e2' r R d, 
+     |Elab_Cons     : forall r R d  e1 e1' e2 e2' , 
                        WFET r R -> 
                        WFEC d r R -> 
                        Elab e1 r R d e1' -> 
                        Elab e2 r R d e2' -> 
                        Elab (KCons e1 e2) r R d (LCons e1' e2')
-     |Elab_Variant : forall c (inf: Ide * KTp) e e' r R d, 
+     |Elab_Variant : forall r R d c (inf: Ide * KTp) e e' , 
                        WFET r R -> 
                        WFEC d r R -> 
                        lookup d c = Some inf -> 
                        Elab e r R d e' -> 
                        Elab (KVariant c e) r R d (LVariant c inf e')
-     |Elab_Fix      : forall name cls cls' r R d, 
+     |Elab_Fix      : forall r R d e e' name, 
                        WFET r R -> 
                        WFEC d r R -> 
-                       Elab cls r R d cls' ->  
-                       Elab (KFix name cls) r R d (LFix name cls')  
-     |Elab_DefType  : forall B e e' r r' R R' d d', 
+                       Elab e r R d e' ->  
+                       Elab (KFix name e) r R d (LFix name e')  
+     |Elab_DefType  : forall r R d r' R' B d' e e', 
                        WFET r R -> 
                        WFEC d r R -> 
-                       tblock_extends r R B = Ok(r', R') ->
+                       TBlockElab (r, R, B) (r', R', B) ->
                        bind_constr_tblock d B = Some d' ->  
                        Elab e r' R' d' e'  ->
                        Elab (KDefType B e) r R d e'    
-     |Elab_Match    : forall e e' l l' r R d, 
+     |Elab_Match    : forall r R d e e' l l', 
                         WFET r R -> 
                         WFEC d r R -> 
                         Elab e r R d e' -> 
                         Forall2 (fun p p' => 
-                          is_WFP d (fst p) = true /\ 
+                          WFP d r R (fst p) /\ 
                           fst p = fst p' /\ 
                           Elab (snd p) r R d (snd p')) l l' -> 
                         Elab (KMatch e l) r R d (LMatch e' l') 
-     |Elab_Error    : forall m r R d, 
+     |Elab_Error    : forall r R d m, 
                         WFET r R ->   
                         WFEC d r R -> 
                         Elab (KError m) r R d (LError m) .
 
-   
+  
 
+    Section Elab_ind'.  
+      
+      Variable Q : 
+       KExpr -> tenv -> register -> constr_env -> LExpr -> Prop .
+
+      Hypothesis Elab_Var_case : forall r R d i,
+                                  WFET r R -> 
+                                  WFEC d r R ->  
+                                  Q (KVar i) r R d (LVar i).
+      Hypothesis Elab_Lit_case : forall r R d x,
+                                  WFET r R -> 
+                                  WFEC d r R -> 
+                                  Q (KLit x) r R d (LLit x).
+      Hypothesis Elab_Op_case : forall r R d l l' op,
+                                  WFET r R -> 
+                                  WFEC d r R ->   
+                                  Forall2 (fun ke le => 
+                                    Q ke r R d le) l l' -> 
+                                  Q (KOp op l) r R d (LOp op l').
+      Hypothesis Elab_Lam_case : forall r R d p e e', 
+                                  WFET r R -> 
+                                  WFEC d r R -> 
+                                  WFP d r R p  -> 
+                                  Q e r R d e' -> 
+                                  Q (KLam p e) r R d (LLam p e').
+      Hypothesis Elab_App_case : forall r R d e1 e1' e2 e2', 
+                                  WFET r R ->
+                                  WFEC d r R -> 
+                                  Q e1 r R d e1' -> 
+                                  Q e2 r R d e2' -> 
+                                  Q (KApp e1 e2) r R d (LApp e1' e2').
+      Hypothesis Elab_Unit_case : forall r R d, 
+                                   WFET r R -> 
+                                   WFEC d r R -> 
+                                   Q KUnit r R d LUnit .
+      Hypothesis Elab_Nil_case : forall r R d, 
+                                  WFET r R -> 
+                                  WFEC d r R -> 
+                                  Q KNil r R d LNil. 
+      Hypothesis Elab_Pair_case : forall r R d e1 e1' e2 e2', 
+                                   WFET r R -> 
+                                   WFEC d r R -> 
+                                   Q e1 r R d e1' -> 
+                                   Q e2 r R d e2' -> 
+                                   Q (KPair e1 e2) r R d (LPair e1' e2').
+      Hypothesis Elab_Cons_case : forall r R d e1 e1' e2 e2', 
+                                   WFET r R -> 
+                                   WFEC d r R -> 
+                                   Q e1 r R d e1' -> 
+                                   Q e2 r R d e2' -> 
+                                   Q (KCons e1 e2) r R d (LCons e1' e2').
+      Hypothesis Elab_Variant_case : forall r R d c inf e e', 
+                                      WFET r R -> 
+                                      WFEC d r R -> 
+                                      lookup d c = Some inf -> 
+                                      Q e r R d e' -> 
+                                      Q (KVariant c e) r R d 
+                                        (LVariant c inf e').
+      Hypothesis Elab_Fix_case : forall r R d e e' name,
+                                  WFET r R -> 
+                                  WFEC d r R -> 
+                                  Q e r R d e' -> 
+                                  Q (KFix name e) r R d (LFix name e').
+      Hypothesis Elab_DefType_case : forall r R d B r' R' d' e e', 
+                                      WFET r R ->  
+                                      WFEC d r R -> 
+                                      TBlockElab (r, R, B) (r', R', B) ->
+                                      bind_constr_tblock d B = Some d' ->  
+                                      Q e r' R' d' e'  ->
+                                      Q (KDefType B e) r R d e'.
+      Hypothesis Elab_Match_case : forall r R d e e' l l', 
+                                    WFET r R -> 
+                                    WFEC d r R -> 
+                                    Q e r R d e' -> 
+                                    Forall2 (fun p p' => 
+                                      WFP d r R (fst p) /\ 
+                                      fst p = fst p' /\ 
+                                      Q (snd p) r R d (snd p')) l l' -> 
+                                    Q (KMatch e l) r R d (LMatch e' l').
+      Hypothesis Elab_Error_case : forall r R d mssg,
+                                    WFET r R -> 
+                                    WFEC d r R -> 
+                                    Q (KError mssg) r R d (LError mssg).
+
+    
+
+      Fixpoint Elab_ind' e r R d e' (H: Elab e r R d e') 
+                         : Q e r R d e' := 
+        match H with 
+        |Elab_Var Hwfet Hwfec  => Elab_Var_case Hwfet Hwfec 
+        |Elab_Lit Hwfet Hwfec  => Elab_Lit_case Hwfet Hwfec 
+        |Elab_Op Hwfet Hwfec HFall => Elab_Op_case Hwfet Hwfec  
+          ((fix elab_ind_op l l' (H: Forall2 (fun ke le => 
+                                  Elab ke _ _ _ le) l l')
+                           : Forall2 (fun ke le => 
+                                  Q ke _ _ _ le) l l' := 
+            match H with 
+            |Forall2_nil _ => Forall2_nil _ 
+            |Forall2_cons _ _ H HFall => 
+               Forall2_cons _ _ (Elab_ind' H) (elab_ind_op _ _ HFall) end) 
+          _ _ HFall)
+        |Elab_Lam Hwfet Hwfec Hwfp H  => 
+          Elab_Lam_case Hwfet Hwfec Hwfp (Elab_ind' H)   
+        |Elab_App Hwfet Hwfec H1 H2   => 
+          Elab_App_case Hwfet Hwfec (Elab_ind' H1) (Elab_ind' H2) 
+        |Elab_Unit Hwfet Hwfec => Elab_Unit_case Hwfet Hwfec
+        |Elab_Nil Hwfet Hwfec => Elab_Nil_case Hwfet Hwfec
+        |Elab_Pair Hwfet Hwfec H1 H2 =>
+          Elab_Pair_case Hwfet Hwfec (Elab_ind' H1) (Elab_ind' H2)
+        |Elab_Cons Hwfet Hwfec H1 H2 =>
+          Elab_Cons_case Hwfet Hwfec (Elab_ind' H1) (Elab_ind' H2)
+        |Elab_Variant Hwfet Hwfec Hlookup H =>
+          Elab_Variant_case Hwfet Hwfec Hlookup (Elab_ind' H)
+        |Elab_Fix Hwfet Hwfec H =>
+          Elab_Fix_case Hwfet Hwfec (Elab_ind' H)
+        |Elab_DefType Hwfet Hwfec HTBlock Hbind H =>
+          Elab_DefType_case Hwfet Hwfec HTBlock Hbind (Elab_ind' H)
+        |Elab_Match Hwfet Hwfec H HFall =>
+          Elab_Match_case Hwfet Hwfec (Elab_ind' H)
+           ((fix elab_ind_match l l' (H: 
+               Forall2 (fun p p' => WFP _ _ _ (fst p) /\ 
+                                    fst p = fst p' /\ 
+                                    Elab (snd p) _ _ _ (snd p')) l l')
+               : Forall2 (fun p p' => WFP _ _ _ (fst p) /\ 
+                                      fst p = fst p' /\ 
+                                      Q (snd p) _ _ _ (snd p')) l l' := 
+              match H with 
+              |Forall2_nil _ => Forall2_nil _ 
+              |Forall2_cons _ _ Hconj HFall  => 
+                  match Hconj with 
+                  |conj A (conj B C) =>  
+                    Forall2_cons _ _ 
+                      (conj A (conj B (Elab_ind' C))) 
+                      (elab_ind_match _ _ HFall) 
+                  end 
+              end) _ _ HFall)
+        |Elab_Error Hwfet Hwfec => Elab_Error_case Hwfet Hwfec
+      end .  
+
+    End Elab_ind'.
+
+
+    (* the `inf` annotation in the new node `LVariant c inf e` 
+       contains the name of the last declared type having `c`
+       among its constructors, together with the constructor 
+       argument. *)
+    Corollary Elab_labels_constr_with_ltd:
+      forall r R d c i t,
+         WFET r R ->  
+         WFEC d r R -> 
+         lookup d c = Some (i, t) -> 
+         exists (l: list (Constr * KTp)), 
+           last_type_def r c = Some (i, KTVariant l) /\
+           In (c, t) l .
+    Proof. 
+      intros * Hwfet Hwfec Hlkp. 
+      unfold WFEC in Hwfec; destruct Hwfec; eauto.
+    Qed.  
+
+                                             
+    (* Each KExpr term elaborates to at most one LExpr term *)
+     Theorem Elab_deterministic: 
+       forall e e' e'' r R d, 
+         Elab e r R d e' -> 
+         Elab e r R d e'' -> 
+         e' = e''. 
+     Proof. 
+       intros * HEl1 HEl2. 
+       induction HEl1; inversion_subst HEl2; 
+       try constructor.
+       +         
                         
     Definition elab_result := result LExpr string.  
     Definition ok_LLam p e : elab_result := Ok (LLam p e). 
@@ -1091,7 +1235,7 @@ Section ELABORATION.
                         |None      => Error ("constructor '" ++ (constr_to_string I c) ++ "' doesn't exist")%string 
                         end)
       |KFix i e     => elab e r R d >>= ok_LFix i 
-      |KDefType B e => match tblock_extends r R B with 
+      |KDefType B e => match tblock_elab r R B with 
                        |Ok(r', R')  => match bind_constr_tblock d B with 
                                        |Some d' => elab e r' R' d' 
                                        |None    => Error ("only variant types can be declared"%string) 

@@ -1,4 +1,4 @@
-DIGEST 31aadcdd21ebe18eab4a94d408bd260c
+DIGEST a5e2e70c982bbdbedd2edf6810ce293c
 Fimpl2_MC.type_theory
 R15:17 impl2_MC.ids <> <> lib
 R35:44 impl2_MC.primitives <> <> lib
@@ -207,1364 +207,1432 @@ R4015:4020 impl2_MC.type_theory <> nodupb def
 R4028:4031 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
 R4038:4042 Coq.Init.Datatypes <> false constr
 R4067:4081 impl2_MC.type_theory <> In_false_nodupb thm
-R4186:4190 impl2_MC.type_theory TYPE_THEORY.nodup <> sec
-def 4457:4464 <> register
-R4469:4471 impl2_MC.env <> env def
-R4477:4480 Coq.Init.Datatypes <> unit ind
-R4473:4475 impl2_MC.type_theory TYPE_THEORY :::'Ide' not
-ind 5018:5019 <> AF
-constr 5058:5065 <> AF_TBase
-constr 5124:5131 <> AF_TUnit
-constr 5156:5163 <> AF_TProd
-constr 5377:5384 <> AF_TList
-constr 5515:5525 <> AF_TVariant
-constr 5784:5790 <> AF_TRef
-R5025:5032 impl2_MC.type_theory <> register def
-binder 5022:5022 <> R:28
-R5040:5043 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5037:5039 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-binder 5079:5079 <> t:31
-R5103:5104 impl2_MC.type_theory <> AF:29 ind
-R5109:5114 impl2_MC.kernel_syntax <> KTBase constr
-R5116:5116 impl2_MC.type_theory <> t:31 var
-R5106:5106 impl2_MC.type_theory <> R:28 var
-R5138:5139 impl2_MC.type_theory <> AF:29 ind
-R5143:5148 impl2_MC.kernel_syntax <> KTUnit constr
-R5141:5141 impl2_MC.type_theory <> R:28 var
-binder 5177:5178 <> t1:32
-binder 5180:5181 <> t2:33
-R5222:5246 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5215:5217 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R5206:5211 impl2_MC.type_theory <> is_FOT def
-R5213:5214 impl2_MC.type_theory <> t1:32 var
-R5218:5221 Coq.Init.Datatypes <> true constr
-R5263:5287 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5256:5258 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R5247:5252 impl2_MC.type_theory <> is_FOT def
-R5254:5255 impl2_MC.type_theory <> t2:33 var
-R5259:5262 Coq.Init.Datatypes <> true constr
-R5295:5319 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5288:5289 impl2_MC.type_theory <> AF:29 ind
-R5293:5294 impl2_MC.type_theory <> t1:32 var
-R5291:5291 impl2_MC.type_theory <> R:28 var
-R5327:5351 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5320:5321 impl2_MC.type_theory <> AF:29 ind
-R5325:5326 impl2_MC.type_theory <> t2:33 var
-R5323:5323 impl2_MC.type_theory <> R:28 var
-R5352:5353 impl2_MC.type_theory <> AF:29 ind
-R5358:5363 impl2_MC.kernel_syntax <> KTProd constr
-R5368:5369 impl2_MC.type_theory <> t2:33 var
-R5365:5366 impl2_MC.type_theory <> t1:32 var
-R5355:5355 impl2_MC.type_theory <> R:28 var
-binder 5398:5398 <> t:34
-R5438:5462 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5431:5433 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R5423:5428 impl2_MC.type_theory <> is_FOT def
-R5430:5430 impl2_MC.type_theory <> t:34 var
-R5434:5437 Coq.Init.Datatypes <> true constr
-R5469:5493 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5463:5464 impl2_MC.type_theory <> AF:29 ind
-R5468:5468 impl2_MC.type_theory <> t:34 var
-R5466:5466 impl2_MC.type_theory <> R:28 var
-R5494:5495 impl2_MC.type_theory <> AF:29 ind
-R5500:5505 impl2_MC.kernel_syntax <> KTList constr
-R5507:5507 impl2_MC.type_theory <> t:34 var
-R5497:5497 impl2_MC.type_theory <> R:28 var
-binder 5536:5536 <> l:35
-R5605:5628 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5598:5600 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R5561:5566 impl2_MC.type_theory <> nodupb def
-R5584:5586 Coq.Init.Datatypes <> fst def
-R5589:5593 Coq.Lists.List <> split def
-R5595:5595 impl2_MC.type_theory <> l:35 var
-R5569:5578 impl2_MC.ids <> constr_eqb proj
-R5580:5580 impl2_MC.type_theory <> TYPE_THEORY.I var
-R5601:5604 Coq.Init.Datatypes <> true constr
-R5734:5759 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5629:5634 Coq.Lists.List <> Forall ind
-R5733:5733 impl2_MC.type_theory <> l:35 var
-binder 5641:5641 <> p:36
-R5691:5718 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R5684:5686 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R5670:5675 impl2_MC.type_theory <> is_FOT def
-R5678:5680 Coq.Init.Datatypes <> snd def
-R5682:5682 impl2_MC.type_theory <> p:36 var
-R5687:5690 Coq.Init.Datatypes <> true constr
-R5719:5720 impl2_MC.type_theory <> AF:29 ind
-R5725:5727 Coq.Init.Datatypes <> snd def
-R5729:5729 impl2_MC.type_theory <> p:36 var
-R5722:5722 impl2_MC.type_theory <> R:28 var
-R5760:5761 impl2_MC.type_theory <> AF:29 ind
-R5766:5774 impl2_MC.kernel_syntax <> KTVariant constr
-R5776:5776 impl2_MC.type_theory <> l:35 var
-R5763:5763 impl2_MC.type_theory <> R:28 var
-binder 5805:5805 <> i:37
-R5848:5873 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5841:5843 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R5829:5836 impl2_MC.env <> includes def
-R5840:5840 impl2_MC.type_theory <> i:37 var
-R5838:5838 impl2_MC.type_theory <> R:28 var
-R5844:5847 Coq.Init.Datatypes <> true constr
-R5874:5875 impl2_MC.type_theory <> AF:29 ind
-R5880:5884 impl2_MC.kernel_syntax <> KTRef constr
-R5886:5886 impl2_MC.type_theory <> i:37 var
-R5877:5877 impl2_MC.type_theory <> R:28 var
-scheme 5018:5019 <> AF_ind
-scheme 5018:5019 <> AF_sind
-ind 6025:6027 <> WFT
-constr 6065:6072 <> WFT_TFun
-constr 6103:6111 <> WFT_TBase
-constr 6150:6158 <> WFT_TUnit
-constr 6184:6193 <> WFT_TEmpty
-constr 6219:6227 <> WFT_TProd
-constr 6446:6454 <> WFT_TList
-constr 6590:6601 <> WFT_TVariant
-constr 6817:6824 <> WFT_TRef
-constr 6931:6940 <> WFT_TError
-R6034:6041 impl2_MC.type_theory <> register def
-binder 6030:6030 <> R:38
-R6048:6051 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6045:6047 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-R6080:6082 impl2_MC.type_theory <> WFT:39 ind
-R6086:6095 impl2_MC.kernel_syntax <> KTFunction constr
-R6084:6084 impl2_MC.type_theory <> R:38 var
-binder 6125:6125 <> t:41
-R6128:6130 impl2_MC.type_theory <> WFT:39 ind
-R6135:6140 impl2_MC.kernel_syntax <> KTBase constr
-R6142:6142 impl2_MC.type_theory <> t:41 var
-R6132:6132 impl2_MC.type_theory <> R:38 var
-R6165:6167 impl2_MC.type_theory <> WFT:39 ind
-R6171:6176 impl2_MC.kernel_syntax <> KTUnit constr
-R6169:6169 impl2_MC.type_theory <> R:38 var
-R6199:6201 impl2_MC.type_theory <> WFT:39 ind
-R6205:6211 impl2_MC.kernel_syntax <> KTEmpty constr
-R6203:6203 impl2_MC.type_theory <> R:38 var
-binder 6241:6242 <> t1:42
-binder 6244:6245 <> t2:43
-R6285:6310 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6278:6280 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R6269:6274 impl2_MC.type_theory <> is_FOT def
-R6276:6277 impl2_MC.type_theory <> t1:42 var
-R6281:6284 Coq.Init.Datatypes <> true constr
-R6327:6352 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6320:6322 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R6311:6316 impl2_MC.type_theory <> is_FOT def
-R6318:6319 impl2_MC.type_theory <> t2:43 var
-R6323:6326 Coq.Init.Datatypes <> true constr
-R6361:6385 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6353:6355 impl2_MC.type_theory <> WFT:39 ind
-R6359:6360 impl2_MC.type_theory <> t1:42 var
-R6357:6357 impl2_MC.type_theory <> R:38 var
-R6394:6419 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6386:6388 impl2_MC.type_theory <> WFT:39 ind
-R6392:6393 impl2_MC.type_theory <> t2:43 var
-R6390:6390 impl2_MC.type_theory <> R:38 var
-R6420:6422 impl2_MC.type_theory <> WFT:39 ind
-R6427:6432 impl2_MC.kernel_syntax <> KTProd constr
-R6437:6438 impl2_MC.type_theory <> t2:43 var
-R6434:6435 impl2_MC.type_theory <> t1:42 var
-R6424:6424 impl2_MC.type_theory <> R:38 var
-binder 6468:6468 <> t:44
-R6509:6534 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6502:6504 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R6494:6499 impl2_MC.type_theory <> is_FOT def
-R6501:6501 impl2_MC.type_theory <> t:44 var
-R6505:6508 Coq.Init.Datatypes <> true constr
-R6542:6567 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6535:6537 impl2_MC.type_theory <> WFT:39 ind
-R6541:6541 impl2_MC.type_theory <> t:44 var
-R6539:6539 impl2_MC.type_theory <> R:38 var
-R6568:6570 impl2_MC.type_theory <> WFT:39 ind
-R6575:6580 impl2_MC.kernel_syntax <> KTList constr
-R6582:6582 impl2_MC.type_theory <> t:44 var
-R6572:6572 impl2_MC.type_theory <> R:38 var
-binder 6612:6612 <> l:45
-R6682:6706 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6675:6677 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R6638:6643 impl2_MC.type_theory <> nodupb def
-R6661:6663 Coq.Init.Datatypes <> fst def
-R6666:6670 Coq.Lists.List <> split def
-R6672:6672 impl2_MC.type_theory <> l:45 var
-R6646:6655 impl2_MC.ids <> constr_eqb proj
-R6657:6657 impl2_MC.type_theory <> TYPE_THEORY.I var
-R6678:6681 Coq.Init.Datatypes <> true constr
-R6765:6791 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6707:6712 Coq.Lists.List <> Forall ind
-R6764:6764 impl2_MC.type_theory <> l:45 var
-binder 6719:6719 <> p:46
-R6745:6748 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R6738:6740 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R6724:6729 impl2_MC.type_theory <> is_FOT def
-R6732:6734 Coq.Init.Datatypes <> snd def
-R6736:6736 impl2_MC.type_theory <> p:46 var
-R6741:6744 Coq.Init.Datatypes <> true constr
-R6749:6751 impl2_MC.type_theory <> WFT:39 ind
-R6756:6758 Coq.Init.Datatypes <> snd def
-R6760:6760 impl2_MC.type_theory <> p:46 var
-R6753:6753 impl2_MC.type_theory <> R:38 var
-R6792:6794 impl2_MC.type_theory <> WFT:39 ind
-R6799:6807 impl2_MC.kernel_syntax <> KTVariant constr
-R6809:6809 impl2_MC.type_theory <> l:45 var
-R6796:6796 impl2_MC.type_theory <> R:38 var
-binder 6839:6839 <> i:47
-R6884:6909 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6877:6879 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R6865:6872 impl2_MC.env <> includes def
-R6876:6876 impl2_MC.type_theory <> i:47 var
-R6874:6874 impl2_MC.type_theory <> R:38 var
-R6880:6883 Coq.Init.Datatypes <> true constr
-R6910:6912 impl2_MC.type_theory <> WFT:39 ind
-R6917:6921 impl2_MC.kernel_syntax <> KTRef constr
-R6923:6923 impl2_MC.type_theory <> i:47 var
-R6914:6914 impl2_MC.type_theory <> R:38 var
-R6946:6948 impl2_MC.type_theory <> WFT:39 ind
-R6952:6958 impl2_MC.kernel_syntax <> KTError constr
-R6950:6950 impl2_MC.type_theory <> R:38 var
-scheme 6025:6027 <> WFT_ind
-scheme 6025:6027 <> WFT_sind
-ind 7049:7050 <> DT
-constr 7092:7102 <> DT_TVariant
-R7057:7064 impl2_MC.type_theory <> register def
-binder 7053:7053 <> R:48
-R7072:7076 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7069:7071 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-binder 7113:7113 <> l:51
-R7155:7180 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7137:7138 impl2_MC.type_theory <> AF ind
-R7143:7151 impl2_MC.kernel_syntax <> KTVariant constr
-R7153:7153 impl2_MC.type_theory <> l:51 var
-R7140:7140 impl2_MC.type_theory <> R:48 var
-R7181:7182 impl2_MC.type_theory <> DT:49 ind
-R7187:7195 impl2_MC.kernel_syntax <> KTVariant constr
-R7197:7197 impl2_MC.type_theory <> l:51 var
-R7184:7184 impl2_MC.type_theory <> R:48 var
-scheme 7049:7050 <> DT_ind
-scheme 7049:7050 <> DT_sind
-def 7430:7433 <> WFET
-R7439:7442 impl2_MC.type_theory TYPE_THEORY :::'tenv' not
-binder 7436:7436 <> r:52
-R7449:7456 impl2_MC.type_theory <> register def
-binder 7446:7446 <> R:53
-R7469:7469 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R7500:7505 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R7534:7534 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-binder 7477:7477 <> i:54
-R7488:7492 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R7480:7483 impl2_MC.type_env <> tdom def
-R7487:7487 impl2_MC.type_theory <> i:54 var
-R7485:7485 impl2_MC.type_theory <> r:52 var
-R7493:7495 impl2_MC.env <> dom def
-R7499:7499 impl2_MC.type_theory <> i:54 var
-R7497:7497 impl2_MC.type_theory <> R:53 var
-binder 7513:7513 <> t:55
-R7524:7527 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7516:7519 impl2_MC.type_env <> timm def
-R7523:7523 impl2_MC.type_theory <> t:55 var
-R7521:7521 impl2_MC.type_theory <> r:52 var
-R7528:7529 impl2_MC.type_theory <> DT ind
-R7533:7533 impl2_MC.type_theory <> t:55 var
-R7531:7531 impl2_MC.type_theory <> R:53 var
-sec 7616:7622 TYPE_THEORY AF_ind'
-var 7644:7644 TYPE_THEORY.AF_ind' R
-R7647:7654 impl2_MC.type_theory <> register def
-var 7674:7674 TYPE_THEORY.AF_ind' Q
-R7680:7683 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7677:7679 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-var 7712:7721 TYPE_THEORY.AF_ind' TBase_case
-binder 7735:7735 <> t:58
-R7738:7738 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
-R7741:7746 impl2_MC.kernel_syntax <> KTBase constr
-R7748:7748 impl2_MC.type_theory <> t:58 var
-var 7772:7781 TYPE_THEORY.AF_ind' TUnit_case
-R7788:7788 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
-R7790:7795 impl2_MC.kernel_syntax <> KTUnit constr
-var 7820:7829 TYPE_THEORY.AF_ind' TProd_case
-binder 7843:7844 <> t1:61
-binder 7846:7847 <> t2:62
-R7906:7948 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7899:7901 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R7890:7895 impl2_MC.type_theory <> is_FOT def
-R7897:7898 impl2_MC.type_theory <> t1:61 var
-R7902:7905 Coq.Init.Datatypes <> true constr
-R7965:8007 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R7958:7960 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R7949:7954 impl2_MC.type_theory <> is_FOT def
-R7956:7957 impl2_MC.type_theory <> t2:62 var
-R7961:7964 Coq.Init.Datatypes <> true constr
-R8012:8054 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8008:8008 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
-R8010:8011 impl2_MC.type_theory <> t1:61 var
-R8059:8101 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8055:8055 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
-R8057:8058 impl2_MC.type_theory <> t2:62 var
-R8102:8102 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
-R8105:8110 impl2_MC.kernel_syntax <> KTProd constr
-R8115:8116 impl2_MC.type_theory <> t2:62 var
-R8112:8113 impl2_MC.type_theory <> t1:61 var
-var 8139:8148 TYPE_THEORY.AF_ind' TList_case
-binder 8162:8162 <> t:64
-R8219:8263 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8212:8214 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R8204:8209 impl2_MC.type_theory <> is_FOT def
-R8211:8211 impl2_MC.type_theory <> t:64 var
-R8215:8218 Coq.Init.Datatypes <> true constr
-R8267:8308 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8264:8264 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
-R8266:8266 impl2_MC.type_theory <> t:64 var
-R8309:8309 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
-R8312:8317 impl2_MC.kernel_syntax <> KTList constr
-R8319:8319 impl2_MC.type_theory <> t:64 var
-var 8343:8355 TYPE_THEORY.AF_ind' TVariant_case
-binder 8366:8366 <> l:66
-R8453:8495 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8446:8448 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R8409:8414 impl2_MC.type_theory <> nodupb def
-R8432:8434 Coq.Init.Datatypes <> fst def
-R8437:8441 Coq.Lists.List <> split def
-R8443:8443 impl2_MC.type_theory <> l:66 var
-R8417:8426 impl2_MC.ids <> constr_eqb proj
-R8428:8428 impl2_MC.type_theory <> TYPE_THEORY.I var
-R8449:8452 Coq.Init.Datatypes <> true constr
-R8550:8592 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8496:8501 Coq.Lists.List <> Forall ind
-R8549:8549 impl2_MC.type_theory <> l:66 var
-binder 8508:8508 <> p:67
-R8534:8537 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R8527:8529 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R8513:8518 impl2_MC.type_theory <> is_FOT def
-R8521:8523 Coq.Init.Datatypes <> snd def
-R8525:8525 impl2_MC.type_theory <> p:67 var
-R8530:8533 Coq.Init.Datatypes <> true constr
-R8538:8538 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
-R8541:8543 Coq.Init.Datatypes <> snd def
-R8545:8545 impl2_MC.type_theory <> p:67 var
-R8593:8593 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
-R8596:8604 impl2_MC.kernel_syntax <> KTVariant constr
-R8606:8606 impl2_MC.type_theory <> l:66 var
-var 8629:8637 TYPE_THEORY.AF_ind' TRef_case
-binder 8652:8652 <> i:69
-R8712:8755 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8705:8707 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R8693:8700 impl2_MC.env <> includes def
-R8704:8704 impl2_MC.type_theory <> i:69 var
-R8702:8702 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.R var
-R8708:8711 Coq.Init.Datatypes <> true constr
-R8756:8756 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
-R8759:8763 impl2_MC.kernel_syntax <> KTRef constr
-R8765:8765 impl2_MC.type_theory <> i:69 var
-def 8789:8795 <> AF_ind'
-binder 8797:8797 <> t:71
-R8803:8804 impl2_MC.type_theory <> AF ind
-R8808:8808 impl2_MC.type_theory <> t:71 var
-R8806:8806 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.R var
-binder 8800:8800 <> H:72
-R8813:8813 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
-R8815:8815 impl2_MC.type_theory <> t:71 var
-R8837:8837 impl2_MC.type_theory <> H:72 var
-R8858:8865 impl2_MC.type_theory <> AF_TBase constr
-R8899:8908 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.TBase_case var
-R8925:8932 impl2_MC.type_theory <> AF_TUnit constr
-R8966:8975 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.TUnit_case var
-R8990:8997 impl2_MC.type_theory <> AF_TProd constr
-R9031:9040 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.TProd_case var
-R9119:9125 impl2_MC.type_theory <> AF_ind':73 def
-R9104:9110 impl2_MC.type_theory <> AF_ind':73 def
-R9144:9151 impl2_MC.type_theory <> AF_TList constr
-R9185:9194 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.TList_case var
-R9200:9206 impl2_MC.type_theory <> AF_ind':73 def
-R9225:9235 impl2_MC.type_theory <> AF_TVariant constr
-R9266:9278 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.TVariant_case var
-binder 9314:9314 <> l:75
-R9342:9347 Coq.Lists.List <> Forall ind
-R9436:9436 impl2_MC.type_theory <> l:75 var
-binder 9354:9354 <> p:76
-R9380:9421 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R9373:9375 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R9359:9364 impl2_MC.type_theory <> is_FOT def
-R9367:9369 Coq.Init.Datatypes <> snd def
-R9371:9371 impl2_MC.type_theory <> p:76 var
-R9376:9379 Coq.Init.Datatypes <> true constr
-R9422:9423 impl2_MC.type_theory <> AF ind
-R9428:9430 Coq.Init.Datatypes <> snd def
-R9432:9432 impl2_MC.type_theory <> p:76 var
-binder 9339:9339 <> H:77
-R9463:9468 Coq.Lists.List <> Forall ind
-R9556:9556 impl2_MC.type_theory <> l:75 var
-binder 9475:9475 <> p:78
-R9501:9544 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R9494:9496 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R9480:9485 impl2_MC.type_theory <> is_FOT def
-R9488:9490 Coq.Init.Datatypes <> snd def
-R9492:9492 impl2_MC.type_theory <> p:78 var
-R9497:9500 Coq.Init.Datatypes <> true constr
-R9545:9545 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
-R9548:9550 Coq.Init.Datatypes <> snd def
-R9552:9552 impl2_MC.type_theory <> p:78 var
-R9587:9587 impl2_MC.type_theory <> H:77 var
-R9614:9623 Coq.Lists.List <> Forall_nil constr
-R9645:9654 Coq.Lists.List <> Forall_nil constr
-R9678:9688 Coq.Lists.List <> Forall_cons constr
-R9763:9766 Coq.Init.Logic <> conj constr
-R9776:9786 Coq.Lists.List <> Forall_cons constr
-R9812:9819 impl2_MC.type_theory <> lis_ind':79 var
-R9791:9794 Coq.Init.Logic <> conj constr
-R9799:9805 impl2_MC.type_theory <> AF_ind':73 def
-R9898:9904 impl2_MC.type_theory <> AF_TRef constr
-R9941:9949 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.TRef_case var
-R9988:9994 impl2_MC.type_theory TYPE_THEORY.AF_ind' <> sec
-ind 10410:10419 <> Consistent
-constr 10450:10455 <> c_TFun
-constr 10505:10511 <> c_TBase
-constr 10637:10643 <> c_TUnit
-constr 10684:10691 <> c_TEmpty
-constr 10734:10740 <> c_TProd
-constr 10941:10947 <> c_TList
-constr 11078:11088 <> c_TListNil1
-constr 11219:11229 <> c_TListNil2
-constr 11359:11364 <> c_TRef
-constr 11488:11495 <> c_TError
-R10425:10428 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R10422:10424 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-R10432:10435 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R10429:10431 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-R10466:10475 impl2_MC.type_theory <> Consistent:82 ind
-R10488:10497 impl2_MC.kernel_syntax <> KTFunction constr
-R10477:10486 impl2_MC.kernel_syntax <> KTFunction constr
-binder 10528:10529 <> t1:84
-binder 10531:10532 <> t2:85
-R10567:10595 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R10562:10564 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R10560:10561 impl2_MC.type_theory <> t1:84 var
-R10565:10566 impl2_MC.type_theory <> t2:85 var
-R10596:10605 impl2_MC.type_theory <> Consistent:82 ind
-R10620:10625 impl2_MC.kernel_syntax <> KTBase constr
-R10627:10628 impl2_MC.type_theory <> t2:85 var
-R10608:10613 impl2_MC.kernel_syntax <> KTBase constr
-R10615:10616 impl2_MC.type_theory <> t1:84 var
-R10653:10662 impl2_MC.type_theory <> Consistent:82 ind
-R10671:10676 impl2_MC.kernel_syntax <> KTUnit constr
-R10664:10669 impl2_MC.kernel_syntax <> KTUnit constr
-R10700:10709 impl2_MC.type_theory <> Consistent:82 ind
-R10719:10725 impl2_MC.kernel_syntax <> KTEmpty constr
-R10711:10717 impl2_MC.kernel_syntax <> KTEmpty constr
-binder 10757:10758 <> t1:86
-binder 10760:10762 <> t1':87
-binder 10764:10765 <> t2:88
-binder 10767:10769 <> t2':89
-R10814:10842 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R10797:10806 impl2_MC.type_theory <> Consistent:82 ind
-R10811:10813 impl2_MC.type_theory <> t1':87 var
-R10808:10809 impl2_MC.type_theory <> t1:86 var
-R10860:10888 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R10843:10852 impl2_MC.type_theory <> Consistent:82 ind
-R10857:10859 impl2_MC.type_theory <> t2':89 var
-R10854:10855 impl2_MC.type_theory <> t2:88 var
-R10889:10898 impl2_MC.type_theory <> Consistent:82 ind
-R10916:10921 impl2_MC.kernel_syntax <> KTProd constr
-R10927:10929 impl2_MC.type_theory <> t2':89 var
-R10923:10925 impl2_MC.type_theory <> t1':87 var
-R10901:10906 impl2_MC.kernel_syntax <> KTProd constr
-R10911:10912 impl2_MC.type_theory <> t2:88 var
-R10908:10909 impl2_MC.type_theory <> t1:86 var
-binder 10964:10964 <> t:90
-binder 10966:10967 <> t':91
-R11010:11038 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R10995:11004 impl2_MC.type_theory <> Consistent:82 ind
-R11008:11009 impl2_MC.type_theory <> t':91 var
-R11006:11006 impl2_MC.type_theory <> t:90 var
-R11039:11048 impl2_MC.type_theory <> Consistent:82 ind
-R11062:11067 impl2_MC.kernel_syntax <> KTList constr
-R11069:11070 impl2_MC.type_theory <> t':91 var
-R11051:11056 impl2_MC.kernel_syntax <> KTList constr
-R11058:11058 impl2_MC.type_theory <> t:90 var
-binder 11101:11101 <> t:92
-R11145:11173 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R11138:11140 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R11130:11135 impl2_MC.type_theory <> is_FOT def
-R11137:11137 impl2_MC.type_theory <> t:92 var
-R11141:11144 Coq.Init.Datatypes <> true constr
-R11174:11183 impl2_MC.type_theory <> Consistent:82 ind
-R11203:11208 impl2_MC.kernel_syntax <> KTList constr
-R11210:11210 impl2_MC.type_theory <> t:92 var
-R11186:11191 impl2_MC.kernel_syntax <> KTList constr
-R11193:11199 impl2_MC.kernel_syntax <> KTEmpty constr
-binder 11242:11242 <> t:93
-R11286:11314 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R11279:11281 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R11271:11276 impl2_MC.type_theory <> is_FOT def
-R11278:11278 impl2_MC.type_theory <> t:93 var
-R11282:11285 Coq.Init.Datatypes <> true constr
-R11315:11324 impl2_MC.type_theory <> Consistent:82 ind
-R11338:11343 impl2_MC.kernel_syntax <> KTList constr
-R11345:11351 impl2_MC.kernel_syntax <> KTEmpty constr
-R11327:11332 impl2_MC.kernel_syntax <> KTList constr
-R11334:11334 impl2_MC.type_theory <> t:93 var
-binder 11382:11382 <> i:94
-binder 11384:11385 <> i':95
-R11421:11449 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R11416:11418 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R11415:11415 impl2_MC.type_theory <> i:94 var
-R11419:11420 impl2_MC.type_theory <> i':95 var
-R11450:11459 impl2_MC.type_theory <> Consistent:82 ind
-R11472:11476 impl2_MC.kernel_syntax <> KTRef constr
-R11478:11479 impl2_MC.type_theory <> i':95 var
-R11462:11466 impl2_MC.kernel_syntax <> KTRef constr
-R11468:11468 impl2_MC.type_theory <> i:94 var
-R11504:11513 impl2_MC.type_theory <> Consistent:82 ind
-R11523:11529 impl2_MC.kernel_syntax <> KTError constr
-R11515:11521 impl2_MC.kernel_syntax <> KTError constr
-scheme 10410:10419 <> Consistent_ind
-scheme 10410:10419 <> Consistent_sind
-def 11701:11704 <> isAF
-R11709:11712 Coq.Init.Datatypes <> bool ind
-def 11732:11736 <> isFOT
-R11741:11744 Coq.Init.Datatypes <> bool ind
-def 11763:11776 <> isAF_and_isFOT
-R11791:11793 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R11787:11790 impl2_MC.type_theory <> isAF def
-R11794:11798 impl2_MC.type_theory <> isFOT def
-def 11817:11825 <> is_AF_aux
-R11831:11838 impl2_MC.type_theory <> register def
-binder 11828:11828 <> R:96
-R11845:11847 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-binder 11842:11842 <> t:97
-R11852:11865 impl2_MC.type_theory <> isAF_and_isFOT def
-R11884:11884 impl2_MC.type_theory <> t:97 var
-R11899:11904 impl2_MC.kernel_syntax <> KTBase constr
-R11915:11915 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11920:11921 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11926:11926 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11916:11919 Coq.Init.Datatypes <> true constr
-R11922:11925 Coq.Init.Datatypes <> true constr
-R11936:11941 impl2_MC.kernel_syntax <> KTUnit constr
-R11952:11952 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11957:11958 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11963:11963 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11953:11956 Coq.Init.Datatypes <> true constr
-R11959:11962 Coq.Init.Datatypes <> true constr
-R11973:11978 impl2_MC.kernel_syntax <> KTProd constr
-R12009:12017 impl2_MC.type_theory <> is_AF_aux:98 def
-R12019:12019 impl2_MC.type_theory <> R:96 var
-R11994:11994 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R11998:11999 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12004:12004 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12071:12079 impl2_MC.type_theory <> is_AF_aux:98 def
-R12081:12081 impl2_MC.type_theory <> R:96 var
-R12056:12056 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12060:12061 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12066:12066 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12120:12123 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
-R12181:12181 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12187:12188 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12194:12194 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12182:12186 Coq.Init.Datatypes <> false constr
-R12189:12193 Coq.Init.Datatypes <> false constr
-R12134:12134 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12145:12146 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12151:12151 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12138:12141 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
-R12147:12150 Coq.Init.Datatypes <> true constr
-R12203:12208 impl2_MC.kernel_syntax <> KTList constr
-R12237:12245 impl2_MC.type_theory <> is_AF_aux:98 def
-R12249:12249 impl2_MC.type_theory <> t:97 var
-R12247:12247 impl2_MC.type_theory <> R:96 var
-R12224:12224 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12227:12228 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12232:12232 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12278:12278 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12288:12289 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12293:12293 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12282:12285 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
-R12304:12312 impl2_MC.kernel_syntax <> KTVariant constr
-R12360:12390 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
-R12323:12328 impl2_MC.type_theory <> nodupb def
-R12346:12348 Coq.Init.Datatypes <> fst def
-R12351:12355 Coq.Lists.List <> split def
-R12331:12340 impl2_MC.ids <> constr_eqb proj
-R12342:12342 impl2_MC.type_theory <> TYPE_THEORY.I var
-R12391:12397 Coq.Lists.List <> forallb def
-binder 12404:12404 <> p:100
-R12457:12465 impl2_MC.type_theory <> is_AF_aux:98 def
-R12470:12472 Coq.Init.Datatypes <> snd def
-R12474:12474 impl2_MC.type_theory <> p:100 var
-R12467:12467 impl2_MC.type_theory <> R:96 var
-R12444:12444 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12447:12448 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12452:12452 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12512:12515 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
-R12596:12596 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12602:12603 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12609:12609 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12597:12601 Coq.Init.Datatypes <> false constr
-R12604:12608 Coq.Init.Datatypes <> false constr
-R12553:12553 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12558:12559 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12565:12565 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12554:12557 Coq.Init.Datatypes <> true constr
-R12560:12564 Coq.Init.Datatypes <> false constr
-R12619:12623 impl2_MC.kernel_syntax <> KTRef constr
-R12635:12635 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12648:12649 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12654:12654 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12636:12643 impl2_MC.env <> includes def
-R12645:12645 impl2_MC.type_theory <> R:96 var
+prf 4188:4202 <> nodupb_remove_r
+binder 4212:4212 <> l:28
+binder 4214:4215 <> l':29
+binder 4217:4219 <> eqb:30
+R4232:4232 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4275:4288 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 4240:4240 <> x:31
+binder 4242:4242 <> y:32
+R4245:4256 Coq.Bool.Bool <> reflect ind
+R4260:4262 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4259:4259 impl2_MC.type_theory <> x:31 var
+R4263:4263 impl2_MC.type_theory <> y:32 var
+R4267:4269 impl2_MC.type_theory <> eqb:30 var
+R4271:4271 impl2_MC.type_theory <> x:31 var
+R4273:4273 impl2_MC.type_theory <> y:32 var
+R4316:4329 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4309:4311 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4289:4294 impl2_MC.type_theory <> nodupb def
+R4302:4305 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R4301:4301 impl2_MC.type_theory <> l:28 var
+R4306:4307 impl2_MC.type_theory <> l':29 var
+R4296:4298 impl2_MC.type_theory <> eqb:30 var
+R4312:4315 Coq.Init.Datatypes <> true constr
+R4342:4344 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4330:4335 impl2_MC.type_theory <> nodupb def
+R4341:4341 impl2_MC.type_theory <> l:28 var
+R4337:4339 impl2_MC.type_theory <> eqb:30 var
+R4345:4348 Coq.Init.Datatypes <> true constr
+R4418:4432 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R4418:4432 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R4460:4477 Coq.Lists.List <> NoDup_app_remove_r thm
+R4460:4477 Coq.Lists.List <> NoDup_app_remove_r thm
+R4497:4511 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R4497:4511 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+prf 4549:4563 <> nodupb_remove_l
+binder 4573:4573 <> l:33
+binder 4575:4576 <> l':34
+binder 4578:4580 <> eqb:35
+R4593:4593 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4636:4649 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 4601:4601 <> x:36
+binder 4603:4603 <> y:37
+R4606:4617 Coq.Bool.Bool <> reflect ind
+R4621:4623 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4620:4620 impl2_MC.type_theory <> x:36 var
+R4624:4624 impl2_MC.type_theory <> y:37 var
+R4628:4630 impl2_MC.type_theory <> eqb:35 var
+R4632:4632 impl2_MC.type_theory <> x:36 var
+R4634:4634 impl2_MC.type_theory <> y:37 var
+R4677:4690 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4670:4672 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4650:4655 impl2_MC.type_theory <> nodupb def
+R4663:4666 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R4662:4662 impl2_MC.type_theory <> l:33 var
+R4667:4668 impl2_MC.type_theory <> l':34 var
+R4657:4659 impl2_MC.type_theory <> eqb:35 var
+R4673:4676 Coq.Init.Datatypes <> true constr
+R4704:4706 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4691:4696 impl2_MC.type_theory <> nodupb def
+R4702:4703 impl2_MC.type_theory <> l':34 var
+R4698:4700 impl2_MC.type_theory <> eqb:35 var
+R4707:4710 Coq.Init.Datatypes <> true constr
+R4780:4794 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R4780:4794 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R4822:4839 Coq.Lists.List <> NoDup_app_remove_l thm
+R4822:4839 Coq.Lists.List <> NoDup_app_remove_l thm
+R4859:4873 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R4859:4873 impl2_MC.type_theory <> nodupb_eq_NoDup thm
+R4921:4925 impl2_MC.type_theory TYPE_THEORY.nodup <> sec
+def 5192:5199 <> register
+R5204:5206 impl2_MC.env <> env def
+R5212:5215 Coq.Init.Datatypes <> unit ind
+R5208:5210 impl2_MC.type_theory TYPE_THEORY :::'Ide' not
+ind 5753:5754 <> AF
+constr 5793:5800 <> AF_TBase
+constr 5859:5866 <> AF_TUnit
+constr 5891:5898 <> AF_TProd
+constr 6112:6119 <> AF_TList
+constr 6250:6260 <> AF_TVariant
+constr 6519:6525 <> AF_TRef
+R5760:5767 impl2_MC.type_theory <> register def
+binder 5757:5757 <> R:38
+R5775:5778 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5772:5774 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+binder 5814:5814 <> t:41
+R5838:5839 impl2_MC.type_theory <> AF:39 ind
+R5844:5849 impl2_MC.kernel_syntax <> KTBase constr
+R5851:5851 impl2_MC.type_theory <> t:41 var
+R5841:5841 impl2_MC.type_theory <> R:38 var
+R5873:5874 impl2_MC.type_theory <> AF:39 ind
+R5878:5883 impl2_MC.kernel_syntax <> KTUnit constr
+R5876:5876 impl2_MC.type_theory <> R:38 var
+binder 5912:5913 <> t1:42
+binder 5915:5916 <> t2:43
+R5957:5981 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5950:5952 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5941:5946 impl2_MC.type_theory <> is_FOT def
+R5948:5949 impl2_MC.type_theory <> t1:42 var
+R5953:5956 Coq.Init.Datatypes <> true constr
+R5998:6022 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5991:5993 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5982:5987 impl2_MC.type_theory <> is_FOT def
+R5989:5990 impl2_MC.type_theory <> t2:43 var
+R5994:5997 Coq.Init.Datatypes <> true constr
+R6030:6054 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6023:6024 impl2_MC.type_theory <> AF:39 ind
+R6028:6029 impl2_MC.type_theory <> t1:42 var
+R6026:6026 impl2_MC.type_theory <> R:38 var
+R6062:6086 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6055:6056 impl2_MC.type_theory <> AF:39 ind
+R6060:6061 impl2_MC.type_theory <> t2:43 var
+R6058:6058 impl2_MC.type_theory <> R:38 var
+R6087:6088 impl2_MC.type_theory <> AF:39 ind
+R6093:6098 impl2_MC.kernel_syntax <> KTProd constr
+R6103:6104 impl2_MC.type_theory <> t2:43 var
+R6100:6101 impl2_MC.type_theory <> t1:42 var
+R6090:6090 impl2_MC.type_theory <> R:38 var
+binder 6133:6133 <> t:44
+R6173:6197 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6166:6168 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6158:6163 impl2_MC.type_theory <> is_FOT def
+R6165:6165 impl2_MC.type_theory <> t:44 var
+R6169:6172 Coq.Init.Datatypes <> true constr
+R6204:6228 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6198:6199 impl2_MC.type_theory <> AF:39 ind
+R6203:6203 impl2_MC.type_theory <> t:44 var
+R6201:6201 impl2_MC.type_theory <> R:38 var
+R6229:6230 impl2_MC.type_theory <> AF:39 ind
+R6235:6240 impl2_MC.kernel_syntax <> KTList constr
+R6242:6242 impl2_MC.type_theory <> t:44 var
+R6232:6232 impl2_MC.type_theory <> R:38 var
+binder 6271:6271 <> l:45
+R6340:6363 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6333:6335 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6296:6301 impl2_MC.type_theory <> nodupb def
+R6319:6321 Coq.Init.Datatypes <> fst def
+R6324:6328 Coq.Lists.List <> split def
+R6330:6330 impl2_MC.type_theory <> l:45 var
+R6304:6313 impl2_MC.ids <> constr_eqb proj
+R6315:6315 impl2_MC.type_theory <> TYPE_THEORY.I var
+R6336:6339 Coq.Init.Datatypes <> true constr
+R6469:6494 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6364:6369 Coq.Lists.List <> Forall ind
+R6468:6468 impl2_MC.type_theory <> l:45 var
+binder 6376:6376 <> p:46
+R6426:6453 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R6419:6421 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6405:6410 impl2_MC.type_theory <> is_FOT def
+R6413:6415 Coq.Init.Datatypes <> snd def
+R6417:6417 impl2_MC.type_theory <> p:46 var
+R6422:6425 Coq.Init.Datatypes <> true constr
+R6454:6455 impl2_MC.type_theory <> AF:39 ind
+R6460:6462 Coq.Init.Datatypes <> snd def
+R6464:6464 impl2_MC.type_theory <> p:46 var
+R6457:6457 impl2_MC.type_theory <> R:38 var
+R6495:6496 impl2_MC.type_theory <> AF:39 ind
+R6501:6509 impl2_MC.kernel_syntax <> KTVariant constr
+R6511:6511 impl2_MC.type_theory <> l:45 var
+R6498:6498 impl2_MC.type_theory <> R:38 var
+binder 6540:6540 <> i:47
+R6583:6608 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6576:6578 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6564:6571 impl2_MC.env <> includes def
+R6575:6575 impl2_MC.type_theory <> i:47 var
+R6573:6573 impl2_MC.type_theory <> R:38 var
+R6579:6582 Coq.Init.Datatypes <> true constr
+R6609:6610 impl2_MC.type_theory <> AF:39 ind
+R6615:6619 impl2_MC.kernel_syntax <> KTRef constr
+R6621:6621 impl2_MC.type_theory <> i:47 var
+R6612:6612 impl2_MC.type_theory <> R:38 var
+scheme 5753:5754 <> AF_ind
+scheme 5753:5754 <> AF_sind
+ind 6760:6762 <> WFT
+constr 6800:6807 <> WFT_TFun
+constr 6838:6846 <> WFT_TBase
+constr 6885:6893 <> WFT_TUnit
+constr 6919:6928 <> WFT_TEmpty
+constr 6954:6962 <> WFT_TProd
+constr 7181:7189 <> WFT_TList
+constr 7325:7336 <> WFT_TVariant
+constr 7552:7559 <> WFT_TRef
+constr 7666:7675 <> WFT_TError
+R6769:6776 impl2_MC.type_theory <> register def
+binder 6765:6765 <> R:48
+R6783:6786 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6780:6782 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+R6815:6817 impl2_MC.type_theory <> WFT:49 ind
+R6821:6830 impl2_MC.kernel_syntax <> KTFunction constr
+R6819:6819 impl2_MC.type_theory <> R:48 var
+binder 6860:6860 <> t:51
+R6863:6865 impl2_MC.type_theory <> WFT:49 ind
+R6870:6875 impl2_MC.kernel_syntax <> KTBase constr
+R6877:6877 impl2_MC.type_theory <> t:51 var
+R6867:6867 impl2_MC.type_theory <> R:48 var
+R6900:6902 impl2_MC.type_theory <> WFT:49 ind
+R6906:6911 impl2_MC.kernel_syntax <> KTUnit constr
+R6904:6904 impl2_MC.type_theory <> R:48 var
+R6934:6936 impl2_MC.type_theory <> WFT:49 ind
+R6940:6946 impl2_MC.kernel_syntax <> KTEmpty constr
+R6938:6938 impl2_MC.type_theory <> R:48 var
+binder 6976:6977 <> t1:52
+binder 6979:6980 <> t2:53
+R7020:7045 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7013:7015 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7004:7009 impl2_MC.type_theory <> is_FOT def
+R7011:7012 impl2_MC.type_theory <> t1:52 var
+R7016:7019 Coq.Init.Datatypes <> true constr
+R7062:7087 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7055:7057 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7046:7051 impl2_MC.type_theory <> is_FOT def
+R7053:7054 impl2_MC.type_theory <> t2:53 var
+R7058:7061 Coq.Init.Datatypes <> true constr
+R7096:7120 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7088:7090 impl2_MC.type_theory <> WFT:49 ind
+R7094:7095 impl2_MC.type_theory <> t1:52 var
+R7092:7092 impl2_MC.type_theory <> R:48 var
+R7129:7154 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7121:7123 impl2_MC.type_theory <> WFT:49 ind
+R7127:7128 impl2_MC.type_theory <> t2:53 var
+R7125:7125 impl2_MC.type_theory <> R:48 var
+R7155:7157 impl2_MC.type_theory <> WFT:49 ind
+R7162:7167 impl2_MC.kernel_syntax <> KTProd constr
+R7172:7173 impl2_MC.type_theory <> t2:53 var
+R7169:7170 impl2_MC.type_theory <> t1:52 var
+R7159:7159 impl2_MC.type_theory <> R:48 var
+binder 7203:7203 <> t:54
+R7244:7269 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7237:7239 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7229:7234 impl2_MC.type_theory <> is_FOT def
+R7236:7236 impl2_MC.type_theory <> t:54 var
+R7240:7243 Coq.Init.Datatypes <> true constr
+R7277:7302 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7270:7272 impl2_MC.type_theory <> WFT:49 ind
+R7276:7276 impl2_MC.type_theory <> t:54 var
+R7274:7274 impl2_MC.type_theory <> R:48 var
+R7303:7305 impl2_MC.type_theory <> WFT:49 ind
+R7310:7315 impl2_MC.kernel_syntax <> KTList constr
+R7317:7317 impl2_MC.type_theory <> t:54 var
+R7307:7307 impl2_MC.type_theory <> R:48 var
+binder 7347:7347 <> l:55
+R7417:7441 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7410:7412 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7373:7378 impl2_MC.type_theory <> nodupb def
+R7396:7398 Coq.Init.Datatypes <> fst def
+R7401:7405 Coq.Lists.List <> split def
+R7407:7407 impl2_MC.type_theory <> l:55 var
+R7381:7390 impl2_MC.ids <> constr_eqb proj
+R7392:7392 impl2_MC.type_theory <> TYPE_THEORY.I var
+R7413:7416 Coq.Init.Datatypes <> true constr
+R7500:7526 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7442:7447 Coq.Lists.List <> Forall ind
+R7499:7499 impl2_MC.type_theory <> l:55 var
+binder 7454:7454 <> p:56
+R7480:7483 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R7473:7475 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7459:7464 impl2_MC.type_theory <> is_FOT def
+R7467:7469 Coq.Init.Datatypes <> snd def
+R7471:7471 impl2_MC.type_theory <> p:56 var
+R7476:7479 Coq.Init.Datatypes <> true constr
+R7484:7486 impl2_MC.type_theory <> WFT:49 ind
+R7491:7493 Coq.Init.Datatypes <> snd def
+R7495:7495 impl2_MC.type_theory <> p:56 var
+R7488:7488 impl2_MC.type_theory <> R:48 var
+R7527:7529 impl2_MC.type_theory <> WFT:49 ind
+R7534:7542 impl2_MC.kernel_syntax <> KTVariant constr
+R7544:7544 impl2_MC.type_theory <> l:55 var
+R7531:7531 impl2_MC.type_theory <> R:48 var
+binder 7574:7574 <> i:57
+R7619:7644 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7612:7614 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7600:7607 impl2_MC.env <> includes def
+R7611:7611 impl2_MC.type_theory <> i:57 var
+R7609:7609 impl2_MC.type_theory <> R:48 var
+R7615:7618 Coq.Init.Datatypes <> true constr
+R7645:7647 impl2_MC.type_theory <> WFT:49 ind
+R7652:7656 impl2_MC.kernel_syntax <> KTRef constr
+R7658:7658 impl2_MC.type_theory <> i:57 var
+R7649:7649 impl2_MC.type_theory <> R:48 var
+R7681:7683 impl2_MC.type_theory <> WFT:49 ind
+R7687:7693 impl2_MC.kernel_syntax <> KTError constr
+R7685:7685 impl2_MC.type_theory <> R:48 var
+scheme 6760:6762 <> WFT_ind
+scheme 6760:6762 <> WFT_sind
+ind 7784:7785 <> DT
+constr 7827:7837 <> DT_TVariant
+R7792:7799 impl2_MC.type_theory <> register def
+binder 7788:7788 <> R:58
+R7807:7811 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7804:7806 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+binder 7848:7848 <> l:61
+R7890:7915 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7872:7873 impl2_MC.type_theory <> AF ind
+R7878:7886 impl2_MC.kernel_syntax <> KTVariant constr
+R7888:7888 impl2_MC.type_theory <> l:61 var
+R7875:7875 impl2_MC.type_theory <> R:58 var
+R7916:7917 impl2_MC.type_theory <> DT:59 ind
+R7922:7930 impl2_MC.kernel_syntax <> KTVariant constr
+R7932:7932 impl2_MC.type_theory <> l:61 var
+R7919:7919 impl2_MC.type_theory <> R:58 var
+scheme 7784:7785 <> DT_ind
+scheme 7784:7785 <> DT_sind
+def 8165:8168 <> WFET
+R8174:8177 impl2_MC.type_theory TYPE_THEORY :::'tenv' not
+binder 8171:8171 <> r:62
+R8184:8191 impl2_MC.type_theory <> register def
+binder 8181:8181 <> R:63
+R8204:8204 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8235:8240 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8269:8269 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+binder 8212:8212 <> i:64
+R8223:8227 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R8215:8218 impl2_MC.type_env <> tdom def
+R8222:8222 impl2_MC.type_theory <> i:64 var
+R8220:8220 impl2_MC.type_theory <> r:62 var
+R8228:8230 impl2_MC.env <> dom def
+R8234:8234 impl2_MC.type_theory <> i:64 var
+R8232:8232 impl2_MC.type_theory <> R:63 var
+binder 8248:8248 <> t:65
+R8259:8262 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8251:8254 impl2_MC.type_env <> timm def
+R8258:8258 impl2_MC.type_theory <> t:65 var
+R8256:8256 impl2_MC.type_theory <> r:62 var
+R8263:8264 impl2_MC.type_theory <> DT ind
+R8268:8268 impl2_MC.type_theory <> t:65 var
+R8266:8266 impl2_MC.type_theory <> R:63 var
+sec 8350:8356 TYPE_THEORY AF_ind'
+var 8378:8378 TYPE_THEORY.AF_ind' R
+R8381:8388 impl2_MC.type_theory <> register def
+var 8408:8408 TYPE_THEORY.AF_ind' Q
+R8414:8417 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8411:8413 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+var 8446:8455 TYPE_THEORY.AF_ind' TBase_case
+binder 8469:8469 <> t:68
+R8472:8472 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
+R8475:8480 impl2_MC.kernel_syntax <> KTBase constr
+R8482:8482 impl2_MC.type_theory <> t:68 var
+var 8506:8515 TYPE_THEORY.AF_ind' TUnit_case
+R8522:8522 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
+R8524:8529 impl2_MC.kernel_syntax <> KTUnit constr
+var 8554:8563 TYPE_THEORY.AF_ind' TProd_case
+binder 8577:8578 <> t1:71
+binder 8580:8581 <> t2:72
+R8640:8682 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8633:8635 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8624:8629 impl2_MC.type_theory <> is_FOT def
+R8631:8632 impl2_MC.type_theory <> t1:71 var
+R8636:8639 Coq.Init.Datatypes <> true constr
+R8699:8741 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8692:8694 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8683:8688 impl2_MC.type_theory <> is_FOT def
+R8690:8691 impl2_MC.type_theory <> t2:72 var
+R8695:8698 Coq.Init.Datatypes <> true constr
+R8746:8788 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8742:8742 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
+R8744:8745 impl2_MC.type_theory <> t1:71 var
+R8793:8835 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8789:8789 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
+R8791:8792 impl2_MC.type_theory <> t2:72 var
+R8836:8836 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
+R8839:8844 impl2_MC.kernel_syntax <> KTProd constr
+R8849:8850 impl2_MC.type_theory <> t2:72 var
+R8846:8847 impl2_MC.type_theory <> t1:71 var
+var 8873:8882 TYPE_THEORY.AF_ind' TList_case
+binder 8896:8896 <> t:74
+R8953:8997 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8946:8948 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8938:8943 impl2_MC.type_theory <> is_FOT def
+R8945:8945 impl2_MC.type_theory <> t:74 var
+R8949:8952 Coq.Init.Datatypes <> true constr
+R9001:9042 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8998:8998 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
+R9000:9000 impl2_MC.type_theory <> t:74 var
+R9043:9043 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
+R9046:9051 impl2_MC.kernel_syntax <> KTList constr
+R9053:9053 impl2_MC.type_theory <> t:74 var
+var 9077:9089 TYPE_THEORY.AF_ind' TVariant_case
+binder 9100:9100 <> l:76
+R9187:9229 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9180:9182 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9143:9148 impl2_MC.type_theory <> nodupb def
+R9166:9168 Coq.Init.Datatypes <> fst def
+R9171:9175 Coq.Lists.List <> split def
+R9177:9177 impl2_MC.type_theory <> l:76 var
+R9151:9160 impl2_MC.ids <> constr_eqb proj
+R9162:9162 impl2_MC.type_theory <> TYPE_THEORY.I var
+R9183:9186 Coq.Init.Datatypes <> true constr
+R9284:9326 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9230:9235 Coq.Lists.List <> Forall ind
+R9283:9283 impl2_MC.type_theory <> l:76 var
+binder 9242:9242 <> p:77
+R9268:9271 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R9261:9263 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9247:9252 impl2_MC.type_theory <> is_FOT def
+R9255:9257 Coq.Init.Datatypes <> snd def
+R9259:9259 impl2_MC.type_theory <> p:77 var
+R9264:9267 Coq.Init.Datatypes <> true constr
+R9272:9272 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
+R9275:9277 Coq.Init.Datatypes <> snd def
+R9279:9279 impl2_MC.type_theory <> p:77 var
+R9327:9327 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
+R9330:9338 impl2_MC.kernel_syntax <> KTVariant constr
+R9340:9340 impl2_MC.type_theory <> l:76 var
+var 9363:9371 TYPE_THEORY.AF_ind' TRef_case
+binder 9386:9386 <> i:79
+R9446:9489 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9439:9441 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9427:9434 impl2_MC.env <> includes def
+R9438:9438 impl2_MC.type_theory <> i:79 var
+R9436:9436 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.R var
+R9442:9445 Coq.Init.Datatypes <> true constr
+R9490:9490 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
+R9493:9497 impl2_MC.kernel_syntax <> KTRef constr
+R9499:9499 impl2_MC.type_theory <> i:79 var
+def 9523:9529 <> AF_ind'
+binder 9531:9531 <> t:81
+R9537:9538 impl2_MC.type_theory <> AF ind
+R9542:9542 impl2_MC.type_theory <> t:81 var
+R9540:9540 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.R var
+binder 9534:9534 <> H:82
+R9547:9547 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
+R9549:9549 impl2_MC.type_theory <> t:81 var
+R9571:9571 impl2_MC.type_theory <> H:82 var
+R9592:9599 impl2_MC.type_theory <> AF_TBase constr
+R9633:9642 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.TBase_case var
+R9659:9666 impl2_MC.type_theory <> AF_TUnit constr
+R9700:9709 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.TUnit_case var
+R9724:9731 impl2_MC.type_theory <> AF_TProd constr
+R9765:9774 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.TProd_case var
+R9853:9859 impl2_MC.type_theory <> AF_ind':83 def
+R9838:9844 impl2_MC.type_theory <> AF_ind':83 def
+R9878:9885 impl2_MC.type_theory <> AF_TList constr
+R9919:9928 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.TList_case var
+R9934:9940 impl2_MC.type_theory <> AF_ind':83 def
+R9959:9969 impl2_MC.type_theory <> AF_TVariant constr
+R10000:10012 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.TVariant_case var
+binder 10048:10048 <> l:85
+R10076:10081 Coq.Lists.List <> Forall ind
+R10170:10170 impl2_MC.type_theory <> l:85 var
+binder 10088:10088 <> p:86
+R10114:10155 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R10107:10109 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10093:10098 impl2_MC.type_theory <> is_FOT def
+R10101:10103 Coq.Init.Datatypes <> snd def
+R10105:10105 impl2_MC.type_theory <> p:86 var
+R10110:10113 Coq.Init.Datatypes <> true constr
+R10156:10157 impl2_MC.type_theory <> AF ind
+R10162:10164 Coq.Init.Datatypes <> snd def
+R10166:10166 impl2_MC.type_theory <> p:86 var
+binder 10073:10073 <> H:87
+R10197:10202 Coq.Lists.List <> Forall ind
+R10290:10290 impl2_MC.type_theory <> l:85 var
+binder 10209:10209 <> p:88
+R10235:10278 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R10228:10230 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10214:10219 impl2_MC.type_theory <> is_FOT def
+R10222:10224 Coq.Init.Datatypes <> snd def
+R10226:10226 impl2_MC.type_theory <> p:88 var
+R10231:10234 Coq.Init.Datatypes <> true constr
+R10279:10279 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.Q var
+R10282:10284 Coq.Init.Datatypes <> snd def
+R10286:10286 impl2_MC.type_theory <> p:88 var
+R10321:10321 impl2_MC.type_theory <> H:87 var
+R10348:10357 Coq.Lists.List <> Forall_nil constr
+R10379:10388 Coq.Lists.List <> Forall_nil constr
+R10412:10422 Coq.Lists.List <> Forall_cons constr
+R10497:10500 Coq.Init.Logic <> conj constr
+R10510:10520 Coq.Lists.List <> Forall_cons constr
+R10546:10553 impl2_MC.type_theory <> lis_ind':89 var
+R10525:10528 Coq.Init.Logic <> conj constr
+R10533:10539 impl2_MC.type_theory <> AF_ind':83 def
+R10632:10638 impl2_MC.type_theory <> AF_TRef constr
+R10675:10683 impl2_MC.type_theory <> TYPE_THEORY.AF_ind'.TRef_case var
+R10722:10728 impl2_MC.type_theory TYPE_THEORY.AF_ind' <> sec
+ind 11144:11153 <> Consistent
+constr 11184:11189 <> c_TFun
+constr 11239:11245 <> c_TBase
+constr 11371:11377 <> c_TUnit
+constr 11418:11425 <> c_TEmpty
+constr 11468:11474 <> c_TProd
+constr 11675:11681 <> c_TList
+constr 11812:11822 <> c_TListNil1
+constr 11953:11963 <> c_TListNil2
+constr 12093:12098 <> c_TRef
+constr 12222:12229 <> c_TError
+R11159:11162 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11156:11158 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+R11166:11169 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11163:11165 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+R11200:11209 impl2_MC.type_theory <> Consistent:92 ind
+R11222:11231 impl2_MC.kernel_syntax <> KTFunction constr
+R11211:11220 impl2_MC.kernel_syntax <> KTFunction constr
+binder 11262:11263 <> t1:94
+binder 11265:11266 <> t2:95
+R11301:11329 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11296:11298 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11294:11295 impl2_MC.type_theory <> t1:94 var
+R11299:11300 impl2_MC.type_theory <> t2:95 var
+R11330:11339 impl2_MC.type_theory <> Consistent:92 ind
+R11354:11359 impl2_MC.kernel_syntax <> KTBase constr
+R11361:11362 impl2_MC.type_theory <> t2:95 var
+R11342:11347 impl2_MC.kernel_syntax <> KTBase constr
+R11349:11350 impl2_MC.type_theory <> t1:94 var
+R11387:11396 impl2_MC.type_theory <> Consistent:92 ind
+R11405:11410 impl2_MC.kernel_syntax <> KTUnit constr
+R11398:11403 impl2_MC.kernel_syntax <> KTUnit constr
+R11434:11443 impl2_MC.type_theory <> Consistent:92 ind
+R11453:11459 impl2_MC.kernel_syntax <> KTEmpty constr
+R11445:11451 impl2_MC.kernel_syntax <> KTEmpty constr
+binder 11491:11492 <> t1:96
+binder 11494:11496 <> t1':97
+binder 11498:11499 <> t2:98
+binder 11501:11503 <> t2':99
+R11548:11576 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11531:11540 impl2_MC.type_theory <> Consistent:92 ind
+R11545:11547 impl2_MC.type_theory <> t1':97 var
+R11542:11543 impl2_MC.type_theory <> t1:96 var
+R11594:11622 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11577:11586 impl2_MC.type_theory <> Consistent:92 ind
+R11591:11593 impl2_MC.type_theory <> t2':99 var
+R11588:11589 impl2_MC.type_theory <> t2:98 var
+R11623:11632 impl2_MC.type_theory <> Consistent:92 ind
+R11650:11655 impl2_MC.kernel_syntax <> KTProd constr
+R11661:11663 impl2_MC.type_theory <> t2':99 var
+R11657:11659 impl2_MC.type_theory <> t1':97 var
+R11635:11640 impl2_MC.kernel_syntax <> KTProd constr
+R11645:11646 impl2_MC.type_theory <> t2:98 var
+R11642:11643 impl2_MC.type_theory <> t1:96 var
+binder 11698:11698 <> t:100
+binder 11700:11701 <> t':101
+R11744:11772 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11729:11738 impl2_MC.type_theory <> Consistent:92 ind
+R11742:11743 impl2_MC.type_theory <> t':101 var
+R11740:11740 impl2_MC.type_theory <> t:100 var
+R11773:11782 impl2_MC.type_theory <> Consistent:92 ind
+R11796:11801 impl2_MC.kernel_syntax <> KTList constr
+R11803:11804 impl2_MC.type_theory <> t':101 var
+R11785:11790 impl2_MC.kernel_syntax <> KTList constr
+R11792:11792 impl2_MC.type_theory <> t:100 var
+binder 11835:11835 <> t:102
+R11879:11907 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11872:11874 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11864:11869 impl2_MC.type_theory <> is_FOT def
+R11871:11871 impl2_MC.type_theory <> t:102 var
+R11875:11878 Coq.Init.Datatypes <> true constr
+R11908:11917 impl2_MC.type_theory <> Consistent:92 ind
+R11937:11942 impl2_MC.kernel_syntax <> KTList constr
+R11944:11944 impl2_MC.type_theory <> t:102 var
+R11920:11925 impl2_MC.kernel_syntax <> KTList constr
+R11927:11933 impl2_MC.kernel_syntax <> KTEmpty constr
+binder 11976:11976 <> t:103
+R12020:12048 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R12013:12015 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12005:12010 impl2_MC.type_theory <> is_FOT def
+R12012:12012 impl2_MC.type_theory <> t:103 var
+R12016:12019 Coq.Init.Datatypes <> true constr
+R12049:12058 impl2_MC.type_theory <> Consistent:92 ind
+R12072:12077 impl2_MC.kernel_syntax <> KTList constr
+R12079:12085 impl2_MC.kernel_syntax <> KTEmpty constr
+R12061:12066 impl2_MC.kernel_syntax <> KTList constr
+R12068:12068 impl2_MC.type_theory <> t:103 var
+binder 12116:12116 <> i:104
+binder 12118:12119 <> i':105
+R12155:12183 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R12150:12152 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12149:12149 impl2_MC.type_theory <> i:104 var
+R12153:12154 impl2_MC.type_theory <> i':105 var
+R12184:12193 impl2_MC.type_theory <> Consistent:92 ind
+R12206:12210 impl2_MC.kernel_syntax <> KTRef constr
+R12212:12213 impl2_MC.type_theory <> i':105 var
+R12196:12200 impl2_MC.kernel_syntax <> KTRef constr
+R12202:12202 impl2_MC.type_theory <> i:104 var
+R12238:12247 impl2_MC.type_theory <> Consistent:92 ind
+R12257:12263 impl2_MC.kernel_syntax <> KTError constr
+R12249:12255 impl2_MC.kernel_syntax <> KTError constr
+scheme 11144:11153 <> Consistent_ind
+scheme 11144:11153 <> Consistent_sind
+def 12435:12438 <> isAF
+R12443:12446 Coq.Init.Datatypes <> bool ind
+def 12466:12470 <> isFOT
+R12475:12478 Coq.Init.Datatypes <> bool ind
+def 12497:12510 <> isAF_and_isFOT
+R12525:12527 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R12521:12524 impl2_MC.type_theory <> isAF def
+R12528:12532 impl2_MC.type_theory <> isFOT def
+def 12551:12559 <> is_AF_aux
+R12565:12572 impl2_MC.type_theory <> register def
+binder 12562:12562 <> R:106
+R12579:12581 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+binder 12576:12576 <> t:107
+R12586:12599 impl2_MC.type_theory <> isAF_and_isFOT def
+R12618:12618 impl2_MC.type_theory <> t:107 var
+R12633:12638 impl2_MC.kernel_syntax <> KTBase constr
+R12649:12649 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12654:12655 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12660:12660 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
 R12650:12653 Coq.Init.Datatypes <> true constr
-R12679:12679 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12685:12686 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12691:12691 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12680:12684 Coq.Init.Datatypes <> false constr
+R12656:12659 Coq.Init.Datatypes <> true constr
+R12670:12675 impl2_MC.kernel_syntax <> KTUnit constr
+R12686:12686 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12691:12692 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12697:12697 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
 R12687:12690 Coq.Init.Datatypes <> true constr
-def 12727:12731 <> is_AF
-R12737:12744 impl2_MC.type_theory <> register def
-binder 12734:12734 <> R:101
-R12751:12753 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-binder 12748:12748 <> t:102
-R12758:12761 Coq.Init.Datatypes <> bool ind
-R12779:12779 impl2_MC.type_theory <> t:102 var
-R12794:12802 impl2_MC.kernel_syntax <> KTVariant constr
-R12810:12812 Coq.Init.Datatypes <> fst def
-R12815:12823 impl2_MC.type_theory <> is_AF_aux def
-R12827:12827 impl2_MC.type_theory <> t:102 var
-R12825:12825 impl2_MC.type_theory <> R:101 var
-R12872:12880 impl2_MC.type_theory <> is_AF_aux def
-R12884:12884 impl2_MC.type_theory <> t:102 var
-R12882:12882 impl2_MC.type_theory <> R:101 var
-R12859:12859 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12862:12863 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12867:12867 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R12916:12919 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
-def 12956:12960 <> is_DT
-R12966:12973 impl2_MC.type_theory <> register def
-binder 12963:12963 <> R:104
-R12980:12982 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-binder 12977:12977 <> t:105
-R12987:12990 Coq.Init.Datatypes <> bool ind
-R13008:13008 impl2_MC.type_theory <> t:105 var
-R13023:13031 impl2_MC.kernel_syntax <> KTVariant constr
-R13038:13042 impl2_MC.type_theory <> is_AF def
-R13047:13055 impl2_MC.kernel_syntax <> KTVariant constr
-R13044:13044 impl2_MC.type_theory <> R:104 var
-R13082:13086 Coq.Init.Datatypes <> false constr
-def 13117:13129 <> is_consistent
-R13139:13141 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-binder 13133:13133 <> t:107
-binder 13135:13136 <> t':108
-R13147:13150 Coq.Init.Datatypes <> bool ind
-R13171:13172 impl2_MC.type_theory <> t':108 var
-R13168:13168 impl2_MC.type_theory <> t:107 var
-R13188:13197 impl2_MC.kernel_syntax <> KTFunction constr
-R13200:13209 impl2_MC.kernel_syntax <> KTFunction constr
-R13221:13224 Coq.Init.Datatypes <> true constr
-R13235:13240 impl2_MC.kernel_syntax <> KTBase constr
-R13245:13250 impl2_MC.kernel_syntax <> KTBase constr
-R13268:13277 impl2_MC.primitives <> eqb_BaseTp proj
-R13279:13279 impl2_MC.type_theory <> TYPE_THEORY.P var
-R13281:13281 impl2_MC.type_theory <> t:107 var
-R13283:13284 impl2_MC.type_theory <> t':108 var
-R13294:13300 impl2_MC.kernel_syntax <> KTEmpty constr
-R13303:13309 impl2_MC.kernel_syntax <> KTEmpty constr
-R13327:13330 Coq.Init.Datatypes <> true constr
-R13340:13345 impl2_MC.kernel_syntax <> KTUnit constr
-R13349:13354 impl2_MC.kernel_syntax <> KTUnit constr
-R13373:13376 Coq.Init.Datatypes <> true constr
-R13387:13392 impl2_MC.kernel_syntax <> KTProd constr
-R13401:13406 impl2_MC.kernel_syntax <> KTProd constr
-R13440:13485 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
-R13420:13432 impl2_MC.type_theory <> is_consistent:109 def
-R13486:13498 impl2_MC.type_theory <> is_consistent:109 def
-R13516:13521 impl2_MC.kernel_syntax <> KTList constr
-R13523:13529 impl2_MC.kernel_syntax <> KTEmpty constr
-R13532:13537 impl2_MC.kernel_syntax <> KTList constr
-R13549:13554 impl2_MC.type_theory <> is_FOT def
-R13556:13556 impl2_MC.type_theory <> t:107 var
-R13568:13573 impl2_MC.kernel_syntax <> KTList constr
-R13578:13583 impl2_MC.kernel_syntax <> KTList constr
-R13585:13591 impl2_MC.kernel_syntax <> KTEmpty constr
-R13601:13606 impl2_MC.type_theory <> is_FOT def
-R13608:13608 impl2_MC.type_theory <> t:107 var
-R13621:13626 impl2_MC.kernel_syntax <> KTList constr
-R13631:13636 impl2_MC.kernel_syntax <> KTList constr
-R13654:13666 impl2_MC.type_theory <> is_consistent:109 def
-R13670:13671 impl2_MC.type_theory <> t':108 var
-R13668:13668 impl2_MC.type_theory <> t:107 var
-R13682:13686 impl2_MC.kernel_syntax <> KTRef constr
-R13691:13695 impl2_MC.kernel_syntax <> KTRef constr
-R13715:13720 impl2_MC.ids <> id_eqb proj
-R13722:13722 impl2_MC.type_theory <> TYPE_THEORY.I var
-R13738:13744 impl2_MC.kernel_syntax <> KTError constr
-R13747:13753 impl2_MC.kernel_syntax <> KTError constr
-R13771:13774 Coq.Init.Datatypes <> true constr
-R13818:13822 Coq.Init.Datatypes <> false constr
-def 14023:14034 <> nested_empty
-R14041:14043 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-binder 14037:14037 <> t:112
-R14048:14051 Coq.Init.Datatypes <> bool ind
-R14069:14069 impl2_MC.type_theory <> t:112 var
-R14084:14089 impl2_MC.kernel_syntax <> KTList constr
-R14091:14097 impl2_MC.kernel_syntax <> KTEmpty constr
-R14102:14105 Coq.Init.Datatypes <> true constr
-R14115:14120 impl2_MC.kernel_syntax <> KTList constr
-R14133:14144 impl2_MC.type_theory <> nested_empty:113 def
-R14146:14146 impl2_MC.type_theory <> t:112 var
-R14174:14178 Coq.Init.Datatypes <> false constr
-prf 14208:14227 <> is_AF_aux_snd_is_FOT
-binder 14237:14237 <> R:115
-binder 14239:14239 <> t:116
-R14276:14280 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R14269:14271 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R14250:14252 Coq.Init.Datatypes <> snd def
-R14255:14263 impl2_MC.type_theory <> is_AF_aux def
-R14267:14267 impl2_MC.type_theory <> t:116 var
-R14265:14265 impl2_MC.type_theory <> R:115 var
-R14272:14275 Coq.Init.Datatypes <> true constr
-R14289:14291 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R14281:14286 impl2_MC.type_theory <> is_FOT def
-R14288:14288 impl2_MC.type_theory <> t:116 var
-R14292:14295 Coq.Init.Datatypes <> true constr
-R14440:14448 impl2_MC.type_theory <> is_AF_aux def
-R14470:14478 impl2_MC.type_theory <> is_AF_aux def
-R14440:14448 impl2_MC.type_theory <> is_AF_aux def
-R14470:14478 impl2_MC.type_theory <> is_AF_aux def
-R14545:14557 Coq.Bool.Bool <> andb_true_iff thm
-R14545:14557 Coq.Bool.Bool <> andb_true_iff thm
-R14545:14557 Coq.Bool.Bool <> andb_true_iff thm
-R14654:14662 impl2_MC.type_theory <> is_AF_aux def
-R14654:14662 impl2_MC.type_theory <> is_AF_aux def
-R14750:14755 impl2_MC.type_theory <> nodupb def
-R14762:14768 Coq.Lists.List <> forallb def
-R14750:14755 impl2_MC.type_theory <> nodupb def
-R14762:14768 Coq.Lists.List <> forallb def
-R14762:14768 Coq.Lists.List <> forallb def
-R14926:14934 impl2_MC.type_theory <> is_AF_aux def
-R14956:14964 impl2_MC.type_theory <> is_AF_aux def
-R15001:15013 Coq.Bool.Bool <> andb_true_iff thm
-R14926:14934 impl2_MC.type_theory <> is_AF_aux def
-R14956:14964 impl2_MC.type_theory <> is_AF_aux def
-R15001:15013 Coq.Bool.Bool <> andb_true_iff thm
-R15001:15013 Coq.Bool.Bool <> andb_true_iff thm
-R15001:15013 Coq.Bool.Bool <> andb_true_iff thm
-R15001:15013 Coq.Bool.Bool <> andb_true_iff thm
-R15001:15013 Coq.Bool.Bool <> andb_true_iff thm
-R15001:15013 Coq.Bool.Bool <> andb_true_iff thm
-R15001:15013 Coq.Bool.Bool <> andb_true_iff thm
-R15001:15013 Coq.Bool.Bool <> andb_true_iff thm
-R15127:15135 impl2_MC.type_theory <> is_AF_aux def
-R15127:15135 impl2_MC.type_theory <> is_AF_aux def
-prf 15181:15200 <> is_AF_aux_fst_AF_Ind
-binder 15211:15211 <> R:117
-R15219:15222 Coq.Init.Datatypes <> list ind
-R15231:15233 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R15225:15230 impl2_MC.type_theory TYPE_THEORY :::'Constr' not
-R15234:15236 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-binder 15214:15216 <> lis:118
-R15336:15347 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R15248:15253 Coq.Lists.List <> Forall ind
-R15333:15335 impl2_MC.type_theory <> lis:118 var
-binder 15260:15260 <> p:119
-R15306:15318 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R15299:15301 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R15274:15276 Coq.Init.Datatypes <> fst def
-R15279:15287 impl2_MC.type_theory <> is_AF_aux def
-R15292:15294 Coq.Init.Datatypes <> snd def
-R15296:15296 impl2_MC.type_theory <> p:119 var
-R15289:15289 impl2_MC.type_theory <> R:117 var
-R15302:15305 Coq.Init.Datatypes <> true constr
-R15319:15320 impl2_MC.type_theory <> AF ind
-R15325:15327 Coq.Init.Datatypes <> snd def
-R15329:15329 impl2_MC.type_theory <> p:119 var
-R15322:15322 impl2_MC.type_theory <> R:117 var
-R15450:15462 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R15443:15445 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R15348:15354 Coq.Lists.List <> forallb def
-R15440:15442 impl2_MC.type_theory <> lis:118 var
-binder 15361:15361 <> p:120
-R15395:15403 impl2_MC.type_theory <> is_AF_aux def
-R15408:15410 Coq.Init.Datatypes <> snd def
-R15412:15412 impl2_MC.type_theory <> p:120 var
-R15405:15405 impl2_MC.type_theory <> R:117 var
-R15382:15382 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R15385:15386 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R15390:15390 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R15431:15434 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
-R15446:15449 Coq.Init.Datatypes <> true constr
-R15463:15468 Coq.Lists.List <> Forall ind
-R15540:15542 impl2_MC.type_theory <> lis:118 var
-binder 15475:15475 <> p:121
-R15512:15525 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R15505:15507 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R15491:15496 impl2_MC.type_theory <> is_FOT def
-R15499:15501 Coq.Init.Datatypes <> snd def
-R15503:15503 impl2_MC.type_theory <> p:121 var
-R15508:15511 Coq.Init.Datatypes <> true constr
-R15526:15527 impl2_MC.type_theory <> AF ind
-R15532:15534 Coq.Init.Datatypes <> snd def
-R15536:15536 impl2_MC.type_theory <> p:121 var
-R15529:15529 impl2_MC.type_theory <> R:117 var
-R15632:15642 Coq.Lists.List <> Forall_cons constr
-R15677:15689 Coq.Bool.Bool <> andb_true_iff thm
-R15632:15642 Coq.Lists.List <> Forall_cons constr
-R15677:15689 Coq.Bool.Bool <> andb_true_iff thm
-R15677:15689 Coq.Bool.Bool <> andb_true_iff thm
-R15677:15689 Coq.Bool.Bool <> andb_true_iff thm
-R15677:15689 Coq.Bool.Bool <> andb_true_iff thm
-R15766:15774 impl2_MC.type_theory <> is_AF_aux def
-R15779:15781 Coq.Init.Datatypes <> snd def
-R15766:15774 impl2_MC.type_theory <> is_AF_aux def
-R15779:15781 Coq.Init.Datatypes <> snd def
-R15814:15826 Coq.Bool.Bool <> andb_true_iff thm
-R15814:15826 Coq.Bool.Bool <> andb_true_iff thm
-R15814:15826 Coq.Bool.Bool <> andb_true_iff thm
-R15934:15953 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R15934:15953 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-prf 16076:16096 <> is_AF_aux_fst_AF_Ind2
-binder 16106:16106 <> R:122
-R16112:16115 Coq.Init.Datatypes <> list ind
-R16123:16125 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R16117:16122 impl2_MC.type_theory TYPE_THEORY :::'Constr' not
-R16126:16128 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-binder 16109:16109 <> l:123
-R16238:16248 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R16141:16146 Coq.Lists.List <> Forall ind
-R16237:16237 impl2_MC.type_theory <> l:123 var
-binder 16153:16153 <> p:124
-R16189:16202 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R16182:16184 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R16168:16173 impl2_MC.type_theory <> is_FOT def
-R16176:16178 Coq.Init.Datatypes <> snd def
-R16180:16180 impl2_MC.type_theory <> p:124 var
-R16185:16188 Coq.Init.Datatypes <> true constr
-R16228:16230 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R16203:16205 Coq.Init.Datatypes <> fst def
-R16208:16216 impl2_MC.type_theory <> is_AF_aux def
-R16221:16223 Coq.Init.Datatypes <> snd def
-R16225:16225 impl2_MC.type_theory <> p:124 var
-R16218:16218 impl2_MC.type_theory <> R:122 var
-R16231:16234 Coq.Init.Datatypes <> true constr
-R16343:16345 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R16249:16255 Coq.Lists.List <> forallb def
-R16342:16342 impl2_MC.type_theory <> l:123 var
-binder 16262:16262 <> p:125
-R16295:16303 impl2_MC.type_theory <> is_AF_aux def
-R16308:16310 Coq.Init.Datatypes <> snd def
-R16312:16312 impl2_MC.type_theory <> p:125 var
-R16305:16305 impl2_MC.type_theory <> R:122 var
-R16282:16282 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R16285:16286 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R16290:16290 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R16333:16336 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
-R16346:16349 Coq.Init.Datatypes <> true constr
-R16477:16496 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R16477:16496 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R16526:16534 impl2_MC.type_theory <> is_AF_aux def
-R16539:16541 Coq.Init.Datatypes <> snd def
-R16526:16534 impl2_MC.type_theory <> is_AF_aux def
-R16539:16541 Coq.Init.Datatypes <> snd def
-prf 16646:16661 <> is_AF_aux_fst_AF
-binder 16672:16672 <> R:126
-binder 16674:16674 <> t:127
-R16711:16715 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R16704:16706 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R16685:16687 Coq.Init.Datatypes <> fst def
-R16690:16698 impl2_MC.type_theory <> is_AF_aux def
-R16702:16702 impl2_MC.type_theory <> t:127 var
-R16700:16700 impl2_MC.type_theory <> R:126 var
-R16707:16710 Coq.Init.Datatypes <> true constr
-R16716:16717 impl2_MC.type_theory <> AF ind
-R16721:16721 impl2_MC.type_theory <> t:127 var
-R16719:16719 impl2_MC.type_theory <> R:126 var
-R16804:16811 impl2_MC.kernel_syntax <> KTp_ind' def
-R16804:16811 impl2_MC.kernel_syntax <> KTp_ind' def
-R17011:17019 impl2_MC.type_theory <> is_AF_aux def
-R17050:17058 impl2_MC.type_theory <> is_AF_aux def
-R17011:17019 impl2_MC.type_theory <> is_AF_aux def
-R17050:17058 impl2_MC.type_theory <> is_AF_aux def
-R17145:17147 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R17125:17127 Coq.Init.Datatypes <> snd def
-R17130:17138 impl2_MC.type_theory <> is_AF_aux def
-R17148:17151 Coq.Init.Datatypes <> true constr
-R17235:17237 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R17215:17217 Coq.Init.Datatypes <> snd def
-R17220:17228 impl2_MC.type_theory <> is_AF_aux def
-R17238:17241 Coq.Init.Datatypes <> true constr
-R17301:17320 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R17364:17376 Coq.Bool.Bool <> andb_true_iff thm
-R17145:17147 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R17125:17127 Coq.Init.Datatypes <> snd def
-R17130:17138 impl2_MC.type_theory <> is_AF_aux def
-R17148:17151 Coq.Init.Datatypes <> true constr
-R17235:17237 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R17215:17217 Coq.Init.Datatypes <> snd def
-R17220:17228 impl2_MC.type_theory <> is_AF_aux def
-R17238:17241 Coq.Init.Datatypes <> true constr
-R17301:17320 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R17301:17320 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R17364:17376 Coq.Bool.Bool <> andb_true_iff thm
-R17364:17376 Coq.Bool.Bool <> andb_true_iff thm
-R17498:17506 impl2_MC.type_theory <> is_AF_aux def
-R17556:17568 Coq.Bool.Bool <> andb_true_iff thm
-R17498:17506 impl2_MC.type_theory <> is_AF_aux def
-R17556:17568 Coq.Bool.Bool <> andb_true_iff thm
-R17556:17568 Coq.Bool.Bool <> andb_true_iff thm
-R17650:17669 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R17650:17669 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R17773:17778 impl2_MC.type_theory <> nodupb def
-R17807:17813 Coq.Lists.List <> forallb def
-R17773:17778 impl2_MC.type_theory <> nodupb def
-R17807:17813 Coq.Lists.List <> forallb def
-R17807:17813 Coq.Lists.List <> forallb def
-R17897:17916 impl2_MC.type_theory <> is_AF_aux_fst_AF_Ind thm
-R17897:17916 impl2_MC.type_theory <> is_AF_aux_fst_AF_Ind thm
-R18041:18047 impl2_MC.type_theory <> AF_ind' def
-R18041:18047 impl2_MC.type_theory <> AF_ind' def
-R18125:18144 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R18125:18144 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R18125:18144 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R18184:18192 impl2_MC.type_theory <> is_AF_aux def
-R18225:18233 impl2_MC.type_theory <> is_AF_aux def
-R18184:18192 impl2_MC.type_theory <> is_AF_aux def
-R18225:18233 impl2_MC.type_theory <> is_AF_aux def
-R18412:18431 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R18412:18431 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R18467:18475 impl2_MC.type_theory <> is_AF_aux def
-R18467:18475 impl2_MC.type_theory <> is_AF_aux def
-R18602:18622 impl2_MC.type_theory <> is_AF_aux_fst_AF_Ind2 thm
-R18602:18622 impl2_MC.type_theory <> is_AF_aux_fst_AF_Ind2 thm
-prf 18728:18739 <> AF_is_AF_Ind
-binder 18749:18749 <> R:128
-R18755:18758 Coq.Init.Datatypes <> list ind
-R18767:18769 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R18761:18766 impl2_MC.type_theory TYPE_THEORY :::'Constr' not
-R18770:18772 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-binder 18752:18752 <> l:129
-R18829:18839 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18822:18824 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R18785:18790 impl2_MC.type_theory <> nodupb def
-R18808:18810 Coq.Init.Datatypes <> fst def
-R18813:18817 Coq.Lists.List <> split def
-R18819:18819 impl2_MC.type_theory <> l:129 var
-R18793:18802 impl2_MC.ids <> constr_eqb proj
-R18804:18804 impl2_MC.type_theory <> TYPE_THEORY.I var
-R18825:18828 Coq.Init.Datatypes <> true constr
-R18925:18935 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18840:18845 Coq.Lists.List <> Forall ind
-R18924:18924 impl2_MC.type_theory <> l:129 var
-binder 18852:18852 <> p:130
-R18887:18899 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R18880:18882 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R18866:18871 impl2_MC.type_theory <> is_FOT def
-R18874:18876 Coq.Init.Datatypes <> snd def
-R18878:18878 impl2_MC.type_theory <> p:130 var
-R18883:18886 Coq.Init.Datatypes <> true constr
-R18915:18917 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R18900:18904 impl2_MC.type_theory <> is_AF def
-R18909:18911 Coq.Init.Datatypes <> snd def
-R18913:18913 impl2_MC.type_theory <> p:130 var
-R18906:18906 impl2_MC.type_theory <> R:128 var
-R18918:18921 Coq.Init.Datatypes <> true constr
-R18957:18959 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R18936:18940 impl2_MC.type_theory <> is_AF def
-R18945:18953 impl2_MC.kernel_syntax <> KTVariant constr
-R18955:18955 impl2_MC.type_theory <> l:129 var
-R18942:18942 impl2_MC.type_theory <> R:128 var
-R18960:18963 Coq.Init.Datatypes <> true constr
-R19063:19067 Coq.Lists.List <> split def
-R19063:19067 Coq.Lists.List <> split def
-R19102:19105 Coq.Lists.List <> find def
-R19102:19105 Coq.Lists.List <> find def
-R19167:19175 impl2_MC.type_theory <> is_AF_aux def
-R19167:19175 impl2_MC.type_theory <> is_AF_aux def
-R19232:19236 impl2_MC.type_theory <> is_AF def
-R19260:19279 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R19260:19279 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R19355:19357 Coq.Init.Datatypes <> fst def
-R19360:19368 impl2_MC.type_theory <> is_AF_aux def
-R19355:19357 Coq.Init.Datatypes <> fst def
-R19360:19368 impl2_MC.type_theory <> is_AF_aux def
-prf 19649:19661 <> is_AF_correct
-binder 19672:19672 <> R:131
-binder 19674:19674 <> t:132
-R19700:19703 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R19693:19695 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R19684:19688 impl2_MC.type_theory <> is_AF def
-R19692:19692 impl2_MC.type_theory <> t:132 var
-R19690:19690 impl2_MC.type_theory <> R:131 var
-R19696:19699 Coq.Init.Datatypes <> true constr
-R19704:19705 impl2_MC.type_theory <> AF ind
-R19709:19709 impl2_MC.type_theory <> t:132 var
-R19707:19707 impl2_MC.type_theory <> R:131 var
-R19755:19759 impl2_MC.type_theory <> is_AF def
-R19784:19799 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
-R19784:19799 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
-R19862:19870 impl2_MC.type_theory <> is_AF_aux def
-R19902:19914 Coq.Bool.Bool <> andb_true_iff thm
-R19862:19870 impl2_MC.type_theory <> is_AF_aux def
-R19862:19870 impl2_MC.type_theory <> is_AF_aux def
-R19862:19870 impl2_MC.type_theory <> is_AF_aux def
-R19902:19914 Coq.Bool.Bool <> andb_true_iff thm
-R19902:19914 Coq.Bool.Bool <> andb_true_iff thm
-R19902:19914 Coq.Bool.Bool <> andb_true_iff thm
-R19902:19914 Coq.Bool.Bool <> andb_true_iff thm
-R19902:19914 Coq.Bool.Bool <> andb_true_iff thm
-R19902:19914 Coq.Bool.Bool <> andb_true_iff thm
-prf 19995:20008 <> is_AF_complete
-binder 20018:20018 <> R:133
-binder 20020:20020 <> t:134
-R20037:20040 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R20031:20032 impl2_MC.type_theory <> AF ind
-R20036:20036 impl2_MC.type_theory <> t:134 var
-R20034:20034 impl2_MC.type_theory <> R:133 var
-R20050:20052 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R20041:20045 impl2_MC.type_theory <> is_AF def
-R20049:20049 impl2_MC.type_theory <> t:134 var
-R20047:20047 impl2_MC.type_theory <> R:133 var
-R20053:20056 Coq.Init.Datatypes <> true constr
-R20114:20120 impl2_MC.type_theory <> AF_ind' def
-R20114:20120 impl2_MC.type_theory <> AF_ind' def
-R20206:20225 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R20206:20225 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R20206:20225 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R20253:20265 impl2_MC.type_theory <> is_AF_correct thm
-R20253:20265 impl2_MC.type_theory <> is_AF_correct thm
-R20253:20265 impl2_MC.type_theory <> is_AF_correct thm
-R20301:20316 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
-R20301:20316 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
-R20301:20316 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
-R20362:20370 impl2_MC.type_theory <> is_AF_aux def
-R20401:20409 impl2_MC.type_theory <> is_AF_aux def
-R20362:20370 impl2_MC.type_theory <> is_AF_aux def
-R20401:20409 impl2_MC.type_theory <> is_AF_aux def
-R20560:20579 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R20560:20579 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
-R20604:20616 impl2_MC.type_theory <> is_AF_correct thm
-R20604:20616 impl2_MC.type_theory <> is_AF_correct thm
-R20645:20660 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
-R20645:20660 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
-R20699:20707 impl2_MC.type_theory <> is_AF_aux def
-R20699:20707 impl2_MC.type_theory <> is_AF_aux def
-R20828:20839 impl2_MC.type_theory <> AF_is_AF_Ind thm
-R20828:20839 impl2_MC.type_theory <> AF_is_AF_Ind thm
-prf 20949:20959 <> is_AF_eq_AF
-binder 20970:20970 <> R:135
-binder 20972:20972 <> t:136
-R20997:21001 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R20990:20992 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R20981:20985 impl2_MC.type_theory <> is_AF def
-R20989:20989 impl2_MC.type_theory <> t:136 var
-R20987:20987 impl2_MC.type_theory <> R:135 var
-R20993:20996 Coq.Init.Datatypes <> true constr
-R21002:21003 impl2_MC.type_theory <> AF ind
-R21007:21007 impl2_MC.type_theory <> t:136 var
-R21005:21005 impl2_MC.type_theory <> R:135 var
-R21048:21060 impl2_MC.type_theory <> is_AF_correct thm
-R21048:21060 impl2_MC.type_theory <> is_AF_correct thm
-R21075:21088 impl2_MC.type_theory <> is_AF_complete thm
-R21075:21088 impl2_MC.type_theory <> is_AF_complete thm
-prf 21116:21128 <> is_DT_correct
-binder 21138:21138 <> R:137
-binder 21140:21140 <> t:138
-R21167:21170 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R21160:21162 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R21151:21155 impl2_MC.type_theory <> is_DT def
-R21159:21159 impl2_MC.type_theory <> t:138 var
-R21157:21157 impl2_MC.type_theory <> R:137 var
-R21163:21166 Coq.Init.Datatypes <> true constr
-R21171:21172 impl2_MC.type_theory <> DT ind
-R21176:21176 impl2_MC.type_theory <> t:138 var
-R21174:21174 impl2_MC.type_theory <> R:137 var
-R21261:21265 impl2_MC.type_theory <> is_DT def
-R21289:21301 impl2_MC.type_theory <> is_AF_correct thm
-R21289:21301 impl2_MC.type_theory <> is_AF_correct thm
-prf 21362:21375 <> is_DT_complete
-binder 21385:21385 <> R:139
-binder 21387:21387 <> t:140
-R21403:21406 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R21397:21398 impl2_MC.type_theory <> DT ind
-R21402:21402 impl2_MC.type_theory <> t:140 var
-R21400:21400 impl2_MC.type_theory <> R:139 var
-R21416:21418 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R21407:21411 impl2_MC.type_theory <> is_DT def
-R21415:21415 impl2_MC.type_theory <> t:140 var
-R21413:21413 impl2_MC.type_theory <> R:139 var
-R21419:21422 Coq.Init.Datatypes <> true constr
-R21525:21529 impl2_MC.type_theory <> is_DT def
-R21539:21552 impl2_MC.type_theory <> is_AF_complete thm
-R21539:21552 impl2_MC.type_theory <> is_AF_complete thm
-prf 21590:21600 <> is_DT_eq_DT
-binder 21611:21611 <> R:141
-binder 21613:21613 <> t:142
-R21639:21643 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R21632:21634 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R21623:21627 impl2_MC.type_theory <> is_DT def
-R21631:21631 impl2_MC.type_theory <> t:142 var
-R21629:21629 impl2_MC.type_theory <> R:141 var
-R21635:21638 Coq.Init.Datatypes <> true constr
-R21644:21645 impl2_MC.type_theory <> DT ind
-R21649:21649 impl2_MC.type_theory <> t:142 var
-R21647:21647 impl2_MC.type_theory <> R:141 var
-R21691:21703 impl2_MC.type_theory <> is_DT_correct thm
-R21691:21703 impl2_MC.type_theory <> is_DT_correct thm
-R21718:21731 impl2_MC.type_theory <> is_DT_complete thm
-R21718:21731 impl2_MC.type_theory <> is_DT_complete thm
-prf 21758:21779 <> Forall_DT_forall_is_DT
-binder 21797:21797 <> R:143
-R21803:21806 Coq.Init.Datatypes <> list ind
-R21812:21814 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
-R21809:21811 impl2_MC.type_theory TYPE_THEORY :::'Ide' not
-R21815:21817 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-binder 21800:21800 <> B:144
-R21874:21887 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
-R21867:21869 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R21831:21837 Coq.Lists.List <> forallb def
-R21866:21866 impl2_MC.type_theory <> B:144 var
-binder 21844:21844 <> p:145
-R21849:21853 impl2_MC.type_theory <> is_DT def
-R21858:21860 Coq.Init.Datatypes <> snd def
-R21862:21862 impl2_MC.type_theory <> p:145 var
-R21855:21855 impl2_MC.type_theory <> R:143 var
-R21870:21873 Coq.Init.Datatypes <> true constr
-R21888:21893 Coq.Lists.List <> Forall ind
-R21919:21919 impl2_MC.type_theory <> B:144 var
-binder 21900:21900 <> p:146
+R12693:12696 Coq.Init.Datatypes <> true constr
+R12707:12712 impl2_MC.kernel_syntax <> KTProd constr
+R12743:12751 impl2_MC.type_theory <> is_AF_aux:108 def
+R12753:12753 impl2_MC.type_theory <> R:106 var
+R12728:12728 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12732:12733 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12738:12738 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12805:12813 impl2_MC.type_theory <> is_AF_aux:108 def
+R12815:12815 impl2_MC.type_theory <> R:106 var
+R12790:12790 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12794:12795 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12800:12800 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12854:12857 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R12915:12915 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12921:12922 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12928:12928 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12916:12920 Coq.Init.Datatypes <> false constr
+R12923:12927 Coq.Init.Datatypes <> false constr
+R12868:12868 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12879:12880 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12885:12885 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12872:12875 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R12881:12884 Coq.Init.Datatypes <> true constr
+R12937:12942 impl2_MC.kernel_syntax <> KTList constr
+R12971:12979 impl2_MC.type_theory <> is_AF_aux:108 def
+R12983:12983 impl2_MC.type_theory <> t:107 var
+R12981:12981 impl2_MC.type_theory <> R:106 var
+R12958:12958 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12961:12962 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R12966:12966 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13012:13012 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13022:13023 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13027:13027 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13016:13019 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R13038:13046 impl2_MC.kernel_syntax <> KTVariant constr
+R13094:13124 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R13057:13062 impl2_MC.type_theory <> nodupb def
+R13080:13082 Coq.Init.Datatypes <> fst def
+R13085:13089 Coq.Lists.List <> split def
+R13065:13074 impl2_MC.ids <> constr_eqb proj
+R13076:13076 impl2_MC.type_theory <> TYPE_THEORY.I var
+R13125:13131 Coq.Lists.List <> forallb def
+binder 13138:13138 <> p:110
+R13191:13199 impl2_MC.type_theory <> is_AF_aux:108 def
+R13204:13206 Coq.Init.Datatypes <> snd def
+R13208:13208 impl2_MC.type_theory <> p:110 var
+R13201:13201 impl2_MC.type_theory <> R:106 var
+R13178:13178 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13181:13182 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13186:13186 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13246:13249 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R13330:13330 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13336:13337 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13343:13343 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13331:13335 Coq.Init.Datatypes <> false constr
+R13338:13342 Coq.Init.Datatypes <> false constr
+R13287:13287 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13292:13293 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13299:13299 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13288:13291 Coq.Init.Datatypes <> true constr
+R13294:13298 Coq.Init.Datatypes <> false constr
+R13353:13357 impl2_MC.kernel_syntax <> KTRef constr
+R13369:13369 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13382:13383 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13388:13388 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13370:13377 impl2_MC.env <> includes def
+R13379:13379 impl2_MC.type_theory <> R:106 var
+R13384:13387 Coq.Init.Datatypes <> true constr
+R13413:13413 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13419:13420 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13425:13425 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13414:13418 Coq.Init.Datatypes <> false constr
+R13421:13424 Coq.Init.Datatypes <> true constr
+def 13461:13465 <> is_AF
+R13471:13478 impl2_MC.type_theory <> register def
+binder 13468:13468 <> R:111
+R13485:13487 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+binder 13482:13482 <> t:112
+R13492:13495 Coq.Init.Datatypes <> bool ind
+R13513:13513 impl2_MC.type_theory <> t:112 var
+R13528:13536 impl2_MC.kernel_syntax <> KTVariant constr
+R13544:13546 Coq.Init.Datatypes <> fst def
+R13549:13557 impl2_MC.type_theory <> is_AF_aux def
+R13561:13561 impl2_MC.type_theory <> t:112 var
+R13559:13559 impl2_MC.type_theory <> R:111 var
+R13606:13614 impl2_MC.type_theory <> is_AF_aux def
+R13618:13618 impl2_MC.type_theory <> t:112 var
+R13616:13616 impl2_MC.type_theory <> R:111 var
+R13593:13593 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13596:13597 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13601:13601 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R13650:13653 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+def 13690:13694 <> is_DT
+R13700:13707 impl2_MC.type_theory <> register def
+binder 13697:13697 <> R:114
+R13714:13716 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+binder 13711:13711 <> t:115
+R13721:13724 Coq.Init.Datatypes <> bool ind
+R13742:13742 impl2_MC.type_theory <> t:115 var
+R13757:13765 impl2_MC.kernel_syntax <> KTVariant constr
+R13772:13776 impl2_MC.type_theory <> is_AF def
+R13781:13789 impl2_MC.kernel_syntax <> KTVariant constr
+R13778:13778 impl2_MC.type_theory <> R:114 var
+R13816:13820 Coq.Init.Datatypes <> false constr
+def 13851:13863 <> is_consistent
+R13873:13875 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+binder 13867:13867 <> t:117
+binder 13869:13870 <> t':118
+R13881:13884 Coq.Init.Datatypes <> bool ind
+R13905:13906 impl2_MC.type_theory <> t':118 var
+R13902:13902 impl2_MC.type_theory <> t:117 var
+R13922:13931 impl2_MC.kernel_syntax <> KTFunction constr
+R13934:13943 impl2_MC.kernel_syntax <> KTFunction constr
+R13955:13958 Coq.Init.Datatypes <> true constr
+R13969:13974 impl2_MC.kernel_syntax <> KTBase constr
+R13979:13984 impl2_MC.kernel_syntax <> KTBase constr
+R14002:14011 impl2_MC.primitives <> eqb_BaseTp proj
+R14013:14013 impl2_MC.type_theory <> TYPE_THEORY.P var
+R14015:14015 impl2_MC.type_theory <> t:117 var
+R14017:14018 impl2_MC.type_theory <> t':118 var
+R14028:14034 impl2_MC.kernel_syntax <> KTEmpty constr
+R14037:14043 impl2_MC.kernel_syntax <> KTEmpty constr
+R14061:14064 Coq.Init.Datatypes <> true constr
+R14074:14079 impl2_MC.kernel_syntax <> KTUnit constr
+R14083:14088 impl2_MC.kernel_syntax <> KTUnit constr
+R14107:14110 Coq.Init.Datatypes <> true constr
+R14121:14126 impl2_MC.kernel_syntax <> KTProd constr
+R14135:14140 impl2_MC.kernel_syntax <> KTProd constr
+R14174:14219 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R14154:14166 impl2_MC.type_theory <> is_consistent:119 def
+R14220:14232 impl2_MC.type_theory <> is_consistent:119 def
+R14250:14255 impl2_MC.kernel_syntax <> KTList constr
+R14257:14263 impl2_MC.kernel_syntax <> KTEmpty constr
+R14266:14271 impl2_MC.kernel_syntax <> KTList constr
+R14283:14288 impl2_MC.type_theory <> is_FOT def
+R14290:14290 impl2_MC.type_theory <> t:117 var
+R14302:14307 impl2_MC.kernel_syntax <> KTList constr
+R14312:14317 impl2_MC.kernel_syntax <> KTList constr
+R14319:14325 impl2_MC.kernel_syntax <> KTEmpty constr
+R14335:14340 impl2_MC.type_theory <> is_FOT def
+R14342:14342 impl2_MC.type_theory <> t:117 var
+R14355:14360 impl2_MC.kernel_syntax <> KTList constr
+R14365:14370 impl2_MC.kernel_syntax <> KTList constr
+R14388:14400 impl2_MC.type_theory <> is_consistent:119 def
+R14404:14405 impl2_MC.type_theory <> t':118 var
+R14402:14402 impl2_MC.type_theory <> t:117 var
+R14416:14420 impl2_MC.kernel_syntax <> KTRef constr
+R14425:14429 impl2_MC.kernel_syntax <> KTRef constr
+R14449:14454 impl2_MC.ids <> id_eqb proj
+R14456:14456 impl2_MC.type_theory <> TYPE_THEORY.I var
+R14472:14478 impl2_MC.kernel_syntax <> KTError constr
+R14481:14487 impl2_MC.kernel_syntax <> KTError constr
+R14505:14508 Coq.Init.Datatypes <> true constr
+R14552:14556 Coq.Init.Datatypes <> false constr
+def 14757:14768 <> nested_empty
+R14775:14777 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+binder 14771:14771 <> t:122
+R14782:14785 Coq.Init.Datatypes <> bool ind
+R14803:14803 impl2_MC.type_theory <> t:122 var
+R14818:14823 impl2_MC.kernel_syntax <> KTList constr
+R14825:14831 impl2_MC.kernel_syntax <> KTEmpty constr
+R14836:14839 Coq.Init.Datatypes <> true constr
+R14849:14854 impl2_MC.kernel_syntax <> KTList constr
+R14867:14878 impl2_MC.type_theory <> nested_empty:123 def
+R14880:14880 impl2_MC.type_theory <> t:122 var
+R14908:14912 Coq.Init.Datatypes <> false constr
+prf 14942:14961 <> is_AF_aux_snd_is_FOT
+binder 14971:14971 <> R:125
+binder 14973:14973 <> t:126
+R15010:15014 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R15003:15005 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R14984:14986 Coq.Init.Datatypes <> snd def
+R14989:14997 impl2_MC.type_theory <> is_AF_aux def
+R15001:15001 impl2_MC.type_theory <> t:126 var
+R14999:14999 impl2_MC.type_theory <> R:125 var
+R15006:15009 Coq.Init.Datatypes <> true constr
+R15023:15025 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15015:15020 impl2_MC.type_theory <> is_FOT def
+R15022:15022 impl2_MC.type_theory <> t:126 var
+R15026:15029 Coq.Init.Datatypes <> true constr
+R15174:15182 impl2_MC.type_theory <> is_AF_aux def
+R15204:15212 impl2_MC.type_theory <> is_AF_aux def
+R15174:15182 impl2_MC.type_theory <> is_AF_aux def
+R15204:15212 impl2_MC.type_theory <> is_AF_aux def
+R15279:15291 Coq.Bool.Bool <> andb_true_iff thm
+R15279:15291 Coq.Bool.Bool <> andb_true_iff thm
+R15279:15291 Coq.Bool.Bool <> andb_true_iff thm
+R15388:15396 impl2_MC.type_theory <> is_AF_aux def
+R15388:15396 impl2_MC.type_theory <> is_AF_aux def
+R15484:15489 impl2_MC.type_theory <> nodupb def
+R15496:15502 Coq.Lists.List <> forallb def
+R15484:15489 impl2_MC.type_theory <> nodupb def
+R15496:15502 Coq.Lists.List <> forallb def
+R15496:15502 Coq.Lists.List <> forallb def
+R15660:15668 impl2_MC.type_theory <> is_AF_aux def
+R15690:15698 impl2_MC.type_theory <> is_AF_aux def
+R15735:15747 Coq.Bool.Bool <> andb_true_iff thm
+R15660:15668 impl2_MC.type_theory <> is_AF_aux def
+R15690:15698 impl2_MC.type_theory <> is_AF_aux def
+R15735:15747 Coq.Bool.Bool <> andb_true_iff thm
+R15735:15747 Coq.Bool.Bool <> andb_true_iff thm
+R15735:15747 Coq.Bool.Bool <> andb_true_iff thm
+R15735:15747 Coq.Bool.Bool <> andb_true_iff thm
+R15735:15747 Coq.Bool.Bool <> andb_true_iff thm
+R15735:15747 Coq.Bool.Bool <> andb_true_iff thm
+R15735:15747 Coq.Bool.Bool <> andb_true_iff thm
+R15735:15747 Coq.Bool.Bool <> andb_true_iff thm
+R15861:15869 impl2_MC.type_theory <> is_AF_aux def
+R15861:15869 impl2_MC.type_theory <> is_AF_aux def
+prf 15915:15934 <> is_AF_aux_fst_AF_Ind
+binder 15945:15945 <> R:127
+R15953:15956 Coq.Init.Datatypes <> list ind
+R15965:15967 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R15959:15964 impl2_MC.type_theory TYPE_THEORY :::'Constr' not
+R15968:15970 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+binder 15948:15950 <> lis:128
+R16070:16081 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R15982:15987 Coq.Lists.List <> Forall ind
+R16067:16069 impl2_MC.type_theory <> lis:128 var
+binder 15994:15994 <> p:129
+R16040:16052 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16033:16035 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16008:16010 Coq.Init.Datatypes <> fst def
+R16013:16021 impl2_MC.type_theory <> is_AF_aux def
+R16026:16028 Coq.Init.Datatypes <> snd def
+R16030:16030 impl2_MC.type_theory <> p:129 var
+R16023:16023 impl2_MC.type_theory <> R:127 var
+R16036:16039 Coq.Init.Datatypes <> true constr
+R16053:16054 impl2_MC.type_theory <> AF ind
+R16059:16061 Coq.Init.Datatypes <> snd def
+R16063:16063 impl2_MC.type_theory <> p:129 var
+R16056:16056 impl2_MC.type_theory <> R:127 var
+R16184:16196 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16177:16179 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16082:16088 Coq.Lists.List <> forallb def
+R16174:16176 impl2_MC.type_theory <> lis:128 var
+binder 16095:16095 <> p:130
+R16129:16137 impl2_MC.type_theory <> is_AF_aux def
+R16142:16144 Coq.Init.Datatypes <> snd def
+R16146:16146 impl2_MC.type_theory <> p:130 var
+R16139:16139 impl2_MC.type_theory <> R:127 var
+R16116:16116 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R16119:16120 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R16124:16124 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R16165:16168 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R16180:16183 Coq.Init.Datatypes <> true constr
+R16197:16202 Coq.Lists.List <> Forall ind
+R16274:16276 impl2_MC.type_theory <> lis:128 var
+binder 16209:16209 <> p:131
+R16246:16259 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R16239:16241 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16225:16230 impl2_MC.type_theory <> is_FOT def
+R16233:16235 Coq.Init.Datatypes <> snd def
+R16237:16237 impl2_MC.type_theory <> p:131 var
+R16242:16245 Coq.Init.Datatypes <> true constr
+R16260:16261 impl2_MC.type_theory <> AF ind
+R16266:16268 Coq.Init.Datatypes <> snd def
+R16270:16270 impl2_MC.type_theory <> p:131 var
+R16263:16263 impl2_MC.type_theory <> R:127 var
+R16366:16376 Coq.Lists.List <> Forall_cons constr
+R16411:16423 Coq.Bool.Bool <> andb_true_iff thm
+R16366:16376 Coq.Lists.List <> Forall_cons constr
+R16411:16423 Coq.Bool.Bool <> andb_true_iff thm
+R16411:16423 Coq.Bool.Bool <> andb_true_iff thm
+R16411:16423 Coq.Bool.Bool <> andb_true_iff thm
+R16411:16423 Coq.Bool.Bool <> andb_true_iff thm
+R16500:16508 impl2_MC.type_theory <> is_AF_aux def
+R16513:16515 Coq.Init.Datatypes <> snd def
+R16500:16508 impl2_MC.type_theory <> is_AF_aux def
+R16513:16515 Coq.Init.Datatypes <> snd def
+R16548:16560 Coq.Bool.Bool <> andb_true_iff thm
+R16548:16560 Coq.Bool.Bool <> andb_true_iff thm
+R16548:16560 Coq.Bool.Bool <> andb_true_iff thm
+R16668:16687 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R16668:16687 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+prf 16810:16830 <> is_AF_aux_fst_AF_Ind2
+binder 16840:16840 <> R:132
+R16846:16849 Coq.Init.Datatypes <> list ind
+R16857:16859 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R16851:16856 impl2_MC.type_theory TYPE_THEORY :::'Constr' not
+R16860:16862 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+binder 16843:16843 <> l:133
+R16972:16982 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R16875:16880 Coq.Lists.List <> Forall ind
+R16971:16971 impl2_MC.type_theory <> l:133 var
+binder 16887:16887 <> p:134
+R16923:16936 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R16916:16918 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16902:16907 impl2_MC.type_theory <> is_FOT def
+R16910:16912 Coq.Init.Datatypes <> snd def
+R16914:16914 impl2_MC.type_theory <> p:134 var
+R16919:16922 Coq.Init.Datatypes <> true constr
+R16962:16964 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16937:16939 Coq.Init.Datatypes <> fst def
+R16942:16950 impl2_MC.type_theory <> is_AF_aux def
+R16955:16957 Coq.Init.Datatypes <> snd def
+R16959:16959 impl2_MC.type_theory <> p:134 var
+R16952:16952 impl2_MC.type_theory <> R:132 var
+R16965:16968 Coq.Init.Datatypes <> true constr
+R17077:17079 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16983:16989 Coq.Lists.List <> forallb def
+R17076:17076 impl2_MC.type_theory <> l:133 var
+binder 16996:16996 <> p:135
+R17029:17037 impl2_MC.type_theory <> is_AF_aux def
+R17042:17044 Coq.Init.Datatypes <> snd def
+R17046:17046 impl2_MC.type_theory <> p:135 var
+R17039:17039 impl2_MC.type_theory <> R:132 var
+R17016:17016 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17019:17020 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17024:17024 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17067:17070 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R17080:17083 Coq.Init.Datatypes <> true constr
+R17211:17230 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R17211:17230 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R17260:17268 impl2_MC.type_theory <> is_AF_aux def
+R17273:17275 Coq.Init.Datatypes <> snd def
+R17260:17268 impl2_MC.type_theory <> is_AF_aux def
+R17273:17275 Coq.Init.Datatypes <> snd def
+prf 17380:17395 <> is_AF_aux_fst_AF
+binder 17406:17406 <> R:136
+binder 17408:17408 <> t:137
+R17445:17449 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R17438:17440 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17419:17421 Coq.Init.Datatypes <> fst def
+R17424:17432 impl2_MC.type_theory <> is_AF_aux def
+R17436:17436 impl2_MC.type_theory <> t:137 var
+R17434:17434 impl2_MC.type_theory <> R:136 var
+R17441:17444 Coq.Init.Datatypes <> true constr
+R17450:17451 impl2_MC.type_theory <> AF ind
+R17455:17455 impl2_MC.type_theory <> t:137 var
+R17453:17453 impl2_MC.type_theory <> R:136 var
+R17538:17545 impl2_MC.kernel_syntax <> KTp_ind' def
+R17538:17545 impl2_MC.kernel_syntax <> KTp_ind' def
+R17745:17753 impl2_MC.type_theory <> is_AF_aux def
+R17784:17792 impl2_MC.type_theory <> is_AF_aux def
+R17745:17753 impl2_MC.type_theory <> is_AF_aux def
+R17784:17792 impl2_MC.type_theory <> is_AF_aux def
+R17879:17881 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17859:17861 Coq.Init.Datatypes <> snd def
+R17864:17872 impl2_MC.type_theory <> is_AF_aux def
+R17882:17885 Coq.Init.Datatypes <> true constr
+R17969:17971 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17949:17951 Coq.Init.Datatypes <> snd def
+R17954:17962 impl2_MC.type_theory <> is_AF_aux def
+R17972:17975 Coq.Init.Datatypes <> true constr
+R18035:18054 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R18098:18110 Coq.Bool.Bool <> andb_true_iff thm
+R17879:17881 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17859:17861 Coq.Init.Datatypes <> snd def
+R17864:17872 impl2_MC.type_theory <> is_AF_aux def
+R17882:17885 Coq.Init.Datatypes <> true constr
+R17969:17971 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17949:17951 Coq.Init.Datatypes <> snd def
+R17954:17962 impl2_MC.type_theory <> is_AF_aux def
+R17972:17975 Coq.Init.Datatypes <> true constr
+R18035:18054 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R18035:18054 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R18098:18110 Coq.Bool.Bool <> andb_true_iff thm
+R18098:18110 Coq.Bool.Bool <> andb_true_iff thm
+R18232:18240 impl2_MC.type_theory <> is_AF_aux def
+R18290:18302 Coq.Bool.Bool <> andb_true_iff thm
+R18232:18240 impl2_MC.type_theory <> is_AF_aux def
+R18290:18302 Coq.Bool.Bool <> andb_true_iff thm
+R18290:18302 Coq.Bool.Bool <> andb_true_iff thm
+R18384:18403 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R18384:18403 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R18507:18512 impl2_MC.type_theory <> nodupb def
+R18541:18547 Coq.Lists.List <> forallb def
+R18507:18512 impl2_MC.type_theory <> nodupb def
+R18541:18547 Coq.Lists.List <> forallb def
+R18541:18547 Coq.Lists.List <> forallb def
+R18631:18650 impl2_MC.type_theory <> is_AF_aux_fst_AF_Ind thm
+R18631:18650 impl2_MC.type_theory <> is_AF_aux_fst_AF_Ind thm
+R18775:18781 impl2_MC.type_theory <> AF_ind' def
+R18775:18781 impl2_MC.type_theory <> AF_ind' def
+R18859:18878 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R18859:18878 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R18859:18878 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R18918:18926 impl2_MC.type_theory <> is_AF_aux def
+R18959:18967 impl2_MC.type_theory <> is_AF_aux def
+R18918:18926 impl2_MC.type_theory <> is_AF_aux def
+R18959:18967 impl2_MC.type_theory <> is_AF_aux def
+R19146:19165 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R19146:19165 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R19201:19209 impl2_MC.type_theory <> is_AF_aux def
+R19201:19209 impl2_MC.type_theory <> is_AF_aux def
+R19336:19356 impl2_MC.type_theory <> is_AF_aux_fst_AF_Ind2 thm
+R19336:19356 impl2_MC.type_theory <> is_AF_aux_fst_AF_Ind2 thm
+prf 19462:19473 <> AF_is_AF_Ind
+binder 19483:19483 <> R:138
+R19489:19492 Coq.Init.Datatypes <> list ind
+R19501:19503 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R19495:19500 impl2_MC.type_theory TYPE_THEORY :::'Constr' not
+R19504:19506 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+binder 19486:19486 <> l:139
+R19563:19573 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19556:19558 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19519:19524 impl2_MC.type_theory <> nodupb def
+R19542:19544 Coq.Init.Datatypes <> fst def
+R19547:19551 Coq.Lists.List <> split def
+R19553:19553 impl2_MC.type_theory <> l:139 var
+R19527:19536 impl2_MC.ids <> constr_eqb proj
+R19538:19538 impl2_MC.type_theory <> TYPE_THEORY.I var
+R19559:19562 Coq.Init.Datatypes <> true constr
+R19659:19669 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19574:19579 Coq.Lists.List <> Forall ind
+R19658:19658 impl2_MC.type_theory <> l:139 var
+binder 19586:19586 <> p:140
+R19621:19633 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R19614:19616 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19600:19605 impl2_MC.type_theory <> is_FOT def
+R19608:19610 Coq.Init.Datatypes <> snd def
+R19612:19612 impl2_MC.type_theory <> p:140 var
+R19617:19620 Coq.Init.Datatypes <> true constr
+R19649:19651 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19634:19638 impl2_MC.type_theory <> is_AF def
+R19643:19645 Coq.Init.Datatypes <> snd def
+R19647:19647 impl2_MC.type_theory <> p:140 var
+R19640:19640 impl2_MC.type_theory <> R:138 var
+R19652:19655 Coq.Init.Datatypes <> true constr
+R19691:19693 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19670:19674 impl2_MC.type_theory <> is_AF def
+R19679:19687 impl2_MC.kernel_syntax <> KTVariant constr
+R19689:19689 impl2_MC.type_theory <> l:139 var
+R19676:19676 impl2_MC.type_theory <> R:138 var
+R19694:19697 Coq.Init.Datatypes <> true constr
+R19797:19801 Coq.Lists.List <> split def
+R19797:19801 Coq.Lists.List <> split def
+R19836:19839 Coq.Lists.List <> find def
+R19836:19839 Coq.Lists.List <> find def
+R19901:19909 impl2_MC.type_theory <> is_AF_aux def
+R19901:19909 impl2_MC.type_theory <> is_AF_aux def
+R19966:19970 impl2_MC.type_theory <> is_AF def
+R19994:20013 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R19994:20013 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R20089:20091 Coq.Init.Datatypes <> fst def
+R20094:20102 impl2_MC.type_theory <> is_AF_aux def
+R20089:20091 Coq.Init.Datatypes <> fst def
+R20094:20102 impl2_MC.type_theory <> is_AF_aux def
+prf 20383:20395 <> is_AF_correct
+binder 20406:20406 <> R:141
+binder 20408:20408 <> t:142
+R20434:20437 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20427:20429 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R20418:20422 impl2_MC.type_theory <> is_AF def
+R20426:20426 impl2_MC.type_theory <> t:142 var
+R20424:20424 impl2_MC.type_theory <> R:141 var
+R20430:20433 Coq.Init.Datatypes <> true constr
+R20438:20439 impl2_MC.type_theory <> AF ind
+R20443:20443 impl2_MC.type_theory <> t:142 var
+R20441:20441 impl2_MC.type_theory <> R:141 var
+R20489:20493 impl2_MC.type_theory <> is_AF def
+R20518:20533 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
+R20518:20533 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
+R20596:20604 impl2_MC.type_theory <> is_AF_aux def
+R20636:20648 Coq.Bool.Bool <> andb_true_iff thm
+R20596:20604 impl2_MC.type_theory <> is_AF_aux def
+R20596:20604 impl2_MC.type_theory <> is_AF_aux def
+R20596:20604 impl2_MC.type_theory <> is_AF_aux def
+R20636:20648 Coq.Bool.Bool <> andb_true_iff thm
+R20636:20648 Coq.Bool.Bool <> andb_true_iff thm
+R20636:20648 Coq.Bool.Bool <> andb_true_iff thm
+R20636:20648 Coq.Bool.Bool <> andb_true_iff thm
+R20636:20648 Coq.Bool.Bool <> andb_true_iff thm
+R20636:20648 Coq.Bool.Bool <> andb_true_iff thm
+prf 20729:20742 <> is_AF_complete
+binder 20752:20752 <> R:143
+binder 20754:20754 <> t:144
+R20771:20774 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R20765:20766 impl2_MC.type_theory <> AF ind
+R20770:20770 impl2_MC.type_theory <> t:144 var
+R20768:20768 impl2_MC.type_theory <> R:143 var
+R20784:20786 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R20775:20779 impl2_MC.type_theory <> is_AF def
+R20783:20783 impl2_MC.type_theory <> t:144 var
+R20781:20781 impl2_MC.type_theory <> R:143 var
+R20787:20790 Coq.Init.Datatypes <> true constr
+R20848:20854 impl2_MC.type_theory <> AF_ind' def
+R20848:20854 impl2_MC.type_theory <> AF_ind' def
+R20940:20959 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R20940:20959 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R20940:20959 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R20987:20999 impl2_MC.type_theory <> is_AF_correct thm
+R20987:20999 impl2_MC.type_theory <> is_AF_correct thm
+R20987:20999 impl2_MC.type_theory <> is_AF_correct thm
+R21035:21050 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
+R21035:21050 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
+R21035:21050 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
+R21096:21104 impl2_MC.type_theory <> is_AF_aux def
+R21135:21143 impl2_MC.type_theory <> is_AF_aux def
+R21096:21104 impl2_MC.type_theory <> is_AF_aux def
+R21135:21143 impl2_MC.type_theory <> is_AF_aux def
+R21294:21313 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R21294:21313 impl2_MC.type_theory <> is_AF_aux_snd_is_FOT thm
+R21338:21350 impl2_MC.type_theory <> is_AF_correct thm
+R21338:21350 impl2_MC.type_theory <> is_AF_correct thm
+R21379:21394 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
+R21379:21394 impl2_MC.type_theory <> is_AF_aux_fst_AF thm
+R21433:21441 impl2_MC.type_theory <> is_AF_aux def
+R21433:21441 impl2_MC.type_theory <> is_AF_aux def
+R21562:21573 impl2_MC.type_theory <> AF_is_AF_Ind thm
+R21562:21573 impl2_MC.type_theory <> AF_is_AF_Ind thm
+prf 21683:21693 <> is_AF_eq_AF
+binder 21704:21704 <> R:145
+binder 21706:21706 <> t:146
+R21731:21735 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R21724:21726 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R21715:21719 impl2_MC.type_theory <> is_AF def
+R21723:21723 impl2_MC.type_theory <> t:146 var
+R21721:21721 impl2_MC.type_theory <> R:145 var
+R21727:21730 Coq.Init.Datatypes <> true constr
+R21736:21737 impl2_MC.type_theory <> AF ind
+R21741:21741 impl2_MC.type_theory <> t:146 var
+R21739:21739 impl2_MC.type_theory <> R:145 var
+R21782:21794 impl2_MC.type_theory <> is_AF_correct thm
+R21782:21794 impl2_MC.type_theory <> is_AF_correct thm
+R21809:21822 impl2_MC.type_theory <> is_AF_complete thm
+R21809:21822 impl2_MC.type_theory <> is_AF_complete thm
+prf 21850:21862 <> is_DT_correct
+binder 21872:21872 <> R:147
+binder 21874:21874 <> t:148
+R21901:21904 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R21894:21896 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R21885:21889 impl2_MC.type_theory <> is_DT def
+R21893:21893 impl2_MC.type_theory <> t:148 var
+R21891:21891 impl2_MC.type_theory <> R:147 var
+R21897:21900 Coq.Init.Datatypes <> true constr
 R21905:21906 impl2_MC.type_theory <> DT ind
-R21911:21913 Coq.Init.Datatypes <> snd def
-R21915:21915 impl2_MC.type_theory <> p:146 var
-R21908:21908 impl2_MC.type_theory <> R:143 var
-R22014:22023 Coq.Lists.List <> Forall_nil constr
-R22014:22023 Coq.Lists.List <> Forall_nil constr
-R22057:22069 Coq.Bool.Bool <> andb_true_iff thm
-R22057:22069 Coq.Bool.Bool <> andb_true_iff thm
-R22057:22069 Coq.Bool.Bool <> andb_true_iff thm
-R22117:22127 Coq.Lists.List <> Forall_cons constr
-R22117:22127 Coq.Lists.List <> Forall_cons constr
-R22154:22166 impl2_MC.type_theory <> is_DT_correct thm
-R22154:22166 impl2_MC.type_theory <> is_DT_correct thm
-R22265:22277 Coq.Bool.Bool <> andb_true_iff thm
-R22265:22277 Coq.Bool.Bool <> andb_true_iff thm
-R22265:22277 Coq.Bool.Bool <> andb_true_iff thm
-R22308:22321 impl2_MC.type_theory <> is_DT_complete thm
-R22308:22321 impl2_MC.type_theory <> is_DT_complete thm
-prf 22355:22372 <> is_consistent_list
-binder 22382:22382 <> t:147
-binder 22384:22385 <> t':148
-R22438:22448 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R22431:22433 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R22395:22407 impl2_MC.type_theory <> is_consistent def
-R22421:22426 impl2_MC.kernel_syntax <> KTList constr
-R22428:22429 impl2_MC.type_theory <> t':148 var
-R22410:22415 impl2_MC.kernel_syntax <> KTList constr
-R22417:22417 impl2_MC.type_theory <> t:147 var
-R22434:22437 Coq.Init.Datatypes <> true constr
-R22461:22471 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R22450:22453 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
-R22449:22449 impl2_MC.type_theory <> t:147 var
-R22454:22460 impl2_MC.kernel_syntax <> KTEmpty constr
-R22485:22495 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R22474:22477 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
-R22472:22473 impl2_MC.type_theory <> t':148 var
-R22478:22484 impl2_MC.kernel_syntax <> KTEmpty constr
-R22514:22516 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R22496:22508 impl2_MC.type_theory <> is_consistent def
-R22512:22513 impl2_MC.type_theory <> t':148 var
-R22510:22510 impl2_MC.type_theory <> t:147 var
-R22517:22520 Coq.Init.Datatypes <> true constr
-def 22697:22706 <> is_KTEmpty
-R22712:22714 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
-binder 22709:22709 <> t:149
-R22733:22733 impl2_MC.type_theory <> t:149 var
-R22740:22746 impl2_MC.kernel_syntax <> KTEmpty constr
-R22751:22754 Coq.Init.Datatypes <> true constr
-R22763:22767 Coq.Init.Datatypes <> false constr
-prf 22787:22807 <> is_consistent_correct
-binder 22817:22817 <> t:151
-binder 22819:22820 <> t':152
-R22856:22865 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R22849:22851 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R22831:22843 impl2_MC.type_theory <> is_consistent def
-R22847:22848 impl2_MC.type_theory <> t':152 var
-R22845:22845 impl2_MC.type_theory <> t:151 var
-R22852:22855 Coq.Init.Datatypes <> true constr
-R22866:22875 impl2_MC.type_theory <> Consistent ind
-R22879:22880 impl2_MC.type_theory <> t':152 var
-R22877:22877 impl2_MC.type_theory <> t:151 var
-R23189:23200 Coq.Bool.Bool <> reflect ind
-R23214:23216 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R23222:23231 impl2_MC.primitives <> eqb_BaseTp proj
-R23233:23233 impl2_MC.type_theory <> TYPE_THEORY.P var
-R23261:23273 impl2_MC.primitives <> eqb_eq_BaseTp proj
-R23189:23200 Coq.Bool.Bool <> reflect ind
-R23214:23216 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R23222:23231 impl2_MC.primitives <> eqb_BaseTp proj
-R23233:23233 impl2_MC.type_theory <> TYPE_THEORY.P var
-R23261:23273 impl2_MC.primitives <> eqb_eq_BaseTp proj
-R23290:23305 Coq.Bool.Bool <> reflect_iff thm
-R23290:23305 Coq.Bool.Bool <> reflect_iff thm
-R23475:23492 Coq.Bool.Bool <> andb_true_iff thm
-R23475:23492 Coq.Bool.Bool <> andb_true_iff thm
-R23475:23492 Coq.Bool.Bool <> andb_true_iff thm
-R23633:23642 impl2_MC.type_theory <> is_KTEmpty def
-R23633:23642 impl2_MC.type_theory <> is_KTEmpty def
-R23714:23724 impl2_MC.type_theory <> c_TListNil1 constr
-R23714:23724 impl2_MC.type_theory <> c_TListNil1 constr
-R23791:23800 impl2_MC.type_theory <> is_KTEmpty def
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23791:23800 impl2_MC.type_theory <> is_KTEmpty def
-R23791:23800 impl2_MC.type_theory <> is_KTEmpty def
-R23791:23800 impl2_MC.type_theory <> is_KTEmpty def
-R23791:23800 impl2_MC.type_theory <> is_KTEmpty def
-R23791:23800 impl2_MC.type_theory <> is_KTEmpty def
-R23791:23800 impl2_MC.type_theory <> is_KTEmpty def
-R23791:23800 impl2_MC.type_theory <> is_KTEmpty def
-R23791:23800 impl2_MC.type_theory <> is_KTEmpty def
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23880:23890 impl2_MC.type_theory <> c_TListNil2 constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23921:23927 impl2_MC.type_theory <> c_TList constr
-R23991:23999 impl2_MC.ids <> id_eqb_eq proj
-R23991:23999 impl2_MC.ids <> id_eqb_eq proj
-R23991:23999 impl2_MC.ids <> id_eqb_eq proj
-prf 24086:24107 <> is_consistent_complete
-binder 24117:24117 <> t:153
-binder 24119:24120 <> t':154
-R24146:24156 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R24131:24140 impl2_MC.type_theory <> Consistent ind
-R24144:24145 impl2_MC.type_theory <> t':154 var
-R24142:24142 impl2_MC.type_theory <> t:153 var
-R24175:24177 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R24157:24169 impl2_MC.type_theory <> is_consistent def
-R24173:24174 impl2_MC.type_theory <> t':154 var
-R24171:24171 impl2_MC.type_theory <> t:153 var
-R24178:24181 Coq.Init.Datatypes <> true constr
-R24307:24318 Coq.Bool.Bool <> reflect ind
-R24333:24335 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R24341:24350 impl2_MC.primitives <> eqb_BaseTp proj
-R24352:24352 impl2_MC.type_theory <> TYPE_THEORY.P var
-R24372:24384 impl2_MC.primitives <> eqb_eq_BaseTp proj
-R24307:24318 Coq.Bool.Bool <> reflect ind
-R24333:24335 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R24341:24350 impl2_MC.primitives <> eqb_BaseTp proj
-R24352:24352 impl2_MC.type_theory <> TYPE_THEORY.P var
-R24372:24384 impl2_MC.primitives <> eqb_eq_BaseTp proj
-R24402:24417 Coq.Bool.Bool <> reflect_iff thm
-R24402:24417 Coq.Bool.Bool <> reflect_iff thm
-R24521:24538 Coq.Bool.Bool <> andb_true_iff thm
-R24521:24538 Coq.Bool.Bool <> andb_true_iff thm
-R24521:24538 Coq.Bool.Bool <> andb_true_iff thm
-R24854:24862 impl2_MC.ids <> id_eqb_eq proj
-R24854:24862 impl2_MC.ids <> id_eqb_eq proj
-prf 24951:24967 <> consistent_is_FOT
-binder 24977:24977 <> t:155
-binder 24979:24980 <> t':156
-R25006:25016 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R24991:25000 impl2_MC.type_theory <> Consistent ind
-R25004:25005 impl2_MC.type_theory <> t':156 var
-R25002:25002 impl2_MC.type_theory <> t:155 var
-R25032:25035 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
-R25025:25027 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R25017:25022 impl2_MC.type_theory <> is_FOT def
-R25024:25024 impl2_MC.type_theory <> t:155 var
-R25028:25031 Coq.Init.Datatypes <> true constr
-R25045:25047 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R25036:25041 impl2_MC.type_theory <> is_FOT def
-R25043:25044 impl2_MC.type_theory <> t':156 var
-R25048:25051 Coq.Init.Datatypes <> true constr
-R25173:25190 Coq.Bool.Bool <> andb_true_iff thm
-R25173:25190 Coq.Bool.Bool <> andb_true_iff thm
-R25173:25190 Coq.Bool.Bool <> andb_true_iff thm
-R25173:25190 Coq.Bool.Bool <> andb_true_iff thm
-R25173:25190 Coq.Bool.Bool <> andb_true_iff thm
-prf 25237:25251 <> consistent_refl
-binder 25261:25261 <> t:157
-R25286:25289 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R25279:25281 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R25271:25276 impl2_MC.type_theory <> is_FOT def
-R25278:25278 impl2_MC.type_theory <> t:157 var
-R25282:25285 Coq.Init.Datatypes <> true constr
-R25290:25299 impl2_MC.type_theory <> Consistent ind
-R25303:25303 impl2_MC.type_theory <> t:157 var
-R25301:25301 impl2_MC.type_theory <> t:157 var
-R25375:25380 impl2_MC.type_theory <> c_TFun constr
-R25375:25380 impl2_MC.type_theory <> c_TFun constr
-R25398:25404 impl2_MC.type_theory <> c_TBase constr
-R25398:25404 impl2_MC.type_theory <> c_TBase constr
-R25428:25434 impl2_MC.type_theory <> c_TUnit constr
-R25428:25434 impl2_MC.type_theory <> c_TUnit constr
-R25451:25458 impl2_MC.type_theory <> c_TEmpty constr
-R25451:25458 impl2_MC.type_theory <> c_TEmpty constr
-R25475:25481 impl2_MC.type_theory <> c_TProd constr
-R25516:25533 Coq.Bool.Bool <> andb_true_iff thm
-R25475:25481 impl2_MC.type_theory <> c_TProd constr
-R25516:25533 Coq.Bool.Bool <> andb_true_iff thm
-R25516:25533 Coq.Bool.Bool <> andb_true_iff thm
-R25516:25533 Coq.Bool.Bool <> andb_true_iff thm
-R25516:25533 Coq.Bool.Bool <> andb_true_iff thm
-R25588:25594 impl2_MC.type_theory <> c_TList constr
-R25588:25594 impl2_MC.type_theory <> c_TList constr
-R25670:25675 impl2_MC.type_theory <> c_TRef constr
-R25670:25675 impl2_MC.type_theory <> c_TRef constr
-R25700:25707 impl2_MC.type_theory <> c_TError constr
-R25700:25707 impl2_MC.type_theory <> c_TError constr
-prf 25737:25750 <> consistent_sym
-binder 25761:25761 <> t:158
-binder 25763:25764 <> t':159
-R25789:25792 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R25774:25783 impl2_MC.type_theory <> Consistent ind
-R25787:25788 impl2_MC.type_theory <> t':159 var
-R25785:25785 impl2_MC.type_theory <> t:158 var
-R25793:25802 impl2_MC.type_theory <> Consistent ind
-R25807:25807 impl2_MC.type_theory <> t:158 var
-R25804:25805 impl2_MC.type_theory <> t':159 var
-R25880:25890 impl2_MC.type_theory <> c_TListNil1 constr
-R25909:25919 impl2_MC.type_theory <> c_TListNil2 constr
-R25880:25890 impl2_MC.type_theory <> c_TListNil1 constr
-R25880:25890 impl2_MC.type_theory <> c_TListNil1 constr
-R25880:25890 impl2_MC.type_theory <> c_TListNil1 constr
-R25880:25890 impl2_MC.type_theory <> c_TListNil1 constr
-R25880:25890 impl2_MC.type_theory <> c_TListNil1 constr
-R25880:25890 impl2_MC.type_theory <> c_TListNil1 constr
-R25880:25890 impl2_MC.type_theory <> c_TListNil1 constr
-R25880:25890 impl2_MC.type_theory <> c_TListNil1 constr
-R25880:25890 impl2_MC.type_theory <> c_TListNil1 constr
-R25880:25890 impl2_MC.type_theory <> c_TListNil1 constr
-R25909:25919 impl2_MC.type_theory <> c_TListNil2 constr
-R25909:25919 impl2_MC.type_theory <> c_TListNil2 constr
-R25909:25919 impl2_MC.type_theory <> c_TListNil2 constr
-R25909:25919 impl2_MC.type_theory <> c_TListNil2 constr
-R25909:25919 impl2_MC.type_theory <> c_TListNil2 constr
-R25909:25919 impl2_MC.type_theory <> c_TListNil2 constr
-R25909:25919 impl2_MC.type_theory <> c_TListNil2 constr
-R25909:25919 impl2_MC.type_theory <> c_TListNil2 constr
-R25909:25919 impl2_MC.type_theory <> c_TListNil2 constr
-R25909:25919 impl2_MC.type_theory <> c_TListNil2 constr
-R25983:25993 impl2_MC.type_theory TYPE_THEORY <> sec
+R21910:21910 impl2_MC.type_theory <> t:148 var
+R21908:21908 impl2_MC.type_theory <> R:147 var
+R21995:21999 impl2_MC.type_theory <> is_DT def
+R22023:22035 impl2_MC.type_theory <> is_AF_correct thm
+R22023:22035 impl2_MC.type_theory <> is_AF_correct thm
+prf 22096:22109 <> is_DT_complete
+binder 22119:22119 <> R:149
+binder 22121:22121 <> t:150
+R22137:22140 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R22131:22132 impl2_MC.type_theory <> DT ind
+R22136:22136 impl2_MC.type_theory <> t:150 var
+R22134:22134 impl2_MC.type_theory <> R:149 var
+R22150:22152 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22141:22145 impl2_MC.type_theory <> is_DT def
+R22149:22149 impl2_MC.type_theory <> t:150 var
+R22147:22147 impl2_MC.type_theory <> R:149 var
+R22153:22156 Coq.Init.Datatypes <> true constr
+R22259:22263 impl2_MC.type_theory <> is_DT def
+R22273:22286 impl2_MC.type_theory <> is_AF_complete thm
+R22273:22286 impl2_MC.type_theory <> is_AF_complete thm
+prf 22324:22334 <> is_DT_eq_DT
+binder 22345:22345 <> R:151
+binder 22347:22347 <> t:152
+R22373:22377 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R22366:22368 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22357:22361 impl2_MC.type_theory <> is_DT def
+R22365:22365 impl2_MC.type_theory <> t:152 var
+R22363:22363 impl2_MC.type_theory <> R:151 var
+R22369:22372 Coq.Init.Datatypes <> true constr
+R22378:22379 impl2_MC.type_theory <> DT ind
+R22383:22383 impl2_MC.type_theory <> t:152 var
+R22381:22381 impl2_MC.type_theory <> R:151 var
+R22425:22437 impl2_MC.type_theory <> is_DT_correct thm
+R22425:22437 impl2_MC.type_theory <> is_DT_correct thm
+R22452:22465 impl2_MC.type_theory <> is_DT_complete thm
+R22452:22465 impl2_MC.type_theory <> is_DT_complete thm
+prf 22492:22513 <> Forall_DT_forall_is_DT
+binder 22531:22531 <> R:153
+R22537:22540 Coq.Init.Datatypes <> list ind
+R22546:22548 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R22543:22545 impl2_MC.type_theory TYPE_THEORY :::'Ide' not
+R22549:22551 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+binder 22534:22534 <> B:154
+R22608:22621 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R22601:22603 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22565:22571 Coq.Lists.List <> forallb def
+R22600:22600 impl2_MC.type_theory <> B:154 var
+binder 22578:22578 <> p:155
+R22583:22587 impl2_MC.type_theory <> is_DT def
+R22592:22594 Coq.Init.Datatypes <> snd def
+R22596:22596 impl2_MC.type_theory <> p:155 var
+R22589:22589 impl2_MC.type_theory <> R:153 var
+R22604:22607 Coq.Init.Datatypes <> true constr
+R22622:22627 Coq.Lists.List <> Forall ind
+R22653:22653 impl2_MC.type_theory <> B:154 var
+binder 22634:22634 <> p:156
+R22639:22640 impl2_MC.type_theory <> DT ind
+R22645:22647 Coq.Init.Datatypes <> snd def
+R22649:22649 impl2_MC.type_theory <> p:156 var
+R22642:22642 impl2_MC.type_theory <> R:153 var
+R22748:22757 Coq.Lists.List <> Forall_nil constr
+R22748:22757 Coq.Lists.List <> Forall_nil constr
+R22791:22803 Coq.Bool.Bool <> andb_true_iff thm
+R22791:22803 Coq.Bool.Bool <> andb_true_iff thm
+R22791:22803 Coq.Bool.Bool <> andb_true_iff thm
+R22851:22861 Coq.Lists.List <> Forall_cons constr
+R22851:22861 Coq.Lists.List <> Forall_cons constr
+R22888:22900 impl2_MC.type_theory <> is_DT_correct thm
+R22888:22900 impl2_MC.type_theory <> is_DT_correct thm
+R22999:23011 Coq.Bool.Bool <> andb_true_iff thm
+R22999:23011 Coq.Bool.Bool <> andb_true_iff thm
+R22999:23011 Coq.Bool.Bool <> andb_true_iff thm
+R23042:23055 impl2_MC.type_theory <> is_DT_complete thm
+R23042:23055 impl2_MC.type_theory <> is_DT_complete thm
+prf 23089:23106 <> is_consistent_list
+binder 23116:23116 <> t:157
+binder 23118:23119 <> t':158
+R23172:23182 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23165:23167 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23129:23141 impl2_MC.type_theory <> is_consistent def
+R23155:23160 impl2_MC.kernel_syntax <> KTList constr
+R23162:23163 impl2_MC.type_theory <> t':158 var
+R23144:23149 impl2_MC.kernel_syntax <> KTList constr
+R23151:23151 impl2_MC.type_theory <> t:157 var
+R23168:23171 Coq.Init.Datatypes <> true constr
+R23195:23205 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23184:23187 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R23183:23183 impl2_MC.type_theory <> t:157 var
+R23188:23194 impl2_MC.kernel_syntax <> KTEmpty constr
+R23219:23229 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23208:23211 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R23206:23207 impl2_MC.type_theory <> t':158 var
+R23212:23218 impl2_MC.kernel_syntax <> KTEmpty constr
+R23248:23250 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23230:23242 impl2_MC.type_theory <> is_consistent def
+R23246:23247 impl2_MC.type_theory <> t':158 var
+R23244:23244 impl2_MC.type_theory <> t:157 var
+R23251:23254 Coq.Init.Datatypes <> true constr
+def 23431:23440 <> is_KTEmpty
+R23446:23448 impl2_MC.type_theory TYPE_THEORY :::'KTp' not
+binder 23443:23443 <> t:159
+R23467:23467 impl2_MC.type_theory <> t:159 var
+R23474:23480 impl2_MC.kernel_syntax <> KTEmpty constr
+R23485:23488 Coq.Init.Datatypes <> true constr
+R23497:23501 Coq.Init.Datatypes <> false constr
+prf 23521:23541 <> is_consistent_correct
+binder 23551:23551 <> t:161
+binder 23553:23554 <> t':162
+R23590:23599 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R23583:23585 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23565:23577 impl2_MC.type_theory <> is_consistent def
+R23581:23582 impl2_MC.type_theory <> t':162 var
+R23579:23579 impl2_MC.type_theory <> t:161 var
+R23586:23589 Coq.Init.Datatypes <> true constr
+R23600:23609 impl2_MC.type_theory <> Consistent ind
+R23613:23614 impl2_MC.type_theory <> t':162 var
+R23611:23611 impl2_MC.type_theory <> t:161 var
+R23923:23934 Coq.Bool.Bool <> reflect ind
+R23948:23950 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23956:23965 impl2_MC.primitives <> eqb_BaseTp proj
+R23967:23967 impl2_MC.type_theory <> TYPE_THEORY.P var
+R23995:24007 impl2_MC.primitives <> eqb_eq_BaseTp proj
+R23923:23934 Coq.Bool.Bool <> reflect ind
+R23948:23950 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23956:23965 impl2_MC.primitives <> eqb_BaseTp proj
+R23967:23967 impl2_MC.type_theory <> TYPE_THEORY.P var
+R23995:24007 impl2_MC.primitives <> eqb_eq_BaseTp proj
+R24024:24039 Coq.Bool.Bool <> reflect_iff thm
+R24024:24039 Coq.Bool.Bool <> reflect_iff thm
+R24209:24226 Coq.Bool.Bool <> andb_true_iff thm
+R24209:24226 Coq.Bool.Bool <> andb_true_iff thm
+R24209:24226 Coq.Bool.Bool <> andb_true_iff thm
+R24367:24376 impl2_MC.type_theory <> is_KTEmpty def
+R24367:24376 impl2_MC.type_theory <> is_KTEmpty def
+R24448:24458 impl2_MC.type_theory <> c_TListNil1 constr
+R24448:24458 impl2_MC.type_theory <> c_TListNil1 constr
+R24525:24534 impl2_MC.type_theory <> is_KTEmpty def
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24525:24534 impl2_MC.type_theory <> is_KTEmpty def
+R24525:24534 impl2_MC.type_theory <> is_KTEmpty def
+R24525:24534 impl2_MC.type_theory <> is_KTEmpty def
+R24525:24534 impl2_MC.type_theory <> is_KTEmpty def
+R24525:24534 impl2_MC.type_theory <> is_KTEmpty def
+R24525:24534 impl2_MC.type_theory <> is_KTEmpty def
+R24525:24534 impl2_MC.type_theory <> is_KTEmpty def
+R24525:24534 impl2_MC.type_theory <> is_KTEmpty def
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24614:24624 impl2_MC.type_theory <> c_TListNil2 constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24655:24661 impl2_MC.type_theory <> c_TList constr
+R24725:24733 impl2_MC.ids <> id_eqb_eq proj
+R24725:24733 impl2_MC.ids <> id_eqb_eq proj
+R24725:24733 impl2_MC.ids <> id_eqb_eq proj
+prf 24820:24841 <> is_consistent_complete
+binder 24851:24851 <> t:163
+binder 24853:24854 <> t':164
+R24880:24890 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24865:24874 impl2_MC.type_theory <> Consistent ind
+R24878:24879 impl2_MC.type_theory <> t':164 var
+R24876:24876 impl2_MC.type_theory <> t:163 var
+R24909:24911 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24891:24903 impl2_MC.type_theory <> is_consistent def
+R24907:24908 impl2_MC.type_theory <> t':164 var
+R24905:24905 impl2_MC.type_theory <> t:163 var
+R24912:24915 Coq.Init.Datatypes <> true constr
+R25041:25052 Coq.Bool.Bool <> reflect ind
+R25067:25069 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25075:25084 impl2_MC.primitives <> eqb_BaseTp proj
+R25086:25086 impl2_MC.type_theory <> TYPE_THEORY.P var
+R25106:25118 impl2_MC.primitives <> eqb_eq_BaseTp proj
+R25041:25052 Coq.Bool.Bool <> reflect ind
+R25067:25069 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25075:25084 impl2_MC.primitives <> eqb_BaseTp proj
+R25086:25086 impl2_MC.type_theory <> TYPE_THEORY.P var
+R25106:25118 impl2_MC.primitives <> eqb_eq_BaseTp proj
+R25136:25151 Coq.Bool.Bool <> reflect_iff thm
+R25136:25151 Coq.Bool.Bool <> reflect_iff thm
+R25255:25272 Coq.Bool.Bool <> andb_true_iff thm
+R25255:25272 Coq.Bool.Bool <> andb_true_iff thm
+R25255:25272 Coq.Bool.Bool <> andb_true_iff thm
+R25588:25596 impl2_MC.ids <> id_eqb_eq proj
+R25588:25596 impl2_MC.ids <> id_eqb_eq proj
+prf 25685:25701 <> consistent_is_FOT
+binder 25711:25711 <> t:165
+binder 25713:25714 <> t':166
+R25740:25750 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R25725:25734 impl2_MC.type_theory <> Consistent ind
+R25738:25739 impl2_MC.type_theory <> t':166 var
+R25736:25736 impl2_MC.type_theory <> t:165 var
+R25766:25769 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R25759:25761 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25751:25756 impl2_MC.type_theory <> is_FOT def
+R25758:25758 impl2_MC.type_theory <> t:165 var
+R25762:25765 Coq.Init.Datatypes <> true constr
+R25779:25781 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25770:25775 impl2_MC.type_theory <> is_FOT def
+R25777:25778 impl2_MC.type_theory <> t':166 var
+R25782:25785 Coq.Init.Datatypes <> true constr
+R25907:25924 Coq.Bool.Bool <> andb_true_iff thm
+R25907:25924 Coq.Bool.Bool <> andb_true_iff thm
+R25907:25924 Coq.Bool.Bool <> andb_true_iff thm
+R25907:25924 Coq.Bool.Bool <> andb_true_iff thm
+R25907:25924 Coq.Bool.Bool <> andb_true_iff thm
+prf 25971:25985 <> consistent_refl
+binder 25995:25995 <> t:167
+R26020:26023 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R26013:26015 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R26005:26010 impl2_MC.type_theory <> is_FOT def
+R26012:26012 impl2_MC.type_theory <> t:167 var
+R26016:26019 Coq.Init.Datatypes <> true constr
+R26024:26033 impl2_MC.type_theory <> Consistent ind
+R26037:26037 impl2_MC.type_theory <> t:167 var
+R26035:26035 impl2_MC.type_theory <> t:167 var
+R26109:26114 impl2_MC.type_theory <> c_TFun constr
+R26109:26114 impl2_MC.type_theory <> c_TFun constr
+R26132:26138 impl2_MC.type_theory <> c_TBase constr
+R26132:26138 impl2_MC.type_theory <> c_TBase constr
+R26162:26168 impl2_MC.type_theory <> c_TUnit constr
+R26162:26168 impl2_MC.type_theory <> c_TUnit constr
+R26185:26192 impl2_MC.type_theory <> c_TEmpty constr
+R26185:26192 impl2_MC.type_theory <> c_TEmpty constr
+R26209:26215 impl2_MC.type_theory <> c_TProd constr
+R26250:26267 Coq.Bool.Bool <> andb_true_iff thm
+R26209:26215 impl2_MC.type_theory <> c_TProd constr
+R26250:26267 Coq.Bool.Bool <> andb_true_iff thm
+R26250:26267 Coq.Bool.Bool <> andb_true_iff thm
+R26250:26267 Coq.Bool.Bool <> andb_true_iff thm
+R26250:26267 Coq.Bool.Bool <> andb_true_iff thm
+R26322:26328 impl2_MC.type_theory <> c_TList constr
+R26322:26328 impl2_MC.type_theory <> c_TList constr
+R26404:26409 impl2_MC.type_theory <> c_TRef constr
+R26404:26409 impl2_MC.type_theory <> c_TRef constr
+R26434:26441 impl2_MC.type_theory <> c_TError constr
+R26434:26441 impl2_MC.type_theory <> c_TError constr
+prf 26471:26484 <> consistent_sym
+binder 26495:26495 <> t:168
+binder 26497:26498 <> t':169
+R26523:26526 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R26508:26517 impl2_MC.type_theory <> Consistent ind
+R26521:26522 impl2_MC.type_theory <> t':169 var
+R26519:26519 impl2_MC.type_theory <> t:168 var
+R26527:26536 impl2_MC.type_theory <> Consistent ind
+R26541:26541 impl2_MC.type_theory <> t:168 var
+R26538:26539 impl2_MC.type_theory <> t':169 var
+R26614:26624 impl2_MC.type_theory <> c_TListNil1 constr
+R26643:26653 impl2_MC.type_theory <> c_TListNil2 constr
+R26614:26624 impl2_MC.type_theory <> c_TListNil1 constr
+R26614:26624 impl2_MC.type_theory <> c_TListNil1 constr
+R26614:26624 impl2_MC.type_theory <> c_TListNil1 constr
+R26614:26624 impl2_MC.type_theory <> c_TListNil1 constr
+R26614:26624 impl2_MC.type_theory <> c_TListNil1 constr
+R26614:26624 impl2_MC.type_theory <> c_TListNil1 constr
+R26614:26624 impl2_MC.type_theory <> c_TListNil1 constr
+R26614:26624 impl2_MC.type_theory <> c_TListNil1 constr
+R26614:26624 impl2_MC.type_theory <> c_TListNil1 constr
+R26614:26624 impl2_MC.type_theory <> c_TListNil1 constr
+R26643:26653 impl2_MC.type_theory <> c_TListNil2 constr
+R26643:26653 impl2_MC.type_theory <> c_TListNil2 constr
+R26643:26653 impl2_MC.type_theory <> c_TListNil2 constr
+R26643:26653 impl2_MC.type_theory <> c_TListNil2 constr
+R26643:26653 impl2_MC.type_theory <> c_TListNil2 constr
+R26643:26653 impl2_MC.type_theory <> c_TListNil2 constr
+R26643:26653 impl2_MC.type_theory <> c_TListNil2 constr
+R26643:26653 impl2_MC.type_theory <> c_TListNil2 constr
+R26643:26653 impl2_MC.type_theory <> c_TListNil2 constr
+R26643:26653 impl2_MC.type_theory <> c_TListNil2 constr
+R26717:26727 impl2_MC.type_theory TYPE_THEORY <> sec

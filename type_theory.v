@@ -122,6 +122,29 @@ Section TYPE_THEORY.
           rewrite contra in Hnodupb; discriminate.
         Qed.  
 
+
+        Lemma nodupb_remove_r: forall l l' eqb, 
+         (forall x y, Bool.reflect (x = y) (eqb x y)) ->
+         nodupb eqb (l ++ l') = true -> 
+         nodupb eqb l = true.
+        Proof. 
+          intros * Hrefl Hnodupb. 
+          apply nodupb_eq_NoDup; eauto. 
+          eapply NoDup_app_remove_r.
+          eapply nodupb_eq_NoDup; eauto.
+        Qed.
+
+        Lemma nodupb_remove_l: forall l l' eqb, 
+         (forall x y, Bool.reflect (x = y) (eqb x y)) ->
+         nodupb eqb (l ++ l') = true -> 
+         nodupb eqb l' = true.
+        Proof. 
+          intros * Hrefl Hnodupb. 
+          apply nodupb_eq_NoDup; eauto. 
+          eapply NoDup_app_remove_l.
+          eapply nodupb_eq_NoDup; eauto.
+        Qed.
+           
     
     End nodup.
 

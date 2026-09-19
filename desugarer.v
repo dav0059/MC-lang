@@ -891,7 +891,7 @@ Section Desugarer.
               |Var i               => KVar i 
               |Bool b              => @KLit _ bns_data (VlBool b)
               |Nat n               => @KLit _ bns_data (VlNat n)
-              |EString s            => @KLit _ bns_data (VlString s)
+              |EString s           => @KLit _ bns_data (VlString s)
               |Not e               => @KOp _ bns_data (OpNot) [desugar_Expr e]
               |And e1 e2           => @KOp _ bns_data (OpAnd) [desugar_Expr e1; desugar_Expr e2]
               |Or e1 e2            => @KOp _ bns_data (OpOr) [desugar_Expr e1; desugar_Expr e2]
@@ -914,7 +914,7 @@ Section Desugarer.
               |DefType l e         => KDefType (map (fun p => (fst p, desugar_Tp (snd p))) l) (desugar_Expr e) 
               |Match e l           => KMatch (desugar_Expr e) 
                                               (map (fun p => (desugar_Pat (fst p), desugar_Expr (snd p))) l)
-              |EError m             => KError m
+              |EError m            => KError m
               end.
               
        
