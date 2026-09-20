@@ -65,7 +65,8 @@ Section RESULT.
      end.
      
      
-     Lemma get_ok_correct : forall x def, is_error x = false -> x = Ok (get_ok x def).
+     Lemma get_ok_correct : forall x def,
+       is_error x = false -> x = Ok (get_ok x def).
      Proof.
       intros * Herr. 
       destruct x. 
