@@ -1470,12 +1470,42 @@ Section ELABORATION.
         + eauto.
       Qed.  
 
+      
+      Theorem elab_complete : 
+       forall e r R d e', 
+         Elab e r R d e' -> 
+         elab e r R d = Ok e'.
+      Proof. 
+        intros * HElab. 
+        induction HElab using Elab_ind'; simpl; eauto. 
+        + induction H1; solve_base.
+          destruct (fold_right _) eqn: eqf; discard_case.
+          simpl. rewrite H1, eqf. inversion_subst IHForall2.
+          reflexivity.
+        + apply is_WFP_complete in H1; eauto. 
+          rewrite H1, IHHElab. eauto.
+        + rewrite IHHElab, IHHElab0; eauto.
+        + rewrite IHHElab, IHHElab0; eauto.
+        + rewrite IHHElab, IHHElab0; eauto.
+        + rewrite H1, IHHElab; eauto.
+        + rewrite IHHElab; eauto.
+        + apply tbl_elab_complete in H1. 
+          rewrite H1, H2. eauto.
+        + rewrite IHHElab. simpl. induction H1; solve_base.
+          destruct (fold_right _) eqn: eqf; discard_case.
+          simpl. destruct x. destruct H1 as [Hwfp [Hfst Helab]].
+          apply is_WFP_complete in Hwfp; eauto. simpl in *.
+          rewrite eqf, Hwfp, Hfst, Helab; destruct y; 
+          inversion_subst IHForall2; f_equal; reflexivity.
+      Qed.
 
-      Theorem elab_correct_err: forall e r R d m e', 
-        WFET r R -> 
-        WFEC d r R -> 
-        elab e r R d = Error m -> 
-        ~Elab e r R d e'.
+(* ora questo è un corollario della completezza *)
+      Theorem elab_failure_correct: 
+        forall e r R d m e', 
+          WFET r R -> 
+          WFEC d r R -> 
+          elab e r R d = Error m -> 
+          ~Elab e r R d e'.
       Proof. 
         intros * HWfet HWfec Hel. 
         unfold not. intro HEl. 
@@ -1483,29 +1513,77 @@ Section ELABORATION.
         generalize dependent d. 
         generalize dependent R. 
         generalize dependent r.
-        induction e using KExpr_ind'; intros; 
-        simpl in Hel; try discriminate.
-        + destruct (find_error _) eqn: eqfind; try discriminate.
-          generalize dependent e'. 
-          induction l; intros; simpl in *; try discriminate.
-          destruct (is_error _) eqn: eqerr; 
-          unfold is_error in eqerr; 
-          destruct (elab _) eqn: eqel; try discriminate;
-          inversion H; inversion HEl; inversion H12; subst.
-          * apply H2 with (r := r) (R := R) (d := d) (e' := y); 
-            inversion eqfind; subst; eauto. 
-          * assert (Hind: Elab (KOp op l) r R d (LOp op l'0)). 
-            {apply Elab_Op; eauto. }
-            pose proof eqfind as eqfind'.
-            unfold find_error in eqfind. 
-            apply find_some in eqfind.
-            destruct eqfind as [HInerr]. 
-            apply In_Error in HInerr.
-            destruct HInerr as [e1 [HIn Hel]].
-            apply Forall2_In_ex with (e1 := e1) in H17; 
-            eauto. 
-        + destruct (is_WFP _) eqn: eqwfp.
-          * destruct (elab _) eqn: eqel; simpl in *; 
+        induction e using KExpr_ind'; 
+        intros; discard_case.
+        (* e := KOp op l *)
+        + generalize dependent e'. 
+          induction l; intros; discard_case.
+          simpl in Hel. destruct (fold_right _) eqn:eqf; 
+          inversion_subst HEl; inversion_subst H8; 
+          inversion_subst H. 
+          * destruct (elab a r R d) eqn: eqel; discard_case.
+            inversion_subst Hel. eapply H5; eauto. 
+          * eapply IHl; eauto.
+            simpl. rewrite eqf. eauto.
+            constructor; eauto.
+        (* e := KLam p e *)
+        + simpl in Hel. inversion_subst HEl. 
+          destruct (is_WFP _) eqn: eqwfp.
+          (* is_WFP = true *)
+          * destruct (elab _) eqn: eqel; discard_case.
+            simpl in Hel. inversion_subst Hel. eapply IHe; eauto.
+          (* is_WFP = false *)
+          * apply is_WFP_complete in H3; 
+            eauto; rewrite H3 in eqwfp. discriminate.
+        (* e := KApp e1 e2 *)
+        + simpl in Hel. inversion_subst HEl. 
+          destruct (elab e1 r R d) eqn: eqel1; 
+          simpl in Hel; destruct (elab e2 r R d) eqn: eqel2; 
+          discard_case; inversion_subst Hel; eauto.
+        (* e := KPair e1 e2 *)
+        + simpl in Hel. inversion_subst HEl. 
+          destruct (elab e1 _) eqn: eqel1; 
+          simpl in Hel; destruct (elab e2 r R d) eqn: eqel2; 
+          discard_case; inversion_subst Hel; eauto.
+        (* e := KCons e1 e2 *)
+        + simpl in Hel. inversion_subst HEl.
+          destruct (elab e1 _) eqn: eqel1; 
+          simpl in Hel; destruct (elab e2 r R d) eqn: eqel2; 
+          discard_case; inversion_subst Hel; eauto.
+        (* e := KVariant e1 e2 *)
+        + simpl in Hel. inversion_subst HEl.
+          destruct (elab e _) eqn: eqel; 
+          destruct (lookup _) eqn: eqlkp; 
+          discard_case; inversion_subst Hel; eauto.
+        (* e := KFix i e *)
+        + simpl in Hel. inversion_subst HEl.
+          destruct (elab _) eqn: eqel; discard_case.
+          inversion_subst Hel; eauto.       
+        (* e := KDefType l e *)
+        + simpl in Hel. inversion_subst HEl.
+          pose proof H3 as H3'. apply tbl_elab_complete in H3. 
+          rewrite H3 in Hel.
+          destruct (bind_constr_tblock _) eqn: eqb; discard_case.
+          eapply TBlockElab_preserves_wfet in H3'.
+          eapply bind_constr_tblock_preserves_wfec in H2;
+          eapply tbl_elab_correct in H3;  
+          inversion_subst H4; eauto.
+        (* e := KMatch e l *)
+        + simpl in Hel. inversion_subst HEl. 
+          destruct (elab e r R d) eqn: eqel. 
+          * simpl in Hel; generalize dependent l'.
+            induction l as [| (p, a) tail]; intros;
+            discard_case. inversion_subst H; inversion_subst H9.
+            destruct H1 as [Hwfp [Hfst HElab]].
+            apply is_WFP_complete in Hwfp; eauto. 
+            inversion_subst Hfst.  
+            destruct (fold_right _) eqn: eqf; discard_case.
+            simpl in eqf. simpl in Hwfp. rewrite Hwfp in eqf. 
+            destruct (elab a _) eqn: eqela. simpl in eqf. rewrite eqela in eqf;
+            discard_case. 
+            ** 
+            eapply IHtail; eauto. simpl in eqf. eauto.
+            destruct H5 as [_ [_ HElab]]. apply  destru rewrite eqel in eqf. eauto. 
             unfold ok_LLam in Hel; try discriminate;
             inversion Hel; subst; inversion HEl; subst;   
             eauto.
@@ -1587,22 +1665,8 @@ Section ELABORATION.
       Qed.
               
         
-(*           
-      Theorem elab_complete : forall e r R d e', 
-       Elab e r R d e' -> elab e r R d = Ok e'.
-      Proof. 
-        intros * HElab. 
-        induction HElab; simpl; eauto. 
-        + destruct (find_error _) eqn: eqfind.
-          destruct l; simpl in eqfind; try discriminate. 
-          destruct (is_error _) eqn: eqerr.
-          unfold is_error in eqerr.
-          destruct (elab _) eqn: eqel; try discriminate.
-          inversion H1; subst. 
-          simpl in eqerr.
-          inversion eqfind. unfold find_error in eqfind.
-          simpl in eqfind.
-              *)
+       
+      
                       
                           
         
