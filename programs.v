@@ -232,8 +232,8 @@ Section MC_lang.
                                 (pCons($p"h", $p"t"), Cons($"h", App ($"append") [$"t"; $"l2"]))
                             ]
       In 
-      App ($"exists") [λ[$p"x"]. $"x" == $s"world" ; 
-                       Cons($s "hello",Cons($s " ",Cons($s "world", Nil)))]. 
+      App ($"append") [Cons($s"hello", Cons($s" ", Cons($s"world", Nil))); 
+                       Cons($s"my", Cons($s"name", Cons($s"is", Cons($s"Davide", Nil))))]. 
       
                        
     Definition my_nat := DefType [("NAT", TVariant([
@@ -309,6 +309,32 @@ Section MC_lang.
         ("Match", [TRef "Expr"; TList(TTup([TRef "Pat"; TRef "Expr"]))]); 
         ("Error", [])
       ]))] In 
+      DefType [("LExpr", TVariant[
+        ("LVar", [TRef "Identifier"]); 
+        ("LNat", [TNat]); 
+        ("LBool", [TBool]); 
+        ("LString", [TString]); 
+        ("LSum", [TRef "LExpr"; TRef "LExpr"]); 
+        ("LSub", [TRef "LExpr"; TRef "LExpr"]); 
+        ("LMul", [TRef "LExpr"; TRef "LExpr"]); 
+        ("LNot", [TRef "LExpr"]); 
+        ("LAnd", [TRef "LExpr"; TRef "LExpr"]); 
+        ("LOr", [TRef "LExpr"; TRef "LExpr"]); 
+        ("LConcat", [TRef "LExpr"; TRef "LExpr"]); 
+        ("LEq", [TRef "LExpr" ; TRef "LExpr"]); 
+        ("LLam", [TRef "Pat"; TRef "LExpr"]); 
+        ("LApp", [TRef "LExpr"; TRef "LExpr"]); 
+        ("LUnit", []); 
+        ("LPair", [TRef "LExpr"; TRef "LExpr"]); 
+        ("LNil", []); 
+        ("LCons", [TRef "LExpr"; TRef "LExpr"]); 
+        ("LVariant", [TRef "Constructor"; TRef "Identifier"; 
+                      TRef "Typ"; TRef "LExpr"]); 
+        ("LFix", [TRef "Identifier"; TRef "LExpr"]); 
+        ("LMatch", [TRef "LExpr"; TList (
+                     TTup [TRef "Pat"; TRef "LExpr"])]); 
+        ("LError", [TRef "Message"])
+      ])] In 
         C("Sum", [C("Nat", [$n 1]); C("Nat", [$n 1])]).
                     
     Definition my_prog_des := @desugar_Expr I native_lis.

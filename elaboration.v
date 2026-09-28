@@ -811,7 +811,24 @@ Section ELABORATION.
       * eapply IHtail; eauto.
     Qed.   
 
-             
+    Lemma find_none_not_In : forall {X: Type} i l eqb,
+      (forall (x y: X), Bool.reflect (x = y) (eqb x y)) -> 
+      find (fun x => eqb x i) l = None -> 
+      ~In i l. 
+    Proof. 
+      intros * Hrefl Hfind Hcontra. 
+      induction l. 
+      + destruct Hcontra. 
+      + destruct (eqb a i) eqn: eq; 
+        simpl in Hfind; rewrite eq in Hfind. 
+        - discriminate.  
+        - inversion Hcontra; subst. 
+          -- specialize Hrefl with i i. 
+             destruct Hrefl. discriminate. contradiction.
+          -- eauto.            
+    Qed.
+    
+       
     Theorem bind_constr_tblock_preserves_wfec: 
       forall r r' R R' B d d', 
         TBlockElab (r, R, B) (r', R', B) -> 
@@ -909,7 +926,7 @@ Section ELABORATION.
      |Elab_Lam      : forall r R d p e e', 
                        WFET r R -> 
                        WFEC d r R -> 
-                       WFP d r R p  -> 
+                       is_WFP d p = true  -> 
                        Elab e r R d e' -> 
                        Elab (KLam p e) r R d (LLam p e')  
      |Elab_App      : forall r R d e1 e1' e2 e2', 
@@ -961,7 +978,7 @@ Section ELABORATION.
                         WFEC d r R -> 
                         Elab e r R d e' -> 
                         Forall2 (fun p p' => 
-                          WFP d r R (fst p) /\ 
+                          is_WFP d (fst p) = true /\ 
                           fst p = fst p' /\ 
                           Elab (snd p) r R d (snd p')) l l' -> 
                         Elab (KMatch e l) r R d (LMatch e' l') 
@@ -994,7 +1011,7 @@ Section ELABORATION.
       Hypothesis Elab_Lam_case : forall r R d p e e', 
                                   WFET r R -> 
                                   WFEC d r R -> 
-                                  WFP d r R p  -> 
+                                  is_WFP d p = true  -> 
                                   Q e r R d e' -> 
                                   Q (KLam p e) r R d (LLam p e').
       Hypothesis Elab_App_case : forall r R d e1 e1' e2 e2', 
@@ -1047,7 +1064,7 @@ Section ELABORATION.
                                     WFEC d r R -> 
                                     Q e r R d e' -> 
                                     Forall2 (fun p p' => 
-                                      WFP d r R (fst p) /\ 
+                                      is_WFP d (fst p) = true /\ 
                                       fst p = fst p' /\ 
                                       Q (snd p) r R d (snd p')) l l' -> 
                                     Q (KMatch e l) r R d (LMatch e' l').
@@ -1092,10 +1109,10 @@ Section ELABORATION.
         |Elab_Match Hwfet Hwfec H HFall =>
           Elab_Match_case Hwfet Hwfec (Elab_ind' H)
            ((fix elab_ind_match l l' (H: 
-               Forall2 (fun p p' => WFP _ _ _ (fst p) /\ 
+               Forall2 (fun p p' => is_WFP _ (fst p) = true /\ 
                                     fst p = fst p' /\ 
                                     Elab (snd p) _ _ _ (snd p')) l l')
-               : Forall2 (fun p p' => WFP _ _ _ (fst p) /\ 
+               : Forall2 (fun p p' => is_WFP _ (fst p) = true /\ 
                                       fst p = fst p' /\ 
                                       Q (snd p) _ _ _ (snd p')) l l' := 
               match H with 
@@ -1242,7 +1259,7 @@ Section ELABORATION.
           discard_case. destruct (elab _) eqn: eqel; 
           discard_case. simpl in Helab. 
           unfold ok_LLam in Helab. inversion_subst Helab. 
-          constructor; eauto. eapply is_WFP_correct; eauto.
+          constructor; eauto. 
         (* e := KApp e1 e2 *)
         + simpl in Helab. destruct (elab _) eqn: eqel1; 
           discard_case. simpl in Helab. 
@@ -1299,10 +1316,8 @@ Section ELABORATION.
             destruct (is_WFP d k) eqn: eqwfp; discard_case.
             destruct (elab k0 r R d) eqn: eqel'; 
             discard_case; inversion_subst H; 
-            inversion_subst H1. constructor. split.
-            eapply is_WFP_correct; eauto. split.
-            reflexivity. eapply H3; eauto.
-            eapply IHl; eauto.
+            inversion_subst H1. constructor. 
+            split; eauto. eapply IHl; eauto.
         + inversion_subst Helab; constructor; eauto.
       Qed.  
 
@@ -1321,8 +1336,7 @@ Section ELABORATION.
           simpl. rewrite H1, eqf. inversion_subst IHForall2.
           reflexivity.
         (* Elab_Lam *)
-        + apply is_WFP_complete in H1; eauto. 
-          rewrite H1, IHHElab. eauto.
+        + rewrite H1, IHHElab; eauto. 
         (* Elab_App *)
         + rewrite IHHElab, IHHElab0; eauto.
         (* Elab_Pair *)
@@ -1340,8 +1354,7 @@ Section ELABORATION.
         + rewrite IHHElab. simpl. induction H1; solve_base.
           destruct (fold_right _) eqn: eqf; discard_case.
           simpl. destruct x. destruct H1 as [Hwfp [Hfst Helab]].
-          apply is_WFP_complete in Hwfp; eauto. simpl in *.
-          rewrite eqf, Hwfp, Hfst, Helab; destruct y; 
+          simpl in *. rewrite eqf, Hwfp, Hfst, Helab; destruct y; 
           inversion_subst IHForall2; f_equal; reflexivity.
       Qed.
 
@@ -1414,13 +1427,14 @@ Section ELABORATION.
          |Error mssg => Error mssg 
          end ) (Ok []) l.
 
+      
       Theorem traverse_cases_Forall2: 
         forall r R d l l', 
           WFET r R -> 
           WFEC d r R -> 
           traverse_cases r R d l = Ok l' -> 
           Forall2 (fun p p'  => 
-            WFP d r R (fst p) /\ 
+            is_WFP d (fst p) = true /\ 
             fst p = fst p' /\ 
             Elab (snd p) r R d (snd p')) l l'.
       Proof.
@@ -1434,7 +1448,6 @@ Section ELABORATION.
           discard_case. destruct (elab _) eqn: eqel; 
           discard_case. inversion_subst Htr. constructor; 
           eauto. repeat split; eauto; simpl.
-          apply is_WFP_correct; eauto.
           apply elab_correct; eauto.
       Qed.  
 
@@ -1479,7 +1492,6 @@ Section ELABORATION.
                assert (contra: Elab (KLam p e) r R d 
                                (LLam p e')).
                {apply elab_correct in eqel; eauto. 
-                eapply is_WFP_correct in eqwfp; eauto.
                 constructor; eauto. }
                contradiction.
             ** simpl. exists s. reflexivity.
@@ -1571,8 +1583,7 @@ Section ELABORATION.
                            (LMatch e' ((p, el')::l))).
             {constructor; eauto.
              eapply elab_correct; eauto.
-             constructor. repeat split.
-             eapply is_WFP_correct; eauto.
+             constructor. repeat split; eauto.
              eapply elab_correct; eauto.
              eapply traverse_cases_Forall2; eauto. }
              contradiction.
