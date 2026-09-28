@@ -890,34 +890,6 @@ Section ELABORATION.
     Qed.         
                
 
-               
-(*         
-    Lemma fooo: forall c t t' (l: list (Constr * KTp)),  
-      NoDup (fst (split l)) ->
-      In (c, t) l -> 
-      In (c, t') l -> 
-      t = t'.
-    Proof.
-      intros * HNoDup HIn1 HIn2.
-      induction l. try contradiction. intros. 
-      simpl in HNoDup. destruct a . 
-      destruct (split l) eqn: l'.
-      simpl in HNoDup. inversion HNoDup; subst. 
-      simpl in *. 
-      destruct HIn2 as [Heq | HIn2]. 
-      + destruct HIn1.   
-        - inversion H. inversion Heq; subst. eauto.
-        - inversion Heq; subst. 
-          apply In_split_cblock in H. 
-          rewrite l' in H; simpl in *. contradiction.
-      + destruct HIn1. 
-        - inversion H; subst. 
-          apply In_split_cblock in HIn2. 
-          rewrite l' in HIn2; simpl in *. contradiction.
-        - apply IHl; eauto. 
-    Qed.         
-            *)
-    
     
     (* specification of static elaboration *)
     Inductive Elab : KExpr -> tenv -> register -> constr_env -> LExpr -> Prop :=   
@@ -1611,23 +1583,7 @@ Section ELABORATION.
 
        Qed.      
         
-                   
-       
-      
-                      
-                          
-        
-
-
-
-
-
-
-
-
-
-     
-                
+              
                                   
     
 End ELABORATION.

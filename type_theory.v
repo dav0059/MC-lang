@@ -333,16 +333,15 @@ Section TYPE_THEORY.
       |KTUnit       => (true, true) 
       |KTProd t1 t2 => let '(af1, fot1) := is_AF_aux R t1 in 
                        let '(af2, fot2) := is_AF_aux R t2 in 
-                       if fot1 && fot2 then (af1 && af2, true)
-                       else (false, false)
+                       (fot1 && af1 && fot2 && af2, fot1 && fot2)
+                       
       |KTList t     => let '(af, fot) := is_AF_aux R t in 
                        (fot && af, fot)  
-      |KTVariant l  => if nodupb (constr_eqb I) (fst (split l)) && 
-                          forallb (fun p => 
-                             let '(af, fot) := is_AF_aux R (snd p) in 
-                             af && fot) l 
-                        then (true, false)
-                        else (false, false) 
+      |KTVariant l  => (nodupb (constr_eqb I) (fst (split l)) && 
+                        forallb (fun p => 
+                           let '(af, fot) := is_AF_aux R (snd p) in 
+                            af && fot) l, 
+                        false)
       |KTRef i      => (includes R i, true)
       |_            => (false, true)  
      end. 
@@ -403,15 +402,13 @@ Section TYPE_THEORY.
            simpl in *. rewrite andb_true_iff in *; 
            split; eauto.
          (* t := KTList t' *)
-         * simpl in *. destruct (is_AF_aux _). eauto.   
-          (* t := KTVariant tags *)
-         * simpl in Hsnd. destruct (nodupb _), (forallb _); 
-           discard_case.
+         * simpl in *. destruct (is_AF_aux _). eauto.
+      
        + intro Hfot. induction t; solve_base; discard_case. 
         (* t := KTProd t1 t2 *)
          * simpl in *. destruct (is_AF_aux R t1), 
            (is_AF_aux R t2), i0, i2; 
-           rewrite andb_true_iff in Hfot; 
+           rewrite andb_true_iff in Hfot;
            destruct Hfot; simpl; eauto.
         (* t := KTList t' *)
          * simpl in *. destruct (is_AF_aux _). eauto.    
@@ -473,24 +470,20 @@ Section TYPE_THEORY.
          * constructor.
          (* t := KTProd t1 t2 *)
          * simpl in Hfst. destruct (is_AF_aux R t1) eqn: eq1, 
-           (is_AF_aux R t2) eqn: eq2, i0, i2; try discriminate.
-           assert (H1: snd (is_AF_aux R t1) = true) 
-            by (rewrite eq1; eauto);
-           assert (H2: snd (is_AF_aux R t2) = true)
-            by (rewrite eq2; eauto); 
-           rewrite is_AF_aux_snd_is_FOT in H1, H2;
-           simpl in *; rewrite andb_true_iff in Hfst;
-           destruct Hfst; constructor; eauto.
+           (is_AF_aux R t2) eqn: eq2; simpl in *;
+           destruct i, i0, i1, i2; discard_case.
+           constructor; eauto;
+           eapply is_AF_aux_snd_is_FOT. 
+           rewrite eq1; eauto. rewrite eq2; eauto.
          (* t := KTList t *)
          * simpl in Hfst. destruct (is_AF_aux _) eqn: eqt; 
-           simpl in Hfst; rewrite andb_true_iff in Hfst;
-           destruct Hfst. constructor; eauto.
-           subst. eapply is_AF_aux_snd_is_FOT. 
+           simpl in Hfst; destruct i, i0; discard_case. 
+           constructor; eauto.
+           eapply is_AF_aux_snd_is_FOT. 
            rewrite eqt. eauto. 
          (* t := KTVariant l *)
-         * simpl in Hfst. destruct (nodupb _) eqn: eqnd, 
-           (forallb _) eqn: eqfb; try discriminate.
-           constructor; eauto. 
+         * simpl in Hfst. rewrite andb_true_iff in Hfst.
+           destruct Hfst; constructor; eauto.   
            eapply is_AF_aux_fst_AF_Ind; eauto.
          (* t := KTRef i *)
          * constructor; eauto.
