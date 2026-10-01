@@ -393,7 +393,7 @@ Section Desugarer.
           end. 
  
        
-       (* 2.2. specification for type desugaring *)   
+       (* 2.2. specification for type desugaring *)  
        Inductive Desugar_Tp: Tp I -> KTp I bns_data -> Prop := 
        |dsg_TFunction   : Desugar_Tp (TFunction) (KTFunction)
        |dsg_TBool       : Desugar_Tp (TBool) (@KTBase _ bns_data(TpBool))
@@ -622,8 +622,6 @@ Section Desugarer.
        `Pair e1 (...(Pair en Unit))`. 
        -Cons rules state that the desugaring of `Cons [e1;...;en]` is 
        `Cons e1 (...(Cons en Nil))`. 
-       -Reduce rules state that the desugaring of `Reduce e1 e2 [e3;...;en]` is
-       `Reduce e1 e2 (Pair e3 (...(Pair en Unit)))`.
        -Variant rules state that the desugaring of `Variant c [e1;...;en]` is 
        `Variant c (Pair e1 (...(Pair en Unit)))` .
        -Let rules state that the desugaring of `Let p e1 e2` is `App (Lam p e2) e1`.

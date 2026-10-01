@@ -72,39 +72,7 @@ Section RESULT.
       destruct x. 
       + eauto. 
       + simpl in *; discriminate.
-     Qed.  
-
-
-
-     Definition map_result (l: list (result A E)) (def: A) := 
-       map (fun x => get_ok x def) l.
-
-     Definition map_snd_result (l: list (B * result A E)) (def: A) := 
-       map (fun '(f, s) => (f, get_ok s def)) l.
-
-
-     Definition find_error (l: list (result A E))  := 
-       find (fun x => is_error x) l . 
-
-
-     Lemma find_error_correct : forall l, 
-       find_error l = None -> forall x, In x l -> is_error x = false.
-     Proof. 
-       intros * Hfind * Hin.
-       unfold find_error in Hfind. 
-       apply find_none with (x := x) in Hfind; 
-       eauto.
-     Qed.
-
-     Lemma find_error_is_error : forall l err, 
-       find_error l = Some err -> is_error err = true.
-     Proof. 
-      intros * Hfind . 
-      apply find_some in Hfind.
-      destruct Hfind; eauto.
-     Qed.    
-    
-        
+     Qed.     
 
 End RESULT.
 

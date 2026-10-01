@@ -45,6 +45,16 @@ Section EVALUATION.
     Ltac destruct_elim e := 
       destruct e; try discriminate.
 
+    Ltac discard_case := 
+     simpl in *; try discriminate; 
+     try contradiction.
+
+    Ltac discard_case_m_using H := 
+     try (apply Nat.nlt_0_r in H; contradiction).
+
+    Ltac solve_n_lt_m := 
+     eapply Arith_prebase.lt_S_n_stt; eauto.
+
        
    
     Fixpoint getBaseVl (l: list Val) : list BaseVl :=
@@ -91,13 +101,13 @@ Section EVALUATION.
                      EVal (LLit x) s (VLit x)  
     |EVal_LOp      : forall s le lv op v,       
                      WFEV s -> 
-                     EValOp (rev le) s lv ->
+                     EValOp le s lv ->
                      ~one_error lv ->  
-                     interp_op op (getBaseVl (rev lv)) = Some v ->
+                     interp_op op (getBaseVl lv) = Some v ->
                      EVal (LOp op le) s (VLit v) 
     |EVal_LOpErr   : forall s le op mssg, 
                      WFEV s -> 
-                     EValOp (rev le) s [VError mssg] ->
+                     EValOp le s [VError mssg] ->
                      EVal (LOp op le) s (VError mssg)
     |EVal_LLam     : forall s arg body, 
                      WFEV s -> 
@@ -237,21 +247,20 @@ Section EVALUATION.
      |EValOp_nil      : forall s, 
                         WFEV s ->
                         EValOp [] s []
-     |EValOp_cons     : forall s tail tail' head x,
+     |EValOp_cons     : forall s head x tail tail',
                         WFEV s -> 
+                        EVal head s (VLit x) ->
                         EValOp tail s tail' -> 
-                        ~one_error tail' -> 
-                        EVal head s (VLit x) -> 
+                        ~one_error tail' ->  
                         EValOp (head::tail) s (VLit x::tail') 
-     |EValOpErr_head : forall s tail tail' head mssg, 
+     |EValOpErr_tail : forall s head x tail mssg, 
                         WFEV s ->   
-                        EValOp tail s tail' -> 
-                        ~one_error tail' -> 
-                        EVal head s (VError mssg) -> 
+                        EVal head s (VLit x) ->
+                        EValOp tail s [VError mssg] -> 
                         EValOp (head::tail) s [VError mssg] 
-     |EValOpErr_tail : forall s head tail mssg,
+     |EValOpErr_head : forall s head mssg tail,
                         WFEV s ->  
-                        EValOp tail s [VError mssg] ->
+                        EVal head s (VError mssg) ->
                         EValOp (head::tail) s [VError mssg] .
                       
                     
@@ -272,7 +281,7 @@ Section EVALUATION.
         apply Forall_nil.
       + inversion Hevop; subst; 
         try (right;unfold one_error; exists mssg; reflexivity). 
-        left. apply IHl in H2. destruct H2; try contradiction.
+        left. apply IHl in H3. destruct H3; try contradiction.
         unfold all_lit; apply Forall_cons; eauto. 
         exists (base_tp_of_base_vl x). constructor.
     Qed. 
@@ -323,117 +332,6 @@ Section EVALUATION.
     Qed.   
           
       
-
-    (* The following lemmas establish that each rule has a short-circuited
-       propagation behaviour determined by the left-to-right 
-       evaluation order for VError values. *)
-    Lemma lop_propagates_leftmost_verror: forall l s l' m op, 
-      EValOp (rev l) s l' -> 
-      l' = [VError m] -> 
-      EVal (LOp op l) s (VError m).
-    Proof. 
-      intros * Hevop Hl'. 
-      destruct l. 
-      + inversion Hevop; subst. discriminate.
-      + inversion Hevop; subst; try discriminate; 
-        constructor; eauto. 
-    Qed. 
-      
-
-    Lemma lapp_propagates_left_verror: forall e1 s mssg e2, 
-      EVal e1 s (VError mssg) -> 
-      EVal (LApp e1 e2) s (VError mssg).
-    Proof. 
-      intros * HEv. 
-      constructor; eauto.
-      inversion HEv; eauto.
-    Qed. 
-
-    Lemma lapp_propagates_right_verror: forall e1 s v e2 mssg, 
-      EVal e1 s v ->
-      Typeof v KTFunction -> 
-      EVal e2 s (VError mssg) -> 
-      EVal (LApp e1 e2) s (VError mssg).
-    Proof. 
-      intros * HEv1 HEv2. 
-      apply EVal_LAppErr_arg with (v := v) ; eauto.
-      inversion HEv1; eauto.
-    Qed. 
-
-
-    Lemma lpair_propagates_left_verror: forall e1 s mssg e2, 
-      EVal e1 s (VError mssg) -> 
-      EVal (LPair e1 e2) s (VError mssg). 
-    Proof. 
-      intros * HEv. 
-      constructor; eauto. 
-      inversion HEv; eauto. 
-    Qed. 
-
-
-    Lemma lpair_propagates_right_verror: forall e1 s v e2 mssg, 
-      EVal e1 s v -> 
-      ~Typeof v KTError ->  
-      EVal e2 s (VError mssg) ->
-      EVal (LPair e1 e2) s (VError mssg). 
-    Proof. 
-      intros * HEv1 Htof HEv2. 
-      apply EVal_LPairErr_snd with (v1 := v); eauto. 
-      inversion HEv2; eauto. 
-    Qed. 
-    
-    
-    Lemma lcons_propagates_left_verror: forall e1 s mssg e2, 
-      EVal e1 s (VError mssg) -> 
-      EVal (LCons e1 e2) s (VError mssg).
-    Proof. 
-      intros * HEv. 
-      constructor; eauto. 
-      inversion HEv; eauto. 
-    Qed. 
-
-
-    Lemma lcons_propagates_right_verror: forall e1 s v e2 mssg,
-      EVal e1 s v -> 
-      ~Typeof v KTError ->  
-      EVal e2 s (VError mssg) -> 
-      EVal (LCons e1 e2) s (VError mssg).
-    Proof. 
-      intros * HEv1 Htof HEv2. 
-      apply EVal_LConsErr_tail with (v1 := v); eauto.
-      inversion HEv1; eauto.
-    Qed. 
-    
-    
-    Lemma lvariant_propagates_verror: forall e s mssg c inf, 
-      EVal e s (VError mssg) -> 
-      EVal (LVariant c inf e) s (VError mssg).
-    Proof. 
-      intros * HEv. 
-      constructor; eauto. 
-      inversion HEv; eauto. 
-    Qed. 
-    
-    
-    Lemma lfix_propagates_verror: forall e s mssg i, 
-      EVal e s (VError mssg) -> 
-      EVal (LFix i e) s (VError mssg). 
-    Proof. 
-      intros * HEnv. 
-      constructor; eauto. 
-      inversion HEnv; eauto. 
-    Qed. 
-
-
-    Lemma lmatch_propagates_verror: forall e s mssg l, 
-      EVal e s (VError mssg) -> 
-      EVal (LMatch e l) s (VError mssg). 
-    Proof. 
-      intros * HEv. 
-      constructor; eauto. 
-      inversion HEv; eauto. 
-    Qed.
-
 
     (* the evaluation semantics produces well-formed values *)
     Theorem EVal_wfv: forall e s v, 
@@ -487,12 +385,12 @@ Section EVALUATION.
                              |None   => Error("unbound variable")
                              end
               |LLit x     => Ok(VLit x) 
-              |LOp op l   => let lv := evalop n' (rev l) s in
+              |LOp op l   => let lv := evalop n' l s in
                              match lv with 
                              |Error mssg       => Error mssg 
                              |Ok [VError mssg] => Ok (VError mssg) 
                              |Ok (_ as lv)  => 
-                               match interp_op op (getBaseVl (rev lv)) with 
+                               match interp_op op (getBaseVl lv) with 
                                |Some v => Ok(VLit v) 
                                |None   => Error("primitive operation failure"%string)
                                end 
@@ -588,20 +486,21 @@ Section EVALUATION.
       |S n' => match l with 
                |[]   => Ok []
                |h::t => 
-                  match evalop n' t s with 
+                  match eval n' h s with 
                   |Error mssg       => Error mssg 
-                  |Ok [VError mssg] => Ok [VError mssg]
-                  |Ok lv            => 
-                    match eval n' h s with 
-                    |Error mssg      => Error mssg 
-                    |Ok(VError mssg) => Ok [VError mssg]
-                    |Ok(VLit x)      => Ok(VLit x::lv)
-                    |_               => 
-                      Error("Illegal primitive operation construction"%string)
-                    end 
-                  end
-               end
+                  |Ok (VError mssg) => Ok [VError mssg]
+                  |Ok (VLit x)           => 
+                    match evalop n' t s with 
+                    |Error mssg       => Error mssg 
+                    |Ok [VError mssg] => Ok [VError mssg]
+                    |Ok lv            => Ok(VLit x::lv)
+                    end            
+                  |_                => 
+                    Error("Illegal primitive operation construction"%string)
+                  end 
+              end
       end.
+  
 
           
     Lemma wfev_cls_env_extension: 
@@ -953,38 +852,34 @@ Section EVALUATION.
       (* l := []  *)
       * inversion_subst Hev; constructor; eauto.
       (* l := head::tail *)
-      * destruct (evalop _) as [l' |] eqn: eqevop;
+      * destruct (eval _) as [v |] eqn: eqev;
         try discriminate.
-        pose proof eqevop as eqvop'; 
-        apply HinEvop, canonical_EValOp_result in eqevop;
-        eauto. destruct eqevop as [Hall | Herr].
-        (* Hall : all_lit l' *)
-        - inversion Hall; subst.
-          (* l' := [] *)
-          {destruct (eval _) eqn: eqev; try discriminate.
-            apply HinEvop in eqvop'; 
-            inversion_subst eqvop'; eauto.
-            destruct_elim v; inversion_subst Hev. 
-            (* v := VLit _ *)
-            * eapply EValOp_cons; try constructor;  
-              eauto; apply not_one_error_empty.
-            (* v := VError _ *)
-            * eapply EValOpErr_head; try constructor;  
-              eauto; apply not_one_error_empty. }
-          (* l' := x::l *)
-          {destruct H as [t Htof].
-            apply tbase_Typeof_lit in Htof. 
-            destruct Htof as [* [*]]; subst.   
-            destruct (eval _) eqn: eqv; try discriminate. 
-            destruct_elim v; inversion_subst Hev.
-            (* v := VLit _ *)
-            * eapply EValOp_cons; eauto. apply not_one_error_lit. 
-            * eapply EValOpErr_head; eauto. apply not_one_error_lit. }
-        (* Herr : one_error l' *)
-        - unfold one_error in Herr. 
-          destruct Herr; subst. 
-          inversion_subst Hev; constructor; eauto.
-    Qed. 
+        pose proof eqev as eqev'; destruct_elim v.
+        (* v := VLit x *)
+        - destruct (evalop _) as [lv'|] eqn: eqevop; 
+          discard_case. pose proof eqevop as eqevop'.
+          destruct lv' as [|v lvt']; 
+          inversion_subst Hev.
+          (* lv' :=  [] *)
+          -- constructor; eauto. apply not_one_error_empty.
+          (* lv' := v::lvt' *) 
+          -- eapply HinEvop, canonical_EValOp_result in eqevop;
+             eauto. destruct eqevop as [Hall | Herr].
+             (* Hall : all_lit l' *)
+             {unfold all_lit in Hall. inversion_subst Hall.
+              destruct H2 as [t Htof]. 
+              apply tbase_Typeof_lit in Htof.
+              destruct Htof as [x' [eqv _]]. subst.
+              inversion_subst H0. constructor; eauto. 
+              apply not_one_error_lit. }
+             (* Herr : one_error (v::lvt') *)
+             {unfold one_error in Herr. 
+              destruct Herr as [m Herr]; inversion_subst Herr.
+              inversion_subst H0. eapply EValOpErr_tail; 
+              eauto. }
+        (* v := VError m *)
+        - inversion_subst Hev. constructor; eauto.    
+      Qed. 
       
 
     (* the fueled interpreter is correct w.r.t evaluation semantics *)
@@ -1032,9 +927,9 @@ Section EVALUATION.
     |Measure_EVal_LOp :
         forall s le lv op v n
               (Hwfev : WFEV s)
-              (Hop : EValOp (rev le) s lv)
+              (Hop : EValOp le s lv)
               (Herr : ~ one_error lv)
-              (HInt : interp_op op (getBaseVl (rev lv)) = Some v),
+              (HInt : interp_op op (getBaseVl lv) = Some v),
           MeasureEValOp Hop n ->
           MeasureEVal
             (@EVal_LOp s le lv op v Hwfev Hop Herr HInt)
@@ -1042,7 +937,7 @@ Section EVALUATION.
     |Measure_EVal_LOpErr :
         forall s le op mssg n
               (Hwfev : WFEV s)
-              (Hop : EValOp (rev le) s [VError mssg]),
+              (Hop : EValOp le s [VError mssg]),
           MeasureEValOp Hop n ->
           MeasureEVal
             (@EVal_LOpErr s le op mssg Hwfev Hop)
@@ -1325,39 +1220,38 @@ Section EVALUATION.
           MeasureEValOp (@EValOp_nil s Hwfev) n 
 
     |Measure_EValOp_cons :
-        forall s tail tail' head x n
+        forall s head x tail tail' n
               (Hwfev : WFEV s)
+              (Hhead : EVal head s (VLit x))
               (Htail : EValOp tail s tail')
-              (Hnoterr : ~ one_error tail')
-              (Hhead : EVal head s (VLit x)),
+              (Hnoterr : ~ one_error tail'),
           MeasureEValOp Htail n ->
           MeasureEVal Hhead n ->
           MeasureEValOp
-            (@EValOp_cons s tail tail' head x
-              Hwfev Htail Hnoterr Hhead)
-            (S n)
-
-    |Measure_EValOpErr_head :
-        forall s tail tail' head mssg n
-              (Hwfev : WFEV s)
-              (Htail : EValOp tail s tail')
-              (Hnoterr : ~ one_error tail')
-              (Hhead : EVal head s (VError mssg)),
-          MeasureEValOp Htail n ->
-          MeasureEVal Hhead n ->
-          MeasureEValOp
-            (@EValOpErr_head s tail tail' head mssg
-              Hwfev Htail Hnoterr Hhead)
+            (@EValOp_cons s head x tail tail'
+              Hwfev Hhead Htail Hnoterr)
             (S n)
 
     |Measure_EValOpErr_tail :
-        forall s head tail mssg n
+        forall s head x tail mssg n
               (Hwfev : WFEV s)
+              (Hhead : EVal head s (VLit x))
               (Htail : EValOp tail s [VError mssg]),
+          MeasureEVal Hhead n ->
           MeasureEValOp Htail n ->
           MeasureEValOp
-            (@EValOpErr_tail s head tail mssg
-              Hwfev Htail)
+            (@EValOpErr_tail s head x tail mssg
+              Hwfev Hhead Htail)
+            (S n)
+
+    |Measure_EValOpErr_head :
+        forall s head mssg tail n
+              (Hwfev : WFEV s)
+              (Hhead : EVal head s (VError mssg)),
+          MeasureEVal Hhead n ->
+          MeasureEValOp
+            (@EValOpErr_head s head mssg tail 
+              Hwfev Hhead)
             (S n).
 
      
@@ -1540,39 +1434,23 @@ Section EVALUATION.
       (* EValOp_Nil *)
       + destruct n. inversion l. eauto.
       (* EValOp_cons *)
-      + simpl. rewrite IHHMEv, IHHMEv0.
-        destruct tail' as [| h t]; eauto. 
+      + simpl. rewrite IHHMEv0, IHHMEv.
+        destruct tail' as [| h t]; eauto.
         destruct (is_verror h) eqn: eqerr.
         (* h := VError _ *)
-        * destruct_elim h. destruct t; eauto.
-          apply one_error_contra in Hnoterr. 
-          contradiction.
-        (* h <> VError *)
-        * destruct_elim h; reflexivity.
-      (* EValOpErr_head *)
-      + simpl. rewrite IHHMEv, IHHMEv0.   
-        destruct tail' as [| h t]; eauto. 
-        destruct (is_verror h) eqn: eqerr.
-        (* h := VError _ *)
-        * destruct_elim h. destruct t; eauto.
-          apply one_error_contra in Hnoterr. 
-          contradiction.
+        destruct_elim h. destruct t; eauto.
+        apply one_error_contra in Hnoterr. 
+        contradiction.
         (* h <> VError *)
         * destruct_elim h; reflexivity.
       (* EValOpErr_tail *)
+      + simpl. rewrite IHHMEv, IHHMEv0.
+        reflexivity.
+      (* EValOpErr_head *)
       + simpl. rewrite IHHMEv. reflexivity.
   Qed.
 
 
-  Ltac discard_case := 
-    simpl in *; try discriminate; 
-    try contradiction.
-
-  Ltac discard_case_m_using H := 
-    try (apply Nat.nlt_0_r in H; contradiction).
-
-  Ltac solve_n_lt_m := 
-    eapply Arith_prebase.lt_S_n_stt; eauto.
     
 
   Theorem eval_evalop_fuel_monotonic: 
@@ -1686,13 +1564,12 @@ Section EVALUATION.
    + intros * Hev * Hlt. destruct m; 
       discard_case_m_using Hlt. simpl; 
       destruct l; eauto.  
-      destruct (evalop n _) eqn: eqevop; discard_case. 
-      eapply IHnevop in eqevop; try solve_n_lt_m. 
-      rewrite eqevop. destruct (eval n _) eqn: eqev.
-      - eapply IHnev in eqev; try solve_n_lt_m; 
-        rewrite eqev; eauto.
-      - destruct_elim l1; destruct_elim v; 
-        destruct l1; discard_case; eauto. 
+      destruct (eval n _) eqn: eqev; discard_case. 
+      eapply IHnev in eqev; try solve_n_lt_m. 
+      rewrite eqev. destruct (evalop n _) eqn: eqevop.
+      - eapply IHnevop in eqevop; try solve_n_lt_m; 
+        rewrite eqevop; eauto.
+      - destruct_elim v. eauto. 
   Qed.
 
 
