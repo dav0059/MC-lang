@@ -133,114 +133,114 @@ Section EVALUATION.
                      EVal body (bind cls_env' name 
                       (VCls (Recursive name) arg body cls_env) id_eqb) v' -> 
                      EVal (LApp e1 e2) s v'
-    |EVal_LAppErr_fun  : forall s e1 e2 mssg, 
-                     WFEV s -> 
-                     EVal e1 s (VError mssg) -> 
-                     EVal (LApp e1 e2) s (VError mssg) 
-    |EVal_LAppErr_arg  : forall s e1 v e2 mssg, 
-                     WFEV s -> 
-                     EVal e1 s v -> 
-                     Typeof v KTFunction ->  
-                     EVal e2 s (VError mssg) -> 
-                     EVal (LApp e1 e2) s (VError mssg) 
+    |EVal_LAppErr_fun : forall s e1 e2 mssg, 
+                        WFEV s -> 
+                        EVal e1 s (VError mssg) -> 
+                        EVal (LApp e1 e2) s (VError mssg) 
+    |EVal_LAppErr_arg : forall s e1 v e2 mssg, 
+                        WFEV s -> 
+                        EVal e1 s v -> 
+                        Typeof v KTFunction ->  
+                        EVal e2 s (VError mssg) -> 
+                        EVal (LApp e1 e2) s (VError mssg) 
     |EVal_LUnit     : forall s, 
-                     WFEV s -> 
-                     EVal LUnit s VUnit 
+                      WFEV s -> 
+                      EVal LUnit s VUnit 
     |EVal_LNil      : forall s, 
-                     WFEV s -> 
-                     EVal LNil s VNil
+                      WFEV s -> 
+                      EVal LNil s VNil
     |EVal_LPair     : forall s e1 e2 v1 t1 v2 t2,
-                     WFEV s -> 
-                     EVal e1 s v1 ->  
-                     Typeof v1 t1 ->
-                     t1 <> KTError -> 
-                     EVal e2 s v2 -> 
-                     Typeof v2 t2 ->
-                     t2 <> KTError -> 
-                     EVal (LPair e1 e2) s 
+                      WFEV s -> 
+                      EVal e1 s v1 ->  
+                      Typeof v1 t1 ->
+                      t1 <> KTError -> 
+                      EVal e2 s v2 -> 
+                      Typeof v2 t2 ->
+                      t2 <> KTError -> 
+                      EVal (LPair e1 e2) s 
                           (VPair (v1, t1) (v2, t2))
     |EVal_LPairErr_fst : forall e1 s mssg e2, 
-                     WFEV s -> 
-                     EVal e1 s (VError mssg) ->
-                     EVal (LPair e1 e2) s (VError mssg)
+                          WFEV s -> 
+                          EVal e1 s (VError mssg) ->
+                          EVal (LPair e1 e2) s (VError mssg)
     |EVal_LPairErr_snd : forall s e1 v1 e2 mssg, 
-                     WFEV s -> 
-                     EVal e1 s v1 ->
-                     ~Typeof v1 KTError -> 
-                     EVal e2 s (VError mssg) ->
-                     EVal (LPair e1 e2) s (VError mssg)
-    |EVal_LCons      : forall s e1 v1 t1 e2,  
-                       WFEV s -> 
-                       EVal e1 s v1 -> 
-                       Typeof v1 t1 -> 
-                       t1 <> KTError -> 
-                       EVal e2 s VNil -> 
-                       EVal (LCons e1 e2) s (VCons v1 VNil t1)
-    |EVal_LCons_nestt  : forall s e1 v1 t1 e2 v2 t, 
-                       WFEV s -> 
-                       EVal e1 s v1 ->
-                       Typeof v1 t1 ->
-                       EVal e2 s v2 ->
-                       Typeof v2 (KTList t) -> 
-                       Consistent t1 t ->
-                       nested_empty t = true ->  
-                       EVal (LCons e1 e2) s (VCons v1 v2 t1)
-    |EVal_LCons_nestf     : forall s e1 v1 t1 e2 v2 t, 
-                       WFEV s -> 
-                       EVal e1 s v1 -> 
-                       Typeof v1 t1 -> 
-                       t1 <> KTError -> 
-                       EVal e2 s v2 -> 
-                       Typeof v2 (KTList t) -> 
-                       Consistent t1 t -> 
-                       nested_empty t = false -> 
-                       EVal (LCons e1 e2) s (VCons v1 v2 t)
-    |EVal_LConsErr_head   : forall s e1 mssg e2, 
-                       WFEV s -> 
-                       EVal e1 s (VError mssg) ->
-                       EVal (LCons e1 e2) s (VError mssg)
-    |EVal_LConsErr_tail   : forall e1 s v1 e2 mssg , 
-                       WFEV s -> 
-                       EVal e1 s v1 -> 
-                       ~Typeof v1 KTError -> 
-                       EVal e2 s (VError mssg) -> 
-                       EVal (LCons e1 e2) s (VError mssg)
+                          WFEV s -> 
+                          EVal e1 s v1 ->
+                          ~Typeof v1 KTError -> 
+                          EVal e2 s (VError mssg) ->
+                          EVal (LPair e1 e2) s (VError mssg)
+    |EVal_LCons       : forall s e1 v1 t1 e2,  
+                        WFEV s -> 
+                        EVal e1 s v1 -> 
+                        Typeof v1 t1 -> 
+                        t1 <> KTError -> 
+                        EVal e2 s VNil -> 
+                        EVal (LCons e1 e2) s (VCons v1 VNil t1)
+    |EVal_LCons_nestt : forall s e1 v1 t1 e2 v2 t, 
+                        WFEV s -> 
+                        EVal e1 s v1 ->
+                        Typeof v1 t1 ->
+                        EVal e2 s v2 ->
+                        Typeof v2 (KTList t) -> 
+                        Consistent t1 t ->
+                        nested_empty t = true ->  
+                        EVal (LCons e1 e2) s (VCons v1 v2 t1)
+    |EVal_LCons_nestf : forall s e1 v1 t1 e2 v2 t, 
+                        WFEV s -> 
+                        EVal e1 s v1 -> 
+                        Typeof v1 t1 -> 
+                        t1 <> KTError -> 
+                        EVal e2 s v2 -> 
+                        Typeof v2 (KTList t) -> 
+                        Consistent t1 t -> 
+                        nested_empty t = false -> 
+                        EVal (LCons e1 e2) s (VCons v1 v2 t)
+    |EVal_LConsErr_head : forall s e1 mssg e2, 
+                          WFEV s -> 
+                          EVal e1 s (VError mssg) ->
+                          EVal (LCons e1 e2) s (VError mssg)
+    |EVal_LConsErr_tail : forall e1 s v1 e2 mssg , 
+                          WFEV s -> 
+                          EVal e1 s v1 -> 
+                          ~Typeof v1 KTError -> 
+                          EVal e2 s (VError mssg) -> 
+                          EVal (LCons e1 e2) s (VError mssg)
     |EVal_LVariant    : forall s e v t' t c i, 
-                       WFEV s -> 
-                       EVal e s v -> 
-                       Typeof v t' -> 
-                       t' <> KTError -> 
-                       Consistent t t' -> 
-                       EVal (LVariant c (i, t) e) s 
-                             (VVariant c (i, t) v)
+                        WFEV s -> 
+                        EVal e s v -> 
+                        Typeof v t' -> 
+                        t' <> KTError -> 
+                        Consistent t t' -> 
+                        EVal (LVariant c (i, t) e) s 
+                              (VVariant c (i, t) v)
     |EVal_LVariantErr : forall e s mssg c inf, 
-                       WFEV s -> 
-                       EVal e s (VError mssg) -> 
-                       EVal (LVariant c inf e) s (VError mssg)
+                        WFEV s -> 
+                        EVal e s (VError mssg) -> 
+                        EVal (LVariant c inf e) s (VError mssg)
     |EVal_LFix        : forall s e arg body cls_env name,
-                       WFEV s -> 
-                       EVal e s (VCls NotRecursive arg body cls_env) ->  
-                       EVal (LFix name e) s 
+                        WFEV s -> 
+                        EVal e s (VCls NotRecursive arg body cls_env) ->  
+                        EVal (LFix name e) s 
                             (VCls (Recursive name) arg body cls_env)
     |EVal_LFixErr     : forall e s mssg name, 
-                       WFEV s -> 
-                       EVal e s (VError mssg) -> 
-                       EVal (LFix name e) s (VError mssg)
+                        WFEV s -> 
+                        EVal e s (VError mssg) -> 
+                        EVal (LFix name e) s (VError mssg)
     |EVal_LMatch      : forall s e v p' e' s' v' l, 
-                       WFEV s -> 
-                       EVal e s v -> 
-                       ~Typeof v KTError -> 
-                       FirstMatch v l (Some (p', e')) ->
-                       MatchEnv p' v s s' -> 
-                       EVal e' s' v' -> 
-                       EVal (LMatch e l) s v' 
+                        WFEV s -> 
+                        EVal e s v -> 
+                        ~Typeof v KTError -> 
+                        FirstMatch v l (Some (p', e')) ->
+                        MatchEnv p' v s s' -> 
+                        EVal e' s' v' -> 
+                        EVal (LMatch e l) s v' 
     |EVal_LMatchErr   : forall e s m l, 
-                       WFEV s -> 
-                       EVal e s (VError m) -> 
-                       EVal (LMatch e l) s (VError m) 
+                        WFEV s -> 
+                        EVal e s (VError m) -> 
+                        EVal (LMatch e l) s (VError m) 
     |EVal_LError      : forall s m, 
-                       WFEV s -> 
-                       EVal (LError m) s (VError m)
+                        WFEV s -> 
+                        EVal (LError m) s (VError m)
 
     
     with EValOp : list LExpr -> val_env -> list Val -> Prop := 

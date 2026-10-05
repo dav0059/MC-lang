@@ -7,19 +7,23 @@ Set Contextual Implicit.
 
 Section SURFACE_SYNTAX . 
 
-   Context (I: IDS). 
+   Context (I: IDS).
+
+   Local Notation " 'Ide' " := (Ide I).
+   Local Notation " 'Constr' " := (Constr I).
+   Local Notation " 'Message' " := (Message I). 
 
    Inductive Pat : Type := 
-   |PVar (x: I.(Ide))
+   |PVar (x: Ide)
    |PBool (x: bool)
    |PNat (x: nat)
    |PString (x: string)
    |PAny 
-   |PAs (p: Pat) (x: I.(Ide))  
+   |PAs (p: Pat) (x: Ide)  
    |PTup (lis: list Pat)
    |PNil
    |PCons (head: Pat) (tail: Pat)
-   |PVariant (c: I.(Constr)) (lis: list Pat). 
+   |PVariant (c: Constr) (lis: list Pat). 
    
 
    Inductive Tp : Type := 
@@ -30,13 +34,13 @@ Section SURFACE_SYNTAX .
    |TEmpty
    |TTup (lis: list Tp)
    |TList (t: Tp)
-   |TVariant (tags: list (I.(Constr) * list Tp))
-   |TRef (i: I.(Ide))
+   |TVariant (tags: list (Constr * list Tp))
+   |TRef (i: Ide)
    |TError . 
 
 
    Inductive Expr : Type := 
-   |Var (x: I.(Ide))
+   |Var (x: Ide)
    |Bool (x: bool)
    |Nat (x: nat)
    |EString (x: string)
@@ -53,13 +57,13 @@ Section SURFACE_SYNTAX .
    |Tup (lis: list Expr)
    |Nil
    |Cons (head: Expr) (tail: Expr)
-   |EVariant (c: I.(Constr)) (args: list Expr)
+   |EVariant (c: Constr) (args: list Expr)
    |ELet (p: Pat) (e1: Expr) (e2: Expr)
    |If (e1: Expr) (e2: Expr) (e3: Expr)
-   |LetRec (name: I.(Ide)) (cls: Expr) (e: Expr)
-   |DefType (block: list (I.(Ide) * Tp)) (e: Expr)
+   |LetRec (name: Ide) (cls: Expr) (e: Expr)
+   |DefType (block: list (Ide * Tp)) (e: Expr)
    |Match (e: Expr) (block: list (Pat * Expr))
-   |EError (m: I.(Message)).
+   |EError (m: Message).
    
    
    Section Pat_ind'. 

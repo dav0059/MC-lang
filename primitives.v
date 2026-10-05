@@ -1,6 +1,5 @@
-Require Import Strings.String PeanoNat.
+Require Import Strings.String.
 Require Import Lists.List. 
-Import ListNotations. 
 
 Record PRIM_DATA : Type := {
   BaseTp : Type;

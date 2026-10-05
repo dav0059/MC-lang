@@ -10,46 +10,52 @@ Section KERNEL_SYNTAX.
   Variable I : IDS. 
   Variable P : PRIM_DATA.
   
+  Local Notation " 'Ide' " := (Ide I).
+  Local Notation " 'BaseVl' " := (BaseVl P).
+  Local Notation " 'Constr' " := (Constr I).
+  Local Notation " 'BaseTp' " := (BaseTp P).
+  Local Notation " 'OP' " := (OP P).
+  Local Notation " 'Message' " := (Message I).
 
   Inductive KPat : Type := 
-  |KPVar (i: I.(Ide))
-  |KPLit (p: P.(BaseVl))
-  |KPAs (p: KPat) (i: I.(Ide))
+  |KPVar (i: Ide)
+  |KPLit (p: BaseVl)
+  |KPAs (p: KPat) (i: Ide)
   |KPAny
   |KPUnit  
   |KPNil 
   |KPPair (p1: KPat) (p2: KPat)
   |KPCons (p1: KPat) (p2: KPat)
-  |KPVariant (c: I.(Constr)) (p: KPat).  
+  |KPVariant (c: Constr) (p: KPat).  
 
 
   Inductive KTp: Type := 
   |KTFunction
-  |KTBase (t: P.(BaseTp))
+  |KTBase (t: BaseTp)
   |KTUnit 
   |KTEmpty
   |KTProd (t1: KTp) (t2: KTp)
   |KTList (t: KTp)
-  |KTVariant (tags: list (I.(Constr) * KTp))
-  |KTRef (i: I.(Ide))
+  |KTVariant (tags: list (Constr * KTp))
+  |KTRef (i: Ide)
   |KTError . 
 
 
   Inductive KExpr : Type := 
-  |KVar (i: I.(Ide))
-  |KLit (x: P.(BaseVl))
-  |KOp (op: P.(OP)) (args: list KExpr) 
+  |KVar (i: Ide)
+  |KLit (x: BaseVl)
+  |KOp (op: OP) (args: list KExpr) 
   |KLam (p: KPat) (e: KExpr) 
   |KApp (e1: KExpr) (e2: KExpr)
   |KUnit
   |KNil 
   |KPair (e1 : KExpr) (e2: KExpr)
   |KCons (e1: KExpr) (e2: KExpr) 
-  |KVariant (c: I.(Constr)) (e: KExpr)
-  |KFix (name: I.(Ide)) (cls: KExpr) 
-  |KDefType (l: list (I.(Ide) * KTp)) (e: KExpr)
+  |KVariant (c: Constr) (e: KExpr)
+  |KFix (name: Ide) (cls: KExpr) 
+  |KDefType (l: list (Ide * KTp)) (e: KExpr)
   |KMatch (e: KExpr) (cases: list (KPat * KExpr))
-  |KError (m: I.(Message)).
+  |KError (m: Message).
 
 
 
