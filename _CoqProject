@@ -1,4 +1,4 @@
--R . impl2_MC
+-R . MC
 result_type.v
 primitives.v
 ids.v
