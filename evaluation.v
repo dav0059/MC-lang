@@ -882,7 +882,7 @@ Section EVALUATION.
       Qed. 
       
 
-    (* the fueled interpreter is correct w.r.t evaluation semantics *)
+    (* the fuelled interpreter is correct w.r.t evaluation semantics *)
     Theorem eval_evalop_correct : 
       forall n, 
         (forall s e v, 
@@ -912,6 +912,16 @@ Section EVALUATION.
     Qed. 
 
 
+    Corollary eval_correct: 
+      forall n s e v, 
+        WFEV s -> 
+        eval n e s = Ok v -> 
+        EVal e s v.
+    Proof. 
+     apply eval_evalop_correct.
+    Qed.  
+ 
+      
     (* MeasureEVal H n means that n is a uniform fuel bound 
        for the recursive subderivations of the EVal derivation H. *)
     Inductive MeasureEVal : forall e s v, EVal e s v -> nat -> Prop :=
@@ -1261,7 +1271,7 @@ Section EVALUATION.
 
     (* the fueled interpreter evaluates every finite Eval 
        derivation H whenever its fuel satisfies MeasureEval H. *)
-    Theorem eval_evalop_complete: 
+    Theorem eval_complete: 
        forall e s v (H: EVal e s v) n,  
           MeasureEVal H n -> 
           eval n e s = Ok v .
@@ -1573,6 +1583,16 @@ Section EVALUATION.
   Qed.
 
 
+   Corollary eval_fuel_monotonic: 
+    forall n e s v, 
+        eval n e s = Ok v -> 
+        forall m, m > n -> eval m e s = Ok v. 
+   Proof.
+    intros. 
+    eapply eval_evalop_fuel_monotonic; eauto.
+   Qed.  
+
+
    (* the evaluation semantic is deterministic *)
     Corollary EVal_deterministic : 
       forall e s v v' 
@@ -1583,8 +1603,8 @@ Section EVALUATION.
       v = v'. 
     Proof. 
       intros * Hwfev HMe1 HMe2.
-      eapply eval_evalop_complete in HMe1.
-      eapply eval_evalop_complete in HMe2.
+      eapply eval_complete in HMe1.
+      eapply eval_complete in HMe2.
       assert (HCases: n <= n' \/ n' < n) by 
       (apply Nat.le_gt_cases).
       rewrite Nat.le_lteq in HCases. 
