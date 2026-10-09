@@ -18,6 +18,7 @@ Il progetto è stato sviluppato con Coq 8.18.0. Nel mio ambiente installo e gest
 Per compilare i file del progetto, dalla directory principale eseguire:
 
 ```sh
+coq_makefile -f _CoqProject -o CoqMakeFile
 make -f CoqMakeFile
 ```
 

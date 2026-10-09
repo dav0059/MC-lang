@@ -337,17 +337,9 @@ Section MC_lang.
       ])] In 
         C("Sum", [C("Nat", [$n 1]); C("Nat", [$n 1])]).
                     
-    Definition my_prog_des := @desugar_Expr I native_lis.
     Definition register_empty := @empty_env (Ide I) (unit). 
     Definition c_env_empty := @empty_env (Constr I) ((Ide I) * (KTp I P)).
-    Definition my_prog_elab := elab my_prog_des [] register_empty c_env_empty.
     Definition v_env_empty := @empty_env (Ide I) (Val I P).
-
-    Definition my_prog_eval := 
-      match my_prog_elab with 
-      |Ok le   => eval (1000) le v_env_empty 
-      |Error m => Error ("elaboration failed with the following error message: " ++ m) 
-      end.  
 
     Definition run_interpreter p n :=
       let elab_res := elab (@desugar_Expr I p) 
@@ -362,10 +354,13 @@ Section MC_lang.
             "elaboration failed with the following error message: " ++ m
         end .
 
+
+    Definition my_prog_des := @desugar_Expr I mcr_ast.
+    Definition my_prog_elab := elab my_prog_des [] register_empty c_env_empty.
     
     Eval vm_compute in my_prog_des.
     Eval vm_compute in my_prog_elab.
-    Eval vm_compute in run_interpreter native_lis (1000).
+    Eval vm_compute in run_interpreter mcr_ast (1000).
   
 
     
