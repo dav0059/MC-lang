@@ -21,7 +21,7 @@ Section PRINTER.
       |VCons v1 v2 _            => val_to_string v1 ++ "::" ++ val_to_string v2
       |VVariant c _ v           => constr_to_string I c ++ 
                                    "(" ++ val_to_string v ++ ")" 
-      |VError m                 => "failure with error message: " ++
+      |VError m                 => "MC Error: " ++
                                    (message_to_string I m)  
       end.
 

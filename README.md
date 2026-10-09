@@ -11,6 +11,16 @@ Il progetto si articola in due fasi principali:
 
 Questa repository contiene la formalizzazione del nucleo di MC e il relativo interprete in Rocq: la prima fase del progetto.
 
+## Requisiti e compilazione
+
+Il progetto è stato sviluppato con Coq 8.18.0. Nel mio ambiente installo e gestisco Coq tramite OPAM; OPAM è il gestore di pacchetti utilizzato per predisporre l'ambiente, non una dipendenza specifica del progetto.
+
+Per compilare i file del progetto, dalla directory principale eseguire:
+
+```sh
+make -f CoqMakeFile
+```
+
 ## Cosa non è stato formalizzato
 
 La fase di lexing e parsing non rientra nell'obiettivo della formalizzazione; al momento MC non dispone quindi di strumenti propri per queste fasi. La sintassi astratta è stata scelta liberamente, in funzione di esigenze descrittive, dimostrative e stilistiche.
@@ -35,6 +45,41 @@ Il risultato generale della prima fase è il collegamento formale tra l'interpre
 - **Correttezza del valutatore** (`eval_correct`, `evaluation.v`): se l'ambiente dei valori è ben formato e il valutatore, con fuel `n`, restituisce `Ok v`, allora il giudizio dinamico corrispondente è derivabile.
 - **Completezza del valutatore** (`eval_complete`, `evaluation.v`): se esiste una derivazione del giudizio dinamico e `n` è un bound di fuel sufficiente per le sue sottoderivazioni, il valutatore restituisce `Ok v`.
 - **Determinismo della semantica dinamica** (`EVal_deterministic`, `evaluation.v`): con ambiente ben formato e bound di fuel sufficienti per le derivazioni considerate, una stessa espressione non può produrre due valori diversi.
+
+## Esempio: eseguire l'interprete
+
+`programs.v` contiene alcuni programmi già scritti ed è il punto in cui provarne di nuovi usando le notazioni locali. Ogni componente dell'interprete è un termine Coq e può essere valutata, ad esempio, con `Eval vm_compute in C`. Questo comando usa la VM di Rocq per calcolare il risultato.
+
+Le componenti possono essere valutate indipendentemente, ma l'esecuzione completa segue l'ordine della formalizzazione:
+
+1. Si scrive un programma `P` usando le notazioni locali definite in `programs.v`.
+2. Si traduce `P` nella sintassi del kernel, ottenendo `P'`:
+
+	```coq
+	Definition P' := desugar_Expr P.
+	```
+
+3. Si elabora staticamente `P'` a partire dagli ambienti statici vuoti `register_empty` e `c_env_empty`:
+
+	```coq
+	Definition R := elab P' [] register_empty c_env_empty.
+	```
+
+	Il risultato `R` indica se l'elaborazione è riuscita oppure ha prodotto un errore.
+4. Se `R` contiene un programma elaborato `P''`, lo si valuta nell'ambiente vuoto `v_env_empty`, scegliendo un fuel `n` sufficiente:
+
+	```coq
+	Definition R' := eval n P'' v_env_empty.
+	```
+
+	Se l'elaborazione statica o la valutazione produce un errore, il risultato contiene il relativo messaggio; altrimenti `R'` contiene il valore `V`.
+5. In caso di successo, si converte `V` in una stringa con `val_to_string V`.
+
+Per eseguire automaticamente i passaggi dalla desugarizzazione alla stampa del risultato si può usare `run_interpreter P n`. Per esempio, il programma `mcr_ast` è già definito in `programs.v`:
+
+```coq
+Eval vm_compute in run_interpreter mcr_ast 1000.
+```
 
 ## Architettura del progetto
 

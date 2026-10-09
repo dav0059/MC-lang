@@ -349,13 +349,23 @@ Section MC_lang.
       |Error m => Error ("elaboration failed with the following error message: " ++ m) 
       end.  
 
+    Definition run_interpreter p n :=
+      let elab_res := elab (@desugar_Expr I p) 
+                      [] register_empty c_env_empty 
+      in match elab_res with 
+         |Ok p' => let eval_res := eval n p' v_env_empty 
+                   in match eval_res with 
+                      |Ok v => (@val_to_string I P v)
+                      |Error m => m 
+                      end  
+         |Error m =>    
+            "elaboration failed with the following error message: " ++ m
+        end .
+
+    
     Eval vm_compute in my_prog_des.
     Eval vm_compute in my_prog_elab.
-    Eval vm_compute in 
-      match my_prog_eval with 
-      |Ok v  => (@val_to_string I P v)
-      |Error m => m 
-      end.
+    Eval vm_compute in run_interpreter native_lis (1000).
   
 
     
